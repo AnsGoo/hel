@@ -14,7 +14,9 @@
     "cpdoc": "rm -rf ../my-opensource/hel-gh-pages/* && cp -r ./doc/build/* ../my-opensource/hel-gh-pages",
     "doc": "pnpm --filter=hel-doc run build && npm run cpdoc",
     "format": "prettier --cache --write .",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "demo:host": "pnpm --filter=demos/main run dev",
+    "demo:remote": "pnpm --filter=demos/remote run dev"
   },
   "lint-staged": {
     "*.{js,jsx,less,md,json}": [

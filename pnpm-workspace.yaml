@@ -5,3 +5,4 @@ packages:
   - 'doc'
   - 'packages/*'
   - 'templates/*'
+  - 'demos/*'
