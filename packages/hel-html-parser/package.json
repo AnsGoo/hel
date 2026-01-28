@@ -37,7 +37,7 @@
     "@babel/preset-env": "^7.12.11",
     "@babel/preset-react": "^7.12.10",
     "babel-cli": "^6.26.0",
-    "rollup": "^2.23.0"
+    "rollup": "^4.57.0"
   },
   "bundleDependencies": false,
   "deprecated": false

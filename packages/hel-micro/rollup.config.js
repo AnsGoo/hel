@@ -1,7 +1,9 @@
-import commonjs from 'rollup-plugin-commonjs';
-import typescript from 'rollup-plugin-typescript';
-// import { terser } from 'rollup-plugin-terser';
-import pkg from './package.json';
+import commonjs from '@rollup/plugin-commonjs';
+import typescript from '@rollup/plugin-typescript';
+// import { terser } from 'rollup';
+import { createRequire } from 'node:module';
+const require = createRequire(import.meta.url);
+const pkg = require('./package.json');
 
 const external = Object.keys(pkg.peerDependencies);
 const env = process.env.BUILD_ENV;
@@ -47,6 +49,7 @@ const config = {
     typescript({
       // exclude: 'node_modules/**',
       typescript: require('typescript'),
+      outDir: env === 'commonjs' ? 'lib' : env === 'es' ? 'es' : 'dist',
     }),
     // 如不想压缩，不配置 terser() 即可
     // terser(),

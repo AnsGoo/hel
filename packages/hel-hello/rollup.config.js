@@ -1,6 +1,6 @@
 import typescriptPlugin from '@rollup/plugin-typescript';
 import commonjs from 'rollup-plugin-commonjs';
-import { terser } from 'rollup-plugin-terser';
+import { terser } from 'rollup';
 import typescript from 'typescript';
 import pkg from './package.json';
 

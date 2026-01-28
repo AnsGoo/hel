@@ -1,6 +1,6 @@
-// import babel from 'rollup-plugin-babel';
-import commonjs from 'rollup-plugin-commonjs'; // 支持按commonjs规范来导入外部模块
-// import resolve from 'rollup-plugin-node-resolve'; // 支持内部的模块路径解析
+// import babel from '@rollup/plugin-babel';
+import commonjs from '@rollup/plugin-commonjs'; // 支持按commonjs规范来导入外部模块
+// import resolve from '@rollup/plugin-node-resolve'; // 支持内部的模块路径解析
 import pkg from './package.json';
 
 const external = Object.keys(pkg.peerDependencies || {});
@@ -41,7 +41,7 @@ const config = {
     // resolve(),
     // babel({
     //   exclude: '**/node_modules/**',
-    //   // runtimeHelpers: true,
+    //   // babelHelpers: 'runtime',
     // }),
     commonjs(),
   ],

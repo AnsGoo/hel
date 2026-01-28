@@ -27,22 +27,22 @@
   "types": "lib/index.d.ts",
   "unpkg": "dist/hel-lib-proxy.min.js",
   "scripts": {
-    "build": "npm run build:umd & npm run build:umd-min",
-    "build:umd": "tsc & rollup -c",
-    "build:umd-min": "tsc & cross-env MIN=true rollup -c"
+    "build": "npm run build:umd && npm run build:umd-min",
+    "build:umd": "rollup -c",
+    "build:umd-min": "MIN=true rollup -c"
   },
   "dependencies": {
     "hel-micro-core": "^4.13.1",
     "hel-types": "^4.3.10"
   },
   "devDependencies": {
-    "rollup": "^2.23.0"
+    "rollup": "^4.57.0"
   },
   "peerDependencies": {
     "hel-micro-core": "^4.13.1",
     "hel-types": "^4.3.10"
   },
-  "bundleDependencies": false,
+  "bundleDependencies": [],
   "browserify": {
     "transform": [
       "loose-envify"

@@ -8,5 +8,5 @@ module.exports = {
     ],
     '@babel/react',
   ],
-  plugins: ['@babel/plugin-proposal-class-properties'],
+  plugins: ['@babel/plugin-transform-class-properties'],
 };
