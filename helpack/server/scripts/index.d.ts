@@ -12,7 +12,7 @@ export interface IHelpackRes<T extends any = any> {
     code: string;
     /** code 不为 '0' 时后台回传的错误信息 */
     msg: string;
-  }
+  };
 }
 
 export interface IOptions {
@@ -43,13 +43,13 @@ export interface ISubAppUpdate {
   /** 灰度用户名单 */
   gray_users?: string[];
   /** 负责人名单 */
-  owners?: string[],
+  owners?: string[];
   /** 是否置顶应用 */
-  is_top?: 1 | 0,
+  is_top?: 1 | 0;
   /** default: 1, 是否正式应用 */
-  is_test?: ISubApp['is_test'],
+  is_test?: ISubApp['is_test'];
   /** 应用的分类 key */
-  class_key?: string,
+  class_key?: string;
   /** 应用描述 */
   desc?: string;
 }
@@ -69,7 +69,7 @@ export type IVersionCreate = Omit<ISubAppVersion, 'create_by' | 'create_at' | 'u
 
 /**
  * 创建一个新的应用
-*/
+ */
 export function createSubApp(toCreate: ISubAppCreate, options: IOptions): IHelpackRes;
 
 /**

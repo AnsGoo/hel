@@ -22,13 +22,19 @@ runTest(({ api, describe, util, semverApi, platform }) => {
     });
 
     test('fetch app root component with localStorage', async () => {
-      const compInfo = await preFetchApp(appName, { enableDiskCache: true, storageType: 'localStorage' });
+      const compInfo = await preFetchApp(appName, {
+        enableDiskCache: true,
+        storageType: 'localStorage',
+      });
       expect(compInfo.appName).toBe(appName);
       expect(compInfo.Comp).toBeTruthy();
     });
 
     test('fetch app root component with indexedDB', async () => {
-      const compInfo = await preFetchApp(appName, { enableDiskCache: true, storageType: 'indexedDB' });
+      const compInfo = await preFetchApp(appName, {
+        enableDiskCache: true,
+        storageType: 'indexedDB',
+      });
       expect(compInfo.appName).toBe(appName);
       expect(compInfo.Comp).toBeTruthy();
     });

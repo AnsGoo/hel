@@ -132,12 +132,28 @@ export async function getAppFromRemoteOrLocal(appName: string, options: IInnerPr
   const compareMem = !semverApi && !branchId;
   if (compareMem && memApp && memAppVersion) {
     const emitVer = memAppVersion.version_tag || memAppVersion.sub_app_version;
-    if (isEmitVerMatchInputVer(appName, { platform, projectId, emitVer, inputVer: versionId, strictMatchVer })) {
+    if (
+      isEmitVerMatchInputVer(appName, {
+        platform,
+        projectId,
+        emitVer,
+        inputVer: versionId,
+        strictMatchVer,
+      })
+    ) {
       return { appInfo: memApp, appVersion: memAppVersion };
     }
   }
 
-  const srvInnerOptions = { platform, apiMode, versionId, projectId, branchId, isFullVersion, loadOptions: options };
+  const srvInnerOptions = {
+    platform,
+    apiMode,
+    versionId,
+    projectId,
+    branchId,
+    isFullVersion,
+    loadOptions: options,
+  };
   let mayCachedApp: ICacheData | null = null;
   const tryGetFromRemote = async (allowGet: boolean) => {
     if (allowGet) {
@@ -234,7 +250,12 @@ export async function getAppAndVersion(appName: string, options: IHelGetOptions)
 
 export function cacheApp(
   appInfo: ISubApp | undefined,
-  options: { appVersion?: ISubAppVersion; platform: Platform; toDisk?: boolean; loadOptions: IInnerPreFetchOptions },
+  options: {
+    appVersion?: ISubAppVersion;
+    platform: Platform;
+    toDisk?: boolean;
+    loadOptions: IInnerPreFetchOptions;
+  },
 ) {
   // toDisk 默认是 true
   const { appVersion, platform, toDisk = true, loadOptions } = options;
@@ -301,7 +322,12 @@ export async function loadApp(appName: string, loadOptions: IInnerPreFetchOption
           appInfo = meta.app;
           appVersion = meta.version;
           fromFallback = true;
-          cacheApp(appInfo, { appVersion, platform: getPlatform(platform), toDisk: false, loadOptions });
+          cacheApp(appInfo, {
+            appVersion,
+            platform: getPlatform(platform),
+            toDisk: false,
+            loadOptions,
+          });
         }
       }
     }

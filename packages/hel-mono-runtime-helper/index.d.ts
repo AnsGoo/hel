@@ -1,17 +1,17 @@
 /**
  * 辅助工具函数
  */
-import { IHelModRuntimeConf } from 'hel-mono-types'
+import { IHelModRuntimeConf } from 'hel-mono-types';
 import type { IMakeRuntimeUtilOptions, RuntimeUtil, IHelConfKeys } from './src/types';
 
 /**
  * 调试 key 前缀常量
  */
 export declare const HEL_DEV_KEY_PREFIX: {
-  devUrl: 'hel.dev',
-  branchId: 'hel.branch',
-  versionId: 'hel.ver',
-  projectId: 'hel.proj',
+  devUrl: 'hel.dev';
+  branchId: 'hel.branch';
+  versionId: 'hel.ver';
+  projectId: 'hel.proj';
 };
 
 /**

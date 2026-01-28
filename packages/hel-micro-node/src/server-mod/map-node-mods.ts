@@ -71,8 +71,8 @@ class MapNodeModsManager {
       const mappedHelMod = this.getNodeModData(nodeModName).helModName;
       if (mappedHelMod) {
         const errTip =
-          `Node module '${nodeModName}' has been mapped to hel module '${mappedHelMod}', `
-          + `you can not map it to ${helModNameOrPath} again!`;
+          `Node module '${nodeModName}' has been mapped to hel module '${mappedHelMod}', ` +
+          `you can not map it to ${helModNameOrPath} again!`;
         throw new Error(errTip);
       }
 

@@ -39,7 +39,14 @@ const inner = {
     }
   },
   clearAppSensitive(subApp: ISubApp) {
-    const clearedApp = { ...subApp, render_app_host: '', git_repo_url: '', create_by: '', owners: [], gray_users: [] };
+    const clearedApp = {
+      ...subApp,
+      render_app_host: '',
+      git_repo_url: '',
+      create_by: '',
+      owners: [],
+      gray_users: [],
+    };
     return clearedApp;
   },
   getForcedGrayVerId(options: xc.Dict) {
@@ -83,7 +90,13 @@ const inner = {
 
     if (gray === '1') {
       // sdk 强制使用灰度版本，无灰度则读线上
-      return inner.getForcedGrayVerId({ hasProjVerMap, projGrayVer, appGrayVer, projOnlineVer, appOnlineVer });
+      return inner.getForcedGrayVerId({
+        hasProjVerMap,
+        projGrayVer,
+        appGrayVer,
+        projOnlineVer,
+        appOnlineVer,
+      });
     }
 
     // 应用处于灰度中，且当前访问用户命中了灰度名单，则需要读灰度版本
@@ -140,7 +153,14 @@ const inner = {
     }
     if (clearSensitive === AS.true) {
       // 清除敏感信息
-      Object.assign(newData, { git_repo_url: '', git_branch: '', git_hashes: '', create_by: '', build_id: '', pipeline_id: '' });
+      Object.assign(newData, {
+        git_repo_url: '',
+        git_branch: '',
+        git_hashes: '',
+        create_by: '',
+        build_id: '',
+        pipeline_id: '',
+      });
     }
 
     return newData;
@@ -571,7 +591,11 @@ export const updateAppGlobalMarkInfo: TController = async (ctx) => {
   const { timestamp, nonce } = ctx.query;
   appShare.checkCommon(name, nonce, timestamp);
   await appShare.checkApp(name);
-  const updated = await ctx.services.app.updateAppGlobalMarkInfo(name, { ver, desc, userName: rtxName });
+  const updated = await ctx.services.app.updateAppGlobalMarkInfo(name, {
+    ver,
+    desc,
+    userName: rtxName,
+  });
   return updated;
 };
 
@@ -649,7 +673,10 @@ export const resetAppInfoCache: TController = async (ctx) => {
   const { timestamp, nonce } = ctx.query;
   appShare.checkCommon(name, nonce, timestamp);
 
-  const appInfo = await ctx.services.app.getAppByName(name, { skipLocalCache: true, skipRemoteCache: true });
+  const appInfo = await ctx.services.app.getAppByName(name, {
+    skipLocalCache: true,
+    skipRemoteCache: true,
+  });
   if (!appInfo) {
     throw new Error(`app (${name}) not exist`);
   }

@@ -42,7 +42,7 @@ const pLogic = 'preFetch';
 type LoadAssetsStarter = (() => Promise<void>) | null;
 
 function getEnsuredOptions(isLib: boolean, rawOptions?: IPreFetchLibOptions | VersionId) {
-  const options: IInnerPreFetchOptions = typeof rawOptions === 'string' ? { versionId: rawOptions } : { ...(rawOptions || {}) };
+  const options: IInnerPreFetchOptions = typeof rawOptions === 'string' ? { versionId: rawOptions } : { ...rawOptions };
   options.platform = getPlatform(options.platform);
   options.isLib = isLib;
   const platform = options.platform;
@@ -78,7 +78,16 @@ async function waitAppEmit(appName: string, innerOptions: IInnerPreFetchOptions,
     handleAppLoaded = (appInfo: IEmitAppInfo) => {
       logicSrv.judgeAppReady(
         appInfo,
-        { appName, platform, versionId, projectId, isLib, next: resolve, error: reject, strictMatchVer },
+        {
+          appName,
+          platform,
+          versionId,
+          projectId,
+          isLib,
+          next: resolve,
+          error: reject,
+          strictMatchVer,
+        },
         innerOptions,
       );
     };
@@ -224,7 +233,7 @@ export async function batchPreFetchLib<T extends AnyRecord[] = AnyRecord[]>(
 ): Promise<T> {
   const optionsMap = batchOptions?.preFetchConfigs || {};
   // 因 batchPreFetchLib 默认是私服，所以 semverApi 默认是 false
-  const commonOptions: IBatchOptionsCommon = { semverApi: false, ...(batchOptions?.common || {}) };
+  const commonOptions: IBatchOptionsCommon = { semverApi: false, ...batchOptions?.common };
   const platform = getPlatform(commonOptions.platform);
   const { versionIdList = [], projectIdList = [], branchIdList = [] } = commonOptions;
   const targetVerList: string[] = [];
@@ -281,7 +290,12 @@ export async function batchPreFetchLib<T extends AnyRecord[] = AnyRecord[]>(
   // 设置到内存里，方便后续 preFetchLib 执行时可以跳过请求阶段
   appDataList.forEach(({ app, version }) => {
     const loadOptions = ensuredOptionsMap[app.name] || {};
-    cacheApp(app, { appVersion: version, platform, toDisk: loadOptions.enableDiskCache, loadOptions });
+    cacheApp(app, {
+      appVersion: version,
+      platform,
+      toDisk: loadOptions.enableDiskCache,
+      loadOptions,
+    });
   });
 
   const tasks = appNames.map((name) => preFetchLib(name, ensuredOptionsMap[name]));

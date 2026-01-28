@@ -6,7 +6,6 @@ import { ICheckOptions, ICreateSubAppOptions, ISubAppBuildDesc, IUserExtractOpti
 
 export type { ICheckOptions, ICreateSubAppOptions, ISubAppBuildDesc, IUserExtractOptions };
 
-
 export declare const cst: {
   HEL_DIST_DIR: 'hel_dist';
   HEL_PROXY_DIR: 'hel_proxy';
@@ -49,18 +48,14 @@ export declare const baseUtils: {
    * @param needSlash - default: true
    */
   getPublicPathOrUrl: (homePage: string, needSlash: boolean) => string;
-  makeFileDescList: (
-    fileFullPathList: string,
-    appHomePage: string,
-    splitStrForFilePathUnderBuild?: string,
-  ) => FileDesc[];
+  makeFileDescList: (fileFullPathList: string, appHomePage: string, splitStrForFilePathUnderBuild?: string) => FileDesc[];
   verbose: (...args: any[]) => void;
   verboseH: (argHandler: (arg: any, idx: number) => any, ...args: any[]) => void;
   verboseObj: (...args: any[]) => void;
   getCdnHostFromHomePage: (homePage: string) => string;
   getAppVersionFromHomePage: (homePage: string) => string;
   getZoneNameFromHomePage: (homePage: string) => string;
-  getNpmCdnHomePage: (packageJson: object, options: { npmCdnType?: string, distDir?: string, homePage: string }) => string;
+  getNpmCdnHomePage: (packageJson: object, options: { npmCdnType?: string; distDir?: string; homePage: string }) => string;
 };
 
 export declare function check(pkgJson: PkgJson, subAppFilePathOrOptions: ICheckOptions['fileFullPath'] | ICheckOptions): void;

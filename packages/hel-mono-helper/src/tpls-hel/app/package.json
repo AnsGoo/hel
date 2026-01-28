@@ -7,6 +7,7 @@
     "build": "node ../../../dev/scripts/hel/build.js",
     "start": "node ../../../dev/scripts/hel/start.js"
   },
+  "dependencies": {},
   "babel": {
     "presets": [
       "react-app"
@@ -24,13 +25,6 @@
       "last 1 safari version"
     ]
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "dependencies": {},
   "volta": {
     "node": "20.19.5",
     "pnpm": "8.6.8"

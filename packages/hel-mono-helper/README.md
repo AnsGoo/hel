@@ -2,11 +2,9 @@
 
 hel-mono micro architecture helper，辅助 `hel-mono` 大仓运行的工具包
 
-
 ## baseExternals
 
 给大仓所有包的 的 hel 产物里都加上的外部资源链接里包含的基础模块
-
 
 ```html
 <script id="BASE_EX"></script>
@@ -27,5 +25,5 @@ hel-mono micro architecture helper，辅助 `hel-mono` 大仓运行的工具包
 `devRepoExLink` 正常情况下只支持一个链接, 多个时建议配置为
 
 ```ts
-[{ ex: 'xxx', link: 'xxx' }]
+[{ ex: 'xxx', link: 'xxx' }];
 ```

@@ -21,8 +21,8 @@ sidebar_position: 1
 ```bash
 npm i hel-micro-node
 ```
-> 必须是基于 hel 工具链打包的 npm 包才能搭配 `hel-micro-node` 做提升
 
+> 必须是基于 hel 工具链打包的 npm 包才能搭配 `hel-micro-node` 做提升
 
 ### 安装示例模块
 
@@ -39,7 +39,7 @@ npm i @hel-demo/mono-libs
 ```ts
 import { hello } from '@hel-demo/mono-libs';
 
-function yourFn(){
+function yourFn() {
   return hello();
 }
 ```
@@ -59,9 +59,9 @@ function yourFn(){
 ```ts
 import { mapAndPreload } from 'hel-micro-node';
 
-async function main(){
+async function main() {
   await mapAndPreload({
-    '@hel-demo/mono-libs': true
+    '@hel-demo/mono-libs': true,
   });
   await import('./yourAppEntry');
 }
@@ -74,11 +74,10 @@ main().catch(console.error);
 ```ts
 import { hello } from '@hel-demo/mono-libs';
 
-get('/path/hello', ()=>{
+get('/path/hello', () => {
   // result 结果将跟随 @hel-demo/mono-libs 版本变化而改变
   const result = hello();
 });
-
 ```
 
 ### 手动更新模块版本
@@ -89,12 +88,12 @@ get('/path/hello', ()=>{
 import { importNodeMod } from 'hel-micro-node';
 import { hello } from '@hel-demo/mono-libs';
 
-get('/path/hello', ()=>{
+get('/path/hello', () => {
   const result = hello();
 });
 
-get('/update', ()=>{
-  importNodeMod('@hel-demo/mono-libs', { ver: '1.0.0' })
+get('/update', () => {
+  importNodeMod('@hel-demo/mono-libs', { ver: '1.0.0' });
 });
 ```
 

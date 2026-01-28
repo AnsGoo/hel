@@ -370,7 +370,13 @@ exports.getMonoDevData = function (/** @type DevInfo */ devInfo, inputAppSrc, op
     appPublicUrl = baseUtils.slash.end(isDev ? appPublicUrl : appInfo.homePage);
   }
 
-  const appExternals = getAppExternals({ appData, devInfo, depInfos, isCurProjectEx, liftableExternals });
+  const appExternals = getAppExternals({
+    appData,
+    devInfo,
+    depInfos,
+    isCurProjectEx,
+    liftableExternals,
+  });
   const exLabel = getExLabel({ devInfo, isCurProjectEx, liftableExternals });
 
   helMonoLog('isHelMode ', isHelModeVar);

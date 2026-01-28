@@ -2,16 +2,15 @@
   "name": "hel-utils-base",
   "version": "0.0.2",
   "description": "hel utils base",
+  "license": "MIT",
+  "author": {
+    "name": "fantasticsoul"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Tencent/hel.git",
     "directory": "packages/hel-utils-base"
   },
-  "license": "MIT",
-  "author": {
-    "name": "fantasticsoul"
-  },
-  "main": "lib/index.js",
   "files": [
     "dist",
     "lib",
@@ -19,6 +18,7 @@
     "index.d.ts",
     "README.md"
   ],
+  "main": "lib/index.js",
   "scripts": {
     "build": "npm run build:commonjs && npm run build:es && npm run build:umd && npm run build:umd:min",
     "build:commonjs": "cross-env BUILD_ENV=commonjs rollup -c",

@@ -20,7 +20,11 @@ export function useRemoteCompRender(props: IRemoteCompRenderConfig) {
 
   const { errMsg, RemoteModule, styleStr, styleUrlList, moduleReady } = useLoadRemoteModule(renderConfig);
   if (!moduleReady) {
-    return { RemoteCompRender: () => getSkeletonEl(controlOptions.Skeleton), isReady: false, err: null };
+    return {
+      RemoteCompRender: () => getSkeletonEl(controlOptions.Skeleton),
+      isReady: false,
+      err: null,
+    };
   }
   if (errMsg) {
     controlOptions.failCb?.(new Error(errMsg));

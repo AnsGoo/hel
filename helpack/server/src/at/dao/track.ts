@@ -6,4 +6,7 @@ const key2DefaultObj = {
   update_json: {},
 };
 
-export const { count, get, getOne, add, update, del } = buildDao(models.track, { jsonStrKeys, key2DefaultObj });
+export const { count, get, getOne, add, update, del } = buildDao(models.track, {
+  jsonStrKeys,
+  key2DefaultObj,
+});

@@ -9,10 +9,10 @@ const util = require('./util');
 function execHelMonoCmd(helMonoStartCmd) {
   util.logDebug(`See var: helMonoStartCmd ${helMonoStartCmd}`);
   if (
-    helMonoStartCmd === 'start'
-    || helMonoStartCmd.startsWith('start:')
-    || helMonoStartCmd === 'build'
-    || helMonoStartCmd.startsWith('build:')
+    helMonoStartCmd === 'start' ||
+    helMonoStartCmd.startsWith('start:') ||
+    helMonoStartCmd === 'build' ||
+    helMonoStartCmd.startsWith('build:')
   ) {
     // 推测是在子目录下执行
     // hel -s 'start:hel' --> pnpm run start:hel

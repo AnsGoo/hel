@@ -11,25 +11,19 @@ export interface IAnyFn {
  * https://github.com/pirix-gh/ts-toolbelt/blob/master/src/List/Tail.ts
  */
 type C2List<A = any> = ReadonlyArray<A>;
-type Tail<L extends C2List> =
-  ((...t: L) => any) extends ((head: any, ...tail: infer LTail) => any)
-  ? LTail
-  : never;
+type Tail<L extends C2List> = ((...t: L) => any) extends (head: any, ...tail: infer LTail) => any ? LTail : never;
 type GetRestItemsType<A extends Array<any>> = Exclude<A, A[0]>;
 
-export type PipesTypeGood<PipeFns> =
-  PipeFns extends IAnyObj ? (
-    { [key in keyof PipeFns]:
-      (
-        PipeFns[key] extends IAnyFn ?
-        (...p: GetRestItemsType<Tail<Parameters<PipeFns[key]>>>) => ReturnType<PipeFns[key]> :
-        PipeFns[key]
-      )
+export type PipesTypeGood<PipeFns> = PipeFns extends IAnyObj
+  ? {
+      [key in keyof PipeFns]: PipeFns[key] extends IAnyFn
+        ? (...p: GetRestItemsType<Tail<Parameters<PipeFns[key]>>>) => ReturnType<PipeFns[key]>
+        : PipeFns[key];
     }
-  ) : {};
+  : {};
 
 interface Dictionary<T> {
-  [key: string]: T,
+  [key: string]: T;
 }
 
 export type Dict<T = any> = Dictionary<T>;

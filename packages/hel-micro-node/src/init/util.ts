@@ -66,7 +66,11 @@ export function loadInitMiddlewareHelMods(platform?: string) {
     // 当没有时会自动拉取最新的 meta 数据，这样可支持用测试环境来运行正式环境构建的镜像
     mayUpdateModPresetData(sdkCtx.platform, SET_BY.init).catch((err) => {
       const { reporter } = getGlobalConfig();
-      reporter.reportError({ message: err.stack, desc: 'err-loadInitMiddlewareHelMods', data: platform });
+      reporter.reportError({
+        message: err.stack,
+        desc: 'err-loadInitMiddlewareHelMods',
+        data: platform,
+      });
     });
   }
   return modInfoList;

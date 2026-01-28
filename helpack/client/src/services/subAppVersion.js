@@ -24,7 +24,10 @@ export async function countSubAppVersionList(name) {
 }
 
 export async function getSubAppVersionListByVers(name, verList) {
-  const subAppVersionList = await http.post('/api/v1/app/version/getSubAppVersionListByVers', { name, verList });
+  const subAppVersionList = await http.post('/api/v1/app/version/getSubAppVersionListByVers', {
+    name,
+    verList,
+  });
   return subAppVersionList;
 }
 

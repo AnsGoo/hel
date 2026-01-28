@@ -64,7 +64,11 @@ function buildAppAlias(appSrc, /** @type {IDevInfo} */ devInfo, prefixedDir2Pkg)
   const appAlias = {};
   const prefixedDirName = getPrefixedDirName(appSrc);
   const pkgName = prefixedDir2Pkg[prefixedDirName];
-  const targetAlias = inferConfAlias(devInfo, { appSrc, appConf: devInfo.appConfs[pkgName], pkgName });
+  const targetAlias = inferConfAlias(devInfo, {
+    appSrc,
+    appConf: devInfo.appConfs[pkgName],
+    pkgName,
+  });
   if (targetAlias) {
     appAlias[targetAlias] = appSrc;
   }

@@ -12,5 +12,3 @@ sidebar_position: 1
 - [后端数据库配置](./mysql-redis.md) - 数据库和缓存配置
 - [后端启动文件说明](./environment-variables.md) - 环境变量详解
 - [VSCode配置](./vscode-debug.md) - 开发调试配置
-
-

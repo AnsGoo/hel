@@ -367,7 +367,12 @@ export async function updateApp(updateObj: ISubAppUpdate, rtxName?: string) {
     loggerSrv.error({ source: 'updateApp/pub', msg: err.message });
   });
   trackDao
-    .add({ operator: rtxName || '', update_json: JSON.stringify(toUpdate), schema_id: 'sub_app_infos', from: 'hel' })
+    .add({
+      operator: rtxName || '',
+      update_json: JSON.stringify(toUpdate),
+      schema_id: 'sub_app_infos',
+      from: 'hel',
+    })
     .catch((err) => console.error(err)); // 这个错误可以静默掉
   return app;
 }

@@ -62,8 +62,8 @@ interface ISDKGlobalBaseConfig {
   shouldAcceptVersion: (params: IShouldAcceptVersionParams) => boolean;
   /** 内部运行的错误报告函数 */
   reporter: {
-    reportError(params: { message: string, desc: string, platform: string }): any;
-    reportInfo(params: { message: string, desc: string, platform: string }): any;
+    reportError(params: { message: string; desc: string; platform: string }): any;
+    reportInfo(params: { message: string; desc: string; platform: string }): any;
   };
 }
 
@@ -74,7 +74,6 @@ interface IShouldAcceptVersionParams {
   currentMeta: IMeta | null;
   newMeta: IMeta;
 }
-
 ```
 
 ## 控制是否接受新版本
@@ -83,12 +82,12 @@ interface IShouldAcceptVersionParams {
 
 ```ts
 setGlobalConfig({
-  shouldAcceptVersion(params){
+  shouldAcceptVersion(params) {
     const { newMeta, currentMeta } = params;
     // 通常比较两个 meta 的数据，或者参考 newMeta 的构建时间、构建分支等数据来确定是否接受此版本
     return true; // or false
   },
-})
+});
 ```
 
 :::info

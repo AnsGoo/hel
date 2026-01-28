@@ -1,8 +1,5 @@
-
-
 declare module 'hel-hello-helpack' {
-    export function hello(): string;
+  export function hello(): string;
 }
 
-declare module 'my-mod'
-
+declare module 'my-mod';

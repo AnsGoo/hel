@@ -17,7 +17,10 @@ export function createReactiveSharedObject<T extends Dict = Dict>(
   rawState: T | (() => T),
   moduleName?: string,
 ): [T, (partialState: Partial<T>) => void] {
-  const [reactiveSharedState, reactiveSetState] = buildSharedObject(false, rawState, { moduleName, enableReactive: true });
+  const [reactiveSharedState, reactiveSetState] = buildSharedObject(false, rawState, {
+    moduleName,
+    enableReactive: true,
+  });
   return [reactiveSharedState, reactiveSetState];
 }
 

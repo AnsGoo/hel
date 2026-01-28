@@ -48,7 +48,8 @@ const Head = React.memo(() => {
     <div>
       <div>
         你好，亲爱的用户
-        {user}， 当前模块共运行在 <Tag color={helper.tagColors.online}>{state.total}</Tag>个Node服务上
+        {user}， 当前模块共运行在 <Tag color={helper.tagColors.online}>{state.total}</Tag>
+        个Node服务上
       </div>
       <div style={{ float: 'right', margin: '12px 12px 0 0' }}>
         列表模式：
@@ -95,7 +96,11 @@ const getCardColumns = () => [
 
 const getColumns = () => [
   { dataIndex: 'mod_version', title: '模块版本' },
-  { dataIndex: 'load_at', title: '载入时间', render: (val) => dateUtil.tryGetLocaleStrOfISOStr(val) },
+  {
+    dataIndex: 'load_at',
+    title: '载入时间',
+    render: (val) => dateUtil.tryGetLocaleStrOfISOStr(val),
+  },
   { dataIndex: 'env_name', title: '环境' },
   { dataIndex: 'container_name', title: '容器名称' },
   { dataIndex: 'container_ip', title: '容器ip' },

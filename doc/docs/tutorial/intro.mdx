@@ -50,7 +50,12 @@ export async function callRemoteMethod() {
 > 下面的按钮由上面的 jsx 片段渲染得到，点击观察效果，或打开开发者工具观察点击后的资源下载情况
 
 <button
-  style={{ backgroundColor: 'var(--ifm-color-primary)', color: 'white', fontSize: '22px', border: 'none' }}
+  style={{
+    backgroundColor: 'var(--ifm-color-primary)',
+    color: 'white',
+    fontSize: '22px',
+    border: 'none',
+  }}
   onClick={async function () {
     const helMicro = await import('hel-micro');
     const lib = await helMicro.preFetchLib('hel-tpl-remote-lib');
@@ -77,7 +82,12 @@ export async function callRemoteMethod() {
 ```
 
 <button
-  style={{ backgroundColor: 'var(--ifm-color-primary)', color: 'white', fontSize: '22px', border: 'none' }}
+  style={{
+    backgroundColor: 'var(--ifm-color-primary)',
+    color: 'white',
+    fontSize: '22px',
+    border: 'none',
+  }}
   onClick={async function () {
     const helMicro = await import('hel-micro');
     const lib = await helMicro.preFetchLib('hel-tpl-remote-lib', { versionId: '2.0.0' });
@@ -102,7 +112,12 @@ export async function callRemoteMethod() {
 ```
 
 <button
-  style={{ backgroundColor: 'var(--ifm-color-primary)', color: 'white', fontSize: '22px', border: 'none' }}
+  style={{
+    backgroundColor: 'var(--ifm-color-primary)',
+    color: 'white',
+    fontSize: '22px',
+    border: 'none',
+  }}
   onClick={async function () {
     const helMicro = await import('hel-micro');
     const lib = await helMicro.preFetchLib('hel-tpl-remote-lib', { versionId: '2.0.1' });

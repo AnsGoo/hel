@@ -110,7 +110,12 @@ function tryInjectPlatForMethods(platform: string, obj: any, options: ITryOption
     }
     const valueType = typeof mayFn;
     if (valueType === 'function') {
-      const injectOptions: IInjectOptions = { fnName: mayFnName, fn: mayFn, isCore, preFetchOptions };
+      const injectOptions: IInjectOptions = {
+        fnName: mayFnName,
+        fn: mayFn,
+        isCore,
+        preFetchOptions,
+      };
       newObj[mayFnName] = injectPlat(platform, injectOptions);
       return;
     }

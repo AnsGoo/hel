@@ -125,7 +125,7 @@ function execCmdByActionName(/** @type {IDevInfo} */ devInfo, options) {
  * 基于 npm start xxx 来启动或构建宿主
  */
 exports.executeStart = function (/** @type {IDevInfo} */ devInfo, options) {
-  execCmdByActionName(devInfo, { appAction: ACTION_NAME.start, ...(options || {}) });
+  execCmdByActionName(devInfo, { appAction: ACTION_NAME.start, ...options });
 };
 
 /**

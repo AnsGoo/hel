@@ -104,9 +104,15 @@ const inner = {
         const { appName: emitAppName, platform: emitPlatform, versionId: emitVer } = styleInfo;
         const { branchId, versionId: inputVer, platform, strictMatchVer } = options;
         if (
-          emitAppName !== appName
-          || emitPlatform !== platform
-          || !isEmitVerMatchInputVer(appName, { branchId, platform, emitVer, inputVer, strictMatchVer })
+          emitAppName !== appName ||
+          emitPlatform !== platform ||
+          !isEmitVerMatchInputVer(appName, {
+            branchId,
+            platform,
+            emitVer,
+            inputVer,
+            strictMatchVer,
+          })
         ) {
           return;
         }

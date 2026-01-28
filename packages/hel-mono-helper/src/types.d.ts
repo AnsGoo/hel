@@ -41,14 +41,12 @@ export interface IPkgInfo {
   isSubMod: boolean;
 }
 
-
 export interface IInnerPkgInfo extends IPkgInfo {
   /** 代理包名 */
   proxyPkgName: string;
   /** 代理包项目src路径 */
   proxySrcPath: string;
 }
-
 
 export interface INameData {
   pkgName: string;
@@ -84,7 +82,7 @@ export interface IPkgMonoDepData extends IPkgInfo {
   appDirPath: string;
   prefixedDir: string;
   deps: Record<string, string>;
-  hel: IPkgHelConf,
+  hel: IPkgHelConf;
 }
 
 export interface IInnerPkgMonoDepData extends IInnerPkgInfo {
@@ -92,7 +90,7 @@ export interface IInnerPkgMonoDepData extends IInnerPkgInfo {
   appDirPath: string;
   prefixedDir: string;
   deps: Record<string, string>;
-  hel: IPkgHelConf,
+  hel: IPkgHelConf;
 }
 
 export type DepDataDict = Record<string, IPkgMonoDepData>;
@@ -197,7 +195,7 @@ export interface ICWDAppData {
    * app所属项目的目录完整路径
    * @example
    * /path/to/hel-mono/apps/hub
-  */
+   */
   appDirPath: string;
   /**
    * @example

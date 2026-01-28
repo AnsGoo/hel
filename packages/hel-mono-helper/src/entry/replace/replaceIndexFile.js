@@ -31,10 +31,10 @@ module.exports = function replaceIndexFile(/** @type {ICWDAppData} */ appData, /
 
   helMonoLog(`replace content of ${indexFilePath}`);
   const hasRootComp =
-    hasFile(appSrcDirPath, 'App.tsx')
-    || hasFile(appSrcDirPath, 'App.jsx')
-    || hasFile(appSrcDirPath, 'App.js')
-    || hasFile(appSrcDirPath, 'App');
+    hasFile(appSrcDirPath, 'App.tsx') ||
+    hasFile(appSrcDirPath, 'App.jsx') ||
+    hasFile(appSrcDirPath, 'App.js') ||
+    hasFile(appSrcDirPath, 'App');
   const hasShareModules = hasFile(appSrcDirPath, 'hel-share');
   const hasHelHook = hasFile(appSrcDirPath, 'hel-conf/hook', { exts: ['js', 'ts'] });
 

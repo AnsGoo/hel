@@ -95,12 +95,11 @@ IS_LOCAL_MODE=false npm run start
 
 ```bash
 cd hm-node-user
-npm run build 
+npm run build
 npm run start
 ```
 
 用户端会在 `http://localhost:7776` 启动。、
-
 
 ### 5. 访问用户端界面
 
@@ -108,13 +107,11 @@ npm run start
 
 ![](/img/user端截图.png)
 
-
 ### 6. 访问后端界面
 
 打开浏览器访问 `http://localhost:7777`，即可进入helpack管理界面。
 
 ![](https://tnfe.gtimg.com/hel-img/WX20251027-120047.png)
-
 
 ## 完整功能
 
@@ -147,4 +144,3 @@ IS_LOCAL_MODE=false IS_SIMPLE_SERVER=0 npm run start
 - `IS_LOCAL_MODE=false`，会连接数据库和 Redis
 - 支持所有功能，包括数据持久化
 - 适合生产环境使用
-

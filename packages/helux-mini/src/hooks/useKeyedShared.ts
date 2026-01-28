@@ -18,7 +18,11 @@ export function useKeyedShared<T extends Dict = Dict>(
   if (!keyedSharedCtx) {
     const { stateFactory, actionsFactory, lifecycle } = keyedShared;
     const oriState = { ...stateFactory(), key };
-    const { state, setState, actions } = createSharedLogic(true, oriState, { moduleName, lifecycle, actionsFactory });
+    const { state, setState, actions } = createSharedLogic(true, oriState, {
+      moduleName,
+      lifecycle,
+      actionsFactory,
+    });
     keyedSharedCtx = { state, setState, actions };
     KEYED_SHARED_CTX_MAP[moduleName] = keyedSharedCtx;
   }

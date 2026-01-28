@@ -31,12 +31,11 @@ npm run start:simple
 
 ```bash
 cd hm-node-user
-npm run build 
+npm run build
 npm run start
 ```
 
 用户端会在 `http://localhost:7776` 启动。、
-
 
 ### 3. 访问用户端界面
 
@@ -45,6 +44,7 @@ npm run start
 ![](/img/user端截图.png)
 
 ### 4.用户端功能介绍
+
 - 测试hello函数api [`http://localhost:7776/api/hello`](http://localhost:7776/api/hello)
 - 更新 hello 函数版本api [`http://localhost:7776/api/changeVer/:ver`](http://localhost:7776/api/changeVer/:1.0.1) (点击后可以切换到1.0.1版本)
 
@@ -87,10 +87,8 @@ npm run start
 ![](/img/更新并查看虚拟结果.png)
 ![](/img/更新并查看结果.png)
 
-
 ## 技术细节
 
 - 后端运行在 Simple 模式（`IS_SIMPLE_SERVER` 未设置或为 `1`）
 - 不连接数据库和 Redis
 - 仅提供基础的模块版本查询 API
-

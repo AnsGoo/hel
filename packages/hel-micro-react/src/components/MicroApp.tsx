@@ -32,7 +32,13 @@ export const LocalComp: LocalCompType = forwardRef((props: ILocalCompProps, reac
  */
 export const MicroApp: MicroAppType = forwardRef((props: IMicroAppProps, reactRef) => {
   const { name, compProps, children, ...controlOptions } = props;
-  const passProps: IRemoteCompRenderConfig = { name, compProps, children, reactRef, controlOptions };
+  const passProps: IRemoteCompRenderConfig = {
+    name,
+    compProps,
+    children,
+    reactRef,
+    controlOptions,
+  };
   return <RemoteCompRender {...passProps} />;
 });
 
@@ -51,8 +57,19 @@ export const MicroAppLegacy: MicroAppLegacyType = forwardRef((props, reactRef) =
   const { name, version, cache, appProps, children, ...controlOptions } = props;
   // 历史模式 mountShadowBodyForRef 一定为 true，确保 shadowBody 一定存在，让基于老包开发的提供模块可以正常工作
   // 同时重名名部分属性名，让下层安全读取相关属性
-  Object.assign(controlOptions, { versionId: version, mountShadowBodyForRef: true, isLegacy: true, enableDiskCache: cache });
-  const passProps: IRemoteCompRenderConfig = { name, compProps: appProps, children, reactRef, controlOptions };
+  Object.assign(controlOptions, {
+    versionId: version,
+    mountShadowBodyForRef: true,
+    isLegacy: true,
+    enableDiskCache: cache,
+  });
+  const passProps: IRemoteCompRenderConfig = {
+    name,
+    compProps: appProps,
+    children,
+    reactRef,
+    controlOptions,
+  };
   return <RemoteCompRender {...passProps} />;
 });
 

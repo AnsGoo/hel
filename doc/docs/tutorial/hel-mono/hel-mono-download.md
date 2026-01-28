@@ -22,4 +22,3 @@ npm i pnpm -g
 ```bash
 hel init my-mono
 ```
-

@@ -147,7 +147,11 @@ class AllowedApp {
     }
 
     try {
-      const res = await daoVar.allowedApp.update({ id: this.updateId, data: { apps: this.list }, update_by: rtxName });
+      const res = await daoVar.allowedApp.update({
+        id: this.updateId,
+        data: { apps: this.list },
+        update_by: rtxName,
+      });
       daoV2.track
         .add({
           operator: rtxName || '',

@@ -54,7 +54,11 @@ function fixLibAssociateData(appName: string, appGroupName: string, fixOptions: 
     let originalLib = getVerLib(appGroupName, { platform, versionId }); // appGroupName 对应 lib 由 core 写入，此处可获取到
     if (!originalLib && emitPlatform) {
       // 相信弹射的版本数据就是目标版本数据
-      originalLib = getVerLib(appGroupName, { platform: emitPlatform, versionId: emitVer, strictMatchVer: false });
+      originalLib = getVerLib(appGroupName, {
+        platform: emitPlatform,
+        versionId: emitVer,
+        strictMatchVer: false,
+      });
     }
     if (!originalLib) {
       throw new Error(`seems plat ${emitPlatform} emit null lib for ${appGroupName}`);
@@ -75,7 +79,11 @@ function fixAppAssociateData(appName: string, appGroupName: string, fixOptions: 
     tryFixAssociateData(appName, appGroupName, fixOptions);
     let oriEmittedApp = getVerApp(appGroupName, { platform, versionId });
     if (!oriEmittedApp && emitPlatform) {
-      oriEmittedApp = getVerApp(appGroupName, { platform: emitPlatform, versionId: emitVer, strictMatchVer: false });
+      oriEmittedApp = getVerApp(appGroupName, {
+        platform: emitPlatform,
+        versionId: emitVer,
+        strictMatchVer: false,
+      });
     }
     if (!oriEmittedApp) {
       throw new Error(`seems plat ${emitPlatform} emit null app for ${appGroupName}`);
@@ -181,7 +189,12 @@ export function judgeAppReady(appInfo: IEmitAppInfo, options: IJudgeOptions, pre
       }
 
       // trust 模式会强行复制远程模块为当前调用所需要模块，同时会为远程补齐缺失数据，开发者需要知道并承担其危险后果！
-      const shouldNext = fixData({ versionId: inputVer, platform: inputPlatform, emitPlatform, emitVer });
+      const shouldNext = fixData({
+        versionId: inputVer,
+        platform: inputPlatform,
+        emitPlatform,
+        emitVer,
+      });
       return mayNext(shouldNext);
     }
   }
@@ -199,10 +212,17 @@ export function judgeAppReady(appInfo: IEmitAppInfo, options: IJudgeOptions, pre
     return logStillWait();
   }
 
-  const trustAppNames = alt.getVal<string[]>(inputPlatform, 'trustAppNames', [null, []], { emptyArrIsNull: false });
+  const trustAppNames = alt.getVal<string[]>(inputPlatform, 'trustAppNames', [null, []], {
+    emptyArrIsNull: false,
+  });
   // sdk 初始化了一些信任的应用，或者模块使用方主动设置了信任模式，则开始走模块转移流程
   if (inputPlatform !== emitPlatform && (trust || trustAppNames.includes(appName))) {
-    const shouldNext = fixData({ versionId: inputVer, platform: inputPlatform, emitPlatform, emitVer });
+    const shouldNext = fixData({
+      versionId: inputVer,
+      platform: inputPlatform,
+      emitPlatform,
+      emitVer,
+    });
     if (!shouldNext) {
       log(`${fnMark} transfer ${emitPlatform} app [${appName}] to ${inputPlatform} plat due to being in trustAppNames`);
       return logStillWait();

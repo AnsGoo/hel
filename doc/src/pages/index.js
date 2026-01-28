@@ -73,7 +73,10 @@ function HomepageHeader() {
   return (
     <header
       className={clsx('hero hero--primary', styles.heroBanner)}
-      style={{ backgroundImage: 'url(https://tnfe.gtimg.com/image/eai2tlcqqm_1641021424949.jpg)', height: '400px' }}
+      style={{
+        backgroundImage: 'url(https://tnfe.gtimg.com/image/eai2tlcqqm_1641021424949.jpg)',
+        height: '400px',
+      }}
     >
       <div className="container">
         <h1 className="hero__title" style={{ fontSize: '88px', fontWeight: 600 }}>

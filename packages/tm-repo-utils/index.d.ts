@@ -13,14 +13,7 @@ import type {
 
 export declare const cst: typeof monoCst;
 
-export type {
-  IExecuteStartOptions,
-  IMonoDevData,
-  IMonoRootInfo,
-  IPkgMonoDepData,
-  DepDataDict,
-  ICWDInfo,
-};
+export type { IExecuteStartOptions, IMonoDevData, IMonoRootInfo, IPkgMonoDepData, DepDataDict, ICWDInfo };
 
 /**
  * 基于 npm start xxx 来启动或构建应用（模块）
@@ -73,7 +66,7 @@ export declare function executeBuild(): void;
 /**
  * 准备 hel 微模块相关的入口文件，不透传 pkgOrDir 时会根据 cwd 自动推导, options.forEX 是否为 ex项目服务
  */
-export declare function prepareHelEntry(options?: { pkgOrDir?: string, forEX?: boolean }): void;
+export declare function prepareHelEntry(options?: { pkgOrDir?: string; forEX?: boolean }): void;
 
 /**
  * 获取 hel-mono 大仓架构里的开发数据, options.forEX 是否为 ex项目服务

@@ -1,4 +1,11 @@
-const stDot = { display: 'inline-block', width: '8px', height: '8px', borderRadius: '4px', backgroundColor: 'darkgray', margin: '0 2px' };
+const stDot = {
+  display: 'inline-block',
+  width: '8px',
+  height: '8px',
+  borderRadius: '4px',
+  backgroundColor: 'darkgray',
+  margin: '0 2px',
+};
 
 export function MoreUser() {
   return (

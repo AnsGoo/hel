@@ -18,7 +18,12 @@ module.exports = function replaceIndexEXFile(/** @type {ICWDAppData} */ appData,
   if (!exProjDeps) {
     // 在项目 src/.hel 下生成 ex 项目，故 appData 即是 exAppData 也是 masterAppData
     const appData = getCWDAppData(devInfo, appData.appDirPath);
-    exProjDeps = getExProjDeps({ exAppData: appData, devInfo, masterAppData: appData, writeExJson: true });
+    exProjDeps = getExProjDeps({
+      exAppData: appData,
+      devInfo,
+      masterAppData: appData,
+      writeExJson: true,
+    });
   }
   const hasExternals = !isDictNull(exProjDeps);
 

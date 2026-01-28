@@ -181,7 +181,10 @@ export class PresetData {
   /** 如存在 server 模块则更新对应模块实例 */
   private async updateServerMod(platform: string, modInfo: IModInfo, options?: IUpdateServerModOptions) {
     const { mustBeServerMod, importOptions } = options || {};
-    const shouldContinue = checkServerModFile(modInfo, { mustBeServerMod, label: 'updateServerMod' });
+    const shouldContinue = checkServerModFile(modInfo, {
+      mustBeServerMod,
+      label: 'updateServerMod',
+    });
     if (!shouldContinue) {
       return false;
     }
@@ -209,13 +212,19 @@ export class PresetData {
   /** 如存在 server 模块则更新对应模块实例 */
   private updateServerModSync(platform: string, modInfo: IModInfo, options?: IUpdateServerModSyncOptions) {
     const { mustBeServerMod, importOptions } = options || {};
-    const shouldContinue = checkServerModFile(modInfo, { mustBeServerMod, label: 'updateServerModSync' });
+    const shouldContinue = checkServerModFile(modInfo, {
+      mustBeServerMod,
+      label: 'updateServerModSync',
+    });
     if (!shouldContinue) {
       return false;
     }
 
     const sdkCtx = getSdkCtx(platform);
-    const importOptionsVar = importOptions || { prepareFiles: sdkCtx.prepareFiles, standalone: false };
+    const importOptionsVar = importOptions || {
+      prepareFiles: sdkCtx.prepareFiles,
+      standalone: false,
+    };
     modManager.importModByMetaSync(modInfo.fullMeta, importOptionsVar);
   }
 

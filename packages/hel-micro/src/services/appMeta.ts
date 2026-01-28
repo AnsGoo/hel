@@ -55,7 +55,14 @@ export async function getSubAppMeta(appName: string, options?: IHelGetOptions): 
  */
 export function getMetaDataUrl(appName: string, options?: IGetMetaDataUrlOptions): string {
   const { versionId, platform, apiMode = API_NORMAL_GET, protocol = 'http', projectId, branchId, semverApi = true } = options || {};
-  let { url } = innerApiSrv.prepareCustomPlatRequestInfo(appName, { platform, versionId, branchId, apiMode, projectId, semverApi });
+  let { url } = innerApiSrv.prepareCustomPlatRequestInfo(appName, {
+    platform,
+    versionId,
+    branchId,
+    apiMode,
+    projectId,
+    semverApi,
+  });
   if (protocol === 'http') {
     url = url.replace('https:', 'http:');
   }

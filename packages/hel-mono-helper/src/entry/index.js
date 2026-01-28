@@ -41,7 +41,12 @@ function prepareHelEntryForMainAndDeps(/** @type {IPrepareHelEntrysOptions} */ o
   const targetCWD = path.join(rootDir, `./${belongTo}/${dirName}`);
 
   const appData = util.getCWDAppData(devInfo, targetCWD);
-  const depData = getMonoAppDepDataImpl({ appSrc: appData.realAppSrcDirPath, devInfo, isAllDep: true, isForRootHelDir });
+  const depData = getMonoAppDepDataImpl({
+    appSrc: appData.realAppSrcDirPath,
+    devInfo,
+    isAllDep: true,
+    isForRootHelDir,
+  });
   const { depInfos } = depData;
 
   const shouldRunDeps = !util.isHelAllBuild() && !util.isHelExternalBuild();

@@ -165,7 +165,12 @@ export async function agreeGray(payload, /** @type St */ m, /** @type AC*/ ac) {
   const { subApp } = m;
   try {
     await ac.setState({ updateLoading: true });
-    const res = await subAppSrv.updateSubApp({ id: subApp.id, name: subApp.name, online_version: subApp.build_version, is_in_gray: 0 });
+    const res = await subAppSrv.updateSubApp({
+      id: subApp.id,
+      name: subApp.name,
+      online_version: subApp.build_version,
+      is_in_gray: 0,
+    });
     if (`${res.code}` !== '0') {
       msgSrv.warn(res.msg);
       return { updateLoading: false };

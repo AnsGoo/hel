@@ -183,7 +183,8 @@ function SubApp(props) {
           <Tooltip
             title={
               <span>
-                复制当前应用为同应用组({appData.app_group_name})下的另一个应用，该应用会自动标记为<Tag color="gray">测试</Tag>应用
+                复制当前应用为同应用组({appData.app_group_name})下的另一个应用，该应用会自动标记为
+                <Tag color="gray">测试</Tag>应用
               </span>
             }
           >
@@ -193,7 +194,8 @@ function SubApp(props) {
           <Tooltip
             title={
               <span>
-                复制当前应用为新应用组的新应用，该应用会自动标记为<Tag color="#f50">正式</Tag>应用，等同于在新建应用页创建一个新应用
+                复制当前应用为新应用组的新应用，该应用会自动标记为<Tag color="#f50">正式</Tag>
+                应用，等同于在新建应用页创建一个新应用
               </span>
             }
           >

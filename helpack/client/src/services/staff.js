@@ -81,6 +81,9 @@ export const delaySearchUsers = debounce(searchUsers, 300);
 export async function syncStaff(staffStr, syncType) {
   const timestamp = Date.now();
   const nonce = signMD5(`${SEC_STR}_${timestamp}`);
-  const res = await http.post(`/api/helper/syncStaff?timestamp=${timestamp}&nonce=${nonce}`, { staffStr, syncType });
+  const res = await http.post(`/api/helper/syncStaff?timestamp=${timestamp}&nonce=${nonce}`, {
+    staffStr,
+    syncType,
+  });
   return res;
 }

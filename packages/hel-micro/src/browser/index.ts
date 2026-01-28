@@ -198,9 +198,9 @@ function handleLinkAsset(v: ILinkItem, options: ICreateDomOptions) {
 
   if (href.endsWith('.css')) {
     if (
-      appendCss
-      && cssAppendTypes.includes(getAssetUrlType(webDirPath, href)) // 当前链接类型是合法的可以附加到 html 文档的链接类型
-      && !excludeCssList.includes(href) // 当前链接没有被设置在排除链接列表里
+      appendCss &&
+      cssAppendTypes.includes(getAssetUrlType(webDirPath, href)) && // 当前链接类型是合法的可以附加到 html 文档的链接类型
+      !excludeCssList.includes(href) // 当前链接没有被设置在排除链接列表里
     ) {
       createLinkElement(createLinkOptions);
     }
@@ -306,8 +306,20 @@ export async function loadAppAssets(app: ISubApp, version: ISubAppVersion, loadO
   const allCssList = commonUtil.merge2List(allExtraCssList, chunkCssSrcList);
   const excludeCssList = getExcludeCssList?.(allCssList, { version }) || [];
 
-  const optionsToHead = { excludeCssList, webDirPath, appendCss, cssAppendTypes, appendToBody: false };
-  const optionsToBody = { excludeCssList, webDirPath, appendCss, cssAppendTypes, appendToBody: true };
+  const optionsToHead = {
+    excludeCssList,
+    webDirPath,
+    appendCss,
+    cssAppendTypes,
+    appendToBody: false,
+  };
+  const optionsToBody = {
+    excludeCssList,
+    webDirPath,
+    appendCss,
+    cssAppendTypes,
+    appendToBody: true,
+  };
 
   // 处理用户 helpack 后台指定的额外链接
   if (useAdditionalScript) {

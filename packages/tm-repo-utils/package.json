@@ -5,30 +5,30 @@
   "keywords": [
     "repo utils"
   ],
+  "license": "MIT",
+  "author": {
+    "name": "fantasticsoul"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Tencent/hel.git",
     "directory": "packages/tm-repo-utils"
   },
-  "license": "MIT",
-  "author": {
-    "name": "fantasticsoul"
-  },
-  "main": "src/index.js",
   "files": [
     "src",
     "bin",
     "README.md",
     "index.d.ts"
   ],
-  "scripts": {},
-  "dependencies": {},
-  "peerDependencies": {},
-  "bundleDependencies": [],
+  "main": "src/index.js",
   "publishConfig": {
     "access": "public",
     "main": "dist/index.js",
     "registry": "https://registry.npmjs.org/"
   },
+  "scripts": {},
+  "dependencies": {},
+  "peerDependencies": {},
+  "bundleDependencies": [],
   "deprecated": false
 }

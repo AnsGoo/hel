@@ -1,4 +1,3 @@
-
 ## 启动
 
 ```bash
@@ -10,4 +9,3 @@ npm run start
 # 未指定服务的模块，默认从本地启动的 helpack 服务拉取元数据（localhost:7777 ）
 npm run start:h
 ```
-

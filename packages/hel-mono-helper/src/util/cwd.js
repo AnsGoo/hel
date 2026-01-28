@@ -35,7 +35,11 @@ function inferDirData(devInfo, inputCwd) {
     return { belongTo, dirName, prefixedDir: `${belongTo}/${dirName}` };
   }
 
-  return { belongTo: cwdLast2Str, dirName: cwdLast1Str, prefixedDir: `${cwdLast2Str}/${cwdLast1Str}` };
+  return {
+    belongTo: cwdLast2Str,
+    dirName: cwdLast1Str,
+    prefixedDir: `${cwdLast2Str}/${cwdLast1Str}`,
+  };
 }
 
 module.exports = {

@@ -44,9 +44,6 @@ const config = {
     //   // runtimeHelpers: true,
     // }),
     commonjs(),
-    // eslint({
-    //   include: ['src/**/*.js'] // 需要检查的部分
-    // }),
   ],
 };
 

@@ -11,7 +11,9 @@ describe('test indexedDB storage', () => {
       name: 'test',
       storeName: 'test_store',
     });
-    const setedVal: Record<string, any> = await indexedDBIns.setItem('test_store_key', { id: '001' });
+    const setedVal: Record<string, any> = await indexedDBIns.setItem('test_store_key', {
+      id: '001',
+    });
     expect(setedVal).toEqual('test_store_key');
 
     const getedVal: Record<string, any> = await indexedDBIns.getItem('test_store_key');

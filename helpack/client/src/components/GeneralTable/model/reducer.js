@@ -15,7 +15,10 @@ export function modTableMeta({ tableId, toMod }, moduleState) {
 
 /** 处理页码变更 */
 export async function handlePageCurrentChange({ current, tableId, fetchFn }, _, ctx) {
-  await ctx.dispatch(modTableMeta, { tableId, toMod: { loading: true, current, lockId: Date.now() } });
+  await ctx.dispatch(modTableMeta, {
+    tableId,
+    toMod: { loading: true, current, lockId: Date.now() },
+  });
   await ctx.dispatch(fetchTableData, { tableId, fetchFn });
 }
 
@@ -27,7 +30,10 @@ export async function handleNextPage({ tableId, fetchFn }, { meta }, ctx) {
 
 /** 处理一页展示条数的变更 */
 export async function handlePageSizeChange({ tableId, pageSize, fetchFn }, _, ctx) {
-  await ctx.dispatch(modTableMeta, { tableId, toMod: { loading: true, pageSize, lockId: Date.now() } });
+  await ctx.dispatch(modTableMeta, {
+    tableId,
+    toMod: { loading: true, pageSize, lockId: Date.now() },
+  });
   await ctx.dispatch(fetchTableData, { tableId, fetchFn });
 }
 

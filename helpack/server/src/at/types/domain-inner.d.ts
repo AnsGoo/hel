@@ -10,11 +10,11 @@
 }
 */
 export interface SrcMap {
-  iconSr: string,
-  manifestJsonSrc: string,
-  mainCssSrc: string,
-  chunkCssSrcList: string[],
-  runtimeMainJsSrc: string,
-  chunkJsSrcList: string[],
-  mainJsSrc: string,
+  iconSr: string;
+  manifestJsonSrc: string;
+  mainCssSrc: string;
+  chunkCssSrcList: string[];
+  runtimeMainJsSrc: string;
+  chunkJsSrcList: string[];
+  mainJsSrc: string;
 }

@@ -1,15 +1,18 @@
 ## Helpack
+
 [Hel Pack](https://your-deployed-helpack-site.com)，海拉HelPack，动态化模块发布、托管服务
 
 ![](https://tnfe.gtimg.com/hel-img/WX20251027-120047.png)
 
->当前目录不属于大仓 workspace 指定目录，故需要用户单独进入到目录里执行 npm i 安装相关依赖后运行
+> 当前目录不属于大仓 workspace 指定目录，故需要用户单独进入到目录里执行 npm i 安装相关依赖后运行
 
 ### 技术栈
+
 前端：react + concent
 后端：nodejs + express
 
 ### 目录结构
+
 总目录结构如下，具体目录结构说明在各自的目录README.md里
 
 ```text
@@ -48,6 +51,7 @@ pnpm run userb
 到具体子目录去启动各个项目
 
 - 启动后端
+
 ```bash
 $ cd server
 $ npm run build        // 先编译ts文件
@@ -65,7 +69,6 @@ $ npm run start:h
 $ npm run start
 ```
 
-
 - 启动连接 helpack 的前端工程
 
 ```bash
@@ -78,12 +81,14 @@ $ npm run start
 ### 其他
 
 - 启动 helpack 自身的前端工程
+
 ```bash
 cd client
 npm run start
 ```
 
 > 推荐配置vscode的launch.json文件，方便快速启动并调试，配置如下
+
 ```js
 {
   "configurations": [
@@ -128,7 +133,9 @@ bun start:h  //连接helpack
 **部署前端产物到本地server**
 
 处于前端项目根目录`client`下时，执行
-``` bash
+
+```bash
 npm run build:local
 ```
+
 会自动清理后端public目录后，再将其构建产物复制到那里

@@ -94,17 +94,17 @@ export function checkAppName(name: string, label = 'sub_app_name') {
   const atCount = chars.filter((v) => v === '@').length;
   if (
     // '/a/a'
-    slashCount > 1
+    slashCount > 1 ||
     // '@a@a'
-    || atCount > 1
+    atCount > 1 ||
     // aa@a
-    || (atCount === 1 && !name.startsWith('@'))
+    (atCount === 1 && !name.startsWith('@')) ||
     // @aa
-    || (atCount === 1 && name.startsWith('@') && slashCount === 0)
+    (atCount === 1 && name.startsWith('@') && slashCount === 0) ||
     // @/aa
-    || (atCount === 1 && name.startsWith('@') && slashCount === 1 && slashIdx === atIdx + 1)
+    (atCount === 1 && name.startsWith('@') && slashCount === 1 && slashIdx === atIdx + 1) ||
     // @aa/
-    || (atCount === 1 && name.startsWith('@') && slashCount === 1 && slashIdx === lastIdx)
+    (atCount === 1 && name.startsWith('@') && slashCount === 1 && slashIdx === lastIdx)
   ) {
     throw new Error(`${label} value (${name}) is invalid, valid demos: @xx-scope/xx-name (with scope), xx-name (without scope)`);
   }

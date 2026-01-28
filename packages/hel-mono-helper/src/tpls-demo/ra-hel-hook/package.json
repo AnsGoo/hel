@@ -2,9 +2,6 @@
   "name": "ra-hel-hook",
   "version": "0.1.0",
   "private": true,
-  "hel": {
-    "ciCmd": "build:hel"
-  },
   "main": "./src/index.ts",
   "scripts": {
     "start": "node ../../dev/root-scripts/executeStart",
@@ -25,10 +22,9 @@
     "@hel-demo/mono-bslib": "^0.0.1",
     "hel-mono-runtime-helper": "^2.3.4"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
+  "babel": {
+    "presets": [
+      "react-app"
     ]
   },
   "browserslist": {
@@ -43,13 +39,11 @@
       "last 1 safari version"
     ]
   },
-  "babel": {
-    "presets": [
-      "react-app"
-    ]
-  },
   "volta": {
     "node": "20.19.5",
     "pnpm": "8.6.8"
+  },
+  "hel": {
+    "ciCmd": "build:hel"
   }
 }

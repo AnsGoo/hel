@@ -11,19 +11,19 @@
 ## 特点
 
 - 原生跨端  
-支撑在**浏览器**和**服务器**双端同时使用
+  支撑在**浏览器**和**服务器**双端同时使用
 
 - 双模驱动  
-支持以**传统包**和**微模块**包两种模式运行，通过编译参数做切换
+  支持以**传统包**和**微模块**包两种模式运行，通过编译参数做切换
 
 - 平台化  
-可部署[helpack](./helpack/README.md)做模块版本管理
+  可部署[helpack](./helpack/README.md)做模块版本管理
 
 - 工程化  
-提供[hel](./packages/create-hel/README.md)命令行工具，完美适配`pnpm`大仓开发模式
+  提供[hel](./packages/create-hel/README.md)命令行工具，完美适配`pnpm`大仓开发模式
 
 - 工具链无关  
-前端微模块可对接`webpack`、`vite`、`parcel`等构建工具，后端微模块可运行于`node`、`bun`、`deno`等运行时
+  前端微模块可对接`webpack`、`vite`、`parcel`等构建工具，后端微模块可运行于`node`、`bun`、`deno`等运行时
 
 ## 快速开始
 
@@ -88,7 +88,6 @@ hel init myhel -t helpack
 ```
 
 ![helpack](https://tnfe.gtimg.com/image/f13q7cuzxt_1652895450360.png)
-
 
 ### 开发与部署微模块
 

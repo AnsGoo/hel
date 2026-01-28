@@ -140,17 +140,17 @@ const setup = (c) => {
       const atCount = chars.filter((v) => v === '@').length;
       if (
         // '/a/a'
-        slashCount > 1
+        slashCount > 1 ||
         // '@a@a'
-        || atCount > 1
+        atCount > 1 ||
         // aa@a
-        || (atCount === 1 && !name.startsWith('@'))
+        (atCount === 1 && !name.startsWith('@')) ||
         // @aa
-        || (atCount === 1 && name.startsWith('@') && slashCount === 0)
+        (atCount === 1 && name.startsWith('@') && slashCount === 0) ||
         // @/aa
-        || (atCount === 1 && name.startsWith('@') && slashCount === 1 && slashIdx === atIdx + 1)
+        (atCount === 1 && name.startsWith('@') && slashCount === 1 && slashIdx === atIdx + 1) ||
         // @aa/
-        || (atCount === 1 && name.startsWith('@') && slashCount === 1 && slashIdx === lastIdx)
+        (atCount === 1 && name.startsWith('@') && slashCount === 1 && slashIdx === lastIdx)
       ) {
         return warn(`应用名不合法，请重新填写，${validNameTip}`);
       }

@@ -146,7 +146,12 @@ function genExportModuleNames(filePath) {
     }
 
     if (pured.startsWith('export {')) {
-      const oneLineExportStatement = getOneLineExportStatement(strList, { ignoreIdx, statementStart: pured, idx, lastIdx });
+      const oneLineExportStatement = getOneLineExportStatement(strList, {
+        ignoreIdx,
+        statementStart: pured,
+        idx,
+        lastIdx,
+      });
       const oneLineModNames = getModuleNames(oneLineExportStatement);
       modNames = modNames.concat(oneLineModNames);
     }

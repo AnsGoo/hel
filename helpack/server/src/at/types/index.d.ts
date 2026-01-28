@@ -3,7 +3,9 @@ import services from '../../services';
 import * as pipes from '../pipes';
 import dao from '../dao';
 
-export interface IAnyObj { [key: string]: any }
+export interface IAnyObj {
+  [key: string]: any;
+}
 export interface IAnyFn {
   (...args: any): any;
 }
@@ -12,41 +14,28 @@ export interface IAnyFn {
  * https://github.com/pirix-gh/ts-toolbelt/blob/master/src/List/Tail.ts
  */
 type C2List<A = any> = ReadonlyArray<A>;
-type Tail<L extends C2List> =
-  ((...t: L) => any) extends ((head: any, ...tail: infer LTail) => any)
-  ? LTail
-  : never
+type Tail<L extends C2List> = ((...t: L) => any) extends (head: any, ...tail: infer LTail) => any ? LTail : never;
 type GetRestItemsType<A extends Array<any>> = Exclude<A, A[0]>;
-export type PipesType<PipeFns> =
-  PipeFns extends IAnyObj ? (
-    { [key in keyof PipeFns]:
-      (
-        PipeFns[key] extends IAnyFn ?
-        (p: string) => ReturnType<PipeFns[key]> :
-        PipeFns[key]
-      )
-    }
-  ) : {};
+export type PipesType<PipeFns> = PipeFns extends IAnyObj
+  ? { [key in keyof PipeFns]: PipeFns[key] extends IAnyFn ? (p: string) => ReturnType<PipeFns[key]> : PipeFns[key] }
+  : {};
 
-export type PipesTypeGood<PipeFns> =
-  PipeFns extends IAnyObj ? (
-    { [key in keyof PipeFns]:
-      (
-        PipeFns[key] extends IAnyFn ?
-        (...p: GetRestItemsType<Tail<Parameters<PipeFns[key]>>>) => ReturnType<PipeFns[key]> :
-        PipeFns[key]
-      )
+export type PipesTypeGood<PipeFns> = PipeFns extends IAnyObj
+  ? {
+      [key in keyof PipeFns]: PipeFns[key] extends IAnyFn
+        ? (...p: GetRestItemsType<Tail<Parameters<PipeFns[key]>>>) => ReturnType<PipeFns[key]>
+        : PipeFns[key];
     }
-  ) : {};
+  : {};
 
 interface Dictionary<T = any> {
-  [key: string]: T,
+  [key: string]: T;
 }
 
 interface InputData {
-  query?: Dictionary<string>,
-  params?: Dictionary<string>,
-  body?: Dictionary<object>,
+  query?: Dictionary<string>;
+  params?: Dictionary<string>;
+  body?: Dictionary<object>;
 }
 
 export interface ICuteExpressCtxBase {
@@ -75,10 +64,10 @@ export interface ICuteExpressCtxBase {
   setQueryValue: (key: string | number, value: any) => void;
 }
 
-
-
 export interface ICuteExpressCtx<
-  Q extends Dictionary<any> = any, P extends Dictionary<any> = any, B extends Dictionary<any> = any,
+  Q extends Dictionary<any> = any,
+  P extends Dictionary<any> = any,
+  B extends Dictionary<any> = any,
 > extends ICuteExpressCtxBase {
   query: Q;
   params: P;
@@ -86,13 +75,17 @@ export interface ICuteExpressCtx<
 }
 
 export type TController<
-  Q extends Dictionary<any> = Dictionary, P extends Dictionary<any> = Dictionary, B extends Dictionary<any> = Dictionary,
+  Q extends Dictionary<any> = Dictionary,
+  P extends Dictionary<any> = Dictionary,
+  B extends Dictionary<any> = Dictionary,
 > = (ctx: ICuteExpressCtx<Q, P, B>) => any;
 
 /**
  * 含返回结果泛型定义
  */
 export type TControllerRet<
-  Q extends Dictionary<any> = Dictionary, P extends Dictionary<any> = Dictionary,
-  B extends Dictionary<any> = Dictionary, Ret extends any = any,
+  Q extends Dictionary<any> = Dictionary,
+  P extends Dictionary<any> = Dictionary,
+  B extends Dictionary<any> = Dictionary,
+  Ret extends any = any,
 > = (ctx: ICuteExpressCtx<Q, P, B>) => Ret;

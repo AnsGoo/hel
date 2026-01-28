@@ -1,10 +1,10 @@
 {
   "name": "ex-project",
   "version": "0.0.1",
-  "hel": {
-    "ciCmd": "build:hel",
-    "isEX": true
-  },
+  "files": [
+    "!src",
+    "hel_dist"
+  ],
   "main": "./src/index",
   "scripts": {
     "start": "node ../../dev/root-scripts/executeStart",
@@ -16,10 +16,9 @@
     "build:meta": "node ../../dev/scripts/hel/meta"
   },
   "dependencies": {},
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
+  "babel": {
+    "presets": [
+      "react-app"
     ]
   },
   "browserslist": {
@@ -34,17 +33,12 @@
       "last 1 safari version"
     ]
   },
-  "babel": {
-    "presets": [
-      "react-app"
-    ]
-  },
   "volta": {
     "node": "20.19.5",
     "pnpm": "8.6.8"
   },
-  "files": [
-    "!src",
-    "hel_dist"
-  ]
+  "hel": {
+    "ciCmd": "build:hel",
+    "isEX": true
+  }
 }

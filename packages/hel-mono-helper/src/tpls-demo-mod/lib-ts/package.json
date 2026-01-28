@@ -2,8 +2,13 @@
   "name": "mono-libs",
   "version": "0.0.1",
   "description": "hel-mono demo libs",
-  "hel": {},
   "license": "MIT",
+  "files": [
+    "dist",
+    "hel_dist",
+    "!src",
+    "README.md"
+  ],
   "main": "./src/index",
   "exports": {
     ".": {
@@ -17,10 +22,6 @@
   },
   "publishConfig": {
     "access": "public",
-    "main": "./dist/index.js",
-    "module": "./dist/index.mjs",
-    "types": "./dist/index.d.ts",
-    "unpkg": "./dist/index.js",
     "exports": {
       ".": {
         "types": "./dist/index.d.ts",
@@ -32,18 +33,11 @@
         "import": "./dist/.hel/entrance/libTypes.mjs",
         "require": "./dist/.hel/entrance/libTypes.js"
       }
-    }
-  },
-  "dependencies": {},
-  "peerDependencies": {
-    "hel-mono-runtime-helper": "^2.3.4",
-    "hel-lib-proxy": "*"
-  },
-  "devDependencies": {
-    "@babel/preset-env": "^7.12.11",
-    "babel-cli": "^6.26.0",
-    "hel-lib-proxy": "*",
-    "hel-mono-runtime-helper": "^2.3.4"
+    },
+    "main": "./dist/index.js",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
+    "unpkg": "./dist/index.js"
   },
   "scripts": {
     "start": "node ../../dev/root-scripts/executeStart",
@@ -64,6 +58,17 @@
     "test": "node ../../dev/scripts/test --config ../../dev/config/jest/jest.config.js",
     "test:once": "cross-env ONCE=1 node ../../dev/scripts/test --config ../../dev/config/jest/jest.config.js"
   },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/preset-env": "^7.12.11",
+    "babel-cli": "^6.26.0",
+    "hel-lib-proxy": "*",
+    "hel-mono-runtime-helper": "^2.3.4"
+  },
+  "peerDependencies": {
+    "hel-lib-proxy": "*",
+    "hel-mono-runtime-helper": "^2.3.4"
+  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -81,10 +86,5 @@
     "pnpm": "8.6.8"
   },
   "deprecated": false,
-  "files": [
-    "dist",
-    "hel_dist",
-    "!src",
-    "README.md"
-  ]
+  "hel": {}
 }

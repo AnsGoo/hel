@@ -2,16 +2,15 @@
   "name": "hel-dev-utils",
   "version": "5.4.3",
   "description": "hel dev utils",
+  "license": "MIT",
+  "author": {
+    "name": "fantasticsoul"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Tencent/hel.git",
     "directory": "packages/hel-dev-utils"
   },
-  "license": "MIT",
-  "author": {
-    "name": "fantasticsoul"
-  },
-  "main": "lib/index.js",
   "files": [
     "dist",
     "lib",
@@ -19,6 +18,7 @@
     "index.d.ts",
     "README.md"
   ],
+  "main": "lib/index.js",
   "scripts": {
     "build": "npm run build:commonjs && npm run build:es && npm run build:umd && npm run build:umd:min",
     "build:commonjs": "cross-env BUILD_ENV=commonjs rollup -c",
@@ -28,8 +28,8 @@
   },
   "dependencies": {
     "hel-dev-utils-base": "^0.0.2",
-    "hel-utils-base": "^0.0.2",
     "hel-types": "^4.3.10",
+    "hel-utils-base": "^0.0.2",
     "jsdom": "^19.0.0"
   },
   "devDependencies": {
@@ -39,8 +39,8 @@
   },
   "peerDependencies": {
     "hel-dev-utils-base": "^0.0.2",
-    "hel-utils-base": "^0.0.2",
     "hel-types": "^4.3.10",
+    "hel-utils-base": "^0.0.2",
     "jsdom": "^19.0.0"
   },
   "bundleDependencies": false,

@@ -41,20 +41,17 @@ function HelloHelux(props: any) {
 配置 `actionsFactory` 选项可创建同步或异步的修改状态函数，方便逻辑复用
 
 ```ts
-export const store = createShared(
-  () => ({ a: 1, b: 2 }),
-  {
-    actionsFactory: ({ state, setState }) => ({
-      changeName() {
-        setState({ a: Date.now() }); // 注意：变谁就修改谁即可
-      },
-      async someCall(label: string) {
-        // const b await youApi();
-        setState({ b: 2 });
-      }
-    }),
-  },
-);
+export const store = createShared(() => ({ a: 1, b: 2 }), {
+  actionsFactory: ({ state, setState }) => ({
+    changeName() {
+      setState({ a: Date.now() }); // 注意：变谁就修改谁即可
+    },
+    async someCall(label: string) {
+      // const b await youApi();
+      setState({ b: 2 });
+    },
+  }),
+});
 ```
 
 组件中使用 actions
@@ -88,7 +85,7 @@ export const store2 = createShared(() => ({ a: 1 }), {
       // params.actions.xxx('some params');
     },
     // 第一个使用此共享状态的组件 mounted 时触发，其他组件再挂载时不会触发，当所有组件都卸载后若满足条件会重新触发
-    beforeMount(params) { },
+    beforeMount(params) {},
     // 最后一个使用此共享状态的组件 willUnmount 时触发，多个组件挂载又卸载干净会重新触发
     willUnmount(params) {},
     // setState 之前触发，可用于辅助 console.trace 来查看调用源头
@@ -102,18 +99,17 @@ export const store2 = createShared(() => ({ a: 1 }), {
 创建带 key 的 store，当前多个实体需要共享状态到不同组件并复用一模一样的 actions 逻辑时，使用 `createKeyedShared` 创建带 key 共享状态
 
 ```ts
-export const store = createKeyedShared(
-  () => ({ name: 1 }),
-  {
-    actionsFactory: ({ state, setState })=>({ 
-      someAction(){
-        console.log('state.key'); // 此处能读取到 key
-      }
-    }),
-    moduleName: 'Test', // 【可选】配置模块名称
-    lifecycle: { /** 略... */ },
-  }
-);
+export const store = createKeyedShared(() => ({ name: 1 }), {
+  actionsFactory: ({ state, setState }) => ({
+    someAction() {
+      console.log('state.key'); // 此处能读取到 key
+    },
+  }),
+  moduleName: 'Test', // 【可选】配置模块名称
+  lifecycle: {
+    /** 略... */
+  },
+});
 ```
 
 组件中使用 `store.useStore` 透传 key 即可
@@ -140,4 +136,5 @@ setState({ a: sharedObj.a + 1 });
 ```
 
 ## api 详情
+
 查看[api 详情](./API_DETAIL.md)

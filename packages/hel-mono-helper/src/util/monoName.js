@@ -187,7 +187,13 @@ function getCmdDPNameData(/** @type {IDevInfo} */ devInfo, dirOrPkgName) {
   if (dirName) {
     const pkgName = dirOrPkgName;
     const belongTo = pkg2BelongTo[pkgName];
-    return { pkgName, dirName, belongTo, prefixedDir: `${belongTo}/${dirName}`, alias: getAlias(pkgName) };
+    return {
+      pkgName,
+      dirName,
+      belongTo,
+      prefixedDir: `${belongTo}/${dirName}`,
+      alias: getAlias(pkgName),
+    };
   }
 
   if (pkgName) {
@@ -201,7 +207,13 @@ function getCmdDPNameData(/** @type {IDevInfo} */ devInfo, dirOrPkgName) {
     const pkgName = pkgs[0];
     const dirName = dirOrPkgName;
     const belongTo = pkg2BelongTo[pkgName];
-    return { pkgName, dirName, belongTo, prefixedDir: `${belongTo}/${dirName}`, alias: getAlias(pkgName) };
+    return {
+      pkgName,
+      dirName,
+      belongTo,
+      prefixedDir: `${belongTo}/${dirName}`,
+      alias: getAlias(pkgName),
+    };
   }
 
   if (pkgs.length > 1) {

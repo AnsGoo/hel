@@ -116,7 +116,14 @@ const inner = {
       }
     });
 
-    return { headAssetList, bodyAssetList, staticCssSrcList, staticJsSrcList, relativeCssSrcList, relativeJsSrcList };
+    return {
+      headAssetList,
+      bodyAssetList,
+      staticCssSrcList,
+      staticJsSrcList,
+      relativeCssSrcList,
+      relativeJsSrcList,
+    };
   },
   getChunkList(assetList: IAssetItem[]) {
     const chunkCssSrcList: string[] = [];

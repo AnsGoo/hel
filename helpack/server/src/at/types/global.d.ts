@@ -1,11 +1,10 @@
 import * as d from './domain';
 
 declare global {
-
   namespace xc {
     type Dict<T extends any = any> = Record<string, T>;
     type ValueType<T extends Dict> = T[keyof T];
-    type Fn<P extends any[] = any[], R extends (any | void) = (any | void)> = (...args: P) => R;
+    type Fn<P extends any[] = any[], R extends any | void = any | void> = (...args: P) => R;
   }
 
   namespace nsWuwei {
@@ -51,7 +50,6 @@ declare global {
     type SubAppInfo = DBModels['subAppInfo'];
     type SubAppVersion = DBModels['subAppVersion'];
     type UploadCos = DBModels['uploadCos'];
-
   }
 
   namespace nsReq {
@@ -69,13 +67,13 @@ declare global {
         href: string;
         rel: string;
         src: string;
-      }
+      };
     }
 
     interface SrcMap {
       /** 新版流水线资源只放到 headAssetList, bodyAssetList */
-      headAssetList: IAssetItem[],
-      bodyAssetList: IAssetItem[],
+      headAssetList: IAssetItem[];
+      bodyAssetList: IAssetItem[];
     }
 
     type SubAppInfoRaw = d.SubAppInfoRaw;
@@ -98,11 +96,11 @@ declare global {
     }
 
     type UserExtendParsed = Omit<UserExtendRaw, 'extend_info' | 'star_info' | 'visit_info' | 'mark_info'> & {
-      extend_info: { createAppLimit: number, createClassLimit: number };
+      extend_info: { createAppLimit: number; createClassLimit: number };
       star_info: { appNames: string[] };
       visit_info: { appNames: string[] };
-      mark_info: { markedList: { name: string, ver: string, desc: string, time: number }[] };
-    }
+      mark_info: { markedList: { name: string; ver: string; desc: string; time: number }[] };
+    };
 
     interface SubAppGlobalRaw {
       id: number;
@@ -112,13 +110,10 @@ declare global {
       mtime: string;
     }
 
-
     type SubAppGlobalParsed = Omit<SubAppGlobalRaw, 'mark_info'> & {
-      mark_info: { markedList: { ver: string, desc: string, userName: string, time: number }[] };
-    }
-
+      mark_info: { markedList: { ver: string; desc: string; userName: string; time: number }[] };
+    };
   }
-
 }
 
-export { }
+export {};

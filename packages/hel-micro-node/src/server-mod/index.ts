@@ -30,7 +30,7 @@ export async function getHelModMeta(helModNameOrPath: string, options?: IFetchMo
  * importMod('@hel-demo/mono-libs');
  */
 export async function importHelMod<T extends any = any>(helModNameOrPath: string, options?: IImportHelModOptions) {
-  const importOptions = { ...(options || {}), standalone: true };
+  const importOptions = { ...options, standalone: true };
   const modIns = await modManager.importMod<T>(helModNameOrPath, importOptions);
   return modIns;
 }
@@ -40,7 +40,7 @@ export async function importHelMod<T extends any = any>(helModNameOrPath: string
  * 在一些测试场景时，可以自定义准备文件函数做二次修改后再导出 hel 模块
  */
 export function importHelModByMeta<T extends any = any>(meta: IMeta, options: IImportHelModByMetaOptions) {
-  const importOptions = { ...(options || {}), standalone: true };
+  const importOptions = { ...options, standalone: true };
   const modIns = modManager.importModByMeta<T>(meta, importOptions);
   return modIns;
 }
@@ -61,7 +61,7 @@ export function importHelModByMetaSync<T extends any = any>(meta: IMeta, options
  * importHelModByPath('@hel-demo/mono-libs', '/user/proj/node_modules/my-mode/dist/index.js');
  */
 export function importHelModByPath(helModNameOrPath: string, modePath: string, options?: IImportHelModByPathOptions) {
-  const importOptions = { ...(options || {}), standalone: true };
+  const importOptions = { ...options, standalone: true };
   const result = modManager.importModByPath(helModNameOrPath, modePath, importOptions);
   return result.mod;
 }

@@ -18,7 +18,13 @@ exports.changeMod = function (/** @type {IDevInfo} */ devInfo) {
   const { dirName, belongTo, pkgName, alias } = getCmdDPNameData(devInfo, dirOrPkgName);
   helMonoLog(`.change keywords (${keywords.join(' ')})`);
   const newKeywords = [dirName].concat(keywords.slice(1));
-  const argvOptions = getArgvOptions({ devInfo, keywords: newKeywords, belongTo, pkgName, actionKey: INNER_ACTION.change });
+  const argvOptions = getArgvOptions({
+    devInfo,
+    keywords: newKeywords,
+    belongTo,
+    pkgName,
+    actionKey: INNER_ACTION.change,
+  });
 
   const oldPkgName = pkgName;
   const newPkgName = argvOptions.pkgName;

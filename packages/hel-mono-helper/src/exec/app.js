@@ -31,7 +31,12 @@ exports.execAppAction = function (/** @type {IDevInfo} */ devInfo, rawKeywordNam
 
     ensureExAppProject(devInfo, { masterAppData, exAppData });
     const { appPkgName, appDir, belongTo, isSubMod } = exAppData;
-    genPnpmCmdAndRun(appPkgName, { belongTo, dirName: appDir, isSubMod, scriptCmdKey: 'start:hel' });
+    genPnpmCmdAndRun(appPkgName, {
+      belongTo,
+      dirName: appDir,
+      isSubMod,
+      scriptCmdKey: 'start:hel',
+    });
     return;
   }
 

@@ -26,7 +26,10 @@ export const getSubAppVersionListByName: TController = async (ctx) => {
   }
   appShare.checkNonce(nonce, serverNonce);
 
-  const subAppVersionList = await ctx.services.appVersion.querySubAppVersionListByName(name, { page, size });
+  const subAppVersionList = await ctx.services.appVersion.querySubAppVersionListByName(name, {
+    page,
+    size,
+  });
   return subAppVersionList;
 };
 
@@ -80,6 +83,9 @@ export const resetVerCache: TController = async (ctx) => {
     throw new Error(`version(${versionIndex}) not exist`);
   }
 
-  await ctx.services.app.querySubAppVersionByVerId(versionIndex, { skipLocalCache: true, skipRemoteCache: true });
+  await ctx.services.app.querySubAppVersionByVerId(versionIndex, {
+    skipLocalCache: true,
+    skipRemoteCache: true,
+  });
   return true;
 };

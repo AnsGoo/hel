@@ -45,9 +45,6 @@ const config = {
     // }),
     commonjs(),
     // json()
-    // eslint({
-    //   include: ['src/**/*.js'] // 需要检查的部分
-    // }),
   ],
 };
 

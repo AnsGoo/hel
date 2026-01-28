@@ -4,19 +4,19 @@ import defaults from '../consts/defaults';
 const { SHADOW_BODY, SHADOW_BODY_STATUS } = defaults;
 
 export function getStaticShadowBodyRef(name: string, options?: IGetVerOptions) {
-  return getCustomData(name, { customKey: SHADOW_BODY, ...(options || {}) });
+  return getCustomData(name, { customKey: SHADOW_BODY, ...options });
 }
 
 export function setStaticShadowBodyRef(name: string, customValue: any, options?: IGetVerOptions) {
-  setCustomData(name, { customKey: SHADOW_BODY, customValue, ...(options || {}) });
+  setCustomData(name, { customKey: SHADOW_BODY, customValue, ...options });
 }
 
 export function getStaticShadowBodyStatus(name: string, options?: IGetVerOptions) {
-  return getCustomData(name, { customKey: SHADOW_BODY_STATUS, ...(options || {}) });
+  return getCustomData(name, { customKey: SHADOW_BODY_STATUS, ...options });
 }
 
 export function setStaticShadowBodyStatus(name: string, customValue: any, options?: IGetVerOptions) {
-  setCustomData(name, { customKey: SHADOW_BODY_STATUS, customValue, ...(options || {}) });
+  setCustomData(name, { customKey: SHADOW_BODY_STATUS, customValue, ...options });
 }
 
 interface IGetMayStaticShadowNodeOptions extends IGetVerOptions {

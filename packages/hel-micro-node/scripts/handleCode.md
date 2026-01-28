@@ -1,5 +1,5 @@
+// 还原 tsup 编译后的 \_resolveFilename 逻辑
 
-// 还原 tsup 编译后的 _resolveFilename 逻辑
 ```ts
 // before
 var _module = require('module'); var Module = _interopRequireWildcard(_module);
@@ -13,5 +13,3 @@ var _module = require('module');
 var oriResolveFilename = _module._resolveFilename;
 _module._resolveFilename = function(pkgName, parentModule, isMain, options) {
 ```
-
-

@@ -11,7 +11,10 @@ import { genNonceStr } from 'utils/str';
 
 const strLenRule = { max: 30, type: 'string', message: '长度不能大于30' };
 const str64LenRule = { max: 64, type: 'string', message: '长度不能大于64' };
-const tokenNameRule = { pattern: /^[a-zA-Z0-9-_]+$/, message: '只能是英文、数字、下划线、中划线的组合' };
+const tokenNameRule = {
+  pattern: /^[a-zA-Z0-9-_]+$/,
+  message: '只能是英文、数字、下划线、中划线的组合',
+};
 const tokenRules = [{ required: true, message: '请输入应用token' }, strLenRule, tokenNameRule];
 const appNameRules = [str64LenRule, APP_NAME_RULE];
 

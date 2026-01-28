@@ -5,6 +5,7 @@ sidebar_position: 4
 # 目录说明
 
 ## 结构链路
+
 - 入口脚本 `src/index.ts` 依次加载全局 `HelError`、环境配置初始化 `initAppEnvConf`、依赖初始化 `initAppLibs`、应用级监听 `initAppListeners`，最终执行 `runApp` 启动 HTTP 与 WebSocket 服务。
 
 - `at/core/app.ts` 构建 Express 应用：配置视图引擎、静态资源、通用中间件，并串联 `handleAllRequest` 与集中式路由 `router`，形成请求总入口。
@@ -45,8 +46,6 @@ sidebar_position: 4
 
 - `markControllerMethod.ts`：为指定模块方法标记 `__fnName__`、`__modName__`，方便本地 Mock。
 
-  
-
 ### 配置与工具
 
 - `at/configs/biz.ts`：缓存前缀、Redis 频道、插件签名常量。
@@ -58,8 +57,6 @@ sidebar_position: 4
 - `at/utils` 目录：常用数组、对象、字符串、签名、时间、URL 工具函数。
 
 - `at/pipes/index.ts`：封装 `ctx.pipes`，支持直接提取 RTX 用户名、分页参数、必填查询参数。
-
-  
 
 ### 服务层 `src/services`
 
@@ -83,8 +80,6 @@ sidebar_position: 4
 
 - `logger.ts`：业务日志、内部错误输出。
 
-  
-
 ### DAO 与模型层
 
 - `at/models`：基于 ORM 定义 `tSubAppInfo`、`tSubAppVersion`、`tAllowedApp` 等表结构及字段解析。
@@ -92,8 +87,6 @@ sidebar_position: 4
 - `at/dao`：利用 `util/buildDao` 动态生成通用 `get/add/update/del/count` 接口；`json.ts` 辅助 JSON 字段序列化。
 
 - DAO 模块按表划分，对应服务层调用（例如 `dao.subApp`, `dao.userExtend`）。
-
-  
 
 ### 控制器层 `src/controllers`
 
@@ -119,8 +112,6 @@ sidebar_position: 4
 
 - `controllers/local/*`：本地调试用 mock 数据与控制器。
 
-  
-
 ### 路由 `src/router.ts`
 
 - 启动时自动根据 `isLocal` 切换为本地 mock 控制器。
@@ -131,11 +122,7 @@ sidebar_position: 4
 
 - 所有路由经 `routerFactory` 注册并自动包装为统一逻辑函数。
 
-  
-
 ## 结构依赖关系图
-
-  
 
 ```mermaid
 
@@ -165,11 +152,7 @@ B --> L[Configs & Utils]
 
 ```
 
-  
-
 ## 关键调用与接口
-
-  
 
 ### 启动链路
 
@@ -179,8 +162,6 @@ B --> L[Configs & Utils]
 
 3. 第一次请求进入 `handleAllRequest` → `router` → 指定控制器 → `logicGateway`。
 
-  
-
 ### 缓存与通知
 
 - 控制器调用 `services/app`、`services/appVersion` 等读取 LRU 缓存；未命中时访问 DAO/远端缓存。
@@ -189,15 +170,11 @@ B --> L[Configs & Utils]
 
 - `services/dataCache.handleAppInfoChange/handleVersionChange` 在缓存更新后调用 `notifySDKMetaChanged` 推送订阅模块的 WebSocket 客户端，保持 hel-micro-node 实时同步。
 
-  
-
 ### OpenAPI / 简单服务接口
 
 - 路径 `GET /openapi/v1/app/info/getSubAppVersion`（及 JSONP / 批量 / Meta / HTML 变体）指向 `controllers/appSimple`，面向外部仅暴露基础能力，默认隐藏敏感字段。
 
 - `GET /openapi/out` 作为简化服务健康检查。
-
-  
 
 ### 内部管理接口
 
@@ -211,13 +188,9 @@ B --> L[Configs & Utils]
 
 - `GET /api/v1/allowed-app/*`：白名单增删查，并触发 Redis 通知其他实例更新。
 
-  
-
 ### SDK 专用接口
 
 - `POST /openapi/v1/sdk/createSubApp`、`updateSubApp`、`addVersion`、`getVersionList` 等：通过 `ctx.midData.forSdk` 限定签名校验流程，必要时读取分类密钥、检查灰度策略。
-
-  
 
 ### DevOps 插件接口
 
@@ -225,15 +198,11 @@ B --> L[Configs & Utils]
 
 - `GET /api/openApi/plugin/getCommonSignSec`：提供通用签名密钥。
 
-  
-
 ### hel-micro-node 监控
 
 - WebSocket 客户端初始化后通过 `MSG_TYPE.initHelMods` 上报关注模块；服务器端记录在 `SdkSocketServer.clientMap`。
 
 - 当版本或应用缓存更新时，`notifySDKMetaChanged` 精准推送给关注该模块的客户端，附带容器/worker 信息。
-
-  
 
 ### 错误与鉴权
 
@@ -242,8 +211,6 @@ B --> L[Configs & Utils]
 - `ctx.pipes.getRtxName` 从 Cookie/Query 自动推断用户，支持本地默认账号。
 
 - `controllers/share/lock`、`ConcurrencyGuard` 防止高并发写入与 branch 探测滥用。
-
-  
 
 ---
 

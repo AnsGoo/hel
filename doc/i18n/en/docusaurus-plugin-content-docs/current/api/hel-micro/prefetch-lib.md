@@ -265,13 +265,13 @@ function callRemoteMethod() {
 
 以下列举了常用参数解释，更多可选参数见[IPreFetchOptionsBase](/docs/api/types/hel-micro-types#iprefetchoptionsbase)描述
 
-| <div style={{width:'150px'}}>属性</div> | <div style={{width:'150px'}}>类型</div> | <div style={{width:'200px'}}>默认值</div> | <div style={{width:'355px'}}>描述</div> |
-| --- | --- | --- | --- |
-| platform | string | 'unpkg' | 指定获取模块元数据的平台 |
-| versionId | string | undefined | 指定拉取的版本号, 对于 unpkg 服务来说，版本号级 package.json 里的 version 值<br />未指定版本的话，总是拉取最新版本模块元数据，如当前用户在灰度名单里，则拉取灰度版本模块元数据 |
-| appendCss | boolean | true | 是否追加模块样式链接到 html 文档里 |
-| cssAppendTypes | CssAppendType[] | ['static', 'build', 'relative'] | 该配置项在 appendCss 为 true 时有效，表示按要附加哪几种类型的 css 链接到 html 文档上<br />'static' 表示静态 css 链接文件<br/>'build' 表示每次构建新生成的 css 文件 |
-| apiMode | 'get' \| 'jsonp' | 'jsonp' | api 请求方式 |
-| enableDiskCache | boolean | false | 是否开启硬盘缓存 |
+| <div style={{width:'150px'}}>属性</div> | <div style={{width:'150px'}}>类型</div> | <div style={{width:'200px'}}>默认值</div> | <div style={{width:'355px'}}>描述</div>                                                                                                                                        |
+| --------------------------------------- | --------------------------------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| platform                                | string                                  | 'unpkg'                                   | 指定获取模块元数据的平台                                                                                                                                                       |
+| versionId                               | string                                  | undefined                                 | 指定拉取的版本号, 对于 unpkg 服务来说，版本号级 package.json 里的 version 值<br />未指定版本的话，总是拉取最新版本模块元数据，如当前用户在灰度名单里，则拉取灰度版本模块元数据 |
+| appendCss                               | boolean                                 | true                                      | 是否追加模块样式链接到 html 文档里                                                                                                                                             |
+| cssAppendTypes                          | CssAppendType[]                         | ['static', 'build', 'relative']           | 该配置项在 appendCss 为 true 时有效，表示按要附加哪几种类型的 css 链接到 html 文档上<br />'static' 表示静态 css 链接文件<br/>'build' 表示每次构建新生成的 css 文件             |
+| apiMode                                 | 'get' \| 'jsonp'                        | 'jsonp'                                   | api 请求方式                                                                                                                                                                   |
+| enableDiskCache                         | boolean                                 | false                                     | 是否开启硬盘缓存                                                                                                                                                               |
 
 文档正在拼命建设中，有疑问可联系 [fantasticsoul](https://github.com/fantasticsoul) 或提 [issue](https://github.com/tnfe/hel/issues)，关注我的[掘金主页](https://juejin.cn/user/1732486056649880/posts)了解更多 ...

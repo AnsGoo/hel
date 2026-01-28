@@ -118,13 +118,23 @@ class SdkSocketServer {
 
   private saveWSClient(client: IClientSocket, req: any) {
     const { remoteAddress } = req.socket;
-    const initialInfo: ClientInfo = { id: '', helModNames: [], remoteAddress, envInfo: newEnvInfo() };
+    const initialInfo: ClientInfo = {
+      id: '',
+      helModNames: [],
+      remoteAddress,
+      envInfo: newEnvInfo(),
+    };
     this.clientMap.set(client, initialInfo);
   }
 
   private updateWSClientSocketInfo(client: IClientSocket, message: string) {
     const defaultEnvInfo = newEnvInfo();
-    const fallbackData = { msgType: '', helModNames: [], careAllModsChange: false, envInfo: defaultEnvInfo };
+    const fallbackData = {
+      msgType: '',
+      helModNames: [],
+      careAllModsChange: false,
+      envInfo: defaultEnvInfo,
+    };
     const msgObj = safeParse(message, { id: '', data: fallbackData });
     const { id, data } = msgObj;
     const info = this.clientMap.get(client);

@@ -22,7 +22,11 @@ function getDepKeyStr(key) {
 function getMasterAppExJson(options) {
   const { devInfo, masterAppData, writeExJson } = options;
   // 注意，此处是通过 masterAppData.appSrcDirPath 获得对应的 external deps 对象
-  const { nmL1ExternalDeps } = getMonoAppDepDataImpl({ appSrc: masterAppData.appSrcDirPath, devInfo, isAllDep: true });
+  const { nmL1ExternalDeps } = getMonoAppDepDataImpl({
+    appSrc: masterAppData.appSrcDirPath,
+    devInfo,
+    isAllDep: true,
+  });
   const nmPkgNames = Object.keys(nmL1ExternalDeps);
   resolveAppRelPath(masterAppData, './.hel', true);
   const genExJsonPath = resolveAppRelPath(masterAppData, './.hel/gen-exjson.js');

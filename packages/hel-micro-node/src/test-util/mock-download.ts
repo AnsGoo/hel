@@ -62,8 +62,8 @@ async function copyFilesToNewVerModDir(nodeModName: string, options?: IMockAutoD
   }
 
   const prepareFiles =
-    options?.prepareFiles
-    || ((params) => {
+    options?.prepareFiles ||
+    ((params) => {
       if (!fs.existsSync(params.modDirPath)) {
         fs.mkdirSync(params.modDirPath);
       }

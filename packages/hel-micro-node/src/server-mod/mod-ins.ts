@@ -69,7 +69,17 @@ export function getDiskModIns(webFile: IWebFileInfo): IModIns {
   // 传入正确的hel模块名但子路径错误，则这里会抛出 module not found 错误
   // 例如 xxx-hel-mod/unreached-path
   const mod = getModByPath(modPath);
-  return { mod, modPath, modRelPath, isMainMod, mainModPath, modDirPath, modRootDirPath, modVer, isInit: false };
+  return {
+    mod,
+    modPath,
+    modRelPath,
+    isMainMod,
+    mainModPath,
+    modDirPath,
+    modRootDirPath,
+    modVer,
+    isInit: false,
+  };
 }
 
 /**
@@ -77,7 +87,12 @@ export function getDiskModIns(webFile: IWebFileInfo): IModIns {
  */
 export async function prepareWebModFiles(
   webFile: IWebFileInfo,
-  options: { meta: any; prepareFiles?: PrepareFiles; onFilesReady?: OnFilesReady; reuseLocalFiles?: boolean },
+  options: {
+    meta: any;
+    prepareFiles?: PrepareFiles;
+    onFilesReady?: OnFilesReady;
+    reuseLocalFiles?: boolean;
+  },
 ) {
   const reuseLocalFiles = options.reuseLocalFiles ?? true;
   const modPathData = getModPathData(webFile);
@@ -100,9 +115,9 @@ export async function prepareWebModFiles(
 
     if (
       // 非当前 worker 创建锁文件时，执行到这里表示锁文件已释放，检查一下文件是否可复用即可
-      (!isCurrentWorkerCreateLockFile && !getIsFilesReusable(fileDownloadInfos))
+      (!isCurrentWorkerCreateLockFile && !getIsFilesReusable(fileDownloadInfos)) ||
       // 是当前 worker 创建锁文件时，执行到这里即可开始直接下载模块文件列表
-      || isCurrentWorkerCreateLockFile
+      isCurrentWorkerCreateLockFile
     ) {
       const delLockFile = () => {
         if (isCurrentWorkerCreateLockFile) {
@@ -125,12 +140,27 @@ export async function prepareWebModFiles(
  */
 export async function getWebModIns(
   webFile: IWebFileInfo,
-  options: { meta: any; prepareFiles?: PrepareFiles; onFilesReady?: OnFilesReady; reuseLocalFiles?: boolean },
+  options: {
+    meta: any;
+    prepareFiles?: PrepareFiles;
+    onFilesReady?: OnFilesReady;
+    reuseLocalFiles?: boolean;
+  },
 ): Promise<IModIns> {
   const modPathData = await prepareWebModFiles(webFile, options);
   const { modPath, modRelPath, isMainMod, mainModPath, modDirPath, modRootDirPath, modVer } = modPathData;
   const mod = getModByPath(modPath);
-  return { mod, modPath, modRelPath, isMainMod, mainModPath, modDirPath, modRootDirPath, modVer, isInit: false };
+  return {
+    mod,
+    modPath,
+    modRelPath,
+    isMainMod,
+    mainModPath,
+    modDirPath,
+    modRootDirPath,
+    modVer,
+    isInit: false,
+  };
 }
 
 /**
@@ -146,5 +176,15 @@ export function getCustomModIns(webFile: IWebFileInfo, prepareFilesSync: Prepare
   }
 
   const mod = getModByPath(modPath);
-  return { mod, modPath, modRelPath, isMainMod, mainModPath, modDirPath, modRootDirPath, modVer, isInit: false };
+  return {
+    mod,
+    modPath,
+    modRelPath,
+    isMainMod,
+    mainModPath,
+    modDirPath,
+    modRootDirPath,
+    modVer,
+    isInit: false,
+  };
 }

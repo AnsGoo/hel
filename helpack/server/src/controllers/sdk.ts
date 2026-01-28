@@ -134,7 +134,11 @@ export const queryBackupAssetsProgress: TController<any, any, { version: ISubApp
         await update({ id, upload_result: { ...resultCommon, finished: false } });
       }
 
-      await update({ id, upload_result: { ...resultCommon, finished: true }, upload_spend_time: Date.now() - start });
+      await update({
+        id,
+        upload_result: { ...resultCommon, finished: true },
+        upload_spend_time: Date.now() - start,
+      });
     } catch (err) {
       const errMsg = err.message;
       await update({ id, upload_result: { ...resultCommon, finished: false, errMsg } });

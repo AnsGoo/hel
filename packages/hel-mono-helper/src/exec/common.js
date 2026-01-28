@@ -30,8 +30,8 @@ function getPkgNameFromMayAlias(/** @type {IDevInfo} */ devInfo, mayAlias) {
     if (list && list.length) {
       if (list.length > 1) {
         const errMsg =
-          `these packages(${list.join(',')}) have the same alias ${mayAlias}, you can not operate mod with alias`
-          + `, or you can specify alias in dev-info config if you want to use alias ability!`;
+          `these packages(${list.join(',')}) have the same alias ${mayAlias}, you can not operate mod with alias` +
+          `, or you can specify alias in dev-info config if you want to use alias ability!`;
         throw new Error(errMsg);
       }
       newKeyword = list[0];
@@ -69,9 +69,9 @@ function analyzeColonKeywordName(/** @type {IDevInfo} */ devInfo, rawKeywordName
       // scriptCmdKey = START_CMD_MODES.includes(mode) ? `${rawScriptCmdKey}:${mode}` : mode;
       scriptCmdKey = `${rawScriptCmdKey}:${mode}`;
       if (
-        mode.includes(':') // 把  start:build:hel 修正为 build:hel
-        || mode === 'build' // 把 start:build 修正为 build
-        || mode.startsWith('test') //把 start:test... 修正为 test...
+        mode.includes(':') || // 把  start:build:hel 修正为 build:hel
+        mode === 'build' || // 把 start:build 修正为 build
+        mode.startsWith('test') //把 start:test... 修正为 test...
       ) {
         // 把  start:build:hel 修正为 build:hel
         scriptCmdKey = mode;

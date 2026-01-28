@@ -335,5 +335,14 @@ export function getModPathData(webFile: IWebFileInfo) {
     }
   }
 
-  return { modPath, modRelPath, isMainMod, mainModPath, modDirPath, modRootDirPath, modVer, fileDownloadInfos };
+  return {
+    modPath,
+    modRelPath,
+    isMainMod,
+    mainModPath,
+    modDirPath,
+    modRootDirPath,
+    modVer,
+    fileDownloadInfos,
+  };
 }

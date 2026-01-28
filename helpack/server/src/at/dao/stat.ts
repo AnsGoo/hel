@@ -7,4 +7,7 @@ const key2DefaultObj = {
   data: {},
 };
 
-export const { count, get, getOne, add, update, del } = buildDao<IStat>(models.stat, { jsonStrKeys, key2DefaultObj });
+export const { count, get, getOne, add, update, del } = buildDao<IStat>(models.stat, {
+  jsonStrKeys,
+  key2DefaultObj,
+});

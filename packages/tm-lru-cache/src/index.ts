@@ -43,14 +43,14 @@ const getUintArray = (max) =>
   !isPosInt(max)
     ? null
     : max <= Math.pow(2, 8)
-    ? Uint8Array
-    : max <= Math.pow(2, 16)
-    ? Uint16Array
-    : max <= Math.pow(2, 32)
-    ? Uint32Array
-    : max <= Number.MAX_SAFE_INTEGER
-    ? ZeroArray
-    : null;
+      ? Uint8Array
+      : max <= Math.pow(2, 16)
+        ? Uint16Array
+        : max <= Math.pow(2, 32)
+          ? Uint32Array
+          : max <= Number.MAX_SAFE_INTEGER
+            ? ZeroArray
+            : null;
 
 class ZeroArray extends Array {
   constructor(size) {

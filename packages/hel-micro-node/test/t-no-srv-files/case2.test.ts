@@ -8,7 +8,11 @@ describe('test no srv mod files', () => {
   test('mapAndPreload should catch no srv mod files', async () => {
     try {
       await mapAndPreload({
-        [HEL_HELLO_HELPACK]: { helpackApiUrl: HEL_API_URL, ver: HEL_HELLO_NO_SERVER_FILES_VER, platform },
+        [HEL_HELLO_HELPACK]: {
+          helpackApiUrl: HEL_API_URL,
+          ver: HEL_HELLO_NO_SERVER_FILES_VER,
+          platform,
+        },
       });
     } catch (err: any) {
       expect(err.message.includes('no server mod files')).toBeTruthy();

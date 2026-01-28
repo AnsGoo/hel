@@ -29,7 +29,11 @@ class HMNStat {
     for (const item of items) {
       const { id, create_at, update_at, ...rest } = item;
       await HMNStatDao.del({ id });
-      await HMNStatLogDao.add({ ...rest, end_reason: HMN_END_REASON.clientClosed, end_at: new Date().toISOString() });
+      await HMNStatLogDao.add({
+        ...rest,
+        end_reason: HMN_END_REASON.clientClosed,
+        end_at: new Date().toISOString(),
+      });
     }
   }
 
@@ -93,8 +97,13 @@ class HMNStat {
     const { id, create_at, update_at, ...rest } = dbStat;
     try {
       await HMNStatDao.update(toUpdate);
-      const logExtra = { ...(toUpdate.extra || {}), newVer: toUpdate.mod_version };
-      const logData = { ...rest, end_reason: HMN_END_REASON.newVersion, end_at: new Date().toISOString(), extra: logExtra };
+      const logExtra = { ...toUpdate.extra, newVer: toUpdate.mod_version };
+      const logData = {
+        ...rest,
+        end_reason: HMN_END_REASON.newVersion,
+        end_at: new Date().toISOString(),
+        extra: logExtra,
+      };
       await HMNStatLogDao.add(logData);
     } catch (err: any) {
       const toAdd = { ...rest, ...toUpdate, load_mode: HMN_LOAD_MODE.onInit };

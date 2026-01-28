@@ -80,10 +80,13 @@ export async function importNodeMod<T extends any = any>(
   options?: IImportNodeModOptions,
 ): Promise<IImportNodeModResult<T>> {
   const { helPath, platform } = getMappedData(nodeModName);
-  const importOptions: IInnerImportModByMetaOptions = { ...(options || {}), standalone: false, platform };
+  const importOptions: IInnerImportModByMetaOptions = { ...options, standalone: false, platform };
   const meta = await getMetaByImportOptions(helPath, importOptions);
   const modInfo = makeModInfo(meta);
-  const isUpdated = await presetDataMgr.updateForServerFirst(platform, modInfo, { mustBeServerMod: true, importOptions });
+  const isUpdated = await presetDataMgr.updateForServerFirst(platform, modInfo, {
+    mustBeServerMod: true,
+    importOptions,
+  });
   const mod = requireNodeMod(nodeModName);
 
   return { mod, isUpdated };
@@ -110,7 +113,10 @@ export async function importNodeModByMeta<T extends any = any>(
   const { platform } = getMappedData(nodeModName);
   const importOptions = extractImportNodeModByMetaOptions(nodeModName, meta, options);
   const modInfo = makeModInfo(meta);
-  const isUpdated = await presetDataMgr.updateForServerFirst(platform, modInfo, { mustBeServerMod: true, importOptions });
+  const isUpdated = await presetDataMgr.updateForServerFirst(platform, modInfo, {
+    mustBeServerMod: true,
+    importOptions,
+  });
   const mod = requireNodeMod(nodeModName);
 
   return { mod, isUpdated };
@@ -128,7 +134,10 @@ export function importNodeModByMetaSync<T extends any = any>(
   const { platform } = getMappedData(nodeModName);
   const importOptions = extractImportNodeModByMetaSyncOptions(nodeModName, meta, options);
   const modInfo = makeModInfo(meta);
-  const isUpdated = presetDataMgr.updateForServerFirstSync(platform, modInfo, { mustBeServerMod: true, importOptions });
+  const isUpdated = presetDataMgr.updateForServerFirstSync(platform, modInfo, {
+    mustBeServerMod: true,
+    importOptions,
+  });
   const mod = requireNodeMod(nodeModName);
 
   return { mod, isUpdated };
@@ -145,7 +154,7 @@ export function importNodeModByPath<T extends any = any>(
   options?: IImportNodeModByPathOptions,
 ): IImportNodeModResult<T> {
   const { helPath, platform } = getMappedData(nodeModName);
-  const newOptions = { ...(options || {}), standalone: false, platform };
+  const newOptions = { ...options, standalone: false, platform };
   return modManager.importModByPath(helPath, nodeModPath, newOptions);
 }
 
@@ -172,7 +181,7 @@ export function getNodeModVer(nodeModName: string): string {
  */
 export async function downloadNodeModFiles(nodeModName: string, options?: IDownloadNodeServerModFilesOptions) {
   const { helPath, platform } = getMappedData(nodeModName);
-  const prepareOptions: IDownloadServerModFilesOptions = { ...(options || {}), platform };
+  const prepareOptions: IDownloadServerModFilesOptions = { ...options, platform };
   const { modFileInfo, meta } = await modManager.prepareServerModFiles(helPath, prepareOptions);
   const files = getDirFileList(modFileInfo.modDirPath);
   return { meta, files };

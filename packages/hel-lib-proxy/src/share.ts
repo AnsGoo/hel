@@ -15,7 +15,7 @@ export function getMergedOptions(options?: IOptions) {
     allowDup: false, // TODO，此参数目前是多余的，后续考虑移除或实现
     platform: helConsts.DEFAULT_PLAT,
   };
-  return { ...defaultOptions, ...(options || {}) };
+  return { ...defaultOptions, ...options };
 }
 
 /**

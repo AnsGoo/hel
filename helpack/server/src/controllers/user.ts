@@ -79,7 +79,10 @@ async function getUsersFromCors(remoteCacheKey?: string) {
 
     userList.forEach((user) => {
       const leftBraceIdx = user.full.indexOf('(');
-      const parsedUser = { ...user, cnName: user.full.substring(leftBraceIdx + 1, user.full.length - 1) };
+      const parsedUser = {
+        ...user,
+        cnName: user.full.substring(leftBraceIdx + 1, user.full.length - 1),
+      };
       parsedUserList.push(parsedUser);
       cachedUserMap[user.en] = parsedUser;
     });

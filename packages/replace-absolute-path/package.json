@@ -2,22 +2,22 @@
   "name": "replace-absolute-path",
   "version": "1.4.2",
   "description": "replace absolute path to relative path",
+  "license": "MIT",
+  "author": {
+    "name": "fantasticsoul"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/tnfe/hel.git",
     "directory": "packages/hel-micro-core"
   },
-  "license": "MIT",
-  "author": {
-    "name": "fantasticsoul"
-  },
-  "main": "src/index.js",
   "files": [
     "lib",
     "src",
     ".babelrc.js",
     "README.md"
   ],
+  "main": "src/index.js",
   "scripts": {
     "build": "npm run build:commonjs && npm run build:es",
     "build:commonjs": "rollup -c --environment BUILD_ENV:commonjs",

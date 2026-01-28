@@ -79,7 +79,10 @@ export async function getSubApp(appName) {
 }
 
 export async function getSubAppToken(appName) {
-  const ret = await http.get(`/api/v1/app/info/getSubAppToken?name=${appName}`, '', { check: false, returnLogicData: false });
+  const ret = await http.get(`/api/v1/app/info/getSubAppToken?name=${appName}`, '', {
+    check: false,
+    returnLogicData: false,
+  });
   if (parseInt(ret.code, 10) !== 0) {
     throw new Error(ret.msg);
   }
@@ -101,7 +104,10 @@ export async function updateSubApp(toUpdate) {
   const content = `${toUpdate.id}_${timestamp}_${SEC_STR}`;
   const nonce = signMD5(content);
   const url = `/api/v1/app/info/updateSubApp?timestamp=${timestamp}&nonce=${nonce}`;
-  const res = await http.post(url, ensureCommittedSubAppProperties(toUpdate), { check: false, returnLogicData: false });
+  const res = await http.post(url, ensureCommittedSubAppProperties(toUpdate), {
+    check: false,
+    returnLogicData: false,
+  });
   return res;
 }
 

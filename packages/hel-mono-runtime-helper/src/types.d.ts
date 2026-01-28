@@ -47,7 +47,7 @@ export interface IGetPrefetchParamsOpts {
   mod: IMonoInjectedMod;
 }
 
-export type GetHelDeps = () => { helModNames: string[], helDeps: IHelDep[] };
+export type GetHelDeps = () => { helModNames: string[]; helDeps: IHelDep[] };
 
 export type GetPrefetchParams = (options: IGetPrefetchParamsOpts) => IPrefetchParams;
 

@@ -55,9 +55,9 @@ function getArgObject(args) {
     if (!ALL_CMD_TYPE_LIST.includes(cmdType)) {
       const config = getConfig();
       logPurple(
-        `You can just type '${config.cliKeyword}', `
-        + 'then cli will trigger interactive commands to ask you to input project name '
-        + 'if you forget the command.',
+        `You can just type '${config.cliKeyword}', ` +
+          'then cli will trigger interactive commands to ask you to input project name ' +
+          'if you forget the command.',
       );
       throw new Error(`Unknown command: "${cmdType}", it must be one of (${CMD_TYPE_LIST.join(', ')})`);
     }

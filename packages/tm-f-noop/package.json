@@ -5,21 +5,17 @@
   "bugs": {
     "url": "https://github.com/Tencent/hel/issues"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Tencent/hel",
-    "directory": "packages/f-noop"
-  },
   "license": "MIT",
   "author": {
     "name": "fantasticsoul",
     "email": "624313307@qq.com",
     "url": "https://github.com/fantasticsoul"
   },
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "unpkg": "dist/index.global.js",
-  "types": "index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Tencent/hel",
+    "directory": "packages/f-noop"
+  },
   "files": [
     "dist",
     "src",
@@ -27,6 +23,14 @@
     "README.md",
     "tsconfig.json"
   ],
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "index.d.ts",
+  "unpkg": "dist/index.global.js",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "scripts": {
     "build": "tsup",
     "build:watch": "tsup --watch",
@@ -35,9 +39,5 @@
   "dependencies": {},
   "devDependencies": {},
   "bundleDependencies": false,
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org/"
-  },
   "deprecated": false
 }

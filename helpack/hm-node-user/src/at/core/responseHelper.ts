@@ -32,7 +32,9 @@ export const code = (code, data, msg) => ({ [codeSymbol]: { code, data, msg } })
  * @param msg
  * @returns
  */
-export const errCode = (msg?: string) => ({ [errCodeSymbol]: { code: '-1', data: {}, msg: msg || '' } });
+export const errCode = (msg?: string) => ({
+  [errCodeSymbol]: { code: '-1', data: {}, msg: msg || '' },
+});
 
 /**
  * 原封不动的将 data 以 json 形式发送给客户点

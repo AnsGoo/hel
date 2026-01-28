@@ -103,7 +103,11 @@ class Stat {
       for (let i = 0; i < keys.length; i++) {
         const type = keys[i];
         const data = statDict[type];
-        const existStat = await dao.stat.getOne({ type, time_label: timeLabel, env_label: envLabel });
+        const existStat = await dao.stat.getOne({
+          type,
+          time_label: timeLabel,
+          env_label: envLabel,
+        });
         const logData = { type, data };
         if (existStat) {
           await dao.stat.update({ id: existStat.id, data });
@@ -142,7 +146,11 @@ class Stat {
         const ensuredResult = result as IStatDist;
         ensuredResult.data = stat.data;
         await dao.statDist.update(ensuredResult);
-        runningLogSrv.pushLog(logType, { subType, loc: 'update statDist success', data: ensuredResult });
+        runningLogSrv.pushLog(logType, {
+          subType,
+          loc: 'update statDist success',
+          data: ensuredResult,
+        });
       }
     } catch (err: any) {
       runningLogSrv.pushLog(logType, { subType, loc: 'catch err', data: { msg: err.message } });

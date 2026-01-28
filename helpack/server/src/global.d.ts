@@ -5,4 +5,4 @@ declare global {
   var HelError: IHelError;
 }
 
-export { };
+export {};

@@ -6,7 +6,6 @@ sidebar_position: 11
 
 传入 meta 数据，获取 meta 对应的模块
 
-
 ## 简单使用
 
 ```ts

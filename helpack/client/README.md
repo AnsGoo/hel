@@ -1,27 +1,33 @@
 ## 海拉平台前端项目
+
 ui基于`react`，数据层使用[concent](https://github.com/concentjs/concent)
 
 ## 运行
+
 - step 1  
-进入项目根目录，安装项目依赖
+  进入项目根目录，安装项目依赖
+
 ```bash
 tnpm i
-```  
+```
 
 - step 2  
-启动项目，开始开发与调试
+  启动项目，开始开发与调试
+
 ```bash
 npm start
 ```
 
 ## 发布
+
 - client 目录执行`npm run build:local`
 - 提交代码
 - 123 打包镜像发布
 
 ## 根目录结构
+
 ```
-|____config             # CRA webpack相关配置[由npm run eject弹出]   
+|____config             # CRA webpack相关配置[由npm run eject弹出]
 |____mock               # mock api配置
 |____public             # webpack-dev-server 静态资源目录
 |____scripts            # npm 脚本
@@ -29,15 +35,16 @@ npm start
 ```
 
 ## src目录结构
+
 ```
 |____configs
 | |____constant         # 各种常量定义处
 | |____ccReducer        # 暴露concent根reducer
 | |____before-init      # App实例化前的前置操作
-| 
+|
 |____index.js           # app entry file
 |____utils              # 通用的非业务相关工具函数集合（可以进一步按用途分类）
-| |____...              
+| |____...
 |
 |____models             # [[business models(全局模块配置)]]
 | |____index.js

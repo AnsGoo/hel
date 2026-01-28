@@ -6,7 +6,6 @@
 
 服务端js模块动态化加载方案
 
-
 ## 使用方式
 
 先映射模块，再导入你的应用入口文件启动服务。
@@ -14,8 +13,8 @@
 ```ts
 import { mapAndPreload } from 'hel-micro-node';
 
-async function start(){
-  await mapAndPreload({'@hel-demo/mono-libs': true});
+async function start() {
+  await mapAndPreload({ '@hel-demo/mono-libs': true });
   await import('./yourServerEntry');
 }
 ```
@@ -23,7 +22,7 @@ async function start(){
 如不映射 `@hel-demo/mono-libs`，则你的服务使用的是原型的 node 模块
 
 ```ts
-async function start(){
+async function start() {
   // await mapAndPreload({'@hel-demo/mono-libs': true});
   await import('./yourServerEntry');
 }

@@ -52,7 +52,11 @@ function getRemoteModule(appName: string, options: IInnerUseRemoteCompOptions) {
 export default function useLoadRemoteModule(config: IRemoteCompRenderConfig) {
   const { controlOptions, name } = config;
   const { Component, Skeleton } = controlOptions;
-  const [state, setState] = baseShareHooks.useObject({ errMsg: '', shadowStyleStr: '', isShadowStyleStrFetched: false });
+  const [state, setState] = baseShareHooks.useObject({
+    errMsg: '',
+    shadowStyleStr: '',
+    isShadowStyleStrFetched: false,
+  });
   const isLoadAppDataExecutingRef = React.useRef(false);
   const isLoadAppStyleExecutingRef = React.useRef(false);
   const { errMsg, shadowStyleStr, isShadowStyleStrFetched } = state;

@@ -2,7 +2,6 @@
   "name": "hub",
   "version": "0.0.1",
   "private": true,
-  "hel": {},
   "main": "./src/index.ts",
   "scripts": {
     "start": "node ../../dev/root-scripts/executeStart",
@@ -39,14 +38,9 @@
       "last 1 safari version"
     ]
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
   "volta": {
     "node": "20.19.5",
     "pnpm": "8.6.8"
-  }
+  },
+  "hel": {}
 }

@@ -22,14 +22,20 @@ runTest(({ api, describe, util, semverApi, platform }) => {
 
     test('fetch module with localStorage', async () => {
       // 开始加载模块
-      const lib = await preFetchLib('remote-vue-comps-tpl', { enableDiskCache: true, storageType: 'localStorage' });
+      const lib = await preFetchLib('remote-vue-comps-tpl', {
+        enableDiskCache: true,
+        storageType: 'localStorage',
+      });
       expect(lib).toBeTruthy();
       expect(lib.getNum()).toBe(1);
     });
 
     test('fetch module with indexedDB', async () => {
       // 开始加载模块
-      const lib = await preFetchLib('remote-vue-comps-tpl', { enableDiskCache: true, storageType: 'indexedDB' });
+      const lib = await preFetchLib('remote-vue-comps-tpl', {
+        enableDiskCache: true,
+        storageType: 'indexedDB',
+      });
       expect(lib).toBeTruthy();
       expect(lib.getNum()).toBe(1);
     });

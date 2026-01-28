@@ -9,19 +9,15 @@
     "module federation sdk"
   ],
   "bugs": "https://github.com/tnfe/hel/issues",
+  "license": "MIT",
+  "author": {
+    "name": "fantasticsoul"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/tnfe/hel.git",
     "directory": "packages/hel-utils"
   },
-  "license": "MIT",
-  "author": {
-    "name": "fantasticsoul"
-  },
-  "main": "lib/index.js",
-  "unpkg": "dist/hel-utils.min.js",
-  "module": "es/index.js",
-  "types": "src/index.ts",
   "files": [
     "dist",
     "lib",
@@ -30,16 +26,16 @@
     "README.md",
     "tsconfig.json"
   ],
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "src/index.ts",
+  "unpkg": "dist/hel-utils.min.js",
   "scripts": {
     "build": "npm run build:commonjs && npm run build:es && npm run build:umd && npm run build:umd:min",
     "build:commonjs": "rollup -c --environment BUILD_ENV:commonjs",
     "build:es": "rollup -c --environment BUILD_ENV:es",
     "build:umd": "rollup -c --environment BUILD_ENV:development",
     "build:umd:min": "rollup -c --environment BUILD_ENV:production",
-    "lint": "eslint ./src --ext ts,tsx",
-    "lint_fix": "eslint ./src --ext ts,tsx --fix",
-    "lint_test": "eslint ./test --ext ts,tsx",
-    "lint_test_fix": "eslint ./test --ext ts,tsx --fix",
     "test": "pnpm --filter=hel-micro-core run build:commonjs && jest"
   },
   "dependencies": {

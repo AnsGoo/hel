@@ -103,7 +103,12 @@ function setup(c) {
     },
     async openClassTokenModal(e, item) {
       ste(e);
-      ins.setState({ classTokenModalVisible: true, selectedClassInfo: item, classToken: '', classTokenLoading: true });
+      ins.setState({
+        classTokenModalVisible: true,
+        selectedClassInfo: item,
+        classToken: '',
+        classTokenLoading: true,
+      });
       try {
         const fullData = await getFullClassInfoById(item.id);
         ins.setState({ classToken: fullData.class_token, classTokenLoading: false });

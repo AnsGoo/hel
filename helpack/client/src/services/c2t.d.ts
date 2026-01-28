@@ -13,17 +13,9 @@ import {
   SettingsType,
   ComputedValType,
   SetupFn,
-  MultiComputed
-} from "concent";
-import {
-  CtxM,
-  CtxMConn,
-  CtxConn,
-  Modules,
-  RootRd,
-  RootState,
-  CtxDe
-} from "../types/store";
+  MultiComputed,
+} from 'concent';
+import { CtxM, CtxMConn, CtxConn, Modules, RootRd, RootState, CtxDe } from '../types/store';
 
 export interface ValidSetup {
   (ctx: ICtxBase): IAnyObj | void;
@@ -37,8 +29,8 @@ export interface OptionsBase<
   CuDesc extends MultiComputed<any>,
   Extra extends IAnyObj,
   StaticExtra extends any,
-  Mp extends ValidMapProps
-  > {
+  Mp extends ValidMapProps,
+> {
   props?: P;
   tag?: string;
   ccClassKey?: string;
@@ -64,10 +56,10 @@ export interface Options<
   CuDesc extends MultiComputed<any>,
   Extra extends IAnyObj,
   StaticExtra extends any,
-  Mp extends ValidMapProps
-  > extends OptionsBase<P, CuDesc, Extra, StaticExtra, Mp> {
+  Mp extends ValidMapProps,
+> extends OptionsBase<P, CuDesc, Extra, StaticExtra, Mp> {
   setup?: Setup;
 }
 
 // without setup
-export type OptionsNoSe = Omit<Options, "setup">;
+export type OptionsNoSe = Omit<Options, 'setup'>;

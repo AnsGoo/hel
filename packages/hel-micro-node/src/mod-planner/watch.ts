@@ -89,16 +89,28 @@ async function handleHelModChanged(platform: string, helModName: string) {
     mayUpdateModPresetData(platform, SET_BY.watch, helModName, modInfo);
   } catch (err: any) {
     const { reporter } = getGlobalConfig();
-    reporter.reportError({ message: err.stack, desc: 'err-handle-hel-mod-changed', data: platform });
+    reporter.reportError({
+      message: err.stack,
+      desc: 'err-handle-hel-mod-changed',
+      data: platform,
+    });
     const errMsg = err.message;
-    log({ subType: 'handleHelModChanged', desc: 'err occurred', data: { helModName, errMsg, platform } });
+    log({
+      subType: 'handleHelModChanged',
+      desc: 'err occurred',
+      data: { helModName, errMsg, platform },
+    });
   }
 }
 
 /** 开启消息订阅，接收到模块变化信号时刷新内存里的数据 */
 export function listenHelModChange(platform: string) {
   subHelpackModChange(platform, (params) => {
-    log({ subType: 'listenHelModChange', desc: 'trigger updateModInfo', data: { params, platform } });
+    log({
+      subType: 'listenHelModChange',
+      desc: 'trigger updateModInfo',
+      data: { params, platform },
+    });
     handleHelModChanged(platform, params.modName);
   });
 }

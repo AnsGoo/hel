@@ -5,6 +5,7 @@ sidebar_position: 3
 # 后端数据库配置
 
 Helpack 支持三种运行模式：
+
 - **Simple 模式**：无需数据库和 Redis，仅提供基础 API
 - **Local 模式**：无需数据库和 Redis，采用本地模拟数据
 - **完整模式**：需要配置 MySQL 和 Redis，完整生产环境
@@ -66,4 +67,3 @@ redis-server
 
 - 如果使用 Simple 模式和 Local 模式，可以跳过 MySQL 和 Redis 配置
 - 完整模式需要同时配置 MySQL 和 Redis
-

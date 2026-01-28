@@ -2,14 +2,14 @@
   "name": "hel-types",
   "version": "4.3.10",
   "description": "hel types file",
+  "license": "MIT",
+  "author": {
+    "name": "fantasticsoul"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/tnfe/hel.git",
     "directory": "packages/hel-types"
-  },
-  "license": "MIT",
-  "author": {
-    "name": "fantasticsoul"
   },
   "main": "src/index.js",
   "module": "src/index.js",

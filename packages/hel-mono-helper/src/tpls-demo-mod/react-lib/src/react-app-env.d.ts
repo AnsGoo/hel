@@ -3,7 +3,7 @@
 /// <reference types="react-dom" />
 
 // [HEL_MARK] avoid: Could not find a declaration file for module 'react/jsx-runtime'
-declare module "react/jsx-runtime" {
+declare module 'react/jsx-runtime' {
   export default any;
 }
 

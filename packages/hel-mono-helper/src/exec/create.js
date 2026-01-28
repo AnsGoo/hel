@@ -65,12 +65,12 @@ exports.execCreate = function (/** @type {IDevInfo} */ devInfo, options = {}) {
 };
 
 exports.execCreateStart = function (/** @type {IDevInfo} */ devInfo, options) {
-  exports.execCreate(devInfo, { autoStart: true, ...(options || {}) });
+  exports.execCreate(devInfo, { autoStart: true, ...options });
 };
 
 /**
  * 执行 npm start .create-mod xxx 命令
  */
 exports.execCreateMod = function (/** @type {IDevInfo} */ devInfo, options) {
-  exports.execCreate(devInfo, { autoStart: false, isSubMod: true, ...(options || {}) });
+  exports.execCreate(devInfo, { autoStart: false, isSubMod: true, ...options });
 };

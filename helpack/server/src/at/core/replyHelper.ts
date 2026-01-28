@@ -50,13 +50,17 @@ export const jsonp = (data: any) => ({ [jsonpSymbol]: data === undefined ? null 
  * 支持自定义 code msg
  * @returns
  */
-export const jsonpCode = (data: any, code: any, msg?: string) => ({ [jsonpCodeSymbol]: { data, code, msg } });
+export const jsonpCode = (data: any, code: any, msg?: string) => ({
+  [jsonpCodeSymbol]: { data, code, msg },
+});
 
 /**
  * 原封不动的将 data 以 jsonp 形式发送给客户点
  * @returns
  */
-export const jsonpOutput = (data: any) => ({ [jsonpOutputSymbol]: data === undefined ? null : data });
+export const jsonpOutput = (data: any) => ({
+  [jsonpOutputSymbol]: data === undefined ? null : data,
+});
 
 export const cst = {
   viewSymbol,

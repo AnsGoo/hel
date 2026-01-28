@@ -36,7 +36,11 @@ export function useShared<T extends Dict = Dict>(
 
   // TODO  优化 sharedObject 变化的情况
   const rawState = getRawState(sharedObject);
-  const [, setState] = useObjectLogic(rawState, { isStable: true, [IS_SHARED]: true, [SKIP_MERGE]: true });
+  const [, setState] = useObjectLogic(rawState, {
+    isStable: true,
+    [IS_SHARED]: true,
+    [SKIP_MERGE]: true,
+  });
   const { current: insCtx } = useRef({
     readMap: {} as any, // 当前渲染完毕所依赖的 key 记录
     readMapPrev: {} as any, // 上一次渲染完毕所依赖的 key 记录

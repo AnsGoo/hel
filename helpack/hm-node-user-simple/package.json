@@ -1,13 +1,13 @@
 {
   "name": "hm-node-user-simple",
   "version": "1.0.0",
+  "license": "ISC",
+  "author": "fantasticsoul",
   "scripts": {
     "start": "node ./case-mod-ver/index",
     "start2": "node ./case/index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "fantasticsoul",
-  "license": "ISC",
   "dependencies": {
     "@hel-demo/mono-libs": "^1.1.1",
     "hel-micro-node": "^1.1.0"

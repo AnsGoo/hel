@@ -2,18 +2,15 @@
   "name": "hel-micro-react",
   "version": "4.14.3",
   "description": "react implementation of hel-micro",
+  "license": "MIT",
+  "author": {
+    "name": "fantasticsoul"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Tencent/hel.git",
     "directory": "packages/hel-micro-react"
   },
-  "license": "MIT",
-  "author": {
-    "name": "fantasticsoul"
-  },
-  "main": "lib/index.js",
-  "module": "es/index.js",
-  "types": "src/index.ts",
   "files": [
     "dist",
     "lib",
@@ -22,6 +19,9 @@
     "README.md",
     "tsconfig.json"
   ],
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "src/index.ts",
   "scripts": {
     "build": "tsc && npm run build:commonjs && npm run build:es && npm run build:umd && npm run build:umd:min",
     "build:commonjs": "rollup -c --environment BUILD_ENV:commonjs",

@@ -1,4 +1,4 @@
-import { ISubApp, ISubAppVersion } from 'hel-types'
+import { ISubApp, ISubAppVersion } from 'hel-types';
 
 export interface User {
   user: string;
@@ -10,10 +10,10 @@ export type SubApp = ISubApp;
 export type SubAppVersion = ISubAppVersion;
 
 export interface IServerModStat {
-  id: string,
+  id: string;
   // create_at: '2020-04-01T02:51:35.000Z',
-  create_at: string,
-  update_at: string,
+  create_at: string;
+  update_at: string;
   env_name: string;
   mod_name: string;
   mod_version: string;

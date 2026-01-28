@@ -4,12 +4,7 @@
 import { IMeta } from 'hel-types';
 import type { IUserExtractOptions } from 'hel-dev-utils-base';
 
-export type {
-  ICheckOptions,
-  ICreateSubAppOptions,
-  ISubAppBuildDesc,
-  IUserExtractOptions,
-} from 'hel-dev-utils-base';
+export type { ICheckOptions, ICreateSubAppOptions, ISubAppBuildDesc, IUserExtractOptions } from 'hel-dev-utils-base';
 export {
   cst,
   baseUtils,

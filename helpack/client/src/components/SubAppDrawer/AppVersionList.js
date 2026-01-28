@@ -119,8 +119,9 @@ const Title = React.memo(() => {
   return (
     <div>
       <div>
-        你好，亲爱的用户{user}， Hel 已为该应用一共构建了 <Tag color={helper.tagColors.online}>{state.buildTotal}</Tag>个版本 （包含{' '}
-        <Tag color={helper.tagColors.globalMarked}>{state.markTotal}</Tag>个标记版本）
+        你好，亲爱的用户{user}， Hel 已为该应用一共构建了 <Tag color={helper.tagColors.online}>{state.buildTotal}</Tag>
+        个版本 （包含 <Tag color={helper.tagColors.globalMarked}>{state.markTotal}</Tag>
+        个标记版本）
       </div>
       <div>
         线上版本：<Label>{state.subApp.online_version}</Label>
@@ -185,7 +186,10 @@ const renderVersion = (record, tableCtx, titleUiMode = 'hasTitle') => {
   }
 
   // 以下开始正常渲染逻辑
-  const { uiConner, stCard, CardComp, uiGlobalMarkDesc, uiUserMarkDesc } = helper.buildConnerAndStCard(record, { stTitle, stCol });
+  const { uiConner, stCard, CardComp, uiGlobalMarkDesc, uiUserMarkDesc } = helper.buildConnerAndStCard(record, {
+    stTitle,
+    stCol,
+  });
   const actions = helper.buildCardActions(record, setCardLoading, titleUiMode);
   const { pureGitRepoUrl, uiGitHashLinks } = helper.buildUiGitHashLinks(record);
   const verStr = record.version_tag || record.sub_app_version;

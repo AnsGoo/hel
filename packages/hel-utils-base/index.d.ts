@@ -1,4 +1,3 @@
-
 export interface INullDef {
   /** 这些值可判断为空 */
   nullValues: any[];

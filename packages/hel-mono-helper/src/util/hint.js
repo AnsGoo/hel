@@ -37,7 +37,7 @@ function hint() {
     "build:meta": "node ../../dev/scripts/hel/meta",
 
     # combine build:hel and build:meta together
-    "build:helm": "cross-env-shell \"pnpm run build:hel && pnpm run build:meta\"",
+    "build:helm": "cross-env-shell "pnpm run build:hel && pnpm run build:meta"",
 
     # build sub module as hel server module
     "build:hels": "node ../../dev/scripts/hel/buildS",
@@ -52,7 +52,7 @@ function hint() {
     "build:metaex": "node ../../dev/scripts/hel/metaEX",
 
     # combine build:helex and build:metaex together
-    "build:helexm": "cross-env-shell \"pnpm run build:helex && pnpm run build:metaex\"",
+    "build:helexm": "cross-env-shell "pnpm run build:helex && pnpm run build:metaex"",
 
     # build app&module external assets in another app
     "build:helexs": "node ../../dev/scripts/hel/buildEXS",
@@ -61,7 +61,7 @@ function hint() {
     "build:nbs": "pnpm run build:npm && pnpm run build:helbs",
 
     # combine build:nbs and build:meta together
-    "build:nbsm": "cross-env-shell \"pnpm run build:nbs && pnpm run build:meta\"",
+    "build:nbsm": "cross-env-shell "pnpm run build:nbs && pnpm run build:meta"",
 
     # build npm module with tsup
     "build:npm": "tsup",

@@ -4,7 +4,7 @@ import { makeUseModel, makeUseModelWithSetup, makeUseModelWithSetupCuf } from 'c
 import state from './state';
 import * as reducer from './reducer';
 
-type ModuleState = ReturnType<typeof state>
+type ModuleState = ReturnType<typeof state>;
 
 export const moduleName = 'GeneralTable';
 
@@ -21,7 +21,7 @@ export type CallerParams = ReducerCallerParams | [IReducerFn, any];
 export type ReducerFn = IReducerFn;
 export type St = ModuleState;
 // export type RootInfo = { state: RootState, computed: RootCu };
-export type RootInfo = { state: {}, computed: {} };
+export type RootInfo = { state: {}; computed: {} };
 /** 用于描述 reducer 函数第3位参数 actionCtx 的类型 */
 export type IAC = IModActionCtx<RootInfo, ModelDesc>;
 export type CtxPre<RefCu = IAnyObj, Extra = IAnyObj> = IRefCtxM<RootInfo, IAnyObj, ModelDesc, RefCu, Extra>;

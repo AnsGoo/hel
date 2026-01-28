@@ -14,7 +14,9 @@ export type LibProperties = Record<string, any>;
  *
  * now: lib.someLib.a ... can be inferred by ts
  */
-export type LibMap<Name extends LibName = LibName, Properties extends LibProperties = LibProperties> = { [K in Name]: Properties };
+export type LibMap<Name extends LibName = LibName, Properties extends LibProperties = LibProperties> = {
+  [K in Name]: Properties;
+};
 
 export interface IOptions {
   /**

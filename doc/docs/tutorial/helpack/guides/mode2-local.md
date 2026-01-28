@@ -35,12 +35,11 @@ npm run start
 
 ```bash
 cd hm-node-user
-npm run build 
+npm run build
 npm run start
 ```
 
 用户端会在 `http://localhost:7776` 启动。、
-
 
 ### 4. 访问用户端界面
 
@@ -48,15 +47,14 @@ npm run start
 
 ![](/img/user端截图.png)
 
-
 ### 5. 访问后端界面
 
 打开浏览器访问 `http://localhost:7777`，即可进入helpack管理界面。
 
 ![](https://tnfe.gtimg.com/hel-img/WX20251027-120047.png)
 
-
 ### 6. 功能介绍
+
 - 点击后端首页中探索更多可打开应用商店
 
 ![](/img/后端首页.png)
@@ -116,8 +114,6 @@ npm run start
 ![](/img/更新并查看虚拟结果.png)
 ![](/img/更新并查看结果.png)
 
-
-
 ## 功能特点
 
 - 支持连接 Helpack 后端
@@ -131,4 +127,3 @@ npm run start
 - `IS_SIMPLE_SERVER=0`，提供完整 API（但本地模式下不连接数据库）
 - 不连接数据库和 Redis
 - 支持版本切换等核心功能
-

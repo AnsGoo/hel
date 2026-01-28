@@ -5,19 +5,16 @@
   "keywords": [
     "hel-lib-proxy"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/tnfe/hel.git",
-    "directory": "packages/hel-lib-proxy"
-  },
   "license": "MIT",
   "author": {
     "name": "fantasticsoul",
     "email": "624313307@qq.com"
   },
-  "main": "dist/hel-lib-proxy.min.js",
-  "unpkg": "dist/hel-lib-proxy.min.js",
-  "types": "lib/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tnfe/hel.git",
+    "directory": "packages/hel-lib-proxy"
+  },
   "files": [
     "dist",
     "lib",
@@ -26,23 +23,19 @@
     "tsconfig.json",
     "LICENSE"
   ],
+  "main": "dist/hel-lib-proxy.min.js",
+  "types": "lib/index.d.ts",
+  "unpkg": "dist/hel-lib-proxy.min.js",
   "scripts": {
     "build": "npm run build:umd & npm run build:umd-min",
     "build:umd": "tsc & rollup -c",
     "build:umd-min": "tsc & cross-env MIN=true rollup -c"
-  },
-  "browserify": {
-    "transform": [
-      "loose-envify"
-    ]
   },
   "dependencies": {
     "hel-micro-core": "^4.13.1",
     "hel-types": "^4.3.10"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.19.1",
-    "@babel/eslint-plugin": "^7.19.1",
     "rollup": "^2.23.0"
   },
   "peerDependencies": {
@@ -50,6 +43,11 @@
     "hel-types": "^4.3.10"
   },
   "bundleDependencies": false,
+  "browserify": {
+    "transform": [
+      "loose-envify"
+    ]
+  },
   "deprecated": false,
   "npmName": "hel-lib-proxy"
 }

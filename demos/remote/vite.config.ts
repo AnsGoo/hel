@@ -71,7 +71,7 @@ export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
             ...appInfo.externals,
           },
         },
-        external: [...Object.keys(appInfo.externals)],
+        external: Object.keys(appInfo.externals),
       },
     },
   };

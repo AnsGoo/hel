@@ -28,12 +28,12 @@ const innerUtil = {
 
     // 以下导出语句不做处理
     if (
-      isExportStartsWith('interface')
-      || isExportStartsWith('const')
-      || isExportStartsWith('enum')
-      || isExportStartsWith('function')
-      || isExportStartsWith('async')
-      || isExportStartsWith('default')
+      isExportStartsWith('interface') ||
+      isExportStartsWith('const') ||
+      isExportStartsWith('enum') ||
+      isExportStartsWith('function') ||
+      isExportStartsWith('async') ||
+      isExportStartsWith('default')
     ) {
       return false;
     }
@@ -466,7 +466,12 @@ async function replaceRelativePath(options) {
             }
           }
 
-          mayAppendContentToFileHead({ fullPath, fileName: name, fileExt: ext, fileFullExt: fullExt });
+          mayAppendContentToFileHead({
+            fullPath,
+            fileName: name,
+            fileExt: ext,
+            fileFullExt: fullExt,
+          });
 
           if (!shouldRewrite) {
             fileWriteEndCount += 1;

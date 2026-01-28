@@ -3,7 +3,7 @@
 // fixed including comment parse bug.
 
 const SPACE_REGEX = /\s/;
-const TOKEN_REGEX = /[a-zA-Z0-9\-]/;
+const TOKEN_REGEX = /[a-zA-Z0-9-]/;
 const DOCTYPE_MARK = '<!DOCTYPE html>';
 const COMMENT_START = '<!--';
 const COMMENT_END = '-->';

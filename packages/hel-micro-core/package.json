@@ -2,17 +2,15 @@
   "name": "hel-micro-core",
   "version": "4.13.1",
   "description": "hel micro core",
+  "license": "MIT",
+  "author": {
+    "name": "fantasticsoul"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Tencent/hel.git",
     "directory": "packages/hel-micro-core"
   },
-  "license": "MIT",
-  "author": {
-    "name": "fantasticsoul"
-  },
-  "main": "lib/index.js",
-  "module": "es/index.js",
   "files": [
     "dist",
     "lib",
@@ -22,6 +20,8 @@
     ".babelrc.js",
     "README.md"
   ],
+  "main": "lib/index.js",
+  "module": "es/index.js",
   "scripts": {
     "build": "npm run build:commonjs && npm run build:es && npm run build:umd && npm run build:umd:min",
     "build:commonjs": "rollup -c --environment BUILD_ENV:commonjs",

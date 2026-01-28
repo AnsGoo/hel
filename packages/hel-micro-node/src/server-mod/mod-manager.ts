@@ -296,7 +296,12 @@ class ModManager {
     // 本地磁盘不存在模块文件，走一次网络下载，然后再导出
     log({ subType: 'importModByMeta', desc: 'getWebModIns', data: webFile });
     const prepareFiles = ensuredOptions.prepareFiles || mapNodeModsManager.getPrepareFilesFn(helModNameOrPath, platform);
-    const webModIns = await getWebModIns(webFile, { meta, prepareFiles, onFilesReady, reuseLocalFiles });
+    const webModIns = await getWebModIns(webFile, {
+      meta,
+      prepareFiles,
+      onFilesReady,
+      reuseLocalFiles,
+    });
     if (standalone) {
       return webModIns;
     }
@@ -386,7 +391,11 @@ class ModManager {
     const result = await this.guard.call(`${helModName}-PSMF`, async () => {
       const meta = await fetchModMeta(helModName, options);
       const { webFile } = this.prepareModParams(platform, meta, helModNameOrPath);
-      const modFileInfo = await prepareWebModFiles(webFile, { meta, onFilesReady, reuseLocalFiles });
+      const modFileInfo = await prepareWebModFiles(webFile, {
+        meta,
+        onFilesReady,
+        reuseLocalFiles,
+      });
       return { meta, modFileInfo };
     });
 
@@ -424,7 +433,11 @@ class ModManager {
     }
 
     // 清理上一个模块的内存数据
-    log({ subType: 'clearPrevModCache', desc: 'start clear prev mod data', data: { prevModPaths } });
+    log({
+      subType: 'clearPrevModCache',
+      desc: 'start clear prev mod data',
+      data: { prevModPaths },
+    });
     prevModPaths.forEach((path) => clearModule(path));
   }
 

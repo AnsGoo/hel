@@ -6,7 +6,7 @@ sidebar_position: 7
 
 同步函数，查看映射了 hel 模块的 node 模块路径数据 `IResolveModResult`，类型信息如下
 
-```ts
+````ts
 interface IResolveModResult {
   /**
    * hel 模块对应的 node 模块名称，无值表示未在 mapNodeMods 或 mapAndPreload 里映射过
@@ -50,7 +50,7 @@ interface IResolveModResult {
    */
   helModVer: string;
 }
-```
+````
 
 :::caution
 

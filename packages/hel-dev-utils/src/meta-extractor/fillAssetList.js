@@ -261,7 +261,14 @@ export async function fillAssetList(doms, options) {
     const innerText = getInnerText(childDom);
     let toPushAsset = null;
     let allowAddToAssetList = false;
-    const assetOptions = { el: childDom, innerText, homePage, extractMode, enableRelativePath, enableAssetInnerText };
+    const assetOptions = {
+      el: childDom,
+      innerText,
+      homePage,
+      extractMode,
+      enableRelativePath,
+      enableAssetInnerText,
+    };
 
     if (!['LINK', 'SCRIPT', 'STYLE'].includes(tagName)) {
       continue;

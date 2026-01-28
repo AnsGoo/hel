@@ -18,4 +18,4 @@ exports.genExJson = function (shouldWrite) {
   }
 
   return exJson;
-}
+};

@@ -29,13 +29,22 @@ export async function downloadFile(fileWebPath: string, fileLocalPath: string) {
  * 获取需要透传给 getPrepareFiles 函数参数列表的 params
  */
 export function getPrepareFilesParams(name: string, modDirPath: string, fileInfos: IFileDownloadInfo[]) {
-  const filePaths = fileInfos.map((v) => ({ fileLocalPath: path.join(v.fileDir, v.fileName), fileWebPath: v.url }));
+  const filePaths = fileInfos.map((v) => ({
+    fileLocalPath: path.join(v.fileDir, v.fileName),
+    fileWebPath: v.url,
+  }));
   const writeIndexContent = (content: string) => {
     const indexFile = path.join(modDirPath, './index.js');
     fs.writeFileSync(indexFile, content, { encoding: 'utf8' });
   };
 
-  const params: IPrepareFilesParams = { modDirPath, filePaths, name, downloadFile, writeIndexContent };
+  const params: IPrepareFilesParams = {
+    modDirPath,
+    filePaths,
+    name,
+    downloadFile,
+    writeIndexContent,
+  };
   return params;
 }
 

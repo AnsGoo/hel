@@ -37,7 +37,7 @@ export function buildImportHelpackModTest(config?: IPlatformConfig) {
         platform,
         registrationSource: 'tnode',
         helpackApiUrl: HEL_API_URL,
-        ...(config || {}),
+        ...config,
       });
 
       try {
@@ -100,7 +100,7 @@ export function buildNativeRequireTest(config?: IPlatformConfig) {
 export function buildNativeStableRequireTest(config?: IPlatformConfig) {
   return (testLabel: string) =>
     test(testLabel, async () => {
-      setPlatformConfig({ ...baseConfig, ...(config || {}) });
+      setPlatformConfig({ ...baseConfig, ...config });
 
       mapNodeMods({ [MOD_NPM_NAME]: HEL_DEMO_LIB1 });
       // 预加载后调用 require 获得 hello 句柄

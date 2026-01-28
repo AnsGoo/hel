@@ -9,7 +9,12 @@ const eventBus = getHelEventBus();
 export function mockEmitModule(options?: { app?: Partial<ISubApp>; platform?: string; semverApi?: boolean }) {
   const { platform = getPlatform(), semverApi } = options || {};
   const app = mockData.makeApp(options);
-  const version = mockData.makeVersion({ name: app.name, platform, versionId: app.build_version, semverApi });
+  const version = mockData.makeVersion({
+    name: app.name,
+    platform,
+    versionId: app.build_version,
+    semverApi,
+  });
 
   setAppMeta(app, platform);
   setVersion(app.name, version, { platform });
@@ -33,7 +38,12 @@ export function mockEmitModule(options?: { app?: Partial<ISubApp>; platform?: st
 export function mockEmitAppRootComponent(options?: { app?: Partial<ISubApp>; platform?: string; semverApi?: boolean }) {
   const { platform = getPlatform(), semverApi } = options || {};
   const app = mockData.makeApp(options);
-  const version = mockData.makeVersion({ name: app.name, platform, versionId: app.online_version, semverApi });
+  const version = mockData.makeVersion({
+    name: app.name,
+    platform,
+    versionId: app.online_version,
+    semverApi,
+  });
   setAppMeta(app, platform);
   setVersion(app.name, version, { platform });
   setTimeout(() => {

@@ -2,16 +2,15 @@
   "name": "helpack-js-sdk",
   "version": "0.1.0",
   "description": "helpack-js-sdk",
+  "license": "MIT",
+  "author": {
+    "name": "fantasticsoul"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Tencent/hel.git",
     "directory": "packages/helpack-js-sdk"
   },
-  "license": "MIT",
-  "author": {
-    "name": "fantasticsoul"
-  },
-  "main": "lib/index.js",
   "files": [
     "dist",
     "lib",
@@ -21,6 +20,7 @@
     "index.d.ts",
     "README.md"
   ],
+  "main": "lib/index.js",
   "scripts": {
     "build": "npm run build:commonjs && npm run build:es && npm run build:umd && npm run build:umd:min",
     "build:commonjs": "rollup -c --environment BUILD_ENV:commonjs",
@@ -43,7 +43,6 @@
     "rollup": "^2.23.0",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-eslint": "^7.0.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-uglify": "^6.0.4"
   },

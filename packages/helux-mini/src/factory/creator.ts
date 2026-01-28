@@ -53,7 +53,16 @@ function parseOptions(isKeyed: boolean, options?: ModuleName | EnableReactive | 
     actionsFactory = options.actionsFactory || noop;
   }
 
-  return { enableReactive, enableRecordDep, copyObj, enableSyncOriginal, moduleName, lifecycle, actionsFactory, isKeyed };
+  return {
+    enableReactive,
+    enableRecordDep,
+    copyObj,
+    enableSyncOriginal,
+    moduleName,
+    lifecycle,
+    actionsFactory,
+    isKeyed,
+  };
 }
 
 function parseRawState<T extends Dict = Dict>(stateOrStateFn: T | (() => T)) {
@@ -83,7 +92,16 @@ function getHeluxParams(isKeyed: boolean, rawState: Dict, options: ICreateOption
   }
   const sharedKey = markSharedKey(heluxObj);
   // @ts-ignore
-  return { rawState, heluxObj, shouldSync, sharedKey, lifecycle, actionsFactory, isKeyed, moduleName };
+  return {
+    rawState,
+    heluxObj,
+    shouldSync,
+    sharedKey,
+    lifecycle,
+    actionsFactory,
+    isKeyed,
+    moduleName,
+  };
 }
 
 function getSharedState(heluxParams: IHeluxParams, options: ICreateOptions) {

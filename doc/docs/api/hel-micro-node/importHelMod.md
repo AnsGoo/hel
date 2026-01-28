@@ -49,7 +49,6 @@ export interface IModIns<T extends any = any> {
    */
   isInit: boolean;
 }
-
 ```
 
 ## 简单使用

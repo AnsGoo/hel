@@ -17,7 +17,7 @@ const platAt3rdObj = ['importNodeModByPath', 'importHelModByPath'];
 const mapNodeModsLike = ['mapNodeMods', 'mapAndPreload'];
 
 function ensureObjPlat(platform: string, arg: any) {
-  const newArg = { platform, ...(arg || {}) };
+  const newArg = { platform, ...arg };
   return newArg;
 }
 

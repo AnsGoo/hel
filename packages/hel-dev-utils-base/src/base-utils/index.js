@@ -136,10 +136,13 @@ export function verboseH(argHandler, ...args) {
  * @param  {...any} args
  */
 export function verboseObj(...args) {
-  verboseH((arg) => {
-    if (typeof arg === 'object') return JSON.stringify(arg);
-    return arg;
-  }, ...args);
+  verboseH(
+    (arg) => {
+      if (typeof arg === 'object') return JSON.stringify(arg);
+      return arg;
+    },
+    ...args,
+  );
 }
 
 /**

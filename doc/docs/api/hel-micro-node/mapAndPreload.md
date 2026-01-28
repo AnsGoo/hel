@@ -71,7 +71,6 @@ https://unpkg.com/{moduleName}@{ver}/hel_dist/hel-meta.json
 
 例如 [https://unpkg.com/@hel-demo/mono-libs@1.0.0/hel_dist/hel-meta.json](https://unpkg.com/@hel-demo/mono-libs@1.0.0/hel_dist/hel-meta.json)
 
-
 指定api前缀后，请求链接格式形如：
 
 ```txt
@@ -81,7 +80,6 @@ https://{apiPrefix}/{moduleName}@{ver}
 ```
 
 例如 [https://helmicro.com/openapi/meta/@tencent/mono-bs-lib](https://helmicro.com/openapi/meta/@tencent/mono-bs-lib)
-
 
 可通过设定 `helpackApiUrl` 参数来指定请求元数据的api前缀
 
@@ -102,7 +100,7 @@ await mapAndPreload({
       const { platform, helModName } = params;
       const meta = await requestMyMeta(platform, helModName);
       return meta;
-    }
+    },
   },
 });
 ```
@@ -116,7 +114,7 @@ await mapAndPreload({
 ```ts
 await mapAndPreload({
   '@hel-demo/mono-libs': {
-    fallback: { path: path.join(__dirname, '../../my-mod/index.js') }
+    fallback: { path: path.join(__dirname, '../../my-mod/index.js') },
   },
 });
 ```
@@ -126,7 +124,7 @@ await mapAndPreload({
 ```ts
 await mapAndPreload({
   '@hel-demo/mono-libs': {
-    fallback: { mod: { hello: ()=> 'my hello implement!' } }
+    fallback: { mod: { hello: () => 'my hello implement!' } },
   },
 });
 ```
@@ -163,6 +161,7 @@ await mapAndPreload({ 'my-mod': {fallback: { force: true, path: ... }}});
 ```
 
 其他文件里可导入 my-mod
+
 ```ts
 // 其他文件里可导入 my-mod
 import { hello } from 'my-mod';
@@ -176,7 +175,7 @@ const { hello } = require('my-mod');
 
 ```ts
 await mapAndPreload({
-  'hel-hello-pack': { platform:'hel', branch: 'master' },
+  'hel-hello-pack': { platform: 'hel', branch: 'master' },
 });
 ```
 
@@ -186,6 +185,6 @@ await mapAndPreload({
 
 ```ts
 await mapAndPreload({
-  'hel-hello-pack': { platform:'hel', projId: 'pid1' },
+  'hel-hello-pack': { platform: 'hel', projId: 'pid1' },
 });
 ```

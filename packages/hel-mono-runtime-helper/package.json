@@ -4,27 +4,27 @@
   "description": "micro module mono-repo architecture runtime helper",
   "keywords": [
     "hel",
-    "hel-mono",
     "hel-micro",
-    "mono-repo",
+    "hel-mono",
+    "hel-mono runtime helper",
     "hel-mono-runtime-helper",
-    "hel-mono runtime helper"
+    "mono-repo"
   ],
+  "license": "MIT",
+  "author": {
+    "name": "fantasticsoul"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Tencent/hel.git",
     "directory": "packages/hel-mono-runtime-helper"
   },
-  "license": "MIT",
-  "author": {
-    "name": "fantasticsoul"
-  },
-  "main": "./src/index.js",
   "files": [
     "src",
     "README.md",
     "index.d.ts"
   ],
+  "main": "./src/index.js",
   "scripts": {},
   "dependencies": {},
   "devDependencies": {

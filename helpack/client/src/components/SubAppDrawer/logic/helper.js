@@ -454,7 +454,12 @@ export function buildUiGitHashLinks(/** @type {SubAppVersion} */ record) {
 
     const seeAllHash = (e) => {
       ste(e);
-      const stContent = { paddingTop: '12px', transform: 'translateX(-28px)', maxHeight: '600px', overflowY: 'auto' };
+      const stContent = {
+        paddingTop: '12px',
+        transform: 'translateX(-28px)',
+        maxHeight: '600px',
+        overflowY: 'auto',
+      };
       Modal.confirm({
         title: (
           <span>

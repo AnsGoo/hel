@@ -4,7 +4,6 @@
   "description": "A Hel template CLI for quickly scaffolding Hel normal project or micro-module monorepo architecture project.",
   "license": "MIT",
   "author": "fantasticsoul",
-  "main": "index.js",
   "bin": {
     "create-hel": "./bin/index.js",
     "hel": "./bin/index.js"
@@ -15,6 +14,7 @@
     "index.js",
     "README.md"
   ],
+  "main": "index.js",
   "scripts": {
     "create-hel": "node bin/local-index.js",
     "hel": "node bin/local-index.js",

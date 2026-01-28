@@ -43,7 +43,12 @@ export const createClassInfo: TController = async (ctx) => {
     throw new Error(`你已达到分类创建上限${createClassLimit}个，请联系${bizCst.HEL_OWNER}帮忙修改上限值`);
   }
 
-  const toAdd = { class_key: key, class_label: name, create_by: userName, class_token: `hel-${genNonceStr(16)}-${Date.now()}` };
+  const toAdd = {
+    class_key: key,
+    class_label: name,
+    create_by: userName,
+    class_token: `hel-${genNonceStr(16)}-${Date.now()}`,
+  };
   const result = await ctx.dao.classInfo.add(toAdd);
   const { class_token, ...rest } = result.objJson;
   return { ...rest, class_token: '' };

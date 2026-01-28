@@ -29,7 +29,7 @@ function makeSubValGetter(name: string, compName: string, controlOptions: IInner
  * 基于 RemoteComp 并结合组件useMemo、ref转发两个基础工作进一步封装
  */
 export function useRemoteCompLogic(name: string, compName: string, options: IInnerUseRemoteCompOptions) {
-  const controlOptions: IInnerUseRemoteCompOptions = { ...(options || {}), compName, isLib: true };
+  const controlOptions: IInnerUseRemoteCompOptions = { ...options, compName, isLib: true };
   const ensuredOptions = ensureOptionsDefault(controlOptions);
   const { needMemo = true, platform, versionId, shadow, isCompPropsEqual } = ensuredOptions;
 
@@ -66,10 +66,13 @@ export function useRemoteCompLogic(name: string, compName: string, options: IInn
  * 而是新增 useRemoteCompStatusLogic 方法
  */
 export function useRemoteCompStatusLogic(name: string, compName: string, options: IInnerUseRemoteCompOptions) {
-  const controlOptions: IInnerUseRemoteCompOptions = { ...(options || {}), compName, isLib: true };
+  const controlOptions: IInnerUseRemoteCompOptions = { ...options, compName, isLib: true };
   const ensuredOptions = ensureOptionsDefault(controlOptions);
   const { needMemo = true, platform, versionId, shadow, isCompPropsEqual } = ensuredOptions;
-  const { RemoteCompRender, isReady, err } = useRemoteCompRender({ name, controlOptions: ensuredOptions });
+  const { RemoteCompRender, isReady, err } = useRemoteCompRender({
+    name,
+    controlOptions: ensuredOptions,
+  });
   const factory = () => {
     // @ts-ignore
     const Comp = forwardRef((compProps: React.PropsWithoutRef<any>, reactRef: React.Ref<any>) => {
@@ -106,7 +109,11 @@ export function useRemoteLibCompLogic(name: string, compName: string, options: I
   restOptions.platform = restOptions.platform || 'unpkg';
   const forceUpdate = useForceUpdate();
   const isFetchExecuteRef = React.useRef(false);
-  const compRef = React.useRef<{ Comp: any } & CompStatus>({ Comp: getSkeletonComp(Skeleton), isReady: false, err: null });
+  const compRef = React.useRef<{ Comp: any } & CompStatus>({
+    Comp: getSkeletonComp(Skeleton),
+    isReady: false,
+    err: null,
+  });
 
   // 获取组件逻辑还未执行过
   if (!isFetchExecuteRef.current) {

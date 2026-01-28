@@ -7,4 +7,7 @@ const key2DefaultObj = {
   data: { apps: [] },
 };
 
-export const { get, getOne, add, update, del } = buildDao<IAllowedApp>(models.allowedApp, { jsonStrKeys, key2DefaultObj });
+export const { get, getOne, add, update, del } = buildDao<IAllowedApp>(models.allowedApp, {
+  jsonStrKeys,
+  key2DefaultObj,
+});

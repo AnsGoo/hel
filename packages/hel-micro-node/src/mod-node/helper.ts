@@ -18,6 +18,11 @@ export function extractImportNodeModByMetaOptions(nodeModName: string, meta: IMe
   if (helModName !== meta.app.name) {
     throw new Error(`Meta name ${meta.app.name} not equal to helModName ${helModName}`);
   }
-  const newOptions: IInnerImportModByMetaOptions = { ...rest, platform, standalone: false, helModNameOrPath: helModName };
+  const newOptions: IInnerImportModByMetaOptions = {
+    ...rest,
+    platform,
+    standalone: false,
+    helModNameOrPath: helModName,
+  };
   return newOptions;
 }

@@ -29,7 +29,9 @@ runTest(({ api, describe, util, semverApi, platform }) => {
 
     test('fetchAppStyleData', async () => {
       await preFetchLib('remote-vue-comps-tpl');
-      const res = await appStyleSrv.fetchAppStyleData('remote-vue-comps-tpl', { cssListToStr: true });
+      const res = await appStyleSrv.fetchAppStyleData('remote-vue-comps-tpl', {
+        cssListToStr: true,
+      });
       expect(res.renderStyleStr).toBe('html{width:100%;height:100%;}body{font-size:12px;}p{padding:1px;}');
     });
 

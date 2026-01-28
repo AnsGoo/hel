@@ -2,18 +2,15 @@
   "name": "helux-mini",
   "version": "1.2.9",
   "description": "A React state library that encourages service injection and supports reactive updates",
+  "license": "MIT",
+  "author": {
+    "name": "fantasticsoul"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Tencent/hel/tree/main/packages/helux-mini",
     "directory": "packages/helux-mini"
   },
-  "license": "MIT",
-  "author": {
-    "name": "fantasticsoul"
-  },
-  "main": "lib/index.js",
-  "module": "es/index.js",
-  "types": "src/index.d.ts",
   "files": [
     "dist",
     "lib",
@@ -22,6 +19,9 @@
     "README.md",
     "tsconfig.json"
   ],
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "src/index.d.ts",
   "scripts": {
     "build": "tsc && npm run build:commonjs && npm run build:es && npm run build:umd && npm run build:umd:min",
     "build:commonjs": "rollup -c --environment BUILD_ENV:commonjs",
@@ -37,11 +37,11 @@
     "react-dom": ">=16.10.2"
   },
   "devDependencies": {
-    "@types/react": ">=16.0.0",
-    "@types/react-dom": ">=16.0.0",
     "@babel/plugin-proposal-class-properties": "^7.18.6",
     "@babel/preset-env": "^7.12.11",
     "@babel/preset-react": "^7.12.10",
+    "@types/react": ">=16.0.0",
+    "@types/react-dom": ">=16.0.0",
     "babel-cli": "^6.26.0",
     "rollup": "^2.23.0"
   },
@@ -51,10 +51,10 @@
     "react": ">=16.10.2",
     "react-dom": ">=16.10.2"
   },
+  "bundleDependencies": false,
   "volta": {
     "node": "20.19.6",
     "pnpm": "8.3.1"
   },
-  "bundleDependencies": false,
   "deprecated": false
 }

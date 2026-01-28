@@ -52,7 +52,11 @@ export async function initPage(forceInit, /** @type St*/ moduleState, /** @type 
 export async function initStarList(forceInit, /** @type St*/ moduleState, /** @type AC*/ ac) {
   if (forceInit || canFetch(moduleState, ac)) {
     const { starAppNames } = ac.rootState.portal;
-    const queryOptions = subAppTool.makeQueryOptions({ page: 1, size: 100, appNames: starAppNames });
+    const queryOptions = subAppTool.makeQueryOptions({
+      page: 1,
+      size: 100,
+      appNames: starAppNames,
+    });
     ac.dispatch(fetchDataList, queryOptions);
   }
 }
@@ -74,7 +78,11 @@ export async function initCreatedList(forceInit, /** @type St*/ moduleState, /**
 export async function initVisitList(forceInit, /** @type St*/ moduleState, /** @type AC*/ ac) {
   if (forceInit || canFetch(moduleState, ac)) {
     const { visitAppNames } = ac.rootState.portal;
-    const queryOptions = subAppTool.makeQueryOptions({ page: 1, size: 100, appNames: visitAppNames });
+    const queryOptions = subAppTool.makeQueryOptions({
+      page: 1,
+      size: 100,
+      appNames: visitAppNames,
+    });
     ac.dispatch(fetchDataList, queryOptions);
   }
 }

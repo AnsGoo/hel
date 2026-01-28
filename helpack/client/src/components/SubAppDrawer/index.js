@@ -58,7 +58,14 @@ function setup(c) {
     if (!allOwners.includes(createUser)) allOwners.push(createUser);
     key += 1;
     ccReducer.VersionList.setState({ subApp: subAppCopy });
-    ins.setState({ key, owners: allOwners, disableEdit, visible: true, subApp: subAppCopy, selTab });
+    ins.setState({
+      key,
+      owners: allOwners,
+      disableEdit,
+      visible: true,
+      subApp: subAppCopy,
+      selTab,
+    });
     settings.switchTab(selTab);
   });
 

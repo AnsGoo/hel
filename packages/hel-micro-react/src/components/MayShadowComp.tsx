@@ -53,7 +53,10 @@ function getPassedProps(
   let passedProps = { ...compProps, ref: reactRef };
   if (isLegacy) {
     // getShadowContainer getShadowBodyContainer 作为历史方法暴露，让 MicroAppLegacy 载入老应用时不会报错
-    Object.assign(helContext, { getShadowContainer: getShadowBodyRoot, getShadowBodyContainer: getShadowBodyRoot });
+    Object.assign(helContext, {
+      getShadowContainer: getShadowBodyRoot,
+      getShadowBodyContainer: getShadowBodyRoot,
+    });
     passedProps = { appProps: compProps, children, ref: reactRef };
   }
   if (!ignoreHelContext) {
@@ -83,7 +86,12 @@ function useWatchSytleChange(props: IMayShadowProps, options: any) {
           tryForceUpdate();
         };
         bus.on(staticRefReadyEv, staticRefCb);
-        const renderProps = { data, delegatesFocus: true, styleSheets: styleUrlList, styleContent: styleStr };
+        const renderProps = {
+          data,
+          delegatesFocus: true,
+          styleSheets: styleUrlList,
+          styleContent: styleStr,
+        };
         tryMountStaticShadowBody(renderProps, renderConfig);
       }
 
@@ -162,7 +170,14 @@ function MayShadowComp(props: IMayShadowProps) {
     const styleContent = `${styleStr}${appStyleSrv.getStyleTagText(appGroupName)}`;
     const ignoredCssUrlList = appStyleSrv.getIgnoredCssUrlList(name, renderConfig);
     const styleSheets = styleUrlList.concat(ignoredCssUrlList);
-    const commonProps = { id: name, data, style: shadowWrapStyle, styleSheets, styleContent, shadowDelay };
+    const commonProps = {
+      id: name,
+      data,
+      style: shadowWrapStyle,
+      styleSheets,
+      styleContent,
+      shadowDelay,
+    };
     return (
       <>
         {/*

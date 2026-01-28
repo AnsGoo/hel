@@ -383,7 +383,17 @@ export async function getSubAppAndItsVersion(appName: string, getOptions: IHelGe
   // 走用户定义的 getMeta 函数获取数据，用户可在函数里自己预埋的元数据
   if (getMetaFn) {
     const needGrayVer = alt.callFn(platform, 'shouldUseGray', { appName }, loadOptions.shouldUseGray);
-    const fnParams = { platform, appName, userName, versionId, branchId, projectId, url, needGrayVer, innerRequest };
+    const fnParams = {
+      platform,
+      appName,
+      userName,
+      versionId,
+      branchId,
+      projectId,
+      url,
+      needGrayVer,
+      innerRequest,
+    };
     log(`[[ ${fnName} ]] fnParams:`, fnParams);
     const data = (await Promise.resolve(getMetaFn(fnParams))) as IHelMeta;
     const meta = extractMetaFromReply(appName, data);
@@ -422,7 +432,12 @@ export async function getSubAppVersion(versionId: string, options: IGetVerOption
   const { apiMode, isFullVersion = false, semverApi, customMetaUrl } = options;
   const url = await prepareRequestVersionUrl(versionId, options);
   const semverApiVar = customMetaUrl ? false : semverApi;
-  const { data, code, msg } = await executeGet(url, { apiMode, isFullVersion, semverApi: semverApiVar, onlyVersion: true });
+  const { data, code, msg } = await executeGet(url, {
+    apiMode,
+    isFullVersion,
+    semverApi: semverApiVar,
+    onlyVersion: true,
+  });
 
   if (0 !== parseInt(code, 10) || !data) {
     throw new Error(msg || 'ver not found');
@@ -448,7 +463,10 @@ export async function batchGetSubAppAndItsVersion(appNames: string[], batchGetOp
     if (0 !== parseInt(code, 10) || !data) {
       throw new Error(msg || 'batch get failed');
     }
-    const list = data.map((item) => ({ app: ensureApp(item.app), version: ensureVersion(item.version) }));
+    const list = data.map((item) => ({
+      app: ensureApp(item.app),
+      version: ensureVersion(item.version),
+    }));
     return list;
   };
 

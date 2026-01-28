@@ -112,7 +112,10 @@ export function fetchRemoteModuleStyle(config: IRemoteCompRenderConfig, ctx: any
     })
     .catch((err) => {
       isLoadAppStyleExecutingRef.current = false;
-      setState({ errMsg: err.message || 'err occurred while fetch component style', isShadowStyleStrFetched: true });
+      setState({
+        errMsg: err.message || 'err occurred while fetch component style',
+        isShadowStyleStrFetched: true,
+      });
     });
 
   // 返回骨架屏

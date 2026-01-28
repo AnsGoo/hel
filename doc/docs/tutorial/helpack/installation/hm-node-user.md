@@ -7,6 +7,7 @@ sidebar_position: 4
 ## 简介
 
 `hm-node-user` 是一个基于 hel-micro-node 的用户端示例项目
+
 - 演示如何通过 hel-micro-node 自行加载和使用远程模块。
 - 演示如何通过 helpack 远程加载和使用远程模块。
 
@@ -35,6 +36,7 @@ npm install
 npm run build
 npm run start
 ```
+
 用户端会在 `http://localhost:7776` 启动。
 
 并发现如下界面
