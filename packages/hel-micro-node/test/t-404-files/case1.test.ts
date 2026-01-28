@@ -5,7 +5,10 @@ import { HEL_DEMO_LIB1, HEL_HELLO_HELPACK, HEL_HELLO_VER, SDK_GLOBAL_CONFIG } fr
 const platform = 'hel';
 setGlobalConfig(SDK_GLOBAL_CONFIG);
 mapNodeMods({
-  [HEL_DEMO_LIB1]: { helModName: `${HEL_HELLO_HELPACK}/srv/hel-hello`, platform },
+  [HEL_DEMO_LIB1]: {
+    helModName: `${HEL_HELLO_HELPACK}/srv/hel-hello`,
+    platform,
+  },
 });
 
 describe('test download 404 files', () => {

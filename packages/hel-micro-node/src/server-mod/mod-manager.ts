@@ -101,7 +101,10 @@ class ModManager {
    */
   public getModVer(helModNameOrPath: string, platform: string): string {
     const { helModName } = extractNameData(helModNameOrPath, platform);
-    const modItem = this.getServerModItem(helModName, { platform, allowNull: false });
+    const modItem = this.getServerModItem(helModName, {
+      platform,
+      allowNull: false,
+    });
     return modItem.modVer;
   }
 
@@ -113,7 +116,10 @@ class ModManager {
    */
   public resolveMod(helModNameOrPath: string, platform: string): IResolveModResult {
     const { helModName, helModPath } = extractNameData(helModNameOrPath, platform);
-    const modItem = this.getServerModItem(helModName, { platform, allowNull: false });
+    const modItem = this.getServerModItem(helModName, {
+      platform,
+      allowNull: false,
+    });
     const helModInfo = mapNodeModsManager.getHelModData(helModName, platform);
     const isMainMod = helModName === helModPath;
     const { modVer } = modItem;
@@ -290,7 +296,10 @@ class ModManager {
     const result = this.tryGetLocalModIns(platform, meta, helModNameOrPath);
     const { modItem, webFile, modIns } = result;
     if (modIns) {
-      this.updateModManagerItem(modItem, modIns, { helModNameOrPath, platform });
+      this.updateModManagerItem(modItem, modIns, {
+        helModNameOrPath,
+        platform,
+      });
       return modIns;
     }
     // 本地磁盘不存在模块文件，走一次网络下载，然后再导出
@@ -306,7 +315,11 @@ class ModManager {
       return webModIns;
     }
 
-    this.updateModManagerItem(modItem, webModIns, { helModNameOrPath, platform, isDownload: true });
+    this.updateModManagerItem(modItem, webModIns, {
+      helModNameOrPath,
+      platform,
+      isDownload: true,
+    });
     const mod = this.requireMod<T>(ensuredOptions.helModNameOrPath || meta.app.name, ensuredOptions);
     maySetToJestMock(platform, helModNameOrPath, mod);
 
@@ -330,7 +343,10 @@ class ModManager {
         return meta;
       });
     }
-    const modIns = await this.importModByMeta<T>(meta, { ...options, helModNameOrPath });
+    const modIns = await this.importModByMeta<T>(meta, {
+      ...options,
+      helModNameOrPath,
+    });
 
     return modIns;
   }
@@ -352,7 +368,10 @@ class ModManager {
       return modIns;
     }
 
-    this.updateModManagerItem(result.modItem, modIns, { helModNameOrPath: nameOrPath, platform });
+    this.updateModManagerItem(result.modItem, modIns, {
+      helModNameOrPath: nameOrPath,
+      platform,
+    });
     maySetToJestMock(platform, nameOrPath, modIns.mod);
 
     return modIns;
@@ -374,8 +393,14 @@ class ModManager {
     let isUpdated = false;
     if (!modItem.storedVers.includes(modVer)) {
       isUpdated = true;
-      log({ subType: 'importModByPath', data: { modPath: modIns.modPath, modVer: modIns.modVer } });
-      this.updateModManagerItem(modItem, modIns, { helModNameOrPath: helModName, platform });
+      log({
+        subType: 'importModByPath',
+        data: { modPath: modIns.modPath, modVer: modIns.modVer },
+      });
+      this.updateModManagerItem(modItem, modIns, {
+        helModNameOrPath: helModName,
+        platform,
+      });
       maySetToJestMock(platform, helModName, mod);
     }
 
@@ -537,7 +562,11 @@ class ModManager {
     const { srvModSrcList = [], srvModSrcIndex } = srcMap;
     // 部分旧数据存储了以 / 结尾不规范的路径，这里做一下额外处理
     const webDirPath = noSlash(srcMap.webDirPath);
-    const { modRootDirName, modVer } = getModRootDirData({ meta, platform, webDirPath });
+    const { modRootDirName, modVer } = getModRootDirData({
+      meta,
+      platform,
+      webDirPath,
+    });
 
     const webFile: IWebFileInfo = {
       name,
@@ -594,7 +623,12 @@ class ModManager {
     storedDirs.splice(dirIndex, 1);
     delFileOrDir(toDelVerDir, {
       onSuccess: () => log({ subType, desc: 'del dir done', data: { toDelVerDir } }),
-      onFail: (err) => log({ subType, desc: 'del dir err', data: { toDelVerDir, err: err.message } }),
+      onFail: (err) =>
+        log({
+          subType,
+          desc: 'del dir err',
+          data: { toDelVerDir, err: err.message },
+        }),
     });
   }
 
@@ -624,7 +658,11 @@ class ModManager {
   private updateModManagerItem(
     modItem: IModManagerItem,
     modIns: IModIns,
-    options: { helModNameOrPath: string; isDownload?: boolean; platform?: string },
+    options: {
+      helModNameOrPath: string;
+      isDownload?: boolean;
+      platform?: string;
+    },
   ) {
     const { mod, modPath, modDirPath, modRootDirPath, modVer, modRelPath, isMainMod, mainModPath } = modIns;
     const { isDownload, platform = PLATFORM, helModNameOrPath } = options || {};
@@ -650,7 +688,13 @@ class ModManager {
     log({
       subType,
       desc: 'update different ver',
-      data: { newVer: modVer, prevVer: modItem.modVer, isDownload, isMainMod, modRelPath },
+      data: {
+        newVer: modVer,
+        prevVer: modItem.modVer,
+        isDownload,
+        isMainMod,
+        modRelPath,
+      },
     });
     const prevModPaths = modItem.modPaths.concat(modItem.modPath);
     // clear prev ver exported mod cache
@@ -692,7 +736,18 @@ class ModManager {
     const isInitialVersion = !modItem.modPath;
     const { helModName, helModPath, helModVer } = this.resolveMod(helModNameOrPath, platform);
     const pkgName = mapNodeModsManager.getNodeModName(helModNameOrPath, platform);
-    triggerHook(HOOK_TYPE.onHelModLoaded, { platform, helModName, helModPath, pkgName, version: helModVer, isInitialVersion }, platform);
+    triggerHook(
+      HOOK_TYPE.onHelModLoaded,
+      {
+        platform,
+        helModName,
+        helModPath,
+        pkgName,
+        version: helModVer,
+        isInitialVersion,
+      },
+      platform,
+    );
   }
 
   private getDictKey(platform: string, helModNameOrPath: string) {

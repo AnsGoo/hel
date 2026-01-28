@@ -27,7 +27,9 @@ describe('test native import node mod before importNodeMod', () => {
     expect(hello()).toBe('hel hello v1.0.0');
 
     // 头部导入后，这里在触发hel模块激活逻辑
-    const { mod } = await importNodeMod(HEL_DEMO_LIB1, { ver: HEL_DEMO_LIB1_VER1 });
+    const { mod } = await importNodeMod(HEL_DEMO_LIB1, {
+      ver: HEL_DEMO_LIB1_VER1,
+    });
     // 此时 hello 始终指向原始模块，结果不再是 v1.0.1
     expect(hello()).toBe('hel hello v1.0.0');
     // mod.hello 是最新版本代码

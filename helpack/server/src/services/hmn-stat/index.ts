@@ -24,7 +24,9 @@ class HMNStat {
       return;
     }
 
-    const items = await HMNStatDao.get({ container_name: envInfo.containerName });
+    const items = await HMNStatDao.get({
+      container_name: envInfo.containerName,
+    });
     // 删除同一个容器里的多个hel模块统计
     for (const item of items) {
       const { id, create_at, update_at, ...rest } = item;
@@ -54,7 +56,10 @@ class HMNStat {
       return;
     }
 
-    const dbStat = await HMNStatDao.getOne({ container_name: containerName, mod_name: modName });
+    const dbStat = await HMNStatDao.getOne({
+      container_name: containerName,
+      mod_name: modName,
+    });
     if (!dbStat) {
       const loadAtISO = this.getISOTime(loadAt);
       const toAdd: Partial<IHMNStat> = {

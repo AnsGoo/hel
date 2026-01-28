@@ -15,7 +15,9 @@ export const loadSubApp: TController = async (ctx) => {
   queryVerTag = xss.inHTMLData(queryVerTag);
 
   if (queryVerTag && (queryVerTag.length > verMaxLen || !regs.versionTagReg.test(queryVerTag))) {
-    return ctx.view('sub-app-render-err', { msg: `version ${queryVerTag} invalid` });
+    return ctx.view('sub-app-render-err', {
+      msg: `version ${queryVerTag} invalid`,
+    });
   }
 
   const helAppName = scope ? `${scope}/${appName}` : appName;
@@ -33,7 +35,9 @@ export const loadSubApp: TController = async (ctx) => {
   const versionIndex = toVersionIndex(helAppName, versionTag);
   const subAppVersion = await ctx.services.app.querySubAppVersionByVerId(versionIndex);
   if (!subAppVersion) {
-    return ctx.view('sub-app-render-err', { msg: `版本 ${queryVerTag} 数据不存在` });
+    return ctx.view('sub-app-render-err', {
+      msg: `版本 ${queryVerTag} 数据不存在`,
+    });
   }
 
   let htmlContent = subAppVersion.html_content;

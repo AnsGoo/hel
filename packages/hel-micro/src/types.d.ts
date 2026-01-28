@@ -136,7 +136,10 @@ export interface IScriptInfo {
 export interface IIsLink {
   <Tag extends 'link' | 'script'>(
     tag: Tag,
-    info: { el: HTMLLinkElement | HTMLScriptElement; attrs: ILinkAttrs | IScriptAttrs },
+    info: {
+      el: HTMLLinkElement | HTMLScriptElement;
+      attrs: ILinkAttrs | IScriptAttrs;
+    },
   ): info is Tag extends 'link' ? ILinkInfo : IScriptInfo;
 }
 

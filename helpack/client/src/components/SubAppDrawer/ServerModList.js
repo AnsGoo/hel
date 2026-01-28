@@ -120,7 +120,11 @@ function setup(c) {
 }
 
 function ServerModList(props) {
-  const { settings, state } = useC2Mod(SERVER_MOD_LIST, { setup, props, tag: 'ServerModList' });
+  const { settings, state } = useC2Mod(SERVER_MOD_LIST, {
+    setup,
+    props,
+    tag: 'ServerModList',
+  });
   const isCard = state.listMode === 'card';
   const getColumnsFn = isCard ? getCardColumns : getColumns;
 

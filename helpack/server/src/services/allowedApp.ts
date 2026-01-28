@@ -73,21 +73,33 @@ class AllowedApp {
 
     redisSrv.subscribe(biz.CHANNEL_ALLOWED_APPS_ADD, {
       msgReceiveCb: (params) => {
-        this.pushLog({ subType, loc: biz.CHANNEL_ALLOWED_APPS_ADD, data: params });
+        this.pushLog({
+          subType,
+          loc: biz.CHANNEL_ALLOWED_APPS_ADD,
+          data: params,
+        });
         this.addLocal(params.message);
       },
     });
 
     redisSrv.subscribe(biz.CHANNEL_ALLOWED_APPS_DEL, {
       msgReceiveCb: (params) => {
-        this.pushLog({ subType, loc: biz.CHANNEL_ALLOWED_APPS_DEL, data: params });
+        this.pushLog({
+          subType,
+          loc: biz.CHANNEL_ALLOWED_APPS_DEL,
+          data: params,
+        });
         this.delLocal(params.message);
       },
     });
 
     redisSrv.subscribe(biz.CHANNEL_ALLOWED_APPS_INIT, {
       msgReceiveCb: (params) => {
-        this.pushLog({ subType, loc: biz.CHANNEL_ALLOWED_APPS_INIT, data: params });
+        this.pushLog({
+          subType,
+          loc: biz.CHANNEL_ALLOWED_APPS_INIT,
+          data: params,
+        });
         this.initList();
       },
     });
@@ -98,8 +110,13 @@ class AllowedApp {
     if (!oneData) {
       const isLockSuccess = await lockLogicBool('AllowedApp', 'initList');
       if (isLockSuccess) {
-        const result = await daoVar.allowedApp.add({ create_by: biz.HEL_OWNER });
-        this.pushLog({ subType: 'initList', loc: 'add data to db automatically' });
+        const result = await daoVar.allowedApp.add({
+          create_by: biz.HEL_OWNER,
+        });
+        this.pushLog({
+          subType: 'initList',
+          loc: 'add data to db automatically',
+        });
         oneData = result.objJson;
       } else {
         // 别的节点正在插入中，这里等待并获取

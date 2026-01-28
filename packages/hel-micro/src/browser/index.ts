@@ -258,7 +258,13 @@ async function createAssetListAsync(assetList: IAssetItem[], options: ICreateDom
           const errToThrow = errorObj instanceof Error ? errorObj : new Error(String(message));
           reject(errToThrow);
         };
-        return createScriptElement({ appendToBody, attrs, innerText, onloadCb, onerrorCb });
+        return createScriptElement({
+          appendToBody,
+          attrs,
+          innerText,
+          onloadCb,
+          onerrorCb,
+        });
       }
       resolve(true);
     });
@@ -337,7 +343,11 @@ export async function loadAppAssets(app: ISubApp, version: ISubAppVersion, loadO
 
   // 处理 sdk 额外透传的样式列表
   if (allExtraCssList.length) {
-    createAdditionalAssets({ assetUrlList: allExtraCssList, excludeCssList, appendToBody: false });
+    createAdditionalAssets({
+      assetUrlList: allExtraCssList,
+      excludeCssList,
+      appendToBody: false,
+    });
   }
 
   const staticScriptList: IAssetItem[] = [];

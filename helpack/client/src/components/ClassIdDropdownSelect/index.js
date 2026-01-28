@@ -95,11 +95,19 @@ function setup(c) {
         cache.classInfoList.push(reply.data);
       }
 
-      ins.setState({ newBtnLoading: false, showNewClassInfo: !isCreatedSuccess, ...getList(user) });
+      ins.setState({
+        newBtnLoading: false,
+        showNewClassInfo: !isCreatedSuccess,
+        ...getList(user),
+      });
     },
     openModal(e, item) {
       ste(e);
-      ins.setState({ modalVisible: true, selectedClassInfo: item, editName: item.class_label });
+      ins.setState({
+        modalVisible: true,
+        selectedClassInfo: item,
+        editName: item.class_label,
+      });
     },
     async openClassTokenModal(e, item) {
       ste(e);
@@ -111,7 +119,10 @@ function setup(c) {
       });
       try {
         const fullData = await getFullClassInfoById(item.id);
-        ins.setState({ classToken: fullData.class_token, classTokenLoading: false });
+        ins.setState({
+          classToken: fullData.class_token,
+          classTokenLoading: false,
+        });
       } catch (err) {
         message.error(err.message);
         ins.setState({ classTokenLoading: false });
@@ -137,7 +148,11 @@ function setup(c) {
         message.success('更新分类名称成功');
         selectedClassInfo.class_label = editName;
       }
-      ins.setState({ updateBtnLoading: false, modalVisible: false, ...getList(user) });
+      ins.setState({
+        updateBtnLoading: false,
+        modalVisible: false,
+        ...getList(user),
+      });
     },
   };
   return settings;
@@ -243,7 +258,12 @@ export function MyClassIdMgr() {
       {!myClassItems.length ? (
         <Empty />
       ) : (
-        <div style={{ border: '1px solid var(--lra-theme-color)', padding: '12px' }}>
+        <div
+          style={{
+            border: '1px solid var(--lra-theme-color)',
+            padding: '12px',
+          }}
+        >
           {myClassItems.map((item) => (
             <ClassItem key={item.class_key} settings={settings} item={item} showTokenBtn />
           ))}

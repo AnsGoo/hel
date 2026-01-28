@@ -248,7 +248,10 @@ export async function fillAssetList(doms, options) {
       if (url.startsWith('/') && !url.startsWith('//')) {
         verbose(` >>> prefix homePage [${homePage}] for url [${url}]`);
         const finalUrl = `${slash.noEnd(homePage)}${url}`;
-        replaceContentList.push({ toMatch: `="${url}"`, toReplace: `="${finalUrl}"` });
+        replaceContentList.push({
+          toMatch: `="${url}"`,
+          toReplace: `="${finalUrl}"`,
+        });
         return finalUrl;
       }
     }

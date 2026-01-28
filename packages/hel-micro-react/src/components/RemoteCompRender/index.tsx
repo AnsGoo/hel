@@ -28,7 +28,11 @@ export function useRemoteCompRender(props: IRemoteCompRenderConfig) {
   }
   if (errMsg) {
     controlOptions.failCb?.(new Error(errMsg));
-    return { RemoteCompRender: RemoteModule, isReady: false, err: new Error(errMsg) };
+    return {
+      RemoteCompRender: RemoteModule,
+      isReady: false,
+      err: new Error(errMsg),
+    };
   }
 
   const compInfo = { Comp: RemoteModule, styleStr, styleUrlList };

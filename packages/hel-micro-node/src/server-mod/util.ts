@@ -38,7 +38,12 @@ export function safeUnlinkFile(filePath: string) {
   try {
     fs.unlinkSync(filePath);
   } catch (err: any) {
-    recordMemLog({ type: 'ModIns', subType: 'safeUnlinkFile', desc: err.message, data: filePath });
+    recordMemLog({
+      type: 'ModIns',
+      subType: 'safeUnlinkFile',
+      desc: err.message,
+      data: filePath,
+    });
   }
 }
 

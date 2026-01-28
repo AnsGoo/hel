@@ -36,7 +36,9 @@ const listModeOptions = [
 const Label = (props) => <span style={{ color: '#838383de' }}>{props.children}</span>;
 
 const Title = React.memo(() => {
-  const { state, syncer, sync, mr } = useC2Mod(VERSION_LIST, { tag: 'VTableTitle' });
+  const { state, syncer, sync, mr } = useC2Mod(VERSION_LIST, {
+    tag: 'VTableTitle',
+  });
   const placeholder = state.changeMode === 'gray' ? '请输入欲修改的灰度版本' : '请输入欲修改的线上版本';
   const inputTitle =
     state.changeMode === 'gray' ? (
@@ -290,7 +292,11 @@ function setup(c) {
 
 function AppVersionList(props) {
   const { titleUiMode = 'hasTitle' } = props;
-  const { settings } = useC2Mod(VERSION_LIST, { setup, props, tag: 'AppVersionList' });
+  const { settings } = useC2Mod(VERSION_LIST, {
+    setup,
+    props,
+    tag: 'AppVersionList',
+  });
   const getColumnsFn = titleUiMode === 'hasTitle' ? getColumns : getNoTitleColumns;
   const { state } = settings.ins;
 

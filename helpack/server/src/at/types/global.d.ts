@@ -99,7 +99,9 @@ declare global {
       extend_info: { createAppLimit: number; createClassLimit: number };
       star_info: { appNames: string[] };
       visit_info: { appNames: string[] };
-      mark_info: { markedList: { name: string; ver: string; desc: string; time: number }[] };
+      mark_info: {
+        markedList: { name: string; ver: string; desc: string; time: number }[];
+      };
     };
 
     interface SubAppGlobalRaw {
@@ -111,7 +113,14 @@ declare global {
     }
 
     type SubAppGlobalParsed = Omit<SubAppGlobalRaw, 'mark_info'> & {
-      mark_info: { markedList: { ver: string; desc: string; userName: string; time: number }[] };
+      mark_info: {
+        markedList: {
+          ver: string;
+          desc: string;
+          userName: string;
+          time: number;
+        }[];
+      };
     };
   }
 }

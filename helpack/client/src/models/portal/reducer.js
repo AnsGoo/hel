@@ -28,7 +28,12 @@ export function setLoading(loading, /** @type St*/ moduleState) {
 export function redirectTo(p, m, /** @type AC*/ ac) {
   // 出错要还原路由
   window.top.history.replaceState({}, commonService.getTitle(), '/');
-  ac.setState({ contentVisible: true, sideBarVisible: true, loading: false, activeApp: null });
+  ac.setState({
+    contentVisible: true,
+    sideBarVisible: true,
+    loading: false,
+    activeApp: null,
+  });
   const path = commonService.getLatestPushPath();
   history.push(path);
 }
@@ -40,11 +45,20 @@ export async function loadSubApp(activeApp, /** @type St*/ moduleState, /** @typ
   if (!activeApp) return;
 
   // await ac.dispatch(setLoading, true);
-  await ac.setState({ loading: true, contentVisible: false, sideBarVisible: false });
+  await ac.setState({
+    loading: true,
+    contentVisible: false,
+    sideBarVisible: false,
+  });
   const stopLoad = (msg) => {
     if (msg) message.warn(msg);
     emit(REMOVE_BG);
-    ac.setState({ activeApp: null, loading: false, contentVisible: true, sideBarVisible: true });
+    ac.setState({
+      activeApp: null,
+      loading: false,
+      contentVisible: true,
+      sideBarVisible: true,
+    });
   };
 
   try {

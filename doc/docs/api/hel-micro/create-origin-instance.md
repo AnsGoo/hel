@@ -12,7 +12,10 @@ sidebar_position: 4
 // 原始 api 指从 hel-micro 里直接导入的接口，例如下面的 preFetchLib 是原始 api
 import { preFetchLib, createOriginInstance } from 'hel-micro';
 // 预设 origin 配置
-const ins = createOriginInstance('myplat', { apiPrefix: 'https://myplat.com', semverApi: false });
+const ins = createOriginInstance('myplat', {
+  apiPrefix: 'https://myplat.com',
+  semverApi: false,
+});
 // 此后采用 preFetchLib 加载 myplat 的任何模块时，将自动读取到对应 myplat 平台预设的 origin 配置
 preFetchLib('xx', { platform: 'myplat' });
 ```

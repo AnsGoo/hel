@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # importNodeModByPath
 
-此接口时一个同步接口，传入 node 模块名称和欲替换的目标模块路径，对已映射hel模块的node模块将导入路径对应的模块，如 node 模块未映射，调用将报错
+此接口时一个同步接口，传入 node 模块名称和欲替换的目标模块路径，对已映射 hel 模块的 node 模块将导入路径对应的模块，如 node 模块未映射，调用将报错
 
 ## 指定目标模块路径
 
@@ -12,7 +12,7 @@ sidebar_position: 5
 
 :::caution 需自己保证模块实现无问题
 
-此接口具有一定危险性，需用户自己保证路径对应的模块实现和对应的node模块是一致的，否则会导致运行报错 `xxx function not defined`
+此接口具有一定危险性，需用户自己保证路径对应的模块实现和对应的 node 模块是一致的，否则会导致运行报错 `xxx function not defined`
 
 :::
 

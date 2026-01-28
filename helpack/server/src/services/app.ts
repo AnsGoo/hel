@@ -246,7 +246,11 @@ export async function delApp(appName: string) {
  */
 export async function querySubAppVersionByVerId(
   versionIndex: string,
-  options?: { skipLocalCache?: boolean; skipRemoteCache?: boolean; pubVer?: boolean },
+  options?: {
+    skipLocalCache?: boolean;
+    skipRemoteCache?: boolean;
+    pubVer?: boolean;
+  },
 ) {
   let version;
   const { skipLocalCache = false, skipRemoteCache = false, pubVer = true } = options || {};
@@ -264,7 +268,10 @@ export async function querySubAppVersionByVerId(
     //（因为同步到其他机器需要一些时间）
     dataCacheSrv.setVersion(version);
     redisSrv.safePub(biz.CHANNEL_APP_VERSION_CHANGED, versionIndex).catch((err: any) => {
-      loggerSrv.error({ source: 'querySubAppVersionByVerId/safePub', msg: err.message });
+      loggerSrv.error({
+        source: 'querySubAppVersionByVerId/safePub',
+        msg: err.message,
+      });
     });
   };
 
@@ -386,7 +393,9 @@ export async function createSubApp(toCreate: Partial<nsModel.SubAppInfoParsed>) 
     throw new Error(`应用名[${toCreate.name}]已存在`);
   }
 
-  const apps = await dao.subApp.get({ app_group_name: toCreate.app_group_name });
+  const apps = await dao.subApp.get({
+    app_group_name: toCreate.app_group_name,
+  });
   if (!toCreate.is_test) {
     if (apps.some((v) => !v.is_test)) {
       throw new Error(`组名[${toCreate.app_group_name}]重复，该组名下已存在其他应用`);

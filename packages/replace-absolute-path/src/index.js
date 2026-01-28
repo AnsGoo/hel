@@ -320,7 +320,11 @@ async function replaceRelativePath(options) {
       if (innerUtil.isImportExportLine(curLine)) {
         const isCurLineEnd = innerUtil.judgeLineEnd(curLine);
         if (isCurLineEnd) {
-          return { shouldBeenReplaced: true, line: curLine, lineIndex: curLineIndex };
+          return {
+            shouldBeenReplaced: true,
+            line: curLine,
+            lineIndex: curLineIndex,
+          };
         }
 
         // 类似 import { x, y, z, q, m, t } from 'xx';  未被拆成了多行，向下找当到最后一行
@@ -362,7 +366,11 @@ async function replaceRelativePath(options) {
           return { shouldBeenReplaced: false, line: '', lineIndex: 0 };
         }
 
-        return { shouldBeenReplaced: true, line: importEndLine, lineIndex: importEndLineIndex };
+        return {
+          shouldBeenReplaced: true,
+          line: importEndLine,
+          lineIndex: importEndLineIndex,
+        };
       }
 
       return { shouldBeenReplaced: false, line: '', lineIndex: curLineIndex };

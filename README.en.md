@@ -4,7 +4,7 @@
 <img width="620px" alt="hel-logo"  src="https://raw.githubusercontent.com/Tencent/hel/refs/heads/write-doc/doc/static/img/hel-plus.png" />
 </p>
 
-**hel-micro**, 原生跨端、工具链无关的模块联邦SDK ❤️
+**hel-micro**, 原生跨端、工具链无关的模块联邦 SDK ❤️
 
 > doc： https://helmicro.com or https://tencent.github.io/hel
 
@@ -27,7 +27,7 @@
 
 ## 快速开始
 
-全局安装hel命令行工具
+全局安装 hel 命令行工具
 
 ```bash
 npm i create-hel -g
@@ -35,7 +35,7 @@ npm i create-hel -g
 
 ### 后端微模块
 
-先映射欲提升为微模块的node模块，再启动你的服务
+先映射欲提升为微模块的 node 模块，再启动你的服务
 
 ```ts
 import { mapAndPreload } from 'hel-micro-node';

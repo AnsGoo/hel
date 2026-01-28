@@ -9,5 +9,10 @@ const { genPnpmCmdAndRun } = require('./cmd');
 exports.execTsup = function (/** @type {IDevInfo} */ devInfo) {
   const keywordName = getCmdKeywordName(3);
   const { pkgName, belongTo, dirName, isSubMod } = getNameData(keywordName, devInfo);
-  genPnpmCmdAndRun(pkgName, { belongTo, dirName, isSubMod, scriptCmdKey: 'tsup' });
+  genPnpmCmdAndRun(pkgName, {
+    belongTo,
+    dirName,
+    isSubMod,
+    scriptCmdKey: 'tsup',
+  });
 };

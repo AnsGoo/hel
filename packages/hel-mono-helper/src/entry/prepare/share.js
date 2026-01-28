@@ -18,7 +18,12 @@ function replaceAppRelevantFiles(appData, devInfo, options = {}) {
 
   const { forEX, masterAppData, exAppData } = options || {};
   if (forEX && masterAppData && exAppData) {
-    const exProjDeps = getExProjDeps({ exAppData, devInfo, masterAppData, writeExJson: true });
+    const exProjDeps = getExProjDeps({
+      exAppData,
+      devInfo,
+      masterAppData,
+      writeExJson: true,
+    });
     return r.replaceIndexEXFile(exAppData, devInfo, { ...options, exProjDeps });
   }
 
@@ -63,12 +68,21 @@ function ensureExAppProject(devInfo, options) {
     };
     execCreate(devInfo, options);
   }
-  const exProjDeps = getExProjDeps({ exAppData, devInfo, masterAppData, writeExJson: true });
+  const exProjDeps = getExProjDeps({
+    exAppData,
+    devInfo,
+    masterAppData,
+    writeExJson: true,
+  });
 
   // TODO: 加注释, 这里为何要使用 newDevInfo?
   const newDevInfo = inferDevInfo(true);
   r.replaceExProjectPkgJson(exAppData, exProjDeps);
-  prepareAppFiles(newDevInfo, exAppData, { forEX: true, masterAppData, exAppData });
+  prepareAppFiles(newDevInfo, exAppData, {
+    forEX: true,
+    masterAppData,
+    exAppData,
+  });
 
   return { devInfo: newDevInfo, appData: exAppData };
 }

@@ -35,7 +35,10 @@ export async function get(where, options?: any): Promise<nsModel.SubAppInfoParse
     itemParsed.owners = objUtil.safeParse(itemRaw.owners || '', []);
     itemParsed.additional_scripts = objUtil.safeParse(itemRaw.additional_scripts || '', []);
     itemParsed.additional_body_scripts = objUtil.safeParse(itemRaw.additional_body_scripts || '', []);
-    itemParsed.proj_ver = objUtil.safeParse(itemRaw.proj_ver || '', { map: {}, utime: 0 });
+    itemParsed.proj_ver = objUtil.safeParse(itemRaw.proj_ver || '', {
+      map: {},
+      utime: 0,
+    });
   });
   return rowsParsed;
 }
@@ -88,6 +91,8 @@ export async function update(toUpdate, where?: any) {
     throw new Error('miss updateWhere while update subApp, it is dangerous!');
   }
 
-  const res = await models.subAppInfo.update(safeToUpdate, { where: updateWhere });
+  const res = await models.subAppInfo.update(safeToUpdate, {
+    where: updateWhere,
+  });
   return res;
 }

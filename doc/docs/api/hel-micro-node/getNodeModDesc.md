@@ -4,7 +4,7 @@ sidebar_position: 9
 
 # getNodeModDesc
 
-同步函数，获取映射了 hel 模块的 node 模块在sdk中的相关描述信息`IModDesc`，类型信息如下
+同步函数，获取映射了 hel 模块的 node 模块在 sdk 中的相关描述信息`IModDesc`，类型信息如下
 
 ```ts
 interface IModDesc extends IModManagerItemBase {

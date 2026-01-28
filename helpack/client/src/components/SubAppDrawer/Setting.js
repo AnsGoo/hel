@@ -41,7 +41,11 @@ function setup(c) {
       ins.setState({ pAllowOutAccessCardLoading: true });
       const name = getName();
       const isAllowed = await allowedAppSrv.getIsAppAllowed(name);
-      ins.setState({ pAllowOutAccessCardLoading: false, isAllowed, isAllowedOri: isAllowed });
+      ins.setState({
+        pAllowOutAccessCardLoading: false,
+        isAllowed,
+        isAllowedOri: isAllowed,
+      });
     } catch (err) {
       message.error(err.message);
       ins.setState({ pAllowOutAccessBtnLoading: false });
@@ -92,11 +96,18 @@ function setup(c) {
         ins.setState({ pAllowOutAccessBtnLoading: true });
         await allowedAppSrv.changeAllowed(name, isAllowed);
         message.success(`修改应用 ${name} 允许外网访问设置成功`);
-        ins.setState({ pAllowOutAccessBtnLoading: false, isAllowed, isAllowedOri: isAllowed });
+        ins.setState({
+          pAllowOutAccessBtnLoading: false,
+          isAllowed,
+          isAllowedOri: isAllowed,
+        });
       } catch (err) {
         message.error(err.message);
         console.trace(err);
-        ins.setState({ pAllowOutAccessBtnLoading: false, isAllowed: ins.state.isAllowedOri });
+        ins.setState({
+          pAllowOutAccessBtnLoading: false,
+          isAllowed: ins.state.isAllowedOri,
+        });
       }
     },
     onAllowedChanged(e) {

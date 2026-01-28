@@ -17,7 +17,7 @@ sidebar_position: 2
 通过指定模块名称拉取模块，默认总是拉取最新版本，如当前用户在灰度名单里，则返回灰度版本
 
 ```ts
-const app = await preFetchApp('sub-app1');
+const app = await preFetchApp("sub-app1");
 // 可实例化的应用根组件
 <app.Comp />;
 ```
@@ -25,7 +25,7 @@ const app = await preFetchApp('sub-app1');
 通过指定模块名称、版本号拉取模块
 
 ```ts
-const app = await preFetchApp('sub-app1', { versionId: 'v1' });
+const app = await preFetchApp("sub-app1", { versionId: "v1" });
 // 可实例化的应用根组件
 <app.Comp />;
 ```

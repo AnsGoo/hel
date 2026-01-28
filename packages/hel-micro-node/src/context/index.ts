@@ -37,7 +37,11 @@ export function makeSdkCtx(platform: string, options: { registrationSource?: str
     assetName2view: {},
     view2appName: {},
     careAllModsChange: false,
-    getHelRenderParams: (cbParams) => Promise.resolve({ viewPath: cbParams.viewPath, pageData: cbParams.pageData }),
+    getHelRenderParams: (cbParams) =>
+      Promise.resolve({
+        viewPath: cbParams.viewPath,
+        pageData: cbParams.pageData,
+      }),
     regHooks: getDefaultHooks(),
     bizHooks: getDefaultHooks(),
     confHooks: getDefaultHooks(),
@@ -50,9 +54,14 @@ export function makeSdkCtx(platform: string, options: { registrationSource?: str
 /**
  * 初始时是各种空函数占位，等 initMiddleware 里调用 mergeOptions 后被填充具体相关配置或函数
  */
-const defaultSdkCtx = makeSdkCtx(PLATFORM, { registrationSource: SDK_NAME, isActive: true });
+const defaultSdkCtx = makeSdkCtx(PLATFORM, {
+  registrationSource: SDK_NAME,
+  isActive: true,
+});
 
-const sdkCtxDict: Record<string, ISDKPlatContext> = { [PLATFORM]: defaultSdkCtx };
+const sdkCtxDict: Record<string, ISDKPlatContext> = {
+  [PLATFORM]: defaultSdkCtx,
+};
 
 /**
  * 获取与平台相关的 sdk 上下文对象

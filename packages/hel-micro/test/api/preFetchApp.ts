@@ -6,7 +6,11 @@ runTest(({ api, describe, util, semverApi, platform }) => {
 
   describe('test preFetchApp', () => {
     beforeAll(() => {
-      util.mockEmitAppRootComponent({ app: { name: appName }, platform, semverApi });
+      util.mockEmitAppRootComponent({
+        app: { name: appName },
+        platform,
+        semverApi,
+      });
     });
 
     test('preFetchApp should not be null', () => {

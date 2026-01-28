@@ -27,7 +27,15 @@ function setup(c) {
       const title = markData ? '修改个人标记描述' : '添加个人标记描述';
       const desc = markData ? markData.desc : '';
       const alertDesc = `你正在为应用版本 ${appVerData.sub_app_version} 添加个人标记，方便你以后可快速筛选个人关心的版本数据`;
-      ins.setState({ visible: true, appVerData, desc, markData, title, alertDesc, mode });
+      ins.setState({
+        visible: true,
+        appVerData,
+        desc,
+        markData,
+        title,
+        alertDesc,
+        mode,
+      });
       return;
     }
 
@@ -35,7 +43,15 @@ function setup(c) {
     const title = markData ? '修改全局标记描述' : '添加全局标记描述';
     const desc = markData ? markData.desc : '';
     const alertDesc = `你正在为应用版本 ${appVerData.sub_app_version} 添加全局标记，方便以后所有人都可快速筛选相关版本数据`;
-    ins.setState({ visible: true, appVerData, desc, markData, title, alertDesc, mode });
+    ins.setState({
+      visible: true,
+      appVerData,
+      desc,
+      markData,
+      title,
+      alertDesc,
+      mode,
+    });
   });
 
   return {

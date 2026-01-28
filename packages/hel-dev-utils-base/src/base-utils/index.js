@@ -52,7 +52,11 @@ export function getHelEnvParams(pkg, options = {}) {
   // 通常 unpkg 为私服时会透传 homePage 值
   if (handleHomePage) {
     const targetHomePage = p0EnvParams.appCdnPath || userCustomHomePage;
-    cdnHomePage = getNpmCdnHomePage(pkg, { distDir, npmCdnType, homePage: targetHomePage });
+    cdnHomePage = getNpmCdnHomePage(pkg, {
+      distDir,
+      npmCdnType,
+      homePage: targetHomePage,
+    });
   }
 
   let appHomePage = p0EnvParams.appHomePage || cdnHomePage || userCustomHomePage || pkg.homepage || '/';

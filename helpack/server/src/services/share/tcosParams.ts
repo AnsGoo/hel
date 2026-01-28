@@ -8,7 +8,14 @@ export function getTcosParams() {
   const { tcosEncryptSecretKey, enableReplyTcosParams } = envConf.other;
   const { appId, access, secretId, secretKey } = envConf.tcos;
   if (!enableReplyTcosParams) {
-    return { appId: '', access, secretId: '', nonce: '', nonce2: '', nonce3: '' };
+    return {
+      appId: '',
+      access,
+      secretId: '',
+      nonce: '',
+      nonce2: '',
+      nonce3: '',
+    };
   }
 
   const { iv: i1, encryptedData: nonce } = encryptAES(secretKey, tcosEncryptSecretKey);

@@ -18,7 +18,12 @@ function getPkgData(nmPkgName, allowInvalidName = true) {
   const { pkgJson, isValid } = getNmPkgJson(nmPkgName, allowInvalidName);
   const pkgExports = pkgJson.exports || {};
   const pkgHelEntry = pkgExports['./hel'];
-  return { hasHelExports: !!pkgHelEntry, pkgHel: pkgJson.hel || {}, pkgJson, isValid };
+  return {
+    hasHelExports: !!pkgHelEntry,
+    pkgHel: pkgJson.hel || {},
+    pkgJson,
+    isValid,
+  };
 }
 
 function logMonoDep(isForRootHelDir, options) {
@@ -150,7 +155,10 @@ function getMonoAppDepDataImpl(options) {
       const tmpDeps = loopDeps.slice();
       loopDeps.length = 0; // 清空间接依赖
       tmpDeps.forEach((name) => {
-        pushToDeps({ deps: pkg2Deps[name] || {}, appDirPath: pkg2AppDirPath[name] });
+        pushToDeps({
+          deps: pkg2Deps[name] || {},
+          appDirPath: pkg2AppDirPath[name],
+        });
       }); // 添加新的间接依赖
     }
 
@@ -161,7 +169,13 @@ function getMonoAppDepDataImpl(options) {
       tmpDeps.forEach((name) => nmPushToDeps(name)); // 添加新的间接依赖
     }
   }
-  logMonoDep(isForRootHelDir, { pkgName: json.name, isAllDep, appSrc, monoDep, depInfos });
+  logMonoDep(isForRootHelDir, {
+    pkgName: json.name,
+    isAllDep,
+    appSrc,
+    monoDep,
+    depInfos,
+  });
 
   return {
     pkgNames,

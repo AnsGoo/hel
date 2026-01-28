@@ -52,7 +52,11 @@ async function getUsersFromWsd(cachedKey?: string) {
     userList.forEach((user) => {
       const [en, full] = user;
       const leftBraceIdx = full.indexOf('(');
-      const parsedUser = { en, full, cnName: full.substring(leftBraceIdx + 1, full.length - 1) };
+      const parsedUser = {
+        en,
+        full,
+        cnName: full.substring(leftBraceIdx + 1, full.length - 1),
+      };
       parsedUserList.push(parsedUser);
       cachedUserMap[parsedUser.en] = parsedUser;
     });

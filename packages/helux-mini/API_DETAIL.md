@@ -285,7 +285,11 @@ function DemoUseService(props: any) {
 
 ```ts
 // 抽象服务函数
-export function useChildService(compCtx: { props: IProps; state: S; setState: (partialState: Partial<S>) => void }) {
+export function useChildService(compCtx: {
+  props: IProps;
+  state: S;
+  setState: (partialState: Partial<S>) => void;
+}) {
   const srv = useService<IProps, S>(compCtx, {
     change(label: string) {
       // !!! do not use compCtx.state or compCtx.state due to closure trap
@@ -293,10 +297,10 @@ export function useChildService(compCtx: { props: IProps; state: S; setState: (p
 
       // get latest state
       const state = srv.ctx.getState();
-      console.log('the latest label in state:', state.label);
+      console.log("the latest label in state:", state.label);
       // get latest props
       const props = srv.ctx.getProps();
-      console.log('the latest props when calling change', props);
+      console.log("the latest props when calling change", props);
 
       // your logic
       compCtx.setState({ label });
@@ -313,7 +317,9 @@ export function ChildComp(props: IProps) {
 return (
   <div>
     i am child <br />
-    <button onClick={() => srv.change(`self:${Date.now()}`)}>change by myself</button>
+    <button onClick={() => srv.change(`self:${Date.now()}`)}>
+      change by myself
+    </button>
     <h1>{state.label}</h1>;
   </div>
 );
@@ -324,19 +330,24 @@ return (
 当孩子组件 props 上透传了`exposeService`函数时，`useService` 将自动透传服务对象给父亲组件，是一种比较方便的逃离`forwardRef`完成父调子的模式
 
 ```ts
-import { ChildSrv, Child } from './Child';
+import { ChildSrv, Child } from "./Child";
 
 function App() {
   // 保存孩子的服务
   const childSrv = React.useRef<{ srv?: ChildSrv }>({});
   const seeState = () => {
-    console.log('seeState', childSrv.current.srv?.ctx.getState());
+    console.log("seeState", childSrv.current.srv?.ctx.getState());
   };
 
   return (
     <div>
-      <button onClick={() => childSrv.current.srv?.change(`${Date.now()}`)}>call child logic</button>
-      <Child unstableProp={`${Date.now()}`} exposeService={(srv) => (childSrv.current.srv = srv)} />
+      <button onClick={() => childSrv.current.srv?.change(`${Date.now()}`)}>
+        call child logic
+      </button>
+      <Child
+        unstableProp={`${Date.now()}`}
+        exposeService={(srv) => (childSrv.current.srv = srv)}
+      />
     </div>
   );
 }

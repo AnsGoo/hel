@@ -1,1 +1,1 @@
-local 文件用于辅助无mysql、redis等中间件时的本地演示
+local 文件用于辅助无 mysql、redis 等中间件时的本地演示

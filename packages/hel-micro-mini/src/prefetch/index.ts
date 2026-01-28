@@ -28,7 +28,10 @@ export async function preFetchLib(appName: string, options: IPrefetchOptions) {
   // 还未开始加载，标记加载中，防止连续的 preFetch 调用重复触发 loadApp
   if (currentLoadStatus !== helLoadStatus.LOADING) {
     setVerLoadStatus(appName, helLoadStatus.LOADING, options);
-    loadAssetsStarter = await loadApp(appName, { ...options, controlLoadAssets: true });
+    loadAssetsStarter = await loadApp(appName, {
+      ...options,
+      controlLoadAssets: true,
+    });
   }
 
   // 正在加载中，等待模块获取

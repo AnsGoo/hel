@@ -18,7 +18,10 @@ function setup(c) {
 }
 
 export default React.memo(() => {
-  const { state, settings } = useC2Mod(CREATED_LIST, { setup, ccClassKey: 'CreatedList' });
+  const { state, settings } = useC2Mod(CREATED_LIST, {
+    setup,
+    ccClassKey: 'CreatedList',
+  });
   return (
     <Spin spinning={state.loading}>
       {state.subApps.length === 0 && !state.loading ? (

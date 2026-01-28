@@ -49,7 +49,14 @@
   background-color: #d6e4ff;
 }
 .hubShine {
-  background: #222 -webkit-gradient(linear, left top, right top, from(#222), to(#222), color-stop(0.5, #fff)) 0 0 no-repeat;
+  background: #222 -webkit-gradient(
+      linear,
+      left top,
+      right top,
+      from(#222),
+      to(#222),
+      color-stop(0.5, #fff)
+    ) 0 0 no-repeat;
   -webkit-background-size: 122px;
   color: hsla(0, 0%, 100%, 0.3);
   -webkit-background-clip: text;

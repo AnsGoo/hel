@@ -121,7 +121,10 @@ export const updateSubApp = async (ctx: ICuteExpressCtx) => {
   const toUpdate = ctx.body;
 
   // 获取当前应用信息
-  const app = await getSubApp({ ...ctx, query: { ...ctx.query, name: toUpdate.name } });
+  const app = await getSubApp({
+    ...ctx,
+    query: { ...ctx.query, name: toUpdate.name },
+  });
   if (!app) {
     throw new Error(`app [${toUpdate.name}] not found`);
   }
@@ -160,7 +163,10 @@ export const updateSubApp = async (ctx: ICuteExpressCtx) => {
   console.log('[Local Mode] vision:', toUpdate);
   // 通过 socket 通知连接的客户端应用信息已变更
   try {
-    const data = { modName: toUpdate.name, channel: biz.CHANNEL_APP_INFO_CHANGED };
+    const data = {
+      modName: toUpdate.name,
+      channel: biz.CHANNEL_APP_INFO_CHANGED,
+    };
     notifySDKMetaChanged(toUpdate.name, data);
     console.log('[Local Mode] Socket notification sent:', data);
   } catch (err) {

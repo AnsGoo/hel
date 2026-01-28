@@ -133,7 +133,10 @@ const inner = {
     const { appCssList, buildCssList, initExtraCssList } = inner.getSelfCssList(appName, options);
     const { extraCssList = [], getExcludeCssList } = options; // extraCssList 此时表示二次透传的
     const allCssList = merge2List(appCssList, extraCssList);
-    const excludeCssList = getExcludeCssList?.(allCssList, { version: core.getVersion(appName, platAndVer) }) || [];
+    const excludeCssList =
+      getExcludeCssList?.(allCssList, {
+        version: core.getVersion(appName, platAndVer),
+      }) || [];
 
     // 仅使用应用自身的样式列表
     const onlyUseAppCssList = !excludeCssList.length && !extraCssList.length;
@@ -143,7 +146,13 @@ const inner = {
       // 按照 excludeCssList 配置过滤 allCssList ，才是最终得到的合法样式列表
       validCssList = allCssList.filter((item) => !excludeCssList.includes(item));
     }
-    return { validCssList, onlyUseAppCssList, buildCssList, initExtraCssList, appCssList };
+    return {
+      validCssList,
+      onlyUseAppCssList,
+      buildCssList,
+      initExtraCssList,
+      appCssList,
+    };
   },
 
   async fetchStyleData(appName: string, options: IFetchStyleOptions) {
@@ -171,7 +180,11 @@ const inner = {
 
       // 有其他上层调用已经触发样式获取逻辑，这里调用 waitStyleReady 等待样式获取动作完成即可
       if (status === LOADING) {
-        await inner.waitStyleReady(appName, { ...platAndVer, strictMatchVer, branchId });
+        await inner.waitStyleReady(appName, {
+          ...platAndVer,
+          strictMatchVer,
+          branchId,
+        });
         appStyleStr = core.getAppStyleStr(appName, platAndVer) || '';
       } else if (status === NOT_LOAD) {
         core.setVerStyleStrStatus(appName, LOADING, platAndVer);

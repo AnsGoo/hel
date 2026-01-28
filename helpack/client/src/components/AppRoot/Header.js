@@ -87,7 +87,12 @@ function setup(ctx) {
     clickSubMenu(e) {
       const path = e.key;
       commonService.historyPush(path);
-      ctx.setState({ dropBtnKey: U_CENTER, radioBtnKey: '', path, subMenuKey: path });
+      ctx.setState({
+        dropBtnKey: U_CENTER,
+        radioBtnKey: '',
+        path,
+        subMenuKey: path,
+      });
     },
     renderMenu() {
       const isAdmin = getModelComputed('portal').isAdmin;

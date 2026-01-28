@@ -87,7 +87,9 @@ const helDevUtils = require('hel-dev-utils');
 const pkg = require('./package.json');
 
 // deploy to github.io
-const appInfo = helDevUtils.createVueSubApp(pkg, { homePage: 'https://hel-eco.github.io/hel-tpl-remote-vue-comp/as_v1' });
+const appInfo = helDevUtils.createVueSubApp(pkg, {
+  homePage: 'https://hel-eco.github.io/hel-tpl-remote-vue-comp/as_v1',
+});
 
 module.exports = appInfo;
 ```

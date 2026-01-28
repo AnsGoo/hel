@@ -125,7 +125,9 @@ function App() {
         if (!unmounted) {
           const helloMsg = typeof lib.hello === 'function' ? lib.hello() : 'remote lib loaded';
           setRemoteMsg(helloMsg);
-          const versionInfo = core.getVersion(REMOTE_LIB_NAME, { platform: HEL_PLATFORM_NAME });
+          const versionInfo = core.getVersion(REMOTE_LIB_NAME, {
+            platform: HEL_PLATFORM_NAME,
+          });
           const versionLabel = versionInfo?.version_tag || versionInfo?.sub_app_version || versionInfo?.build_version || '';
           setLibVersion(versionLabel);
           console.log('[HEL DEMO] remote lib loaded, version:', versionLabel || 'unknown');

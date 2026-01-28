@@ -50,7 +50,11 @@ function rewriteByDirPath(dirPath, cb, options = {}) {
   const handleFile = (filePath) => {
     const lines = getFileContentLines(filePath);
     const name = lastItem(filePath.split(path.seq));
-    const { shouldRewrite, newLines } = cb(lines, { name, path: filePath, isDirectory: false });
+    const { shouldRewrite, newLines } = cb(lines, {
+      name,
+      path: filePath,
+      isDirectory: false,
+    });
     if (shouldRewrite) {
       rewriteByLines(filePath, newLines);
     }

@@ -54,7 +54,14 @@ function getMonoLevel1NameMap(level1DirName) {
     dirNames.push(dirName);
   }
 
-  return { pkgName2DirName, pkgName2Deps, pkgName2PeerDeps, dirName2PkgName, packNames, dirNames };
+  return {
+    pkgName2DirName,
+    pkgName2Deps,
+    pkgName2PeerDeps,
+    dirName2PkgName,
+    packNames,
+    dirNames,
+  };
 }
 
 function addCanBeEx(options) {
@@ -130,7 +137,14 @@ function getMonoNameMap(/** @type {IDevInfo} */ devInfo) {
 
       const proxyPkgName = isSubMod ? `${INNER_SUB_MOD_ORG}/${dirName}` : `${INNER_APP_ORG}/${dirName}`;
       const proxySrcPath = path.join(monoRootHelDir, `./${prefixedDir}/src`);
-      const infoPure = { pkgName, belongTo, dirName, isSubMod, appSrcPath, alias };
+      const infoPure = {
+        pkgName,
+        belongTo,
+        dirName,
+        isSubMod,
+        appSrcPath,
+        alias,
+      };
       const info = { ...infoPure, proxyPkgName, proxySrcPath };
       const deps = pkg2Deps[pkgName];
       const peerDeps = pkg2PeerDeps[pkgName];
@@ -142,7 +156,13 @@ function getMonoNameMap(/** @type {IDevInfo} */ devInfo) {
 
       pkg2Info[pkgName] = info;
       depData[pkgName] = { ...info, appDirPath, prefixedDir, deps, peerDeps };
-      depDataPure[pkgName] = { ...infoPure, appDirPath, prefixedDir, deps, peerDeps };
+      depDataPure[pkgName] = {
+        ...infoPure,
+        appDirPath,
+        prefixedDir,
+        deps,
+        peerDeps,
+      };
     });
   };
 
@@ -199,7 +219,13 @@ function getCmdDPNameData(/** @type {IDevInfo} */ devInfo, dirOrPkgName) {
   if (pkgName) {
     const prefixedDir = dirOrPkgName;
     const [belongTo, dirName] = prefixedDir.split('/');
-    return { pkgName, dirName, belongTo, prefixedDir, alias: getAlias(pkgName) };
+    return {
+      pkgName,
+      dirName,
+      belongTo,
+      prefixedDir,
+      alias: getAlias(pkgName),
+    };
   }
 
   const pkgs = dir2Pkgs[dirOrPkgName] || [];

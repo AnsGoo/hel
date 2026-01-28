@@ -24,7 +24,10 @@ function setup(c) {
           },
         ];
       }
-      return matchedUserList.map((item) => ({ label: item.full, value: item.en }));
+      return matchedUserList.map((item) => ({
+        label: item.full,
+        value: item.en,
+      }));
     },
   });
   ctx.effect(() => {

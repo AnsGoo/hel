@@ -16,7 +16,11 @@ export function getStaticShadowBodyStatus(name: string, options?: IGetVerOptions
 }
 
 export function setStaticShadowBodyStatus(name: string, customValue: any, options?: IGetVerOptions) {
-  setCustomData(name, { customKey: SHADOW_BODY_STATUS, customValue, ...options });
+  setCustomData(name, {
+    customKey: SHADOW_BODY_STATUS,
+    customValue,
+    ...options,
+  });
 }
 
 interface IGetMayStaticShadowNodeOptions extends IGetVerOptions {

@@ -45,7 +45,9 @@ export function buildImportHelpackModTest(config?: IPlatformConfig) {
           [HEL_HELLO_HELPACK]: { platform },
         });
         // 这一个版本不包含任何服务端模块产物
-        await importNodeMod(HEL_HELLO_HELPACK, { ver: HEL_HELLO_NO_SERVER_FILES_VER });
+        await importNodeMod(HEL_HELLO_HELPACK, {
+          ver: HEL_HELLO_NO_SERVER_FILES_VER,
+        });
 
         // await api.mapAndPreload({
         //   [HEL_HELLO_HELPACK]: { ver: HEL_HELLO_SUB_PATH, platform },
@@ -109,7 +111,9 @@ export function buildNativeStableRequireTest(config?: IPlatformConfig) {
       expect(hello()).toBe('hel hello v1.0.1');
 
       // 激活另一个版本，用相同的 hello 调用
-      const mod = await importNodeMod(MOD_NPM_NAME, { ver: HEL_DEMO_LIB1_VER2 });
+      const mod = await importNodeMod(MOD_NPM_NAME, {
+        ver: HEL_DEMO_LIB1_VER2,
+      });
       expect(hello()).toBe('hel hello v1.0.2');
       // expect(mod.hello()).toBe('hel hello v1.0.2');
     });

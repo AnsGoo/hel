@@ -36,7 +36,12 @@ exports.getNameData = function (/** @type string */ mayPkgOrDir, /** @type {IDev
     // 把关键字优先作为包名处理
     const dirName = pkgName2DirName[mayPkgOrDir];
     if (dirName) {
-      result = { pkgName: mayPkgOrDir, dirName, isSubMod, belongTo: belongToDir };
+      result = {
+        pkgName: mayPkgOrDir,
+        dirName,
+        isSubMod,
+        belongTo: belongToDir,
+      };
       break;
     }
 
@@ -44,7 +49,12 @@ exports.getNameData = function (/** @type string */ mayPkgOrDir, /** @type {IDev
     if (pkgName) {
       const pkgs = dir2Pkgs[mayPkgOrDir];
       checkPkgsLenNotGT1(pkgs, mayPkgOrDir);
-      result = { pkgName, dirName: mayPkgOrDir, isSubMod, belongTo: belongToDir };
+      result = {
+        pkgName,
+        dirName: mayPkgOrDir,
+        isSubMod,
+        belongTo: belongToDir,
+      };
       break;
     }
   }

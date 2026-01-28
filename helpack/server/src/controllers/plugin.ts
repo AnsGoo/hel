@@ -60,7 +60,9 @@ export const getIsVersionExist: TController = async (ctx) => {
 export const getAppByName: TController = async (ctx) => {
   checkQueryNonce(ctx.query, true);
   const { name: appName } = ctx.query;
-  const subApp = await ctx.services.app.getAppByName(appName, { shouldHideToken: false });
+  const subApp = await ctx.services.app.getAppByName(appName, {
+    shouldHideToken: false,
+  });
   return subApp;
 };
 
@@ -68,7 +70,9 @@ export const getAppByNameAndClass: TController = async (ctx) => {
   checkQueryNonce(ctx.query);
   const { name: appName, timestamp } = ctx.query;
   const { classKey, classToken } = ctx.body;
-  const subApp = await ctx.services.app.getAppByName(appName, { shouldHideToken: false });
+  const subApp = await ctx.services.app.getAppByName(appName, {
+    shouldHideToken: false,
+  });
   if (!subApp) {
     throw new Error(`app ${appName} not found`);
   }

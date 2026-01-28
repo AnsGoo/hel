@@ -14,7 +14,9 @@ const jsonpOutputSymbol = Symbol('jsonpOutput');
  * @param options
  * @returns
  */
-export const view = (name, data, options) => ({ [viewSymbol]: { name, data, options } });
+export const view = (name, data, options) => ({
+  [viewSymbol]: { name, data, options },
+});
 
 export const file = (path) => ({ [fileSymbol]: { path } });
 
@@ -25,7 +27,9 @@ export const file = (path) => ({ [fileSymbol]: { path } });
  * @param msg
  * @returns
  */
-export const code = (code, data, msg) => ({ [codeSymbol]: { code, data, msg } });
+export const code = (code, data, msg) => ({
+  [codeSymbol]: { code, data, msg },
+});
 
 /**
  * 原封不动的将 data 以 json 形式发送给客户点
@@ -43,7 +47,9 @@ export const skip = () => ({ [skipSymbol]: 1 });
  * 将 data 包裹为 { data, code, msg } 格式后，以 jsonp 形式发送给客户点
  * @returns
  */
-export const jsonp = (data: any) => ({ [jsonpSymbol]: data === undefined ? null : data });
+export const jsonp = (data: any) => ({
+  [jsonpSymbol]: data === undefined ? null : data,
+});
 
 /**
  * 将 data 包裹为 { data, code, msg } 格式后，以 jsonp 形式发送给客户点

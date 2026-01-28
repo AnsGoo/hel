@@ -128,7 +128,12 @@ function setup(c) {
     const dataList = [];
     Object.keys(map).forEach((key) => {
       const { o = '', b = '' } = map[key];
-      dataList.push({ id: key, uiId: getLineId(), onlineVerId: o, buildVerId: b });
+      dataList.push({
+        id: key,
+        uiId: getLineId(),
+        onlineVerId: o,
+        buildVerId: b,
+      });
     });
     return dataList;
   };
@@ -151,7 +156,11 @@ function setup(c) {
   const ins = ctx.initState(getInitialState(false));
   ctx.mr.freshSubAppAssociate(ctx.props.name).then(() => {
     const mapBackup = gerProjVerMap(ctx.state.subApp);
-    ins.setState({ pFetchSubAppEnd: true, mapBackup, pLineDataList: getDataList(mapBackup) });
+    ins.setState({
+      pFetchSubAppEnd: true,
+      mapBackup,
+      pLineDataList: getDataList(mapBackup),
+    });
   });
 
   ctx.on('selectAsProjVer', (/** @type ISubAppVersion */ selVersion, selType) => {
@@ -248,7 +257,12 @@ function setup(c) {
       if (pLineDataList.length === ITEM_LIMIT) {
         return message.warn(`最多只能添加${ITEM_LIMIT}组映射关系`);
       }
-      pLineDataList.splice(idx, 0, { uiId: getLineId(), id: '', onlineVerId: '', buildVerId: '' });
+      pLineDataList.splice(idx, 0, {
+        uiId: getLineId(),
+        id: '',
+        onlineVerId: '',
+        buildVerId: '',
+      });
       ins.setState({ pLineDataList });
     },
     copyToRow(versionId, uiId) {
@@ -315,7 +329,11 @@ function setup(c) {
 }
 
 function ProjVerMap(props) {
-  const { settings: se, state } = useC2Mod(VERSION_LIST, { setup, props, tag: 'ProjVerMap' });
+  const { settings: se, state } = useC2Mod(VERSION_LIST, {
+    setup,
+    props,
+    tag: 'ProjVerMap',
+  });
   const { ins } = se;
   const list = ins.state.pLineDataList;
 
@@ -353,7 +371,13 @@ function ProjVerMap(props) {
       拉取同一个应用的不同时期的构建版本号（注：目前只支持添加最多36组映射关系）。"
       />
       <VerticalBlank />
-      <Row style={{ marginBottom: '12px', backgroundColor: '#f4f5f5', padding: '6px' }}>
+      <Row
+        style={{
+          marginBottom: '12px',
+          backgroundColor: '#f4f5f5',
+          padding: '6px',
+        }}
+      >
         <Col span={7} style={{ textAlign: 'center', borderRight: '1px solid lightgrey' }}>
           项目id
           <NormalSpanBlank />

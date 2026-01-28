@@ -45,7 +45,13 @@ class SdkSocketServer {
     targetList.forEach(({ info, socket }) => {
       if (isClientValid(socket)) {
         const { id, remoteAddress } = info;
-        this.sendMsgObj(socket, { id, remoteAddress, containerName, workerID, data });
+        this.sendMsgObj(socket, {
+          id,
+          remoteAddress,
+          containerName,
+          workerID,
+          data,
+        });
       }
     });
   }

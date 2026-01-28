@@ -1,6 +1,6 @@
 ## 海拉平台前端项目
 
-ui基于`react`，数据层使用[concent](https://github.com/concentjs/concent)
+ui 基于`react`，数据层使用[concent](https://github.com/concentjs/concent)
 
 ## 运行
 
@@ -34,7 +34,7 @@ npm start
 |____src                # 项目源码
 ```
 
-## src目录结构
+## src 目录结构
 
 ```
 |____configs

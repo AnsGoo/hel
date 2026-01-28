@@ -18,7 +18,10 @@ import { useRemoteCompLogic, useRemoteCompStatusLogic, useRemoteLibCompLogic } f
  * 3 动态挂新属性 Comp.SubComp = xxx;
  */
 export type RemoteComp<P extends AnyRecord = AnyRecord, R extends any = any> = ((
-  props: P & { ref?: React.MutableRefObject<R | undefined>; children?: React.ReactNode },
+  props: P & {
+    ref?: React.MutableRefObject<R | undefined>;
+    children?: React.ReactNode;
+  },
 ) => React.ReactElement<P, any>) &
   AnyRecord;
 
@@ -68,7 +71,11 @@ export function useRemoteCompAndSubVal<P extends AnyRecord = AnyRecord, R extend
   options?: IUseRemoteCompOptions,
 ) {
   const CompAndSubVal = useRemoteCompLogic(name, compName, options || {});
-  return CompAndSubVal as { Comp: RemoteComp<P, R>; getSubVal: GetSubVal; getSubVals: GetSubVals };
+  return CompAndSubVal as {
+    Comp: RemoteComp<P, R>;
+    getSubVal: GetSubVal;
+    getSubVals: GetSubVals;
+  };
 }
 
 /**
@@ -96,7 +103,11 @@ export function useRemotePureComp<P extends AnyRecord = AnyRecord, R extends any
   compName: string,
   options?: Omit<IUseRemoteCompOptions, 'appendCss' | 'shadow'>,
 ) {
-  const targetOptions: IUseRemoteCompOptions = { ...options, shadow: false, appendCss: false };
+  const targetOptions: IUseRemoteCompOptions = {
+    ...options,
+    shadow: false,
+    appendCss: false,
+  };
   const { Comp } = useRemoteCompLogic(name, compName, targetOptions);
   return Comp as RemoteComp<P, R>;
 }
@@ -109,7 +120,11 @@ export function useRemotePureCompStatus<P extends AnyRecord = AnyRecord, R exten
   compName: string,
   options?: Omit<IUseRemoteCompOptions, 'appendCss' | 'shadow'>,
 ) {
-  const targetOptions: IUseRemoteCompOptions = { ...options, shadow: false, appendCss: false };
+  const targetOptions: IUseRemoteCompOptions = {
+    ...options,
+    shadow: false,
+    appendCss: false,
+  };
   const { Comp, isReady, err } = useRemoteCompStatusLogic(name, compName, targetOptions);
   return { Comp, isReady, err } as { Comp: RemoteComp<P, R> } & CompStatus;
 }
@@ -124,7 +139,10 @@ export function useRemotePureLibComp<P extends AnyRecord = AnyRecord, R extends 
   compName: string,
   options?: Omit<IUseRemoteLibCompOptions, 'appendCss'>,
 ) {
-  const targetOptions: IUseRemoteLibCompOptions = { ...options, appendCss: false };
+  const targetOptions: IUseRemoteLibCompOptions = {
+    ...options,
+    appendCss: false,
+  };
   const { Comp } = useRemoteLibCompLogic(name, compName, targetOptions);
   return Comp as RemoteComp<P, R>;
 }
@@ -137,7 +155,10 @@ export function useRemotePureLibCompStatus<P extends AnyRecord = AnyRecord, R ex
   compName: string,
   options?: Omit<IUseRemoteLibCompOptions, 'appendCss'>,
 ) {
-  const targetOptions: IUseRemoteLibCompOptions = { ...options, appendCss: false };
+  const targetOptions: IUseRemoteLibCompOptions = {
+    ...options,
+    appendCss: false,
+  };
   const { Comp, isReady, err } = useRemoteLibCompLogic(name, compName, targetOptions);
   return { Comp, isReady, err } as { Comp: RemoteComp<P, R> } & CompStatus;
 }
@@ -191,6 +212,10 @@ export function useRemoteLegacyComp<P extends AnyRecord = AnyRecord, R extends a
   compName: string,
   options?: IUseRemoteCompOptions,
 ) {
-  const { Comp } = useRemoteCompLogic(name, compName, { ...options, shadow: true, isLegacy: true });
+  const { Comp } = useRemoteCompLogic(name, compName, {
+    ...options,
+    shadow: true,
+    isLegacy: true,
+  });
   return Comp as RemoteComp<P, R>;
 }

@@ -118,7 +118,12 @@ export async function getAppFromRemoteOrLocal(appName: string, options: IInnerPr
   // 调试模式
   if (isCustomValid(custom)) {
     const { app, version } = await getCustomMeta(appName, custom);
-    cacheApp(app, { appVersion: version, platform, toDisk: false, loadOptions: options });
+    cacheApp(app, {
+      appVersion: version,
+      platform,
+      toDisk: false,
+      loadOptions: options,
+    });
     core.setAppPlatform(app.app_group_name, platform);
     core.setAppPlatformByAppName(appName, platform);
     return { appInfo: app, appVersion: version };
@@ -180,7 +185,12 @@ export async function getAppFromRemoteOrLocal(appName: string, options: IInnerPr
         log('[[ getAppFromRemoteOrLocal ]] remote meta:', mayCachedApp);
       } else {
         // 将硬盘缓存数据写回到内存
-        cacheApp(appInfo, { appVersion, platform, toDisk: false, loadOptions: options });
+        cacheApp(appInfo, {
+          appVersion,
+          platform,
+          toDisk: false,
+          loadOptions: options,
+        });
         // 异步缓存一份最新的数据
         tryGetFromRemote(enableSyncMeta).catch((err: any) => commonUtil.noop(err));
       }
@@ -290,7 +300,10 @@ export function cacheApp(
   // 记录sdk注入的额外样式
   const cssList = getAllExtraCssList(loadOptions);
   const versionTag = appVersion.version_tag || appVersion.sub_app_version;
-  core.setVerExtraCssList(appName, cssList, { platform, versionId: versionTag });
+  core.setVerExtraCssList(appName, cssList, {
+    platform,
+    versionId: versionTag,
+  });
 }
 
 export async function getAndCacheApp(appName: string, options: ISrvInnerOptions) {
@@ -338,7 +351,10 @@ export async function loadApp(appName: string, loadOptions: IInnerPreFetchOption
     if (!appVersion) {
       throw new Error(err || `app[${appName}]'s version[${versionId}] not exist`);
     }
-    inner.tryTriggerOnFetchMetaSuccess(appInfo, appVersion, { loadOptions, fromFallback });
+    inner.tryTriggerOnFetchMetaSuccess(appInfo, appVersion, {
+      loadOptions,
+      fromFallback,
+    });
     inner.recordAssetCtx(appInfo, appVersion, loadOptions);
 
     const startLoad = async () => {
@@ -354,7 +370,10 @@ export async function loadApp(appName: string, loadOptions: IInnerPreFetchOption
   } catch (err: any) {
     if (isFirstCall) {
       console.error('loadApp err and try one more time: ', err);
-      const ret = await loadApp(appName, { ...loadOptions, isFirstCall: false });
+      const ret = await loadApp(appName, {
+        ...loadOptions,
+        isFirstCall: false,
+      });
       return ret;
     }
     throw new Error(`loadApp [${appName}] err (${err.message}), recommend config onFetchMetaFailed hook`);

@@ -207,7 +207,14 @@ export function judgeAppReady(appInfo: IEmitAppInfo, options: IJudgeOptions, pre
 
   const logStillWait = () => log(`${fnMark} still wait ${appPathDesc} to be emitted (emitAppInfo,toMatch):`, appInfo, toMatch);
   // 啥也不做，等待平台值匹配、应用名匹配的那个事件发射上来
-  const toMatch = { branchId, platform, emitVer, inputVer, projectId, strictMatchVer };
+  const toMatch = {
+    branchId,
+    platform,
+    emitVer,
+    inputVer,
+    projectId,
+    strictMatchVer,
+  };
   if (appName !== emitAppName || !isEmitVerMatchInputVer(appName, toMatch)) {
     return logStillWait();
   }

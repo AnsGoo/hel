@@ -55,7 +55,12 @@ function updateMountInfo(key: number, updater: any) {
 
   if (info.mountCount === 2) {
     const prevKey = key - 1;
-    mountInfo.set(prevKey, { key: prevKey, updater, mountCount: 1, t: Date.now() });
+    mountInfo.set(prevKey, {
+      key: prevKey,
+      updater,
+      mountCount: 1,
+      t: Date.now(),
+    });
   }
 }
 

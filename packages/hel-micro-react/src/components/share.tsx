@@ -82,7 +82,9 @@ export function fetchLocalCompStyleStr(props: ILocalCompProps, ctx: any) {
     })
     .catch((err) => {
       fetchStyleStatusRef.current = LOADED;
-      setState({ errMsg: err.message || 'err occurred while fetch component style' });
+      setState({
+        errMsg: err.message || 'err occurred while fetch component style',
+      });
     });
 
   // 返回骨架屏

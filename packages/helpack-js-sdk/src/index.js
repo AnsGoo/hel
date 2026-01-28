@@ -242,7 +242,11 @@ exports.getVersion = async function (verId, options) {
   const { name, classToken, operator } = options || {};
   const baseUrl = util.getAPiPrefix('getVersion', options);
   const search = `&ver=${verId}`;
-  const url = util.genRequestUrlWithinAppNonce(baseUrl, name, { search, classToken, operator });
+  const url = util.genRequestUrlWithinAppNonce(baseUrl, name, {
+    search,
+    classToken,
+    operator,
+  });
   const result = await axios.post(url);
   return util.checkAndWrapResult(result);
 };
@@ -257,7 +261,10 @@ exports.getVersionList = async function (name, options) {
   }
 
   const baseUrl = util.getAPiPrefix('getVersionList', options);
-  const url = util.genRequestUrlWithinAppNonce(baseUrl, name, { classToken, operator });
+  const url = util.genRequestUrlWithinAppNonce(baseUrl, name, {
+    classToken,
+    operator,
+  });
   const result = await axios.post(url, { name, page, size });
   return util.checkAndWrapResult(result);
 };

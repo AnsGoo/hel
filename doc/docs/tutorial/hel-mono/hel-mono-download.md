@@ -6,7 +6,7 @@ sidebar_position: 1
 
 ## 安装命令行工具
 
-首先下载create-hel包，最好是全局安装，这样方便后续使用hel命令创建项目
+首先下载 create-hel 包，最好是全局安装，这样方便后续使用 hel 命令创建项目
 
 ```bash
 # 全局安装

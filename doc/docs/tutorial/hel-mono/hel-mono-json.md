@@ -6,7 +6,7 @@ sidebar_position: 3
 
 ## 概述
 
-通过改变 `hel-mono.json` 配置项可调整cli运行逻辑、构建产物逻辑等。
+通过改变 `hel-mono.json` 配置项可调整 cli 运行逻辑、构建产物逻辑等。
 
 ## 配置项说明
 
@@ -75,12 +75,12 @@ pnpm --filter hub run test:once
 ### defaultAppPortStart
 
 默认值：`3000`  
-作用：执行 `pnpm start .init-mono` 时，大仓助手会以此值作为初始值逐渐加1，得到各个应用本地运行的端口值
+作用：执行 `pnpm start .init-mono` 时，大仓助手会以此值作为初始值逐渐加 1，得到各个应用本地运行的端口值
 
 ### defaultSubModPortStart
 
 默认值：`3100`  
-作用：执行 `pnpm start .init-mono` 时，大仓助手会以此值作为初始值逐渐加1，得到各个子模块本地运行的端口值
+作用：执行 `pnpm start .init-mono` 时，大仓助手会以此值作为初始值逐渐加 1，得到各个子模块本地运行的端口值
 
 ### defaultAppDir
 
@@ -91,7 +91,7 @@ pnpm --filter hub run test:once
 
 默认值：`https://unpkg.com`  
 作用：部署路径，可设置为其他带子路径的域名，例如 https://cdn.jsdelivr.net/npm、https://mycdn.com/hel 等， 最终生成的产物路径形如：https://mycdn.com/hel/some-lib@some-ver/hel_dist， 注：此值的优先级低于执行构建命令时传入的 HEL_APP_HOME_PAGE 、HEL_APP_CDN_PATH 环境变量
-，HEL_APP_HOME_PAGE 优先级高于 HEL_APP_CDN_PATH，2者区别在于：
+，HEL_APP_HOME_PAGE 优先级高于 HEL_APP_CDN_PATH，2 者区别在于：
 内部对 HEL_APP_HOME_PAGE 不做任何处理，直接当做 publicUrl 交给构建脚本
 内对会把 HEL_APP_CDN_PATH 和包名、版本号做拼接操作后再当作 publicUrl 交给构建脚本
 
@@ -115,7 +115,7 @@ HEL_APP_CDN_PATH=https://my-cdn.com/hel  pnpm run build:helm
 ### allowEmptySrcIndex
 
 默认值：`false`  
-作用：允许大仓里模块的src目录下没有 index 导出文件，正常情况所有模块都需要有 index 来做统一导出，如存在特殊情况， 为避免 getMonoDevData 获取 appSrcIndex 报错 `Can not find index file ...`， 可配置此参数为 `true`， 此时 appSrcIndex 会为空字符串 `''`
+作用：允许大仓里模块的 src 目录下没有 index 导出文件，正常情况所有模块都需要有 index 来做统一导出，如存在特殊情况， 为避免 getMonoDevData 获取 appSrcIndex 报错 `Can not find index file ...`， 可配置此参数为 `true`， 此时 appSrcIndex 会为空字符串 `''`
 
 ### enableRepoEx
 
@@ -175,7 +175,7 @@ true：会注入大仓所有模块的一级依赖对应的外部资源的链接�
 ### displayConsoleLog
 
 默认值：`true`  
-作用：是否在控制台展示 hel-mono 相关log，如配置为`false`，用户依然可以到大仓根目录的`./hel`目录项查看各个应用或模块的运行日志
+作用：是否在控制台展示 hel-mono 相关 log，如配置为`false`，用户依然可以到大仓根目录的`./hel`目录项查看各个应用或模块的运行日志
 
 ### appsDirs
 
@@ -217,7 +217,7 @@ true：会注入大仓所有模块的一级依赖对应的外部资源的链接�
 ### nmExclude
 
 默认值: `[]`  
-作用：`start:hel` 或 `build:hel 时`，通过 npm 安装到 node_modules 里的这些包排除到微模块构建体系之外（此模块是hel模块时设置此参数才有作用）， 即它们会以原始的npm模块形式运行或被打包到宿主中。
+作用：`start:hel` 或 `build:hel 时`，通过 npm 安装到 node_modules 里的这些包排除到微模块构建体系之外（此模块是 hel 模块时设置此参数才有作用）， 即它们会以原始的 npm 模块形式运行或被打包到宿主中。
 
 - `*` 表示排除所有
 - `[]`表示不排除，如有具体的排除项可配置其包名到数组里
@@ -244,17 +244,17 @@ true：会注入大仓所有模块的一级依赖对应的外部资源的链接�
 ### devHostname
 
 默认值: `localhost`  
-作用：所有hel模块本地联调时的域名
+作用：所有 hel 模块本地联调时的域名
 
 ### helMicroName
 
 默认值: `hel-micro`  
-作用：模板文件里使用的 hel-micro sdk 名称，如用户基于 hel-micro 向上封装了自己的sdk，这里可配置封装sdk的名称，让生成的模板文件里 sdk 路径指向用户 sdk
+作用：模板文件里使用的 hel-micro sdk 名称，如用户基于 hel-micro 向上封装了自己的 sdk，这里可配置封装 sdk 的名称，让生成的模板文件里 sdk 路径指向用户 sdk
 
 ### helLibProxyName
 
 默认值: `hel-lib-proxy`  
-作用：模板文件里使用的 hel-lib-proxy sdk 名称，如用户基于 hel-lib-proxy 向上封装了自己的sdk，这里可配置封装sdk的名称，让生成的模板文件里 sdk 路径指向用户 sdk
+作用：模板文件里使用的 hel-lib-proxy sdk 名称，如用户基于 hel-lib-proxy 向上封装了自己的 sdk，这里可配置封装 sdk 的名称，让生成的模板文件里 sdk 路径指向用户 sdk
 
 ## 注意事项
 

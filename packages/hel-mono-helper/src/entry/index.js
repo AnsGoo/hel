@@ -70,7 +70,12 @@ function prepareHelEntryForMainAndDeps(/** @type {IPrepareHelEntrysOptions} */ o
         // 生成类似命令并执行： pnpm --filter @hel-packages/some-sub run start
         genPnpmCmdAndRun(
           pkgName,
-          { belongTo, dirName, scriptCmdKey: 'start:hel', isSubMod: appData.isSubMod },
+          {
+            belongTo,
+            dirName,
+            scriptCmdKey: 'start:hel',
+            isSubMod: appData.isSubMod,
+          },
           // 提供 callback，exec 变为异步模式
           (code, stdout, stderr) => {
             helMonoLog('Exit code:', code);
@@ -80,7 +85,11 @@ function prepareHelEntryForMainAndDeps(/** @type {IPrepareHelEntrysOptions} */ o
         );
       };
 
-      const injectedDevInfo = prepareHelEntryFiles({ devInfo, depData, appData });
+      const injectedDevInfo = prepareHelEntryFiles({
+        devInfo,
+        depData,
+        appData,
+      });
       if (startDeps) {
         const { devHostname = injectedDevInfo.devHostname, port } = injectedDevInfo.mods[pkgName];
         const url = ensureHttpPrefix(`${devHostname}:${port}`);
@@ -120,7 +129,13 @@ function prepareHelEntry(/** @type {DevInfo} */ devInfo, pkgOrDir, forEX) {
 
   const startDeps = process.env.HEL_START === HEL_START_WITH_LOCAL_RUNNING_DEPS;
   process.env.REACT_APP_HEL_START = process.env.HEL_START || '';
-  prepareHelEntryForMainAndDeps({ isForRootHelDir, devInfo, nameData, startDeps, forEX });
+  prepareHelEntryForMainAndDeps({
+    isForRootHelDir,
+    devInfo,
+    nameData,
+    startDeps,
+    forEX,
+  });
 }
 
 /**
@@ -136,7 +151,13 @@ function prepareExProjHelEntry(/** @type {DevInfo} */ devInfo, exPrefixedDir) {
   const exAppData = util.getCWDAppData(devInfo, exAppCwd);
 
   // 为了不混淆，appData 总是指向自身，新启用 masterAppData exAppData
-  prepareHelAppEntry({ devInfo, appData: exAppData, masterAppData, exAppData, forEX: true });
+  prepareHelAppEntry({
+    devInfo,
+    appData: exAppData,
+    masterAppData,
+    exAppData,
+    forEX: true,
+  });
 }
 
 module.exports = {

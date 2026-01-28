@@ -87,7 +87,10 @@ export class PresetData {
    */
   public async updateForServerFirst(platform: string, modInfo: IModInfo, options?: IUpdateServerModOptions) {
     if (!this.canUpdate(platform, modInfo)) {
-      log({ subType: 'updateForServerFirst', desc: `${modInfo.name} canUpdate is false` });
+      log({
+        subType: 'updateForServerFirst',
+        desc: `${modInfo.name} canUpdate is false`,
+      });
       return false;
     }
 
@@ -106,7 +109,10 @@ export class PresetData {
 
   public updateForServerFirstSync(platform: string, modInfo: IModInfo, options?: IUpdateServerModSyncOptions) {
     if (!this.canUpdate(platform, modInfo)) {
-      log({ subType: 'updateForServerFirstSync', desc: `${modInfo.name} canUpdate is false` });
+      log({
+        subType: 'updateForServerFirstSync',
+        desc: `${modInfo.name} canUpdate is false`,
+      });
       return false;
     }
     const isModUpdated = this.updateServerModSync(platform, modInfo, options);
@@ -241,7 +247,13 @@ export class PresetData {
 
     const helModName = modInfo.name;
     const currentMeta = prevModInfo?.fullMeta || null;
-    return shouldAcceptVersion({ platform, currentMeta, newMeta, nodeModName, helModName });
+    return shouldAcceptVersion({
+      platform,
+      currentMeta,
+      newMeta,
+      nodeModName,
+      helModName,
+    });
   }
 
   /**

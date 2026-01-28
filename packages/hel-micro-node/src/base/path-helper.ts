@@ -303,7 +303,11 @@ export function getModPathData(webFile: IWebFileInfo) {
   if (urls.length === 1) {
     // 开始推测默认导出模块
     const { relativeDir, fileName, fileRelPath } = getFilePathData(webDirPath, oneUrl);
-    fileDownloadInfos.push({ url: oneUrl, fileDir: path.join(modDirPath, relativeDir), fileName });
+    fileDownloadInfos.push({
+      url: oneUrl,
+      fileDir: path.join(modDirPath, relativeDir),
+      fileName,
+    });
     if (!isMainMod && relPath !== fileRelPath) {
       // 用户指定了具体的路径，例如 some-mod/some-path
       // 转为 relPath 是 some-mod/some-path/index.js
@@ -328,7 +332,11 @@ export function getModPathData(webFile: IWebFileInfo) {
         mainModPath = tmpModPath;
       }
 
-      fileDownloadInfos.push({ url, fileDir: path.join(modDirPath, relativeDir), fileName });
+      fileDownloadInfos.push({
+        url,
+        fileDir: path.join(modDirPath, relativeDir),
+        fileName,
+      });
     }
     if (!modRelPath) {
       throw new Error(`No server mod entry file for ${name}/${relPath}`);

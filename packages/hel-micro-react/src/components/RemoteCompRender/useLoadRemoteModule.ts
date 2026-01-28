@@ -62,7 +62,12 @@ export default function useLoadRemoteModule(config: IRemoteCompRenderConfig) {
   const { errMsg, shadowStyleStr, isShadowStyleStrFetched } = state;
 
   const SkeletonView = getSkeletonComp(Skeleton);
-  const passCtx = { isLoadAppDataExecutingRef, isLoadAppStyleExecutingRef, setState, SkeletonView };
+  const passCtx = {
+    isLoadAppDataExecutingRef,
+    isLoadAppStyleExecutingRef,
+    setState,
+    SkeletonView,
+  };
 
   // 拉取模块过程中产生错误
   if (errMsg) {
@@ -89,5 +94,11 @@ export default function useLoadRemoteModule(config: IRemoteCompRenderConfig) {
   const styleUrlList = getStyleList(name, controlOptions);
   // 如用户透传了具体组件，表示复用 name 对应的预设应用样式，使用用户透传的组件渲染
   RemoteModule = Component || RemoteModule;
-  return { errMsg, RemoteModule, styleStr: shadowStyleStr, styleUrlList, moduleReady: true };
+  return {
+    errMsg,
+    RemoteModule,
+    styleStr: shadowStyleStr,
+    styleUrlList,
+    moduleReady: true,
+  };
 }

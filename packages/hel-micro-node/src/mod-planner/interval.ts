@@ -18,7 +18,11 @@ export function mayStartupIntervalModUpdate(platform: string) {
   setInterval(() => {
     mayUpdateModPresetData(platform, SET_BY.timer).catch((err) => {
       const { reporter } = getGlobalConfig();
-      reporter.reportError({ message: err.stack, desc: 'err-intervalUpdate', data: platform });
+      reporter.reportError({
+        message: err.stack,
+        desc: 'err-intervalUpdate',
+        data: platform,
+      });
     });
   }, intervalUpdateMs);
 }

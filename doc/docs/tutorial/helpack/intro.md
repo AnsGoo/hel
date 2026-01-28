@@ -11,7 +11,7 @@ Helpack 是 Hel 生态系统的核心组件，为微前端架构提供了强大�
 
 ![](https://tnfe.gtimg.com/hel-img/WX20251027-120047.png)
 
-> 支持私有部署helpack，[仓库地址](https://github.com/Tencent/hel/tree/main/helpack)
+> 支持私有部署 helpack，[仓库地址](https://github.com/Tencent/hel/tree/main/helpack)
 
 ## 为什么要用 Helpack
 
@@ -24,7 +24,7 @@ Helpack 提供了以下核心能力：
 5. **API 支持**：提供丰富的 API 接口，支持前端和后端集成
 6. **灵活配置**：支持多种运行模式，适应不同的使用场景
 
-部署完毕后，对接你公司的ci&cd系统，将模块产物存储到私有cdn，元数据推送到helpack即可。
+部署完毕后，对接你公司的 ci&cd 系统，将模块产物存储到私有 cdn，元数据推送到 helpack 即可。
 ![arch](https://tnfe.gtimg.com/image/f13q7cuzxt_1652895450360.png)
 
 通过 Helpack，你可以：

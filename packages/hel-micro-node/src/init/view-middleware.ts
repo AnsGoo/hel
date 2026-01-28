@@ -20,7 +20,11 @@ export class HelModViewMiddleware {
     ctx.render = async function (viewPath: string, pageData?: DictData) {
       markHelEnv(ctx);
       // 调用用户配置的 getHelRenderParams 函 生成新的 pageData
-      const result = await getSdkCtx().getHelRenderParams({ ctx, viewPath, pageData });
+      const result = await getSdkCtx().getHelRenderParams({
+        ctx,
+        viewPath,
+        pageData,
+      });
       markHelHit(ctx);
       return render(result.viewPath, result.pageData);
     };

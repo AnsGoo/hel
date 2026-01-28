@@ -79,7 +79,11 @@ const setup = (/** @type CtxPre */ ctx) => {
  * @param {import('./type').Props} props
  */
 function GeneralTable(props) {
-  const { state, settings } = useConcent({ module: 'GeneralTable', setup, props });
+  const { state, settings } = useConcent({
+    module: 'GeneralTable',
+    setup,
+    props,
+  });
   const {
     tid,
     columns,

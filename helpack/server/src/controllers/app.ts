@@ -21,7 +21,10 @@ import { userMarkInfoSchema } from 'validators/app';
 
 const guard = new ConcurrencyGuard();
 const ONE_YEAR_MS = 1000 * 60 * 60 * 24 * 365;
-const BRANCH_REQ_COUNT_CACHE = new LRU<string, number>({ max: 10000, ttl: ONE_YEAR_MS });
+const BRANCH_REQ_COUNT_CACHE = new LRU<string, number>({
+  max: 10000,
+  ttl: ONE_YEAR_MS,
+});
 const BRANCH_REQUESTING = new LRU<string, number>({ max: 200000, ttl: 3000 });
 
 const inner = {
@@ -103,7 +106,12 @@ const inner = {
     const needReadGray = app.is_in_gray && grayUsers.includes(userName);
     if (hasProjVerMap) {
       // 存在有项目版本映射关系
-      return inner.getUserGrayVerId({ needReadGray, projGrayVer, appGrayVer, projOnlineVer });
+      return inner.getUserGrayVerId({
+        needReadGray,
+        projGrayVer,
+        appGrayVer,
+        projOnlineVer,
+      });
     }
 
     if (needReadGray) {
@@ -205,7 +213,9 @@ export const getSubApp: TControllerRet<any, any, any, Promise<nsModel.SubAppInfo
 
 export const getSubAppToken: TController<any> = async (ctx) => {
   const appName = ctx.query.name;
-  const subApp = await ctx.services.app.getAppByName(appName, { shouldHideToken: false });
+  const subApp = await ctx.services.app.getAppByName(appName, {
+    shouldHideToken: false,
+  });
   const rtx = ctx.pipes.getRtxName();
   if (!subApp) {
     throw new Error('应用不存在');
@@ -260,7 +270,10 @@ export const getSubAppAndItsVersion = async (ctx: ICuteExpressCtx) => {
     } else {
       // 指定了分支，未指定项目id时，获取对应分支的最新版本
       if (!projId && branch) {
-        const versionData = await versionDao.getOne({ sub_app_name: name, git_branch: branch });
+        const versionData = await versionDao.getOne({
+          sub_app_name: name,
+          git_branch: branch,
+        });
         if (versionData) {
           targetVer = versionData.sub_app_version;
           targetVerData = versionData;
@@ -383,7 +396,9 @@ export const createSubApp = async (ctx: ICuteExpressCtx) => {
   let serverNonce = '';
   let shouldCheckKey = true;
   if (ctx.midData.forSdk) {
-    const classInfo = await checkClassData(subApp.class_key, { checkAppLimit: true });
+    const classInfo = await checkClassData(subApp.class_key, {
+      checkAppLimit: true,
+    });
     shouldCheckKey = false;
     serverNonce = ctx.services.app.signCreateAppForSdk(subApp, timestamp, classInfo.class_token);
     subApp.class_name = classInfo.class_label;
@@ -398,7 +413,9 @@ export const createSubApp = async (ctx: ICuteExpressCtx) => {
   }
 
   if (subApp.class_key && shouldCheckKey) {
-    const [classInfo] = await ctx.dao.classInfo.get({ class_key: subApp.class_key });
+    const [classInfo] = await ctx.dao.classInfo.get({
+      class_key: subApp.class_key,
+    });
     if (!classInfo) {
       throw new Error('分类key无效');
     }
@@ -448,7 +465,9 @@ export const updateSubApp = async (ctx: ICuteExpressCtx) => {
   }
 
   if (toUpdate.class_key) {
-    const [classInfo] = await ctx.dao.classInfo.get({ class_key: toUpdate.class_key });
+    const [classInfo] = await ctx.dao.classInfo.get({
+      class_key: toUpdate.class_key,
+    });
     if (!classInfo) {
       throw new Error('分类key无效');
     }
@@ -614,7 +633,11 @@ export const updateAppUserMarkInfo: TController = async (ctx) => {
   const { name, ver, desc } = ctx.body;
   await appShare.checkApp(name);
 
-  const updated = await ctx.services.app.updateAppUserMarkInfo(rtxName, { name, ver, desc });
+  const updated = await ctx.services.app.updateAppUserMarkInfo(rtxName, {
+    name,
+    ver,
+    desc,
+  });
   return updated;
 };
 
@@ -622,7 +645,10 @@ export const delAppUserMarkInfo: TController = async (ctx) => {
   const rtxName = ctx.pipes.getRtxName();
   const { name, ver } = ctx.body;
   await appShare.checkApp(name);
-  const delResult = await ctx.services.app.delAppUserMarkInfo(rtxName, { name, ver });
+  const delResult = await ctx.services.app.delAppUserMarkInfo(rtxName, {
+    name,
+    ver,
+  });
   return delResult;
 };
 
@@ -660,7 +686,11 @@ export const updateSubAppGroupName: TController = async (ctx) => {
   // 校验欲更换的组名是否已存在（存在才让更换）
   await inner.checkGroupNameExist(name);
   // 更换组名后，该应用自动变为测试应用
-  const toUpdate: ISubAppUpdate = { name: app.name, app_group_name: groupname, is_test: 1 };
+  const toUpdate: ISubAppUpdate = {
+    name: app.name,
+    app_group_name: groupname,
+    is_test: 1,
+  };
   const updateResult = await ctx.services.app.updateApp(toUpdate, rtxName);
   return updateResult;
 };

@@ -1,6 +1,6 @@
 ## Helpack
 
-[Hel Pack](https://your-deployed-helpack-site.com)，海拉HelPack，动态化模块发布、托管服务
+[Hel Pack](https://your-deployed-helpack-site.com)，海拉 HelPack，动态化模块发布、托管服务
 
 ![](https://tnfe.gtimg.com/hel-img/WX20251027-120047.png)
 
@@ -13,7 +13,7 @@
 
 ### 目录结构
 
-总目录结构如下，具体目录结构说明在各自的目录README.md里
+总目录结构如下，具体目录结构说明在各自的目录 README.md 里
 
 ```text
 |____client             # 前端工程
@@ -87,7 +87,7 @@ cd client
 npm run start
 ```
 
-> 推荐配置vscode的launch.json文件，方便快速启动并调试，配置如下
+> 推荐配置 vscode 的 launch.json 文件，方便快速启动并调试，配置如下
 
 ```js
 {
@@ -130,7 +130,7 @@ bun start:h  //连接helpack
 
 - 前端部署
 
-**部署前端产物到本地server**
+**部署前端产物到本地 server**
 
 处于前端项目根目录`client`下时，执行
 
@@ -138,4 +138,4 @@ bun start:h  //连接helpack
 npm run build:local
 ```
 
-会自动清理后端public目录后，再将其构建产物复制到那里
+会自动清理后端 public 目录后，再将其构建产物复制到那里

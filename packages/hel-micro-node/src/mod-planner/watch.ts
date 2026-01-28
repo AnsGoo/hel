@@ -46,7 +46,12 @@ export async function subHelpackModChange(platform: string, changeCb: (params: I
         const helModNames = getCaredModNames(platform);
         const { careAllModsChange } = sdkCtx;
         const envInfo = sdkCtx.getEnvInfo() || {};
-        return { msgType: SOCKET_MSG_TYPE.initHelMods, helModNames, careAllModsChange, envInfo };
+        return {
+          msgType: SOCKET_MSG_TYPE.initHelMods,
+          helModNames,
+          careAllModsChange,
+          envInfo,
+        };
       },
       onMessage: (msg: IMsg) => {
         const { modName, channel } = msg.data;
@@ -61,7 +66,11 @@ export async function subHelpackModChange(platform: string, changeCb: (params: I
     // 上面逻辑里的 WSAutoReconnectClient 内部做了 catch 并会按照一定的延迟时间策略去重试，理论上不会抛出错误到这里
     const desc = 'err-sub-helpack-mod-change';
     const msg = `[${desc}] ${err.message}`;
-    getGlobalConfig().reporter.reportError({ message: msg, desc, data: platform });
+    getGlobalConfig().reporter.reportError({
+      message: msg,
+      desc,
+      data: platform,
+    });
   }
 }
 

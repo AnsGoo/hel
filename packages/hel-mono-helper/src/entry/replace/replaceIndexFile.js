@@ -36,7 +36,9 @@ module.exports = function replaceIndexFile(/** @type {ICWDAppData} */ appData, /
     hasFile(appSrcDirPath, 'App.js') ||
     hasFile(appSrcDirPath, 'App');
   const hasShareModules = hasFile(appSrcDirPath, 'hel-share');
-  const hasHelHook = hasFile(appSrcDirPath, 'hel-conf/hook', { exts: ['js', 'ts'] });
+  const hasHelHook = hasFile(appSrcDirPath, 'hel-conf/hook', {
+    exts: ['js', 'ts'],
+  });
 
   rewriteFileLine(indexFilePath, (line) => {
     let targetLine = line;

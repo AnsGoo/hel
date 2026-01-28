@@ -20,7 +20,7 @@ monaco.languages.typescript.typescriptDefaults.setDiagnosticsOptions({
 const { HEL_ARCH, HEL_BANNER, HEL_LABEL_LOGO } = cst;
 
 const Banner = styled.div`
-  position: 'relative';
+  position: "relative";
   background-image: url(${HEL_BANNER});
   background-size: cover;
   background-repeat: repeat-x;
@@ -125,14 +125,23 @@ const CodeDemo = React.memo(function () {
         />
       </MyRow>
       <MyRow style={{ marginBottom: '20px' }}>
-        <div style={{ ...stEditorWrap, backgroundImage: `url(${cst.DEMO_EDITOR_BG})` }}>
+        <div
+          style={{
+            ...stEditorWrap,
+            backgroundImage: `url(${cst.DEMO_EDITOR_BG})`,
+          }}
+        >
           <MonacoEditor
             width="1015px"
             height="570px"
             language="typescript"
             theme="vs-dark"
             value={demoCode[demoType]}
-            options={{ selectOnLineNumbers: true, fontSize: 16, noSyntaxValidation: true }}
+            options={{
+              selectOnLineNumbers: true,
+              fontSize: 16,
+              noSyntaxValidation: true,
+            }}
           />
         </div>
       </MyRow>

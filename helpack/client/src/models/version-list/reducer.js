@@ -87,7 +87,12 @@ export async function fetchVersionList(/** @type FetchFnParams */ payload, /** @
   // 表格头部翻页功能暂时关闭，如需打开，解开下面注释即可
   // pageList.unshift({ $uiType: 'topPagination' }); // 头部插入一个翻页组件
 
-  return { total: tableTotal, pageList, markTotal, buildTotal: countData.total };
+  return {
+    total: tableTotal,
+    pageList,
+    markTotal,
+    buildTotal: countData.total,
+  };
 }
 
 export async function updateAppVersion(payload = {}, /** @type St */ m, /** @type AC*/ ac) {
@@ -222,7 +227,11 @@ export async function updateProjVer(dataList, /** @type St */ m, /** @type AC*/ 
     proj_ver.map[item.id] = { o: item.onlineVerId, b: item.buildVerId };
   });
   try {
-    const res = await subAppSrv.updateSubApp({ id: subApp.id, name: subApp.name, proj_ver });
+    const res = await subAppSrv.updateSubApp({
+      id: subApp.id,
+      name: subApp.name,
+      proj_ver,
+    });
     if (`${res.code}` !== '0') {
       msgSrv.warn(res.msg);
       return { updateLoading: false };

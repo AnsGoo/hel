@@ -18,7 +18,10 @@ function setup(c) {
 }
 
 export default React.memo(() => {
-  const { state, settings } = useC2Mod(STAR_LIST, { setup, ccClassKey: 'StarList' });
+  const { state, settings } = useC2Mod(STAR_LIST, {
+    setup,
+    ccClassKey: 'StarList',
+  });
   return (
     <Spin spinning={state.loading}>
       {state.subApps.length === 0 && !state.loading ? (

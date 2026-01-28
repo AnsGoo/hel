@@ -71,7 +71,13 @@ class Stat {
       const distEnvLabel = getDistEnvLabel();
       const envLabel = getEnvLabel();
       const data = getDefault(type);
-      const dataNode: IStatItem = { type, data, timeLabel, envLabel, distEnvLabel };
+      const dataNode: IStatItem = {
+        type,
+        data,
+        timeLabel,
+        envLabel,
+        distEnvLabel,
+      };
       byTime[type] = dataNode;
       byType[timeLabel] = dataNode;
       byTimeSimple[type] = data;
@@ -91,7 +97,10 @@ class Stat {
       const timeLabel = getTimeLabel(offsetDay);
       const envLabel = getEnvLabel();
       // 筛出某一天对应123某个环境值的所有统计数据并开始汇总
-      const statDistList = await dao.statDist.get({ time_label: timeLabel, env_label: envLabel });
+      const statDistList = await dao.statDist.get({
+        time_label: timeLabel,
+        env_label: envLabel,
+      });
       const statDict: xc.Dict = {};
       statDistList.forEach((v) => {
         const { type, data } = v;
@@ -111,14 +120,31 @@ class Stat {
         const logData = { type, data };
         if (existStat) {
           await dao.stat.update({ id: existStat.id, data });
-          runningLogSrv.pushLog(logType, { subType, loc: 'update stat success', data: logData });
+          runningLogSrv.pushLog(logType, {
+            subType,
+            loc: 'update stat success',
+            data: logData,
+          });
         } else {
-          await dao.stat.add({ type, time_label: timeLabel, env_label: envLabel, data });
-          runningLogSrv.pushLog(logType, { subType, loc: 'add stat success', data: logData });
+          await dao.stat.add({
+            type,
+            time_label: timeLabel,
+            env_label: envLabel,
+            data,
+          });
+          runningLogSrv.pushLog(logType, {
+            subType,
+            loc: 'add stat success',
+            data: logData,
+          });
         }
       }
     } catch (err: any) {
-      runningLogSrv.pushLog(logType, { subType, loc: 'catch err', data: { msg: err.message } });
+      runningLogSrv.pushLog(logType, {
+        subType,
+        loc: 'catch err',
+        data: { msg: err.message },
+      });
     }
   }
 
@@ -134,12 +160,22 @@ class Stat {
         const type = keys[i];
         const stat = statDict[type];
         const { timeLabel, envLabel, distEnvLabel } = stat;
-        const where = { type, time_label: timeLabel, dist_env_label: distEnvLabel };
+        const where = {
+          type,
+          time_label: timeLabel,
+          dist_env_label: distEnvLabel,
+        };
         let result = await dao.statDist.getOne(where);
         if (!result) {
           await lockByLabel(subType);
-          const addResult = await dao.statDist.add({ ...where, env_label: envLabel });
-          runningLogSrv.pushLog(logType, { subType, loc: 'add statDist success' });
+          const addResult = await dao.statDist.add({
+            ...where,
+            env_label: envLabel,
+          });
+          runningLogSrv.pushLog(logType, {
+            subType,
+            loc: 'add statDist success',
+          });
           result = addResult.objJson;
         }
 
@@ -153,7 +189,11 @@ class Stat {
         });
       }
     } catch (err: any) {
-      runningLogSrv.pushLog(logType, { subType, loc: 'catch err', data: { msg: err.message } });
+      runningLogSrv.pushLog(logType, {
+        subType,
+        loc: 'catch err',
+        data: { msg: err.message },
+      });
     }
   }
 

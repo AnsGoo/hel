@@ -4,7 +4,11 @@ import { getNodeModDesc, getNodeModVer, importNodeMod, resolveNodeMod } from '..
 export async function changeVer(ctx: ICuteExpressCtxBase) {
   const { ver } = ctx.req.params;
   const { mod } = await importNodeMod('@hel-demo/mono-libs', { ver });
-  return { desc: 'update successfully', fnResult: mod.hello(), staticFnResult: hello() };
+  return {
+    desc: 'update successfully',
+    fnResult: mod.hello(),
+    staticFnResult: hello(),
+  };
 }
 
 export async function helloHandler(ctx: ICuteExpressCtxBase) {

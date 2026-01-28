@@ -48,7 +48,11 @@ class App extends React.Component {
       const { activeApp, contentVisible } = this.ctx.state;
       const doJump = () => {
         if (!contentVisible) {
-          this.setState({ sideBarVisible: true, contentVisible: true, activeApp: null });
+          this.setState({
+            sideBarVisible: true,
+            contentVisible: true,
+            activeApp: null,
+          });
         }
         commonService.historyPush(path);
       };
@@ -117,7 +121,13 @@ class App extends React.Component {
       <Layout.Content style={{ overflowY: 'auto' }}>
         <Header />
         {basicDataReady ? (
-          <div style={{ margin: '24px', padding: '24px', backgroundColor: 'white' }}>
+          <div
+            style={{
+              margin: '24px',
+              padding: '24px',
+              backgroundColor: 'white',
+            }}
+          >
             <Routes />
             <ConfirmVisitAppModal />
           </div>

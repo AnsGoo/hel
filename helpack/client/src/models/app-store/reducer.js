@@ -67,7 +67,11 @@ export async function initStarList(forceInit, /** @type St*/ moduleState, /** @t
 export async function initCreatedList(forceInit, /** @type St*/ moduleState, /** @type AC*/ ac) {
   if (forceInit || canFetch(moduleState, ac)) {
     const user = getRootState().portal.userInfo.user;
-    const queryOptions = subAppTool.makeQueryOptions({ page: 1, size: 100, user });
+    const queryOptions = subAppTool.makeQueryOptions({
+      page: 1,
+      size: 100,
+      user,
+    });
     ac.dispatch(fetchDataList, queryOptions);
   }
 }
@@ -92,7 +96,11 @@ export async function initVisitList(forceInit, /** @type St*/ moduleState, /** @
  */
 export async function initTop(forceInit, /** @type St*/ moduleState, /** @type AC*/ ac) {
   if (forceInit || canFetch(moduleState, ac)) {
-    const queryOptions = subAppTool.makeQueryOptions({ page: 1, size: 100, isTop: 1 });
+    const queryOptions = subAppTool.makeQueryOptions({
+      page: 1,
+      size: 100,
+      isTop: 1,
+    });
     ac.dispatch(fetchDataList, queryOptions);
   }
 }

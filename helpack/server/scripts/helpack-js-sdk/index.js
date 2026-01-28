@@ -126,7 +126,9 @@ exports.addVersion = async function (/** @type {IVersionCreate} */ ver, options)
   const content = `${sub_app_name}_${sub_app_version}_${timestamp}_${classToken}`;
   const nonce = util.sign(content); // 调用签名函数得到随机字符串
   const url = `${util.getAPiPrefix('addVersion', options)}${util.genSearch(operator, timestamp, nonce)}`;
-  const { status, statusText, data } = await axios.post(url, { version: verData });
+  const { status, statusText, data } = await axios.post(url, {
+    version: verData,
+  });
   return { status, statusText, reply: data };
 };
 

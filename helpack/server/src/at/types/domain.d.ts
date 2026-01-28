@@ -124,10 +124,15 @@ export type SubAppInfo = Omit<SubAppInfoRaw, OmitFields> & {
 export type SubAppInfoParsed = ISubApp;
 export type ISubAppUpdate = Partial<ISubApp> & { name: string };
 
-export type SubAppVersion = Omit<SubAppVersionRaw, 'src_map'> & { src_map: SrcMap; git_messages: string[] };
+export type SubAppVersion = Omit<SubAppVersionRaw, 'src_map'> & {
+  src_map: SrcMap;
+  git_messages: string[];
+};
 export type SubAppVersionParsed = SubAppVersion;
 
-export type TestUserRaw = Omit<TestUser, 'visible_app'> & { visible_app: string };
+export type TestUserRaw = Omit<TestUser, 'visible_app'> & {
+  visible_app: string;
+};
 
 export interface TestUser extends ObjBase {
   rtx_name: string;
@@ -145,7 +150,9 @@ export interface UserStarApp extends ObjBase {
   };
 }
 
-export type UserStarAppRaw = Omit<UserStarApp, 'star_info'> & { star_info: string };
+export type UserStarAppRaw = Omit<UserStarApp, 'star_info'> & {
+  star_info: string;
+};
 
 export interface UserVisitAppRaw extends ObjBase {
   rtx_name: string;
@@ -166,7 +173,9 @@ export interface UserExtend extends ObjBase {
   };
 }
 
-export type UserExtendRaw = Omit<UserExtend, 'extend_info'> & { extend_info: string };
+export type UserExtendRaw = Omit<UserExtend, 'extend_info'> & {
+  extend_info: string;
+};
 
 export interface IClassInfo extends ObjBaseV2 {
   class_key: string;

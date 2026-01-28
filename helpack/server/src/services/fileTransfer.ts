@@ -42,7 +42,13 @@ function toFileInfoList(homePage: string, assetUrlList: string[]) {
     const objKey = path.join(objKeyPrefix, relativePath, fileName);
     const fullPathStoreDir = path.resolve(TMP_COS_FILES_DIR, entryDirName);
     const fullPathFlatFileName = path.resolve(fullPathStoreDir, flatFileName);
-    return { ...basicInfo, objKey, originalUrl: url, fullPathStoreDir, fullPathFlatFileName };
+    return {
+      ...basicInfo,
+      objKey,
+      originalUrl: url,
+      fullPathStoreDir,
+      fullPathFlatFileName,
+    };
   });
 }
 
@@ -60,7 +66,9 @@ export async function transferWebFiles(homePage: string, assetUrlList: string[])
     fileInfoList.map(async (item) => {
       const { originalUrl, fullPathStoreDir, flatFileName } = item;
       try {
-        await download(originalUrl, fullPathStoreDir, { filename: flatFileName });
+        await download(originalUrl, fullPathStoreDir, {
+          filename: flatFileName,
+        });
       } catch (err) {
         throw new Error(`download ${originalUrl} error: ${err.message}`);
       }

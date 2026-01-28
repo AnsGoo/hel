@@ -185,7 +185,10 @@ async function multiGet(urls, options = {}) {
     delete options.returnLogicData;
     const _urls = urls.map((url) => attachPrefixAndData(url, ''));
     const failStrategy = options.failStrategy !== undefined ? options.failStrategy : cute.const.KEEP_ALL_BEEN_EXECUTED;
-    const replyList = await cute.multiGet(_urls, { ...generalOptions, ...{ failStrategy } });
+    const replyList = await cute.multiGet(_urls, {
+      ...generalOptions,
+      ...{ failStrategy },
+    });
     return replyList.map((r, idx) => checkCode(r, _urls[idx], returnLogicData));
   } catch (err) {
     return handleError(err, defaultValue);
@@ -199,7 +202,10 @@ async function multiPost(items, options = {}) {
     delete options.returnLogicData;
     items.forEach((item) => (item.url = attachPrefixAndData(item.url, '')));
     const failStrategy = options.failStrategy !== undefined ? options.failStrategy : cute.const.KEEP_ALL_BEEN_EXECUTED;
-    const replyList = await cute.multiPost(items, { ...generalOptions, ...{ failStrategy } });
+    const replyList = await cute.multiPost(items, {
+      ...generalOptions,
+      ...{ failStrategy },
+    });
     return replyList.map((r, idx) => checkCode(r, items[idx].url, returnLogicData));
   } catch (err) {
     return handleError(err, defaultValue);

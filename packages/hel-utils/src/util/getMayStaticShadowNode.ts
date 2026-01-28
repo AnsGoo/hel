@@ -16,7 +16,10 @@ interface IGetMayStaticShadowNodeOptions extends IGetVerOptions {
  * @returns
  */
 export function getMayStaticShadowNode(name: string, options?: IGetMayStaticShadowNodeOptions): HTMLElement {
-  const staticShadowNode = getCustomData(name, { customKey: 'ShadowBody', ...options });
+  const staticShadowNode = getCustomData(name, {
+    customKey: 'ShadowBody',
+    ...options,
+  });
   const bodyNode = getGlobalThis().document.body;
   return staticShadowNode || options?.fallbackNode || bodyNode;
 }

@@ -5,7 +5,10 @@ import { HEL_DEMO_LIB1, HEL_HELLO_HELPACK, SDK_GLOBAL_CONFIG } from './util/cons
 setGlobalConfig(SDK_GLOBAL_CONFIG);
 mapNodeMods({
   // 映射为带子路径的hel模块
-  [HEL_DEMO_LIB1]: { helModName: `${HEL_HELLO_HELPACK}/srv/hel-hello`, platform: 'hel' },
+  [HEL_DEMO_LIB1]: {
+    helModName: `${HEL_HELLO_HELPACK}/srv/hel-hello`,
+    platform: 'hel',
+  },
 });
 
 describe('import sub path', () => {

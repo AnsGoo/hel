@@ -16,12 +16,16 @@ export async function countSubAppVersionListByName(sub_app_name: string) {
 
 export async function addAppVersion(toAdd) {
   await dao.subAppVersion.add(toAdd);
-  const appVersion = await dao.subAppVersion.getOne({ sub_app_version: toAdd.sub_app_version });
+  const appVersion = await dao.subAppVersion.getOne({
+    sub_app_version: toAdd.sub_app_version,
+  });
   redisSrv.saveCache(`SubAppVer_${toAdd.sub_app_version}`, appVersion);
   return appVersion;
 }
 
 export async function getAppVersion(versionIndex: string) {
-  const appVersion = await dao.subAppVersion.getOne({ sub_app_version: versionIndex });
+  const appVersion = await dao.subAppVersion.getOne({
+    sub_app_version: versionIndex,
+  });
   return appVersion;
 }

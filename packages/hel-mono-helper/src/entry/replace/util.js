@@ -181,7 +181,13 @@ function jsonObj2Lines(jsonObj, options = {}) {
   const pushToLines = (line, idx) => {
     const isArrStartLine = arrStartLineIdx === idx;
     const isArrEndLine = arrEndLineIdx === idx;
-    const params = { line, isArrPartial, arrStartLine, isArrStartLine, isArrEndLine };
+    const params = {
+      line,
+      isArrPartial,
+      arrStartLine,
+      isArrStartLine,
+      isArrEndLine,
+    };
     const handledLine = handleLine(params) || line;
     targetLines.push(handledLine);
   };

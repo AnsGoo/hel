@@ -375,7 +375,10 @@ export async function getSubAppAndItsVersion(appName: string, getOptions: IHelGe
   const innerRequest = async (custUrl?: string, custApiMode?: ApiMode) => {
     const metaUrl = custUrl || url;
     const semverApi = inner.getSemverApiVal(loadOptions);
-    const reply = await executeGet(metaUrl, { apiMode: custApiMode || apiMode, semverApi });
+    const reply = await executeGet(metaUrl, {
+      apiMode: custApiMode || apiMode,
+      semverApi,
+    });
     const meta = extractMetaFromReply(appName, reply);
     return meta;
   };
@@ -459,7 +462,10 @@ export async function batchGetSubAppAndItsVersion(appNames: string[], batchGetOp
   const platform = getPlatform(batchGetOptions.platform);
   const { url } = await prepareCustomPlatRequestInfo(appNames, batchGetOptions);
   const innerRequest = async () => {
-    const { data, code, msg } = await executeGet<Array<IHelMeta>>(url, { apiMode, semverApi });
+    const { data, code, msg } = await executeGet<Array<IHelMeta>>(url, {
+      apiMode,
+      semverApi,
+    });
     if (0 !== parseInt(code, 10) || !data) {
       throw new Error(msg || 'batch get failed');
     }

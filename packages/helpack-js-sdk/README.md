@@ -6,7 +6,7 @@
 
 ## 分类创建
 
-此 sdk 只能向自己的分类作新增、修改等操作，需要先去[helpack管理台](https://locolhost:7777/__hub/new-app)创建分类，即可获取分类 token
+此 sdk 只能向自己的分类作新增、修改等操作，需要先去[helpack 管理台](https://locolhost:7777/__hub/new-app)创建分类，即可获取分类 token
 
 ## api 简介
 
@@ -147,6 +147,12 @@ export function getVersion(
  */
 export function getVersionList(
   name: string,
-  options: { classToken: string; operator: string; host?: string; page?: number; size?: number },
+  options: {
+    classToken: string;
+    operator: string;
+    host?: string;
+    page?: number;
+    size?: number;
+  },
 ): IHelpackRes<ISubAppVersion[]>;
 ````

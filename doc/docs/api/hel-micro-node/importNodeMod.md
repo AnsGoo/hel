@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # importNodeMod
 
-传入 node 模块名称，对已映射hel模块的node模块导入新版本模块，如 node 模块未映射，调用将报错
+传入 node 模块名称，对已映射 hel 模块的 node 模块导入新版本模块，如 node 模块未映射，调用将报错
 
 ## 更新至最新版本
 

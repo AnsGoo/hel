@@ -16,7 +16,13 @@ function setup(c) {
   ctx.on('openConfirmVisitAppModal', (appName, subApp) => {
     const { is_local_render = true } = subApp;
     const renderAppPath = subApp.render_app_host || getBackendRenderPath(appName);
-    ins.setState({ appName, visible: true, isLocalRender: is_local_render, subApp, renderAppPath });
+    ins.setState({
+      appName,
+      visible: true,
+      isLocalRender: is_local_render,
+      subApp,
+      renderAppPath,
+    });
   });
 
   const settings = {
@@ -27,7 +33,12 @@ function setup(c) {
     ok(noNewTab) {
       const { appName, isLocalRender, renderAppPath } = ins.state;
       settings.cancel();
-      ccReducer.portal.changeSubApp({ appName, isLocalRender, noNewTab, renderAppPath });
+      ccReducer.portal.changeSubApp({
+        appName,
+        isLocalRender,
+        noNewTab,
+        renderAppPath,
+      });
     },
     seeVersion() {
       settings.cancel();

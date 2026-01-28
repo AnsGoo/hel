@@ -18,7 +18,10 @@ import {
 import TokenViewer from './components/TokenViewer';
 
 const commonRules = [
-  { pattern: APP_NAME_RULE, message: '必需是英文、数字、下划线、中划线的组合，注意不要包含空格' },
+  {
+    pattern: APP_NAME_RULE,
+    message: '必需是英文、数字、下划线、中划线的组合，注意不要包含空格',
+  },
   { max: 64, type: 'string', message: '长度不能大于30' },
 ];
 
@@ -140,7 +143,10 @@ const fields = [
 ];
 
 export const disabledFields = fields.map((item) => {
-  const itemCopy = { type: item.type, options: { ...item.options, disabled: true } };
+  const itemCopy = {
+    type: item.type,
+    options: { ...item.options, disabled: true },
+  };
   return itemCopy;
 });
 

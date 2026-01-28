@@ -25,7 +25,11 @@ export async function handlePageCurrentChange({ current, tableId, fetchFn }, _, 
 /** 翻到下一页 */
 export async function handleNextPage({ tableId, fetchFn }, { meta }, ctx) {
   const { current } = getTableMeta(meta, tableId);
-  await ctx.dispatch(handlePageCurrentChange, { current: current + 1, tableId, fetchFn });
+  await ctx.dispatch(handlePageCurrentChange, {
+    current: current + 1,
+    tableId,
+    fetchFn,
+  });
 }
 
 /** 处理一页展示条数的变更 */

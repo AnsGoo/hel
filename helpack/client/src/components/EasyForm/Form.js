@@ -20,7 +20,10 @@ const cu = {
 };
 
 const setup = (/** @type {import('types/store').CtxDeS<{}, {}, {}, {}, [{form: import('antd/lib/form').FormInstance}]>} */ ctx) => {
-  ctx.initState({ formLayout: ctx.props.layout || 'horizontal', loading: false });
+  ctx.initState({
+    formLayout: ctx.props.layout || 'horizontal',
+    loading: false,
+  });
 
   ctx.computed(cu);
 

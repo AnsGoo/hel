@@ -73,7 +73,9 @@ interface IGetMetaParams extends Omit<IFetchModMetaOptions, 'platform'> {
   helModName: string;
 }
 
-export type BeforePreloadOnce = () => Promise<{ helpackSocketUrl?: string } | void>;
+export type BeforePreloadOnce = () => Promise<{
+  helpackSocketUrl?: string;
+} | void>;
 
 export type GetMeta = (params: IGetMetaParams) => Promise<IMeta>;
 

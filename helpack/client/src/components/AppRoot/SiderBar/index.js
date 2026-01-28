@@ -19,7 +19,11 @@ function gotoWelcomePage() {
   emit(GOTO_PAGE, WELCOME);
 }
 
-const iState = () => ({ showLatestVisitMenu: false, showStarMenu: false, showHomeMenu: false });
+const iState = () => ({
+  showLatestVisitMenu: false,
+  showStarMenu: false,
+  showHomeMenu: false,
+});
 
 /** @typedef {import('types/store').CtxMS<{}, 'portal', ReturnType<typeof iState>} CtxPre */
 

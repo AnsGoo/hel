@@ -16,7 +16,12 @@ import { AvatarWrap, DescWrap, MyCard } from './styled';
 
 const validModuleList = [ccModule.APP_STORE, ccModule.STAR_LIST, ccModule.LATEST_VISIT];
 const { Meta } = Card;
-const stTagsWrap = { position: 'absolute', top: '8px', right: '2px', zIndex: 1 };
+const stTagsWrap = {
+  position: 'absolute',
+  top: '8px',
+  right: '2px',
+  zIndex: 1,
+};
 const stClassWrap = {
   position: 'absolute',
   left: '0px',
@@ -87,7 +92,12 @@ function setup(c) {
     },
     getStClassWrap(name) {
       // 色彩灵感来自 tapd 系统，并统一加上了 88% 透明度
-      const colorMap = { 0: '#1468f8E0', 1: '#fda734E0', 2: '#f85552E0', 3: '#3ca75bE0' };
+      const colorMap = {
+        0: '#1468f8E0',
+        1: '#fda734E0',
+        2: '#f85552E0',
+        3: '#3ca75bE0',
+      };
       const yushu = name.length % 4;
       const backgroundColor = colorMap[yushu];
       return { ...stClassWrap, backgroundColor };
@@ -183,7 +193,8 @@ function SubApp(props) {
           <Tooltip
             title={
               <span>
-                复制当前应用为同应用组({appData.app_group_name})下的另一个应用，该应用会自动标记为
+                复制当前应用为同应用组({appData.app_group_name}
+                )下的另一个应用，该应用会自动标记为
                 <Tag color="gray">测试</Tag>应用
               </span>
             }
@@ -194,7 +205,8 @@ function SubApp(props) {
           <Tooltip
             title={
               <span>
-                复制当前应用为新应用组的新应用，该应用会自动标记为<Tag color="#f50">正式</Tag>
+                复制当前应用为新应用组的新应用，该应用会自动标记为
+                <Tag color="#f50">正式</Tag>
                 应用，等同于在新建应用页创建一个新应用
               </span>
             }
@@ -246,7 +258,10 @@ function SubApp(props) {
           actions={actions}
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
-          bodyStyle={{ borderBottom: '1px dotted lightgrey', padding: '24px 12px' }}
+          bodyStyle={{
+            borderBottom: '1px dotted lightgrey',
+            padding: '24px 12px',
+          }}
         >
           {/* <Meta
             avatar={<Avatar src={data.logo} />}

@@ -176,7 +176,8 @@ const setup = (c) => {
                 >
                   vue2x-demo
                 </a>
-                ， 如创建应用遇到问题，可联系&nbsp;<Tag color="#f50">{HEL_CHARGER}</Tag>
+                ， 如创建应用遇到问题，可联系&nbsp;
+                <Tag color="#f50">{HEL_CHARGER}</Tag>
               </>
             }
           >

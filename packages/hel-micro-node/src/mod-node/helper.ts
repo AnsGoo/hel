@@ -7,7 +7,11 @@ export function extractImportNodeModByMetaSyncOptions(nodeModName: string, meta:
   if (helModName !== meta.app.name) {
     throw new Error(`Meta name ${meta.app.name} not equal to helModName ${helModName}`);
   }
-  const newOptions: IInnerImportModByMetaSyncOptions = { ...options, standalone: false, platform };
+  const newOptions: IInnerImportModByMetaSyncOptions = {
+    ...options,
+    standalone: false,
+    platform,
+  };
   return newOptions;
 }
 

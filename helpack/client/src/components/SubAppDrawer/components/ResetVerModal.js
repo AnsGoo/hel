@@ -23,7 +23,12 @@ function setup(c) {
   return {
     ins,
     close() {
-      ins.setState({ visible: false, loading: false, verID: '', verAppName: '' });
+      ins.setState({
+        visible: false,
+        loading: false,
+        verID: '',
+        verAppName: '',
+      });
     },
     async submit() {
       const { verID, verAppName } = ins.state;

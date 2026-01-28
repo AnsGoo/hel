@@ -239,7 +239,14 @@ function handleHtmlForExUser(/** @type {Options} */ options, /** @type IExLink[]
     if (line.includes('</head>')) {
       targetLine = [];
       repoExLinks.forEach((item, idx) => {
-        targetLine.push(getScriptLine({ idPrefix: 'REPO_EX', idx, link: item.link, helEx: item.ex }));
+        targetLine.push(
+          getScriptLine({
+            idPrefix: 'REPO_EX',
+            idx,
+            link: item.link,
+            helEx: item.ex,
+          }),
+        );
       });
 
       addPeerEx(options, targetLine);

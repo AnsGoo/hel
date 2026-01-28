@@ -14,7 +14,11 @@ export async function getSubAppVersionList(name, page, size) {
   const nonce = signMD5(content);
   url = `${url}&nonce=${nonce}`;
 
-  const subAppVersionList = await http.post(url, { name, page: finalPage, size });
+  const subAppVersionList = await http.post(url, {
+    name,
+    page: finalPage,
+    size,
+  });
   return subAppVersionList;
 }
 

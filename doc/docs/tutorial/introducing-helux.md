@@ -608,7 +608,10 @@ const [finalPriceState] = share(
 需要响应多个不同上游状态的值变化，计算多个节点新值时，定义 `mutate` 为对象即可
 
 ```tsx
-const [priceState] = share({ base1: 1, base2: { forStudent: 1, forTeacher: 2 } });
+const [priceState] = share({
+  base1: 1,
+  base2: { forStudent: 1, forTeacher: 2 },
+});
 const [finalPriceState] = share(
   // 这里仅负责定义初始值，变化规则见 options.mutate 定义
   { final1: 0, final2: { student: 0, teacher: 0 } },
@@ -635,8 +638,14 @@ function Demo() {
 ```ts
 {
   mutate: [
-    { desc: 'changeFinal1', fn: (draft) => (draft.final1 = priceState.base1 + 20) },
-    { desc: 'changeFinal2', fn: (draft) => (draft.final2.student = priceState.base2.forStudent + 100) },
+    {
+      desc: 'changeFinal1',
+      fn: (draft) => (draft.final1 = priceState.base1 + 20),
+    },
+    {
+      desc: 'changeFinal2',
+      fn: (draft) => (draft.final2.student = priceState.base2.forStudent + 100),
+    },
   ];
 }
 ```
@@ -784,7 +793,11 @@ witness.callTask();
 import { atom, share, derive, driveAtom } from 'helux';
 
 const [numAtom] = atom(5);
-const [info] = share({ a: 50, c: { c1: 100, c2: 1000 }, list: [{ name: 'one', age: 1 }] });
+const [info] = share({
+  a: 50,
+  c: { c1: 100, c2: 1000 },
+  list: [{ name: 'one', age: 1 }],
+});
 
 // 派生返回对象，派生函数首次运行后，仅在 numAtom.va 或 info.c.c1 发生变化后才会重运行计算出新的 result
 const result = derive(() => {
@@ -997,15 +1010,15 @@ const myAsyncAction = actionAsync(sharedState)(async ({ setState }) => {
   setState((draft) => {
     draft.a += 100;
   });
-}, 'myAsyncAction');
+}, "myAsyncAction");
 
 function Comp() {
   const [loading] = ctx.useActionLoading();
-  console.log(loading['myAsyncAction']);
+  console.log(loading["myAsyncAction"]);
 
   return (
     <MarkUpdate>
-      <h1>{loading['myAsyncAction'].loading && 'loading...'}</h1>
+      <h1>{loading["myAsyncAction"].loading && "loading..."}</h1>
       shared.xxx {$(sharedState.a)}
     </MarkUpdate>
   );

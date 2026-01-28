@@ -45,20 +45,20 @@ npm run start
 
 ### 4.用户端功能介绍
 
-- 测试hello函数api [`http://localhost:7776/api/hello`](http://localhost:7776/api/hello)
-- 更新 hello 函数版本api [`http://localhost:7776/api/changeVer/:ver`](http://localhost:7776/api/changeVer/:1.0.1) (点击后可以切换到1.0.1版本)
+- 测试 hello 函数 api [`http://localhost:7776/api/hello`](http://localhost:7776/api/hello)
+- 更新 hello 函数版本 api [`http://localhost:7776/api/changeVer/:ver`](http://localhost:7776/api/changeVer/:1.0.1) (点击后可以切换到 1.0.1 版本)
 
 ![](/img/hello和切换.gif)
 
-- 查看当前hel最新的版本号 [`http://localhost:7776/api/getModVer`](http://localhost:7776/api/getModVer)
+- 查看当前 hel 最新的版本号 [`http://localhost:7776/api/getModVer`](http://localhost:7776/api/getModVer)
 
 ![](/img/功能3.png)
 
-- 查看当前hel模块描述 [`http://localhost:7776/api/getModDesc`](http://localhost:7776/api/getModDesc)
+- 查看当前 hel 模块描述 [`http://localhost:7776/api/getModDesc`](http://localhost:7776/api/getModDesc)
 
 ![](/img/功能4.png)
 
-- 查看当前hel激活模块路径信息 [`http://localhost:7776/api/resolveMod`](http://localhost:7776/api/resolveMod)
+- 查看当前 hel 激活模块路径信息 [`http://localhost:7776/api/resolveMod`](http://localhost:7776/api/resolveMod)
 
 ![](/img/功能5.png)
 

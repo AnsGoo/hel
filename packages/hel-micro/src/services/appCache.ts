@@ -60,7 +60,11 @@ export function innerGetAppCacheKey(appName: string, getCacheKey?: GetCacheKey, 
 export async function innerGetDiskCachedApp(appName: string, options: IInnerPreFetchOptions): Promise<ICacheData | null> {
   const { getCacheKey, storageType, platform } = options;
   const cacheKey = innerGetAppCacheKey(appName, getCacheKey, platform);
-  const meta = await getCachedAppMeta(appName, { platform, cacheKey, storageType });
+  const meta = await getCachedAppMeta(appName, {
+    platform,
+    cacheKey,
+    storageType,
+  });
   if (meta) {
     return { appInfo: meta.app, appVersion: meta.version };
   }

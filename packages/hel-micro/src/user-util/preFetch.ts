@@ -140,7 +140,10 @@ async function innerPreFetch(appName: string, prefetchOptions: IInnerPreFetchOpt
     // 还未开始加载，标记加载中，防止连续的 preFetch 调用重复触发 loadApp
     if (currentLoadStatus !== helLoadStatus.LOADING) {
       setVerLoadStatus(appName, helLoadStatus.LOADING, prefetchOptions);
-      loadAssetsStarter = await loadApp(appName, { ...prefetchOptions, controlLoadAssets: true });
+      loadAssetsStarter = await loadApp(appName, {
+        ...prefetchOptions,
+        controlLoadAssets: true,
+      });
       perfPeek(pLogic, 'loadApp');
     }
 
@@ -178,7 +181,9 @@ export async function preFetchLib<T extends AnyRecord = AnyRecord>(
   let appProperties = emitApp?.appProperties;
 
   if (!appProperties && options.onLibNull) {
-    const fallbackLib = options.onLibNull(appName, { versionId: options.versionId });
+    const fallbackLib = options.onLibNull(appName, {
+      versionId: options.versionId,
+    });
     if (fallbackLib) {
       appProperties = fallbackLib;
     }
@@ -233,7 +238,10 @@ export async function batchPreFetchLib<T extends AnyRecord[] = AnyRecord[]>(
 ): Promise<T> {
   const optionsMap = batchOptions?.preFetchConfigs || {};
   // 因 batchPreFetchLib 默认是私服，所以 semverApi 默认是 false
-  const commonOptions: IBatchOptionsCommon = { semverApi: false, ...batchOptions?.common };
+  const commonOptions: IBatchOptionsCommon = {
+    semverApi: false,
+    ...batchOptions?.common,
+  };
   const platform = getPlatform(commonOptions.platform);
   const { versionIdList = [], projectIdList = [], branchIdList = [] } = commonOptions;
   const targetVerList: string[] = [];
@@ -267,7 +275,9 @@ export async function batchPreFetchLib<T extends AnyRecord[] = AnyRecord[]>(
     options.enableDiskCache = getObjsVal([options, commonOptions], 'enableDiskCache', ENABLE_DISK_CACHE);
     options.enableSyncMeta = getObjsVal([options, commonOptions], 'enableSyncMeta', ENABLE_SYNC_META);
     options.storageType = getObjsVal([options, commonOptions], 'storageType', STORAGE_TYPE);
-    const appData = await getAppFromRemoteOrLocal(name, options, { callRemote: false });
+    const appData = await getAppFromRemoteOrLocal(name, options, {
+      callRemote: false,
+    });
 
     if (!appData) {
       shouldFetchAppNames.push(name);

@@ -19,7 +19,10 @@ function judgeFetchStyleStr(props: ILocalCompProps, fetchStyleStatusRef: React.R
 }
 
 export default function useLoadStyle(props: ILocalCompProps) {
-  const [state, setState] = baseShareHooks.useObject({ errMsg: '', styleStr: '' });
+  const [state, setState] = baseShareHooks.useObject({
+    errMsg: '',
+    styleStr: '',
+  });
   const fetchStyleStatusRef = React.useRef(NOT_LOAD);
   const { errMsg, styleStr } = state;
 
@@ -39,5 +42,10 @@ export default function useLoadStyle(props: ILocalCompProps) {
 
   // 设置了需要将css列表转为字符串，则返回空样式列表给上层，因逻辑走这里其实已将传入的样式列表转为了字符串
   const finalStyleUrlList = props.cssListToStr ? [] : props.cssList || [];
-  return { errMsg, styleStr, styleUrlList: finalStyleUrlList, moduleReady: true };
+  return {
+    errMsg,
+    styleStr,
+    styleUrlList: finalStyleUrlList,
+    moduleReady: true,
+  };
 }

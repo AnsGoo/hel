@@ -14,7 +14,9 @@ const jsonpOutputSymbol = Symbol('jsonpOutput');
  * @param options
  * @returns
  */
-export const view = (name, data, options) => ({ [viewSymbol]: { name, data, options } });
+export const view = (name, data, options) => ({
+  [viewSymbol]: { name, data, options },
+});
 
 export const file = (path) => ({ [fileSymbol]: { path } });
 
@@ -25,7 +27,9 @@ export const file = (path) => ({ [fileSymbol]: { path } });
  * @param msg
  * @returns
  */
-export const code = (code, data, msg) => ({ [codeSymbol]: { code, data, msg } });
+export const code = (code, data, msg) => ({
+  [codeSymbol]: { code, data, msg },
+});
 
 /**
  * 默认错误码为 '-1'

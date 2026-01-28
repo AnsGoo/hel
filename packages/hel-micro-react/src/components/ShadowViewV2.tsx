@@ -27,7 +27,9 @@ export default function ShadowViewV2(props: IShadowViewImplProps) {
     data = '',
   } = props;
   const shadowHostRef = React.useRef<HTMLDivElement | null>(null);
-  const shadowRootRef = React.useRef<{ root: ShadowRoot | null }>({ root: null });
+  const shadowRootRef = React.useRef<{ root: ShadowRoot | null }>({
+    root: null,
+  });
   const isDelayCalledRef = React.useRef<{ called: boolean }>({ called: false });
   const forceUpdate = useForceUpdate();
 
@@ -38,7 +40,10 @@ export default function ShadowViewV2(props: IShadowViewImplProps) {
     }
 
     // 拿到 div 实例后对其添加 shadow 节点
-    const shadowRoot = shadowHost.attachShadow({ mode: 'open', delegatesFocus });
+    const shadowRoot = shadowHost.attachShadow({
+      mode: 'open',
+      delegatesFocus,
+    });
     props.onShadowRootReady(shadowRoot);
     shadowRootRef.current.root = shadowRoot;
     forceUpdate();
@@ -74,7 +79,11 @@ export default function ShadowViewV2(props: IShadowViewImplProps) {
     </>
   );
 
-  const elProps = { ref: shadowHostRef, style: { transitionDuration, ...style }, data };
+  const elProps = {
+    ref: shadowHostRef,
+    style: { transitionDuration, ...style },
+    data,
+  };
   // @ts-ignore
   return React.createElement(tagName, elProps, uiContent);
 }

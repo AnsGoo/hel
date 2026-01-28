@@ -47,7 +47,15 @@ export function appReady(appGroupName, Comp, emitOptions = {}) {
   const platform = emitOptions.platform || getAppPlatform(appGroupName);
   const versionId = emitOptions.versionId || tryGetVersion(appGroupName, platform);
   const appName = emitOptions.appName || tryGetAppName(versionId, appGroupName);
-  const emitApp = { Comp, appName, appGroupName, lifecycle, platform, versionId, isLib: false };
+  const emitApp = {
+    Comp,
+    appName,
+    appGroupName,
+    lifecycle,
+    platform,
+    versionId,
+    isLib: false,
+  };
   setEmitApp(appName, emitApp);
   setVerLoadStatus(appName, helLoadStatus.LOADED, { versionId, platform });
   const eventBus = getHelEventBus();

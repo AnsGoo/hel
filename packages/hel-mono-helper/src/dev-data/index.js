@@ -144,7 +144,11 @@ function getAppInfo(/** @type DevInfo */ devInfo, appPkgJson) {
   const appConf = appConfs[appPkgJson.name];
   const homePage = appConf.deployPath || deployPath;
   const handleHomePage = chooseBool([appConf.handleDeployPath, devInfo.handleDeployPath], true);
-  const appInfo = createLibSubApp(appPkgJson, { platform, homePage, handleHomePage });
+  const appInfo = createLibSubApp(appPkgJson, {
+    platform,
+    homePage,
+    handleHomePage,
+  });
 
   return appInfo;
 }
@@ -291,7 +295,11 @@ exports.getMonoDevData = function (/** @type DevInfo */ devInfo, inputAppSrc, op
         return;
       }
 
-      const alias = inferConfAlias(devInfo, { appSrc: subModSrcPath, appConf, pkgName });
+      const alias = inferConfAlias(devInfo, {
+        appSrc: subModSrcPath,
+        appConf,
+        pkgName,
+      });
       if (alias) {
         appAlias[alias] = subModSrcPath;
         pureAlias[alias] = subModSrcPath;

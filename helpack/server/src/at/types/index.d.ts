@@ -17,7 +17,9 @@ type C2List<A = any> = ReadonlyArray<A>;
 type Tail<L extends C2List> = ((...t: L) => any) extends (head: any, ...tail: infer LTail) => any ? LTail : never;
 type GetRestItemsType<A extends Array<any>> = Exclude<A, A[0]>;
 export type PipesType<PipeFns> = PipeFns extends IAnyObj
-  ? { [key in keyof PipeFns]: PipeFns[key] extends IAnyFn ? (p: string) => ReturnType<PipeFns[key]> : PipeFns[key] }
+  ? {
+      [key in keyof PipeFns]: PipeFns[key] extends IAnyFn ? (p: string) => ReturnType<PipeFns[key]> : PipeFns[key];
+    }
   : {};
 
 export type PipesTypeGood<PipeFns> = PipeFns extends IAnyObj

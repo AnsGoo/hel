@@ -75,7 +75,9 @@ module.exports = appInfo; // 暴露应用描述对象
 
 ```ts
 // 自定义 homePage，形如：https://youhost.com/aa/bb、 /aa/bb、../aa/bb
-const appInfo = helDevUtils.createLibSubApp(pkg, { homePage: 'http://127.0.0.1' });
+const appInfo = helDevUtils.createLibSubApp(pkg, {
+  homePage: 'http://127.0.0.1',
+});
 ```
 
 :::tip homePage 优先级高于 npmCdnType
@@ -91,7 +93,9 @@ const appInfo = helDevUtils.createLibSubApp(pkg, { homePage: 'http://127.0.0.1' 
 如该模块有其他公共的远程 cdn 依赖，可设定此参数
 
 ```ts
-const appInfo = helDevUtils.createLibSubApp(pkg, { externals: { moment: 'moment' } });
+const appInfo = helDevUtils.createLibSubApp(pkg, {
+  externals: { moment: 'moment' },
+});
 ```
 
 ### 不处理 homePage
@@ -112,7 +116,10 @@ const appInfo = helDevUtils.createLibSubApp(pkg, { externals: { moment: 'moment'
 
 ```ts
 // 自定义 homePage，不拼接名字和版本号
-const appInfo = helDevUtils.createLibSubApp(pkg, { homePage: './xx', handleHomePage: false });
+const appInfo = helDevUtils.createLibSubApp(pkg, {
+  homePage: './xx',
+  handleHomePage: false,
+});
 ```
 
 ### 控制 HelMeta 版本号

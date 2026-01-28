@@ -9,7 +9,10 @@ import { buildSharedObject } from './creator';
 const noop = () => ({});
 
 export function createSharedObject<T extends Dict = Dict>(rawState: T | (() => T), moduleName?: string): T {
-  const [sharedState] = buildSharedObject(false, rawState, { moduleName, enableReactive: false });
+  const [sharedState] = buildSharedObject(false, rawState, {
+    moduleName,
+    enableReactive: false,
+  });
   return sharedState;
 }
 
@@ -100,7 +103,12 @@ export function createKeyedShared<T extends Dict = Dict, R extends Dict = Dict>(
     moduleNameVar = getKeyedSharedStoreName();
   }
 
-  const keyedShared: any = { stateFactory, actionsFactory, moduleName: moduleNameVar, lifecycle };
+  const keyedShared: any = {
+    stateFactory,
+    actionsFactory,
+    moduleName: moduleNameVar,
+    lifecycle,
+  };
   keyedShared[KEYED_SHARED_KEY] = 1;
 
   const useState = (key: string) => {

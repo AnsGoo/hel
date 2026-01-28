@@ -6,7 +6,7 @@ sidebar_position: 0
 
 映射 node 模块和 hel 微模块关系，并预加载 hel 微模块。
 
-## 映射node模块
+## 映射 node 模块
 
 默认情况下 node 模块和 hel 微模块同名，表示两者是捆绑到一起发布的。
 
@@ -59,7 +59,7 @@ await mapAndPreload({ 'hel-hello-helpack': { platform: 'hel' }});
 <projRoot>/node_modules/.hel_modules/hel+hel-hello-helpack 目录下
 ```
 
-## 指定api前缀
+## 指定 api 前缀
 
 默认情况下是从 `unpkg` 平台拉取 hel 模块元数据来加载，请求链接格式形如：
 
@@ -71,7 +71,7 @@ https://unpkg.com/{moduleName}@{ver}/hel_dist/hel-meta.json
 
 例如 [https://unpkg.com/@hel-demo/mono-libs@1.0.0/hel_dist/hel-meta.json](https://unpkg.com/@hel-demo/mono-libs@1.0.0/hel_dist/hel-meta.json)
 
-指定api前缀后，请求链接格式形如：
+指定 api 前缀后，请求链接格式形如：
 
 ```txt
 https://{apiPrefix}/{moduleName}
@@ -81,7 +81,7 @@ https://{apiPrefix}/{moduleName}@{ver}
 
 例如 [https://helmicro.com/openapi/meta/@tencent/mono-bs-lib](https://helmicro.com/openapi/meta/@tencent/mono-bs-lib)
 
-可通过设定 `helpackApiUrl` 参数来指定请求元数据的api前缀
+可通过设定 `helpackApiUrl` 参数来指定请求元数据的 api 前缀
 
 ```ts
 await mapAndPreload({
@@ -171,7 +171,7 @@ const { hello } = require('my-mod');
 
 ## 指定分支名称(for helpack)
 
-此功能仅限于请求helpack服务才能使用，设定后只接受指定分支的最新版本代码的更新信号
+此功能仅限于请求 helpack 服务才能使用，设定后只接受指定分支的最新版本代码的更新信号
 
 ```ts
 await mapAndPreload({
@@ -179,9 +179,9 @@ await mapAndPreload({
 });
 ```
 
-## 指定项目id(for helpack)
+## 指定项目 id(for helpack)
 
-此功能仅限于请求helpack服务才能使用，设定后只接受指定项目id的最新版本代码的更新信号
+此功能仅限于请求 helpack 服务才能使用，设定后只接受指定项目 id 的最新版本代码的更新信号
 
 ```ts
 await mapAndPreload({

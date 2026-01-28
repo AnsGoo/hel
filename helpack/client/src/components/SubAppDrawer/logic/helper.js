@@ -288,7 +288,10 @@ export function buildCardActions(/** @type {SubAppVersion} */ record, setCardLoa
 
   const switchVer = async (changeMode) => {
     setCardLoading(true);
-    const res = await ccReducer.VersionList.updateAppVersion({ inputVersion: verTag, changeMode });
+    const res = await ccReducer.VersionList.updateAppVersion({
+      inputVersion: verTag,
+      changeMode,
+    });
     setCardLoading(false);
     if (res && res.subApp) {
       const label = changeMode === 'online' ? '线上' : '灰度';

@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # registerPlatform
 
-此接口面向库开发者，当私有部署了[helpack](https://github.com/Tencent/hel/tree/main/helpack)时，可用此接口注册平台信息并返回此平台对应的 api，返回的 api 列表里，如果需要透传可选参数的接口在未传递 `platform` 值时，默认就是注册的平台值，同时可预设一些参数来告诉sdk如何和`helpack`通信
+此接口面向库开发者，当私有部署了[helpack](https://github.com/Tencent/hel/tree/main/helpack)时，可用此接口注册平台信息并返回此平台对应的 api，返回的 api 列表里，如果需要透传可选参数的接口在未传递 `platform` 值时，默认就是注册的平台值，同时可预设一些参数来告诉 sdk 如何和`helpack`通信
 
 ## 简单使用方式
 
@@ -38,8 +38,8 @@ const wrappedApi = hmn.registerPlatform({
 });
 ```
 
-:::info封装为适配私有部署helpack的专属sdk
+:::info 封装为适配私有部署 helpack 的专属 sdk
 
-建议封装成一个新的sdk，提供给内网其他服务使用，具体封装细节可参考[hm-node-use/hmnWrap](https://github.com/Tencent/hel/blob/main/helpack/hm-node-user/src/libs/hmnWrap.ts)
+建议封装成一个新的 sdk，提供给内网其他服务使用，具体封装细节可参考[hm-node-use/hmnWrap](https://github.com/Tencent/hel/blob/main/helpack/hm-node-user/src/libs/hmnWrap.ts)
 
 :::

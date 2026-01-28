@@ -13,7 +13,7 @@ npm run start:full
 npm run start:simple
 ```
 
-- 配置 launch.json去启动
+- 配置 launch.json 去启动
 
 这样可直接点击 vscode 的调试按钮，方便本地联调
 

@@ -65,7 +65,12 @@ export function useShared<T extends Dict = Dict>(
     if (internal.insCount === 1) {
       internal.lifecycle.beforeMount(getLifecycleParams(sharedObject, internal));
     }
-    const ret = buildInsCtx(insCtx, { state: rawState, setState, internal, enableReactive });
+    const ret = buildInsCtx(insCtx, {
+      state: rawState,
+      setState,
+      internal,
+      enableReactive,
+    });
     updater = ret.updater;
     sharedState = ret.proxyedState;
   }

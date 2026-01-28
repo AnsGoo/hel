@@ -54,7 +54,10 @@ export const addVersion: TController<any, any, { version: ISubAppVersion; classK
   const verAdded = await srv.appVersion.addAppVersion(version);
 
   // 添加版本后更新 app.build_version
-  const toUpdateApp: ISubAppUpdate = { name: appName, build_version: versionIndex };
+  const toUpdateApp: ISubAppUpdate = {
+    name: appName,
+    build_version: versionIndex,
+  };
   if (!app.enable_gray) {
     // 未开启灰度功能的话，线上版本也更新
     toUpdateApp.online_version = versionIndex;
@@ -122,7 +125,12 @@ export const queryBackupAssetsProgress: TController<any, any, { version: ISubApp
     });
 
     const { update } = dao.uploadCos;
-    const resultCommon = { uploadedFiles, pendingFiles, totalCount, errMsg: '' };
+    const resultCommon = {
+      uploadedFiles,
+      pendingFiles,
+      totalCount,
+      errMsg: '',
+    };
     const id = objJson.id;
     try {
       const start = Date.now();
@@ -131,7 +139,10 @@ export const queryBackupAssetsProgress: TController<any, any, { version: ISubApp
         await transferWebFiles(webDirPath, [path]);
         pendingFiles.splice(0, 1);
         uploadedFiles.push(path);
-        await update({ id, upload_result: { ...resultCommon, finished: false } });
+        await update({
+          id,
+          upload_result: { ...resultCommon, finished: false },
+        });
       }
 
       await update({
@@ -141,7 +152,10 @@ export const queryBackupAssetsProgress: TController<any, any, { version: ISubApp
       });
     } catch (err) {
       const errMsg = err.message;
-      await update({ id, upload_result: { ...resultCommon, finished: false, errMsg } });
+      await update({
+        id,
+        upload_result: { ...resultCommon, finished: false, errMsg },
+      });
       throw new Error(errMsg);
     }
   } else {

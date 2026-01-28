@@ -51,9 +51,17 @@ export async function mayUpdateModPresetData(platform: string, setBy: string, he
     await updateModPresetData(sdkCtx.platform, setBy, targetModInfo);
   } catch (err: any) {
     const { reporter } = getGlobalConfig();
-    reporter.reportError({ message: err.stack, desc: 'err-update-mod-info', data: platform });
+    reporter.reportError({
+      message: err.stack,
+      desc: 'err-update-mod-info',
+      data: platform,
+    });
     const errMsg = err.message;
-    log({ subType, desc: 'err occurred', data: { setBy, helModName, errMsg, platform } });
+    log({
+      subType,
+      desc: 'err occurred',
+      data: { setBy, helModName, errMsg, platform },
+    });
   }
 }
 
@@ -100,7 +108,10 @@ async function updateModPresetData(platform: string, setBy: string, modInfo: IMo
   markAppDesc(setBy, modInfo);
   // 以 preload 模式启动，需优先更新可能存在的 server 模块
   if (getGlobalConfig().isPreloadMode) {
-    log({ subType: 'updateModPresetData', desc: `updateForServerFirst for ${modInfo.name}` });
+    log({
+      subType: 'updateModPresetData',
+      desc: `updateForServerFirst for ${modInfo.name}`,
+    });
     await presetDataMgr.updateForServerFirst(platform, modInfo);
     return;
   }
@@ -114,7 +125,15 @@ async function updateModPresetData(platform: string, setBy: string, modInfo: IMo
 export async function getModeInfoListForPreloadMode(platform: string, mustBeServerMod?: boolean) {
   const modInfoList = await fetchRegisteredModInfoList(platform);
   modInfoList.forEach((info) => {
-    triggerHook(HOOK_TYPE.onInitialHelMetaFetched, { platform, helModName: info.name, version: info.meta.version.version_tag }, platform);
+    triggerHook(
+      HOOK_TYPE.onInitialHelMetaFetched,
+      {
+        platform,
+        helModName: info.name,
+        version: info.meta.version.version_tag,
+      },
+      platform,
+    );
   });
   await Promise.all(modInfoList.map((modInfo) => presetDataMgr.updateForServerFirst(platform, modInfo, { mustBeServerMod })));
   return modInfoList;

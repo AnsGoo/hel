@@ -24,5 +24,10 @@ exports.startHelDeps = function (/** @type {IDevInfo} */ devInfo) {
   }
 
   const nameData = getNameData(mayPkgOrDir, devInfo);
-  prepareHelEntryForMainAndDeps({ isForRootHelDir: false, devInfo, nameData, startDeps: true });
+  prepareHelEntryForMainAndDeps({
+    isForRootHelDir: false,
+    devInfo,
+    nameData,
+    startDeps: true,
+  });
 };

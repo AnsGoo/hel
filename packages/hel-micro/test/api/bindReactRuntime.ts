@@ -10,7 +10,10 @@ runTest(({ api, describe }) => {
     });
 
     test('bindReactRuntime should work', () => {
-      bindReactRuntime({ React: { tip: 'fake React' }, ReactDOM: { tip: 'fake ReactDOM' } });
+      bindReactRuntime({
+        React: { tip: 'fake React' },
+        ReactDOM: { tip: 'fake ReactDOM' },
+      });
       expect(getGlobalThis().LEAH_React).toBeTruthy();
       expect(getGlobalThis().LEAH_ReactDOM).toBeTruthy();
     });

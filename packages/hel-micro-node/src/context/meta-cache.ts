@@ -45,6 +45,9 @@ export async function getModMeta(name: string, options?: IFetchModMetaOptions) {
     }
   }
 
-  const meta = await guard.call(guardKey, fetchModMeta, name, { platform, ver });
+  const meta = await guard.call(guardKey, fetchModMeta, name, {
+    platform,
+    ver,
+  });
   return meta;
 }

@@ -37,7 +37,9 @@ export const createClassInfo: TController = async (ctx) => {
   await lockLogic('createClassInfo', `${userName}_${key}`);
 
   const userExtendData = await ctx.services.app.getUserExtendData(userName);
-  const matchedList = await ctx.services.classInfo.getList({ create_by: userName });
+  const matchedList = await ctx.services.classInfo.getList({
+    create_by: userName,
+  });
   const createClassLimit = userExtendData.extend_info.createClassLimit;
   if (matchedList.length >= createClassLimit) {
     throw new Error(`你已达到分类创建上限${createClassLimit}个，请联系${bizCst.HEL_OWNER}帮忙修改上限值`);
@@ -58,7 +60,9 @@ export const updateClassInfo: TController = async (ctx) => {
   checkCommonNonce(ctx.query);
   const { key, name } = ctx.body;
   const toUpdate = { class_label: name, update_by: ctx.pipes.getRtxName() };
-  const classInfoResult = await ctx.dao.classInfo.update(toUpdate, { class_key: key });
+  const classInfoResult = await ctx.dao.classInfo.update(toUpdate, {
+    class_key: key,
+  });
   const appResult = await ctx.dao.subApp.update({ class_name: name }, { class_key: key });
   return { classInfoUpdate: classInfoResult[0], appUpdate: appResult[0] };
 };

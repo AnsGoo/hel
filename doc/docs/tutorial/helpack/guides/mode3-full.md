@@ -109,7 +109,7 @@ npm run start
 
 ### 6. 访问后端界面
 
-打开浏览器访问 `http://localhost:7777`，即可进入helpack管理界面。
+打开浏览器访问 `http://localhost:7777`，即可进入 helpack 管理界面。
 
 ![](https://tnfe.gtimg.com/hel-img/WX20251027-120047.png)
 

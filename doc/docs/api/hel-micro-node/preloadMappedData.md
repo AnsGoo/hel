@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # preloadMappedData
 
-预加载[mapNodeMods](./mapNodeMods)映射的node 模块背后对应的 hel模块
+预加载[mapNodeMods](./mapNodeMods)映射的 node 模块背后对应的 hel 模块
 
 ## 使用方式
 

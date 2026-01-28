@@ -14,8 +14,18 @@ import { safeParse } from 'utils/object';
 
 const LS_LATEST_SEARCH = 'HelHub.latestSearch';
 
-const stTestBadge = { position: 'absolute', right: '3px', top: '-5px', width: '60px', zIndex: 2 };
-const stLatestSearchBtn = { width: '46px', transform: 'translateX(-1px)', verticalAlign: 'top' };
+const stTestBadge = {
+  position: 'absolute',
+  right: '3px',
+  top: '-5px',
+  width: '60px',
+  zIndex: 2,
+};
+const stLatestSearchBtn = {
+  width: '46px',
+  transform: 'translateX(-1px)',
+  verticalAlign: 'top',
+};
 const testBadgeUrl = 'http://mat1.gtimg.com/news/js/tnfe/imgs/leah4/test_app.png';
 const options = [
   { label: '正式', value: 'prod' },
@@ -85,7 +95,9 @@ function setup(c) {
       });
     },
     searchAppByClassKey(classKey) {
-      ctx.mr.setState({ classKey: classKey === undefined ? '-10000' : classKey });
+      ctx.mr.setState({
+        classKey: classKey === undefined ? '-10000' : classKey,
+      });
       ctx.mr.searchApp();
     },
     renderLatestSearchMenu() {
@@ -113,7 +125,10 @@ function setup(c) {
 }
 
 export default React.memo(() => {
-  const { state, settings, syncer, mr } = useC2Mod(APP_STORE, { setup, ccClassKey: 'AppStore' });
+  const { state, settings, syncer, mr } = useC2Mod(APP_STORE, {
+    setup,
+    ccClassKey: 'AppStore',
+  });
   const { ins } = settings;
   const uiSearchType = (
     <Select value={state.searchType} dropdownStyle={{ minWidth: '140px' }} options={settings.searchOptions} onChange={syncer.searchType} />

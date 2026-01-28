@@ -61,7 +61,10 @@ export async function requestByFetch(url: string, asJson: boolean) {
 }
 
 export async function requestByXHR(url: string, asJson: boolean) {
-  const res = await xhrFetch(url, { method: 'GET', responseType: asJson ? 'json' : 'text' });
+  const res = await xhrFetch(url, {
+    method: 'GET',
+    responseType: asJson ? 'json' : 'text',
+  });
   const { status, data, url: resUrl = '' } = res;
   if (status === 400) {
     return { url: resUrl, reply: null, status };

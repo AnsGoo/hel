@@ -4,7 +4,7 @@ hel 微模块包`ts`模板
 
 ## 发布
 
-发布集 `npm包`、`hel浏览器包`、`hel服务端包` 3种模式为一体的包体
+发布集 `npm包`、`hel浏览器包`、`hel服务端包` 3 种模式为一体的包体
 
 ```bash
 pnpm run build:nbsm

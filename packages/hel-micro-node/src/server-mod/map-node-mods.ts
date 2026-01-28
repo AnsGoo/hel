@@ -49,7 +49,9 @@ function makeMapDetail(): IMapDetail {
  */
 class MapNodeModsManager {
   public nodeName2data: Record<PkgName, INodeModData> = {};
-  public mapDetails: Record<Platform, IMapDetail> = { [PLATFORM]: makeMapDetail() };
+  public mapDetails: Record<Platform, IMapDetail> = {
+    [PLATFORM]: makeMapDetail(),
+  };
   public checkData: ICheckData = { modVerDict: {}, modApiUrlDict: {} };
 
   /**
@@ -61,7 +63,14 @@ class MapNodeModsManager {
       const val = stdMapper[nodeModName];
       const { prepareFiles, platform = PLATFORM, ver, projId, branch, gray, helpackApiUrl = '' } = val;
       const fallback = Object.assign({ force: false, mod: null, path: '' }, val.fallback || {});
-      const fetchOptions = { platform, ver, projId, branch, gray, helpackApiUrl };
+      const fetchOptions = {
+        platform,
+        ver,
+        projId,
+        branch,
+        gray,
+        helpackApiUrl,
+      };
       const helModNameOrPath = val.helModName || nodeModName;
 
       const detail = this.getMapDetail(platform);

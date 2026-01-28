@@ -154,5 +154,11 @@ export function getVersion(
  */
 export function getVersionList(
   name: string,
-  options: { classToken: string; operator: string; host?: string; page?: number; size?: number },
+  options: {
+    classToken: string;
+    operator: string;
+    host?: string;
+    page?: number;
+    size?: number;
+  },
 ): IHelpackRes<ISubAppVersion[]>;
