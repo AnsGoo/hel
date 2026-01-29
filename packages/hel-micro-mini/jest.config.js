@@ -17,11 +17,11 @@ module.exports = {
   testEnvironment: 'node',
   // testEnvironment: 'jsdom',
   transform: {
-    // '^.+\\.(js|jsx|ts|tsx)$': '<rootDir>/config/jest/babelTransform.js',
+    '^.+\\.(js|jsx|ts|tsx)$': 'ts-jest',
     // '^(?!.*\\.(js|jsx|ts|tsx|css|json)$)': '<rootDir>/config/jest/fileTransform.js',
   },
   // 配置忽略文件的规则
-  transformIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/src/setupProxy.js'],
+  transformIgnorePatterns: ['<rootDir>/node_modules/'],
   // 模块别名设置，解析模块时要搜索的其他位置的绝对路径
   modulePaths: ['<rootDir>/src'],
   // modulePaths: [],

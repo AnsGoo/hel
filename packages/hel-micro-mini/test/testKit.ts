@@ -3,11 +3,9 @@ import * as util from './util';
 
 const semverApi = false;
 const platform = 'hel';
-export const ins = apis.createOriginInstance(platform, {
-  apiPrefix: 'https://www.custom-hel.com',
-  semverApi,
-});
 
+// hel-micro-mini 包只导出了两个方法，没有 createOriginInstance 方法
+export const ins = apis;
 export const ori = apis;
 
 export type Api = typeof ori;
@@ -29,5 +27,6 @@ function makeTestKitContext(api: Api, platform: string, semverApi: boolean) {
 
 export function runTest(cb: (kitCtx: ReturnType<typeof makeTestKitContext>) => void) {
   cb(makeTestKitContext(ins, platform, semverApi));
-  cb(makeTestKitContext(ori, apis.core.getPlatform(), true));
+  // hel-micro-mini 包没有 core 属性，所以只运行一个测试
 }
+

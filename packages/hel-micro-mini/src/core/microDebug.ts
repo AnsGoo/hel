@@ -4,6 +4,10 @@ import { setLsItem } from './util';
 
 const { LS_LOG_MODE, LS_LOG_FILTER } = helConsts;
 const { NONE, LOG, TRACE } = logModeEnum;
+
+/** @type {import('../index').IHelMicroDebug} */
+let helMicroDebug: any = {};
+
 ensureHelMicroDebug();
 
 export const inner = {
@@ -23,8 +27,6 @@ export const inner = {
   },
 };
 
-/** @type {import('../index').IHelMicroDebug} */
-let helMicroDebug: any = {};
 
 /**
  * @returns {import('../index').IHelMicroDebug}
