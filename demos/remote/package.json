@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:types": "tsdown",
     "preview": "vite build & vite preview"
   },
   "dependencies": {
@@ -21,6 +22,7 @@
     "hel-micro": "workspace:*",
     "hel-micro-core": "workspace:*",
     "hel-types": "workspace:*",
+    "tsdown": "latest",
     "typescript": "^5.9.3",
     "unocss": "^0.62.4",
     "vite": "^5.4.21",

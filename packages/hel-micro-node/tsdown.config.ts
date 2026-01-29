@@ -1,16 +1,13 @@
-import { defineConfig } from 'tsup';
+import { defineConfig } from 'tsdown';
 
 export default defineConfig([
   {
     entry: ['src/index.ts'],
     format: ['esm', 'cjs', 'iife'],
+    external: ['electron'],
     dts: true,
-    splitting: true,
     sourcemap: true,
     clean: true,
     treeshake: false,
-    globalName: 'TMicro_FGuard',
-    minify: 'terser',
-    external: [],
   },
 ]);

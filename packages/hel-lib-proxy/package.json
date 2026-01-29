@@ -17,26 +17,24 @@
   },
   "files": [
     "dist",
-    "lib",
     "src",
     "README",
     "tsconfig.json",
     "LICENSE"
   ],
-  "main": "dist/hel-lib-proxy.min.js",
-  "types": "lib/index.d.ts",
-  "unpkg": "dist/hel-lib-proxy.min.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "unpkg": "dist/index.iife.js",
   "scripts": {
-    "build": "npm run build:umd && npm run build:umd-min",
-    "build:umd": "rollup -c",
-    "build:umd-min": "MIN=true rollup -c"
+    "build": "tsdown"
   },
   "dependencies": {
     "hel-micro-core": "^4.13.1",
     "hel-types": "^4.3.10"
   },
   "devDependencies": {
-    "rollup": "^4.57.0"
+    "tsdown": "latest"
   },
   "peerDependencies": {
     "hel-micro-core": "^4.13.1",
@@ -49,5 +47,22 @@
     ]
   },
   "deprecated": false,
-  "npmName": "hel-lib-proxy"
+  "npmName": "hel-lib-proxy",
+  "exports": {
+    ".": {
+      "development": "./src/index.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "exports": {
+      ".": {
+        "require": "./dist/index.js",
+        "import": "./dist/index.mjs"
+      },
+      "./package.json": "./package.json"
+    }
+  }
 }

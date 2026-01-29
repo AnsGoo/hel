@@ -13,42 +13,47 @@
   },
   "files": [
     "dist",
-    "lib",
-    "es",
     "src",
     "tsconfig.json"
   ],
-  "main": "lib/index.js",
-  "module": "es/index.js",
-  "types": "src/index.ts",
-  "unpkg": "dist/hel-hello.min.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "unpkg": "dist/index.iife.js",
   "scripts": {
-    "build": "npm run build:commonjs && npm run build:es && npm run build:umd && npm run build:umd:min",
-    "build:commonjs": "rollup -c --environment BUILD_ENV:commonjs",
-    "build:es": "rollup -c --environment BUILD_ENV:es",
-    "build:umd": "rollup -c --environment BUILD_ENV:development",
-    "build:umd:min": "rollup -c --environment BUILD_ENV:production",
+    "build": "tsdown",
     "test": "jest"
   },
-  "dependencies": {
-    "@rollup/plugin-typescript": "^12.1.2"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
-    "@rollup/plugin-babel": "^6.1.0",
-    "@rollup/plugin-commonjs": "^29.0.0",
-    "@rollup/plugin-node-resolve": "^16.0.3",
     "@types/jest": "^27.5.0",
     "babel-cli": "^6.26.0",
     "cross-env": "^7.0.2",
     "hel-dev-utils": "^5.1.0",
     "jest": "^28.1.0",
-    "rollup": "^4.57.0",
-    "rollup-plugin-uglify": "^6.0.4",
     "ts-jest": "^28.0.1",
+    "tsdown": "latest",
     "typescript": "4.8.4"
   },
   "bundleDependencies": [],
-  "deprecated": false
+  "deprecated": false,
+  "exports": {
+    ".": {
+      "development": "./src/index.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "exports": {
+      ".": {
+        "require": "./dist/index.js",
+        "import": "./dist/index.mjs"
+      },
+      "./package.json": "./package.json"
+    }
+  }
 }

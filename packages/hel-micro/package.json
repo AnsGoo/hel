@@ -20,8 +20,6 @@
   },
   "files": [
     "dist",
-    "lib",
-    "es",
     "src",
     "README.md",
     "tsconfig.json"
@@ -47,11 +45,14 @@
   "devDependencies": {
     "@babel/preset-env": "^7.12.11",
     "@babel/preset-react": "^7.12.10",
+    "@rollup/plugin-commonjs": "^24.0.0",
+    "@rollup/plugin-typescript": "^11.0.0",
     "@types/qs": "^6.9.7",
     "babel-cli": "^6.26.0",
     "fake-indexeddb": "4.0.1",
     "qs": "^6.11.0",
-    "rollup": "^4.57.0"
+    "rollup": "^3.0.0",
+    "typescript": "^4.0.0"
   },
   "peerDependencies": {
     "hel-html-parser": "^1.1.2",

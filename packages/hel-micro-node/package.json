@@ -33,7 +33,7 @@
     "types": "dist/index.d.ts"
   },
   "scripts": {
-    "build:step1": "tsup",
+    "build:step1": "tsdown",
     "build:step2": "node ./scripts/handleCode",
     "build:step2:h": "HMN_USER=1 node ./scripts/handleCode",
     "test": "jest"

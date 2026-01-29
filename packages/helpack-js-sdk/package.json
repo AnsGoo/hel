@@ -13,20 +13,17 @@
   },
   "files": [
     "dist",
-    "lib",
     "src",
     "jsconfig.json",
     ".babelrc.js",
     "index.d.ts",
     "README.md"
   ],
-  "main": "lib/index.js",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "unpkg": "dist/index.iife.min.js",
   "scripts": {
-    "build": "npm run build:commonjs && npm run build:es && npm run build:umd && npm run build:umd:min",
-    "build:commonjs": "rollup -c --environment BUILD_ENV:commonjs",
-    "build:es": "rollup -c --environment BUILD_ENV:es",
-    "build:umd": "rollup -c --environment BUILD_ENV:development",
-    "build:umd:min": "rollup -c --environment BUILD_ENV:production",
+    "build": "tsdown",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -38,13 +35,9 @@
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
     "@babel/preset-react": "^7.12.10",
-    "@rollup/plugin-babel": "^6.1.0",
-    "@rollup/plugin-commonjs": "^29.0.0",
-    "@rollup/plugin-node-resolve": "^16.0.3",
     "babel-cli": "^6.26.0",
     "cross-env": "^7.0.2",
-    "rollup": "^4.57.0",
-    "rollup-plugin-uglify": "^6.0.4"
+    "tsdown": "latest"
   },
   "peerDependencies": {
     "axios": "*",
