@@ -21,19 +21,15 @@
   "types": "./dist/index.d.ts",
   "unpkg": "dist/index.iife.js",
   "scripts": {
-    "build": "tsdown",
-    "test": "jest"
+    "build": "tsdown"
   },
   "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
-    "@types/jest": "^27.5.0",
     "babel-cli": "^6.26.0",
     "cross-env": "^7.0.2",
     "hel-dev-utils": "^5.1.0",
-    "jest": "^28.1.0",
-    "ts-jest": "^28.0.1",
     "tsdown": "latest",
     "typescript": "4.8.4"
   },

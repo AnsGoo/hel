@@ -29,8 +29,7 @@
   "types": "./dist/index.d.ts",
   "unpkg": "dist/index.iife.min.js",
   "scripts": {
-    "build": "tsdown",
-    "test": "pnpm --filter=hel-micro-core run build:commonjs && jest"
+    "build": "tsdown"
   },
   "dependencies": {
     "hel-micro-core": "^4.8.0",
