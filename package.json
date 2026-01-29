@@ -19,7 +19,8 @@
     "lint": "oxlint",
     "lint:fix": "oxlint --fix",
     "fmt": "oxfmt",
-    "fmt:check": "oxfmt --check"
+    "fmt:check": "oxfmt --check",
+    "test": "pnpm --filter=hel-micro-core run build && pnpm --filter=hel-micro-mini run test && pnpm --filter=hel-micro-node run test && pnpm --filter=tm-f-noop run test && pnpm --filter=tm-f-guard run test && pnpm --filter=tm-lru-cache run test"
   },
   "dependencies": {
     "hel-html-parser": "workspace:*",

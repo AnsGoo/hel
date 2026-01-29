@@ -12,8 +12,6 @@ module.exports = {
   setupFiles: [],
   // 设置测试环境完毕之后执行的一些脚本，这里执行enzyme的初始化和适配
   // setupFilesAfterEnv: ['<rootDir>/test/testSetup.ts'],
-  // 运行测试文件的目录规则，在src的同级目录test下，或者src目录下的__tests__目录下，或者src目录下spec,test后缀的文件
-  testMatch: ['<rootDir>/test/api/*.{ts,tsx}'],
   testEnvironment: 'node',
   transform: {
     // "\\.[jt]sx?$": "babel-jest",
@@ -38,21 +36,5 @@ module.exports = {
   resetMocks: true,
   testMatch: [
     '<rootDir>/test/**/*.test.ts',
-    // '<rootDir>/test/import-sub-path.test.ts',
-    // '<rootDir>/test/import-mod-one-level-dir.test.ts',
-    // '<rootDir>/test/t-404-files/*.test.ts',
-    // '<rootDir>/test/t-no-srv-files/*.test.ts',
-    // '<rootDir>/test/native-import.test.ts',
-    // '<rootDir>/test/native-import-load-earlier.test.ts',
-    // '<rootDir>/test/native-stable-require.test.ts',
-    // '<rootDir>/test/native-require.test.ts',
-    // '<rootDir>/test/preload-404-mod.test.ts',
-    // '<rootDir>/test/map-self.test.ts',
-    // '<rootDir>/test/map-node-mod.test.ts',
-    // '<rootDir>/test/set-hel-modules-dir.test.ts',
-    // '<rootDir>/test/write-index-content.test.ts',
-    // '<rootDir>/test/require-mod.test.ts',
-    // '<rootDir>/test/import-from-helpack.test.ts',
-    // '<rootDir>/test/import-mod.test.ts',
   ],
 };
