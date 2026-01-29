@@ -286,9 +286,6 @@ importers:
       '@babel/preset-env':
         specifier: ^7.12.11
         version: 7.28.6(@babel/core@7.28.6)
-      '@types/jest':
-        specifier: ^27.5.0
-        version: 27.5.2
       babel-cli:
         specifier: ^6.26.0
         version: 6.26.0
@@ -298,12 +295,6 @@ importers:
       hel-dev-utils:
         specifier: ^5.1.0
         version: 5.4.3(hel-dev-utils-base@0.0.2(hel-types@4.3.10)(hel-utils-base@0.0.2))(hel-types@4.3.10)(hel-utils-base@0.0.2)(jsdom@26.1.0)
-      jest:
-        specifier: ^28.1.0
-        version: 28.1.3(@types/node@25.0.10)(ts-node@10.9.2(@types/node@25.0.10)(typescript@4.8.4))
-      ts-jest:
-        specifier: ^28.0.1
-        version: 28.0.1(@babel/core@7.28.6)(@types/jest@27.5.2)(babel-jest@28.1.3(@babel/core@7.28.6))(jest@28.1.3(@types/node@25.0.10)(ts-node@10.9.2(@types/node@25.0.10)(typescript@4.8.4)))(typescript@4.8.4)
       tsdown:
         specifier: latest
         version: 0.20.1(synckit@0.11.12)(typescript@4.8.4)
@@ -6856,41 +6847,6 @@ snapshots:
       - supports-color
       - ts-node
 
-  '@jest/core@28.1.3(ts-node@10.9.2(@types/node@25.0.10)(typescript@4.8.4))':
-    dependencies:
-      '@jest/console': 28.1.3
-      '@jest/reporters': 28.1.3
-      '@jest/test-result': 28.1.3
-      '@jest/transform': 28.1.3
-      '@jest/types': 28.1.3
-      '@types/node': 25.0.10
-      ansi-escapes: 4.3.2
-      chalk: 4.1.2
-      ci-info: 3.9.0
-      exit: 0.1.2
-      graceful-fs: 4.2.11
-      jest-changed-files: 28.1.3
-      jest-config: 28.1.3(@types/node@25.0.10)(ts-node@10.9.2(@types/node@25.0.10)(typescript@4.8.4))
-      jest-haste-map: 28.1.3
-      jest-message-util: 28.1.3
-      jest-regex-util: 28.0.2
-      jest-resolve: 28.1.3
-      jest-resolve-dependencies: 28.1.3
-      jest-runner: 28.1.3
-      jest-runtime: 28.1.3
-      jest-snapshot: 28.1.3
-      jest-util: 28.1.3
-      jest-validate: 28.1.3
-      jest-watcher: 28.1.3
-      micromatch: 4.0.8
-      pretty-format: 28.1.3
-      rimraf: 3.0.2
-      slash: 3.0.0
-      strip-ansi: 6.0.1
-    transitivePeerDependencies:
-      - supports-color
-      - ts-node
-
   '@jest/core@28.1.3(ts-node@10.9.2(@types/node@25.0.10)(typescript@5.9.3))':
     dependencies:
       '@jest/console': 28.1.3
@@ -9460,25 +9416,6 @@ snapshots:
       - supports-color
       - ts-node
 
-  jest-cli@28.1.3(@types/node@25.0.10)(ts-node@10.9.2(@types/node@25.0.10)(typescript@4.8.4)):
-    dependencies:
-      '@jest/core': 28.1.3(ts-node@10.9.2(@types/node@25.0.10)(typescript@4.8.4))
-      '@jest/test-result': 28.1.3
-      '@jest/types': 28.1.3
-      chalk: 4.1.2
-      exit: 0.1.2
-      graceful-fs: 4.2.11
-      import-local: 3.2.0
-      jest-config: 28.1.3(@types/node@25.0.10)(ts-node@10.9.2(@types/node@25.0.10)(typescript@4.8.4))
-      jest-util: 28.1.3
-      jest-validate: 28.1.3
-      prompts: 2.4.2
-      yargs: 17.7.2
-    transitivePeerDependencies:
-      - '@types/node'
-      - supports-color
-      - ts-node
-
   jest-cli@28.1.3(@types/node@25.0.10)(ts-node@10.9.2(@types/node@25.0.10)(typescript@5.9.3)):
     dependencies:
       '@jest/core': 28.1.3(ts-node@10.9.2(@types/node@25.0.10)(typescript@5.9.3))
@@ -9555,36 +9492,6 @@ snapshots:
     optionalDependencies:
       '@types/node': 25.0.10
       ts-node: 10.9.2(@types/node@18.19.130)(typescript@4.8.4)
-    transitivePeerDependencies:
-      - supports-color
-
-  jest-config@28.1.3(@types/node@25.0.10)(ts-node@10.9.2(@types/node@25.0.10)(typescript@4.8.4)):
-    dependencies:
-      '@babel/core': 7.28.6
-      '@jest/test-sequencer': 28.1.3
-      '@jest/types': 28.1.3
-      babel-jest: 28.1.3(@babel/core@7.28.6)
-      chalk: 4.1.2
-      ci-info: 3.9.0
-      deepmerge: 4.3.1
-      glob: 7.2.3
-      graceful-fs: 4.2.11
-      jest-circus: 28.1.3
-      jest-environment-node: 28.1.3
-      jest-get-type: 28.0.2
-      jest-regex-util: 28.0.2
-      jest-resolve: 28.1.3
-      jest-runner: 28.1.3
-      jest-util: 28.1.3
-      jest-validate: 28.1.3
-      micromatch: 4.0.8
-      parse-json: 5.2.0
-      pretty-format: 28.1.3
-      slash: 3.0.0
-      strip-json-comments: 3.1.1
-    optionalDependencies:
-      '@types/node': 25.0.10
-      ts-node: 10.9.2(@types/node@25.0.10)(typescript@4.8.4)
     transitivePeerDependencies:
       - supports-color
 
@@ -9872,17 +9779,6 @@ snapshots:
       '@jest/types': 28.1.3
       import-local: 3.2.0
       jest-cli: 28.1.3(@types/node@18.19.130)(ts-node@10.9.2(@types/node@18.19.130)(typescript@4.8.4))
-    transitivePeerDependencies:
-      - '@types/node'
-      - supports-color
-      - ts-node
-
-  jest@28.1.3(@types/node@25.0.10)(ts-node@10.9.2(@types/node@25.0.10)(typescript@4.8.4)):
-    dependencies:
-      '@jest/core': 28.1.3(ts-node@10.9.2(@types/node@25.0.10)(typescript@4.8.4))
-      '@jest/types': 28.1.3
-      import-local: 3.2.0
-      jest-cli: 28.1.3(@types/node@25.0.10)(ts-node@10.9.2(@types/node@25.0.10)(typescript@4.8.4))
     transitivePeerDependencies:
       - '@types/node'
       - supports-color
@@ -11223,23 +11119,6 @@ snapshots:
       '@types/jest': 27.5.2
       babel-jest: 28.1.3(@babel/core@7.28.6)
 
-  ts-jest@28.0.1(@babel/core@7.28.6)(@types/jest@27.5.2)(babel-jest@28.1.3(@babel/core@7.28.6))(jest@28.1.3(@types/node@25.0.10)(ts-node@10.9.2(@types/node@25.0.10)(typescript@4.8.4)))(typescript@4.8.4):
-    dependencies:
-      bs-logger: 0.2.6
-      fast-json-stable-stringify: 2.1.0
-      jest: 28.1.3(@types/node@25.0.10)(ts-node@10.9.2(@types/node@25.0.10)(typescript@4.8.4))
-      jest-util: 28.1.3
-      json5: 2.2.3
-      lodash.memoize: 4.1.2
-      make-error: 1.3.6
-      semver: 7.7.3
-      typescript: 4.8.4
-      yargs-parser: 20.2.9
-    optionalDependencies:
-      '@babel/core': 7.28.6
-      '@types/jest': 27.5.2
-      babel-jest: 28.1.3(@babel/core@7.28.6)
-
   ts-jest@28.0.1(@babel/core@7.28.6)(@types/jest@27.5.2)(babel-jest@28.1.3(@babel/core@7.28.6))(jest@28.1.3(@types/node@25.0.10)(ts-node@10.9.2(@types/node@25.0.10)(typescript@5.9.3)))(typescript@5.9.3):
     dependencies:
       bs-logger: 0.2.6
@@ -11265,25 +11144,6 @@ snapshots:
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
       '@types/node': 18.19.130
-      acorn: 8.15.0
-      acorn-walk: 8.3.4
-      arg: 4.1.3
-      create-require: 1.1.1
-      diff: 4.0.4
-      make-error: 1.3.6
-      typescript: 4.8.4
-      v8-compile-cache-lib: 3.0.1
-      yn: 3.1.1
-    optional: true
-
-  ts-node@10.9.2(@types/node@25.0.10)(typescript@4.8.4):
-    dependencies:
-      '@cspotcode/source-map-support': 0.8.1
-      '@tsconfig/node10': 1.0.12
-      '@tsconfig/node12': 1.0.11
-      '@tsconfig/node14': 1.0.3
-      '@tsconfig/node16': 1.0.4
-      '@types/node': 25.0.10
       acorn: 8.15.0
       acorn-walk: 8.3.4
       arg: 4.1.3
