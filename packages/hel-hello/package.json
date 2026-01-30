@@ -29,7 +29,7 @@
     "@babel/preset-env": "^7.12.11",
     "babel-cli": "^6.26.0",
     "cross-env": "^7.0.2",
-    "hel-dev-utils": "^5.1.0",
+    "hel-dev-utils": "workspace:*",
     "tsdown": "latest",
     "typescript": "4.8.4"
   },

@@ -24,9 +24,9 @@
     "build": "tsdown"
   },
   "dependencies": {
-    "hel-dev-utils-base": "^0.0.2",
-    "hel-types": "^4.3.10",
-    "hel-utils-base": "^0.0.2",
+    "hel-dev-utils-base": "workspace:*",
+    "hel-types": "workspace:*",
+    "hel-utils-base": "workspace:*",
     "jsdom": "^19.0.0"
   },
   "devDependencies": {
@@ -35,9 +35,9 @@
     "tsdown": "latest"
   },
   "peerDependencies": {
-    "hel-dev-utils-base": "^0.0.2",
-    "hel-types": "^4.3.10",
-    "hel-utils-base": "^0.0.2",
+    "hel-dev-utils-base": "workspace:*",
+    "hel-types": "workspace:*",
+    "hel-utils-base": "workspace:*",
     "jsdom": "^19.0.0"
   },
   "bundleDependencies": false,

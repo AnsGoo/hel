@@ -240,14 +240,14 @@ importers:
   packages/hel-dev-utils:
     dependencies:
       hel-dev-utils-base:
-        specifier: ^0.0.2
-        version: 0.0.2(hel-types@4.3.10)(hel-utils-base@0.0.2)
+        specifier: workspace:*
+        version: link:../hel-dev-utils-base
       hel-types:
-        specifier: ^4.3.10
-        version: 4.3.10
+        specifier: workspace:*
+        version: link:../hel-types
       hel-utils-base:
-        specifier: ^0.0.2
-        version: 0.0.2
+        specifier: workspace:*
+        version: link:../hel-utils-base
       jsdom:
         specifier: ^19.0.0
         version: 19.0.0
@@ -265,11 +265,11 @@ importers:
   packages/hel-dev-utils-base:
     dependencies:
       hel-types:
-        specifier: ^4.3.10
-        version: 4.3.10
+        specifier: workspace:*
+        version: link:../hel-types
       hel-utils-base:
-        specifier: ^0.0.2
-        version: 0.0.2
+        specifier: workspace:*
+        version: link:../hel-utils-base
     devDependencies:
       '@babel/preset-env':
         specifier: ^7.12.11
@@ -296,8 +296,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       hel-dev-utils:
-        specifier: ^5.1.0
-        version: 5.4.3(hel-dev-utils-base@0.0.2(hel-types@4.3.10)(hel-utils-base@0.0.2))(hel-types@4.3.10)(hel-utils-base@0.0.2)(jsdom@26.1.0)
+        specifier: workspace:*
+        version: link:../hel-dev-utils
       tsdown:
         specifier: latest
         version: 0.20.1(synckit@0.11.12)(typescript@4.8.4)
@@ -308,8 +308,8 @@ importers:
   packages/hel-html-parser:
     dependencies:
       hel-types:
-        specifier: ^4.3.1
-        version: 4.3.10
+        specifier: workspace:*
+        version: link:../hel-types
     devDependencies:
       '@babel/preset-env':
         specifier: ^7.12.11
@@ -342,11 +342,11 @@ importers:
   packages/hel-lib-proxy:
     dependencies:
       hel-micro-core:
-        specifier: ^4.13.1
-        version: 4.13.1(hel-types@4.3.10)
+        specifier: workspace:*
+        version: link:../hel-micro-core
       hel-types:
-        specifier: ^4.3.10
-        version: 4.3.10
+        specifier: workspace:*
+        version: link:../hel-types
     devDependencies:
       tsdown:
         specifier: latest
@@ -355,17 +355,17 @@ importers:
   packages/hel-micro:
     dependencies:
       hel-html-parser:
-        specifier: ^1.1.2
-        version: 1.1.2
+        specifier: workspace:*
+        version: link:../hel-html-parser
       hel-lib-proxy:
-        specifier: ^4.12.1
-        version: 4.12.3(hel-micro-core@4.13.1(hel-types@4.3.10))(hel-types@4.3.10)
+        specifier: workspace:*
+        version: link:../hel-lib-proxy
       hel-micro-core:
-        specifier: ^4.13.1
-        version: 4.13.1(hel-types@4.3.10)
+        specifier: workspace:*
+        version: link:../hel-micro-core
       hel-types:
-        specifier: ^4.3.10
-        version: 4.3.10
+        specifier: workspace:*
+        version: link:../hel-types
     devDependencies:
       '@babel/preset-env':
         specifier: ^7.12.11
@@ -401,8 +401,8 @@ importers:
   packages/hel-micro-core:
     dependencies:
       hel-types:
-        specifier: ^4.3.10
-        version: 4.3.10
+        specifier: workspace:*
+        version: link:../hel-types
     devDependencies:
       '@babel/preset-env':
         specifier: ^7.12.11
@@ -420,8 +420,8 @@ importers:
   packages/hel-micro-mini:
     dependencies:
       hel-types:
-        specifier: ^4.3.3
-        version: 4.3.10
+        specifier: workspace:*
+        version: link:../hel-types
     devDependencies:
       '@babel/preset-env':
         specifier: ^7.12.11
@@ -469,8 +469,8 @@ importers:
         specifier: ^11.3.0
         version: 11.3.3
       hel-types:
-        specifier: ^4.3.9
-        version: 4.3.10
+        specifier: workspace:*
+        version: link:../hel-types
       ws:
         specifier: ^8.18.2
         version: 8.19.0
@@ -497,8 +497,8 @@ importers:
         specifier: 1.0.0
         version: 1.0.0
       hel-hello:
-        specifier: 1.0.0
-        version: 1.0.0
+        specifier: workspace:*
+        version: link:../hel-hello
       jest:
         specifier: ^28.1.3
         version: 28.1.3(@types/node@18.19.130)(ts-node@10.9.2(@types/node@18.19.130)(typescript@4.8.4))
@@ -521,14 +521,14 @@ importers:
         specifier: '>=16.0.0'
         version: 19.2.3(@types/react@19.2.10)
       hel-micro:
-        specifier: ^4.14.3
-        version: 4.15.2(hel-html-parser@1.1.2)(hel-lib-proxy@4.12.3(hel-micro-core@4.13.1(hel-types@4.3.10))(hel-types@4.3.10))(hel-micro-core@4.13.1(hel-types@4.3.10))(hel-types@4.3.10)
+        specifier: workspace:*
+        version: link:../hel-micro
       hel-micro-core:
-        specifier: ^4.13.1
-        version: 4.13.1(hel-types@4.3.10)
+        specifier: workspace:*
+        version: link:../hel-micro-core
       hel-types:
-        specifier: ^4.3.10
-        version: 4.3.10
+        specifier: workspace:*
+        version: link:../hel-types
       react:
         specifier: '>=16.10.2'
         version: 16.14.0
@@ -585,8 +585,8 @@ importers:
   packages/hel-mono-runtime-helper:
     devDependencies:
       hel-mono-types:
-        specifier: ^2.6.1
-        version: 2.6.1
+        specifier: workspace:*
+        version: link:../hel-mono-types
 
   packages/hel-mono-types: {}
 
@@ -595,11 +595,11 @@ importers:
   packages/hel-utils:
     dependencies:
       hel-micro-core:
-        specifier: ^4.8.0
-        version: 4.13.1(hel-types@4.3.10)
+        specifier: workspace:*
+        version: link:../hel-micro-core
       hel-types:
-        specifier: ^4.3.3
-        version: 4.3.10
+        specifier: workspace:*
+        version: link:../hel-types
     devDependencies:
       '@babel/preset-env':
         specifier: ^7.12.11
@@ -644,8 +644,8 @@ importers:
         specifier: '*'
         version: 4.2.0
       hel-types:
-        specifier: ^4.3.10
-        version: 4.3.10
+        specifier: workspace:*
+        version: link:../hel-types
     devDependencies:
       '@babel/core':
         specifier: ^7.12.10
@@ -782,9 +782,6 @@ packages:
 
   '@antfu/utils@8.1.1':
     resolution: {integrity: sha512-Mex9nXf9vR6AhcXmMrlz/HVgYYZpVGJ6YlPgwl7UnaFpnshXs6EK/oa5Gpf3CzENMjkvEx2tQtntGnb7UtSTOQ==}
-
-  '@asamuzakjp/css-color@3.2.0':
-    resolution: {integrity: sha512-K1A6z8tS3XsmCMM86xoWdn7Fkdn9m6RSVtocUrJYIwZnFVkng/PvkEoWtOWmP+Scc6saYWHWZYbndEEXxl24jw==}
 
   '@babel/code-frame@7.28.6':
     resolution: {integrity: sha512-JYgintcMjRiCvS8mMECzaEn+m3PfoQiyqukOMCCVQtoJGYJw8j/8LBJEiqkHLkfwCcs74E3pbAUFNg7d9VNJ+Q==}
@@ -1429,34 +1426,6 @@ packages:
   '@cspotcode/source-map-support@0.8.1':
     resolution: {integrity: sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==}
     engines: {node: '>=12'}
-
-  '@csstools/color-helpers@5.1.0':
-    resolution: {integrity: sha512-S11EXWJyy0Mz5SYvRmY8nJYTFFd1LCNV+7cXyAgQtOOuzb4EsgfqDufL+9esx72/eLhsRdGZwaldu/h+E4t4BA==}
-    engines: {node: '>=18'}
-
-  '@csstools/css-calc@2.1.4':
-    resolution: {integrity: sha512-3N8oaj+0juUw/1H3YwmDDJXCgTB1gKU6Hc/bB502u9zR0q2vd786XJH9QfrKIEgFlZmhZiq6epXl4rHqhzsIgQ==}
-    engines: {node: '>=18'}
-    peerDependencies:
-      '@csstools/css-parser-algorithms': ^3.0.5
-      '@csstools/css-tokenizer': ^3.0.4
-
-  '@csstools/css-color-parser@3.1.0':
-    resolution: {integrity: sha512-nbtKwh3a6xNVIp/VRuXV64yTKnb1IjTAEEh3irzS+HkKjAOYLTGNb9pmVNntZ8iVBHcWDA2Dof0QtPgFI1BaTA==}
-    engines: {node: '>=18'}
-    peerDependencies:
-      '@csstools/css-parser-algorithms': ^3.0.5
-      '@csstools/css-tokenizer': ^3.0.4
-
-  '@csstools/css-parser-algorithms@3.0.5':
-    resolution: {integrity: sha512-DaDeUkXZKjdGhgYaHNJTV9pV7Y9B3b644jCLs9Upc3VeNGg6LWARAT6O+Q+/COo+2gg/bM5rhpMAtf70WqfBdQ==}
-    engines: {node: '>=18'}
-    peerDependencies:
-      '@csstools/css-tokenizer': ^3.0.4
-
-  '@csstools/css-tokenizer@3.0.4':
-    resolution: {integrity: sha512-Vd/9EVDiu6PPJt9yAh6roZP6El1xHrdvIVGjyBsHR0RYwNHgL7FJPyIIW4fANJNG6FtyZfvlRPpFI4ZM/lubvw==}
-    engines: {node: '>=18'}
 
   '@ctrl/tinycolor@3.6.1':
     resolution: {integrity: sha512-SITSV6aIXsuVNV3f3O0f2n/cgyEDWoSqtZMYiAmcsYHydcKrOz3gUxB/iXd/Qf08+IZX4KpgNbvUdMBmWz+kcA==}
@@ -2557,10 +2526,6 @@ packages:
     resolution: {integrity: sha512-RZNwNclF7+MS/8bDg70amg32dyeZGZxiDuQmZxKLAlQjr3jGyLx+4Kkk58UO7D2QdgFIQCovuSuZESne6RG6XQ==}
     engines: {node: '>= 6.0.0'}
 
-  agent-base@7.1.4:
-    resolution: {integrity: sha512-MnA+YT8fwfJPgBx3m60MNqakm30XOkyIoH1y6huTQvC0PwZG7ki8NacLBcrPbNoo8vEZy7Jpuk7+jMO+CUovTQ==}
-    engines: {node: '>= 14'}
-
   ansi-escapes@4.3.2:
     resolution: {integrity: sha512-gKXj5ALrKWQLsYG9jlTRmR/xKluxHV+Z9QEwNIgCfM1/uwPMCuzVVnh5mwTd+OuBZcwSIMbqssNWRm1lE51QaQ==}
     engines: {node: '>=8'}
@@ -3043,20 +3008,12 @@ packages:
     resolution: {integrity: sha512-AZL67abkUzIuvcHqk7c09cezpGNcxUxU4Ioi/05xHk4DQeTkWmGYftIE6ctU6AEt+Gn4n1lDStOtj7FKycP71A==}
     engines: {node: '>=8'}
 
-  cssstyle@4.6.0:
-    resolution: {integrity: sha512-2z+rWdzbbSZv6/rhtvzvqeZQHrBaqgogqt85sqFNbabZOuFbCVFb8kPeEtZjiKkbrm395irpNKiYeFeLiQnFPg==}
-    engines: {node: '>=18'}
-
   csstype@3.2.3:
     resolution: {integrity: sha512-z1HGKcYy2xA8AGQfwrn0PAy+PB7X/GSj3UVJW9qKyn43xWa+gl5nXmU4qqLMRzWVLFC8KusUX8T/0kCiOYpAIQ==}
 
   data-urls@3.0.2:
     resolution: {integrity: sha512-Jy/tj3ldjZJo63sVAvg6LHt2mHvl4V6AgRAmNDtLdm7faqtsx+aJG42rsyCo9JCoRVKwPFzKlIPx3DIibwSIaQ==}
     engines: {node: '>=12'}
-
-  data-urls@5.0.0:
-    resolution: {integrity: sha512-ZYP5VBHshaDAiVZxjbRVcFJpc+4xGgT0bK3vzy1HLN8jTO975HEbuYzZJcHoQEY5K1a0z8YayJkyVETa08eNTg==}
-    engines: {node: '>=18'}
 
   dayjs@1.11.19:
     resolution: {integrity: sha512-t5EcLVS6QPBNqM2z8fakk/NKel+Xzshgt8FFKAn+qwlD1pzZWxh0nVCrvFK7ZDb6XucZeF9z8C7CBWTRIVApAw==}
@@ -3212,10 +3169,6 @@ packages:
 
   end-of-stream@1.4.5:
     resolution: {integrity: sha512-ooEGc6HP26xXq/N+GCGOT0JKCLDGrq2bQUZrQ7gyrJiZANJ/8YDTxTpQBXGMn+WbIQXNVpyWymm7KYVICQnyOg==}
-
-  entities@6.0.1:
-    resolution: {integrity: sha512-aN97NXWF6AWBTahfVOIrB/NShkzi5H7F9r1s9mD3cDj4Ko5f2qhhVoYMibXF7GlLveb/D2ioWay8lxI97Ven3g==}
-    engines: {node: '>=0.12'}
 
   entities@7.0.1:
     resolution: {integrity: sha512-TWrgLOFUQTH994YUyl1yT4uyavY5nNB5muff+RtWaqNVCAK408b5ZnnbNAUEWLTCpum9w6arT70i1XdQ4UeOPA==}
@@ -3635,46 +3588,6 @@ packages:
   hel-demo-lib1@1.0.0:
     resolution: {integrity: sha512-2KG+M19xA9Z1fh0h0wxNf6o9CWzuvHXh8jZ40PY6Y+fRFnzJat6cXDPTSy1xjvigobi75Tuwsgho4N5nSJmTaQ==}
 
-  hel-dev-utils-base@0.0.2:
-    resolution: {integrity: sha512-bza8IIvdsta1HF1QW6erPjRaZmKR/0iEv+bi4Xv6GsTZFLwWlKaORMll6erHANtFL+d4CYVSxZbeXCKCPPtIdw==}
-    peerDependencies:
-      hel-types: ^4.3.10
-      hel-utils-base: ^0.0.2
-
-  hel-dev-utils@5.4.3:
-    resolution: {integrity: sha512-GgDhtD/L/wS4J4QCo3AFqJj3++3/6L1MiTH7ypklfrUAohfjiIsTdiXOlhQkFcKm+8AO7J/asU5PrURGbwlsLw==}
-    peerDependencies:
-      hel-dev-utils-base: ^0.0.2
-      hel-types: ^4.3.10
-      hel-utils-base: ^0.0.2
-      jsdom: ^19.0.0
-
-  hel-hello@1.0.0:
-    resolution: {integrity: sha512-v6/yc/5MXokzVIWjHN55a3qMI8ZBEGZZHFFQN+YA1FwJQbVZTtcFRkIT9pTe4m/n7h7/jdsksQeN32Q1CvC7CQ==}
-
-  hel-html-parser@1.1.2:
-    resolution: {integrity: sha512-fbkzG7LkkDB/GHozwom+8h8EqMs3m4xDgAxvf7KV9JvweoaVOST0asrqClDNqym/VpewivJ2EruBs6iO3zxskg==}
-
-  hel-lib-proxy@4.12.3:
-    resolution: {integrity: sha512-NUuOYI/pEo8edOmq2wkBqDhVLNz3Qm9M1ZW1l3j9/m+5p4sXIrpa8dCVyZLphisQ5j6N/NB7ATCAItPiDzsX9Q==}
-    peerDependencies:
-      hel-micro-core: ^4.13.1
-      hel-types: ^4.3.10
-
-  hel-micro-core@4.13.1:
-    resolution: {integrity: sha512-Ro3NG5ZcavLynK6flP3D6u+/O/jgXEBlsLe3iVu4zR7jmE+JCGSbpoXChv2vFqXV+Ut84hXitWSHx805m9xzNg==}
-    peerDependencies:
-      hel-types: ^4.3.10
-
-  hel-micro@4.15.2:
-    resolution: {integrity: sha512-1v3qCCMkxTAL8364MfJlObsTRtBYO7ArE18nxw39ZuuFAHB7hkxXh/J+qMRm32Suyne5cV3qEXwN3N7nPvHXUg==}
-    peerDependencies:
-      hel-html-parser: ^1.1.2
-      hel-lib-proxy: ^4.12.1
-      hel-micro-core: ^4.13.1
-      hel-types: ^4.3.10
-    bundledDependencies: []
-
   hel-mono-runtime-helper@1.3.0:
     resolution: {integrity: sha512-GoZ/aHWThW7VR3H4PWgOPppRrBoqO5bTXNu5MVECMhqKNl45sFxI67LJTpphUF+dpE7SJGvn44RYvDTAdFRK4Q==}
     peerDependencies:
@@ -3687,12 +3600,6 @@ packages:
   hel-mono-types@2.6.1:
     resolution: {integrity: sha512-QuZ99KjIffy6lOH9aDdQ5u/Rlyvm+E9JmJKJabhYylXFTRwOIV/HudLgOQIWk39kuL1VSjZcgei3ZcvlFftDDg==}
 
-  hel-types@4.3.10:
-    resolution: {integrity: sha512-8IN3+Tn4p2Uq0Z3geoE6/Fs9Esqj6+IT8Vsm0v8/PREMwh9yq9WUgYZQUKTJjE87GspG94ioLJdsBvUxU4pJlA==}
-
-  hel-utils-base@0.0.2:
-    resolution: {integrity: sha512-4YmU0De/PQjJGnHJdJB9CdvC19hYUxW3FtR9qY0Qu8VWISyFu1aqcwgNjUPveq9SMlhga783RfeDfHWuZx8y8g==}
-
   home-or-tmp@2.0.0:
     resolution: {integrity: sha512-ycURW7oUxE2sNiPVw1HVEFsW+ecOpJ5zaj7eC0RlwhibhRBod20muUN8qu/gzx956YrLolVvs1MTXwKgC2rVEg==}
     engines: {node: '>=0.10.0'}
@@ -3704,10 +3611,6 @@ packages:
     resolution: {integrity: sha512-oWv4T4yJ52iKrufjnyZPkrN0CH3QnrUqdB6In1g5Fe1mia8GmF36gnfNySxoZtxD5+NmYw1EElVXiBk93UeskA==}
     engines: {node: '>=12'}
 
-  html-encoding-sniffer@4.0.0:
-    resolution: {integrity: sha512-Y22oTqIU4uuPgEemfz7NDJz6OeKf12Lsu+QC+s3BVpda64lTiMYCyGwg5ki4vFxkMwQdeZDl2adZoqUgdFuTgQ==}
-    engines: {node: '>=18'}
-
   html-escaper@2.0.2:
     resolution: {integrity: sha512-H2iMtd0I4Mt5eYiapRdIDjp+XzelXQ0tFE4JS7YFwFevXXMmOp9myNrUvCg0D6ws8iqkRPBfKHgbwig1SmlLfg==}
 
@@ -3718,17 +3621,9 @@ packages:
     resolution: {integrity: sha512-n2hY8YdoRE1i7r6M0w9DIw5GgZN0G25P8zLCRQ8rjXtTU3vsNFBI/vWK/UIeE6g5MUUz6avwAPXmL6Fy9D/90w==}
     engines: {node: '>= 6'}
 
-  http-proxy-agent@7.0.2:
-    resolution: {integrity: sha512-T1gkAiYYDWYx3V5Bmyu7HcfcvL7mUrTWiM6yOfa3PIphViJ/gFPbvidQ+veqSOHci/PxBcDabeUNCzpOODJZig==}
-    engines: {node: '>= 14'}
-
   https-proxy-agent@5.0.1:
     resolution: {integrity: sha512-dFcAjpTQFgoLMzC2VwU+C/CbS7uRL0lWmxDITmqm7C+7F0Odmj6s9l6alZc6AELXhrnggM2CeWSXHGOdX2YtwA==}
     engines: {node: '>= 6'}
-
-  https-proxy-agent@7.0.6:
-    resolution: {integrity: sha512-vK9P5/iUfdl95AI+JVyUuIcVtd4ofvtrOr3HNtM2yxC9bnMbEdp3x01OhQNnjb8IJYi38VlTE3mBXwcfvywuSw==}
-    engines: {node: '>= 14'}
 
   human-signals@2.1.0:
     resolution: {integrity: sha512-B4FFZ6q/T2jhhksgkbEW3HBvWIfDW85snkQgawt07S7J5QXTk6BkNV+0yAeZrM5QpMAdYlocGoljn0sJ/WQkFw==}
@@ -4152,15 +4047,6 @@ packages:
       canvas:
         optional: true
 
-  jsdom@26.1.0:
-    resolution: {integrity: sha512-Cvc9WUhxSMEo4McES3P7oK3QaXldCfNWp7pl2NNeiIFlCoLr3kfq9kb1fxftiwk1FLV7CvpvDfonxtzUDeSOPg==}
-    engines: {node: '>=18'}
-    peerDependencies:
-      canvas: ^3.0.0
-    peerDependenciesMeta:
-      canvas:
-        optional: true
-
   jsesc@1.3.0:
     resolution: {integrity: sha512-Mke0DA0QjUWuJlhsE0ZPPhYiJkRap642SmI/4ztCFaUs6V2AiH1sfecc+57NgaryfAA2VR3v6O+CSjC1jZJKOA==}
     hasBin: true
@@ -4262,9 +4148,6 @@ packages:
   lowercase-keys@1.0.1:
     resolution: {integrity: sha512-G2Lj61tXDnVFFOi8VZds+SoQjtQC3dgokKdDG2mTm1tx4m50NUHBOZSBwQQHyy0V12A0JTG4icfZQH+xPyh8VA==}
     engines: {node: '>=0.10.0'}
-
-  lru-cache@10.4.3:
-    resolution: {integrity: sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ==}
 
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
@@ -4554,9 +4437,6 @@ packages:
 
   parse5@6.0.1:
     resolution: {integrity: sha512-Ofn/CTFzRGTTxwpNEs9PP93gXShHcTq255nzRYSKe8AkVpZY7e1fpmTfOyoIvjP5HG7Z2ZM7VS9PPhQGW2pOpw==}
-
-  parse5@7.3.0:
-    resolution: {integrity: sha512-IInvU7fabl34qmi9gY8XOVxhYyMyuH2xUNpb2q8/Y+7552KlejkRvqvD19nMoUW/uQGGbqNpA6Tufu5FL5BZgw==}
 
   pascalcase@0.1.1:
     resolution: {integrity: sha512-XHXfu/yOQRy9vYOtUDVMN60OEJjW013GoObG1o+xwQTpB9eYJX/BjXMsdW13ZDPruFhYYn0AG22w0xgQMwl3Nw==}
@@ -4926,9 +4806,6 @@ packages:
     engines: {node: '>=18.0.0', npm: '>=8.0.0'}
     hasBin: true
 
-  rrweb-cssom@0.8.0:
-    resolution: {integrity: sha512-guoltQEx+9aMf2gDZ0s62EcV8lsXR+0w8915TC3ITdn2YueuNjdAYh/levpU9nFaoChh9RUS5ZdQMrKfVEN9tw==}
-
   run-parallel@1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
 
@@ -4947,10 +4824,6 @@ packages:
   saxes@5.0.1:
     resolution: {integrity: sha512-5LBh1Tls8c9xgGjw3QrMwETmTMVk0oFgvrFSvWx62llR2hcEInrKNZ2GZCCuuy2lvWrdl5jhbpeqc5hRYKFOcw==}
     engines: {node: '>=10'}
-
-  saxes@6.0.0:
-    resolution: {integrity: sha512-xAg7SOnEhrm5zI3puOOKyy1OMcMlIJZYNJY7xLBwSze0UjhPLnWfj2GF2EpT0jmzaJKIWKHLsaSSajf35bcYnA==}
-    engines: {node: '>=v12.22.7'}
 
   scheduler@0.19.1:
     resolution: {integrity: sha512-n/zwRWRYSUj0/3g/otKDRPMh6qv2SYMWNq85IEa8iZyAv8od9zDYpGSnpBEjNgcMNq6Scbu5KfIPxNF72R/2EA==}
@@ -5248,13 +5121,6 @@ packages:
     resolution: {integrity: sha512-/RX9RzeH2xU5ADE7n2Ykvmi9ED3FBGPAjw9u3zucrNNaEBIO0HPSYgL0NT7+3p147ojeSdaVu08F6hjpv31HJg==}
     engines: {node: ^20.0.0 || >=22.0.0}
 
-  tldts-core@6.1.86:
-    resolution: {integrity: sha512-Je6p7pkk+KMzMv2XXKmAE3McmolOQFdxkKw0R8EYNr7sELW46JqnNeTX8ybPiQgvg1ymCoF8LXs5fzFaZvJPTA==}
-
-  tldts@6.1.86:
-    resolution: {integrity: sha512-WMi/OQ2axVTf/ykqCQgXiIct+mSQDFdH2fkwhPwgEwvJ1kSzZRiinb0zF2Xb8u4+OqPChmyI6MEu4EezNJz+FQ==}
-    hasBin: true
-
   tmpl@1.0.5:
     resolution: {integrity: sha512-3f0uOEAQwIqGuWW2MVzYg8fV/QNnc/IpuJNG837rLuczAaLVHslWHZQj4IGiEl5Hs3kkbhwL9Ab7Hrsmuj+Smw==}
 
@@ -5290,10 +5156,6 @@ packages:
     resolution: {integrity: sha512-Loo5UUvLD9ScZ6jh8beX1T6sO1w2/MpCRpEP7V280GKMVUQ0Jzar2U3UJPsrdbziLEMMhu3Ujnq//rhiFuIeag==}
     engines: {node: '>=6'}
 
-  tough-cookie@5.1.2:
-    resolution: {integrity: sha512-FVDYdxtnj0G6Qm/DhNPSb8Ju59ULcup3tuJxkFb5K8Bv2pUXILbf0xZWU8PX8Ov19OXljbUyveOFwRMwkXzO+A==}
-    engines: {node: '>=16'}
-
   tr46@2.1.0:
     resolution: {integrity: sha512-15Ih7phfcdP5YxqiB+iDtLoaTz4Nd35+IiAv0kQ5FNKHzXgdWqPoTIqEDDJmXceQt4JZk6lVPT8lnDlPpGDppw==}
     engines: {node: '>=8'}
@@ -5301,10 +5163,6 @@ packages:
   tr46@3.0.0:
     resolution: {integrity: sha512-l7FvfAHlcmulp8kr+flpQZmVwtu7nfRV7NZujtN0OqES8EL4O4e0qqzL0DC5gAvx/ZC/9lk6rhcUwYvkBnBnYA==}
     engines: {node: '>=12'}
-
-  tr46@5.1.1:
-    resolution: {integrity: sha512-hdF5ZgjTqgAntKkklYw0R03MG2x/bSzTtkxmIRw/sTNV8YXsCJ1tfLAX23lhxhHJlEf3CRCOCGGWw3vI3GaSPw==}
-    engines: {node: '>=18'}
 
   tree-kill@1.2.2:
     resolution: {integrity: sha512-L0Orpi8qGpRG//Nd+H90vFB+3iHnue1zSSGmNOOCh1GLJ7rUKVwV2HvijphGQS2UmhUZewS9VgvxYIdgr+fG1A==}
@@ -5594,10 +5452,6 @@ packages:
     resolution: {integrity: sha512-3WFqGEgSXIyGhOmAFtlicJNMjEps8b1MG31NCA0/vOF9+nKMUW1ckhi9cnNHmf88Rzw5V+dwIwsm2C7X8k9aQg==}
     engines: {node: '>=12'}
 
-  w3c-xmlserializer@5.0.0:
-    resolution: {integrity: sha512-o8qghlI8NZHU1lLPrpi2+Uq7abh4GGPpYANlalzWxyWteJOCsr/P+oPBA49TOLu5FTZO4d3F9MnWJfiMo4BkmA==}
-    engines: {node: '>=18'}
-
   walker@1.0.8:
     resolution: {integrity: sha512-ts/8E8l5b7kY0vlWLewOkDXMmPdLcVV4GmOQLyxuSswIJsweeFZtAsMF7k1Nszz+TYBQrlYRmzOnr398y1JemQ==}
 
@@ -5620,18 +5474,9 @@ packages:
     engines: {node: '>=12'}
     deprecated: Use @exodus/bytes instead for a more spec-conformant and faster implementation
 
-  whatwg-encoding@3.1.1:
-    resolution: {integrity: sha512-6qN4hJdMwfYBtE3YBTTHhoeuUrDBPZmbQaxWAqSALV/MeEnR5z1xd8UKud2RAkFoPkmB+hli1TZSnyi84xz1vQ==}
-    engines: {node: '>=18'}
-    deprecated: Use @exodus/bytes instead for a more spec-conformant and faster implementation
-
   whatwg-mimetype@3.0.0:
     resolution: {integrity: sha512-nt+N2dzIutVRxARx1nghPKGv1xHikU7HKdfafKkLNLindmPU/ch3U31NOCGGA/dmPcmb1VlofO0vnKAcsm0o/Q==}
     engines: {node: '>=12'}
-
-  whatwg-mimetype@4.0.0:
-    resolution: {integrity: sha512-QaKxh0eNIi2mE9p2vEdzfagOKHCcj1pJ56EEHGQOVxp8r9/iszLUUV7v89x9O1p/T+NlTM5W7jW6+cz4Fq1YVg==}
-    engines: {node: '>=18'}
 
   whatwg-url@10.0.0:
     resolution: {integrity: sha512-CLxxCmdUby142H5FZzn4D8ikO1cmypvXVQktsgosNy4a4BHrDHeciBBGZhb0bNoR5/MltoCatso+vFjjGx8t0w==}
@@ -5640,10 +5485,6 @@ packages:
   whatwg-url@11.0.0:
     resolution: {integrity: sha512-RKT8HExMpoYx4igMiVMY83lN6UeITKJlBQ+vR/8ZJ8OCdSiN3RwCq+9gH0+Xzj0+5IrM6i4j/6LuvzbZIQgEcQ==}
     engines: {node: '>=12'}
-
-  whatwg-url@14.2.0:
-    resolution: {integrity: sha512-De72GdQZzNTUBBChsXueQUnPKDkg/5A5zp7pFDuQAj5UFoENpiACU0wlCvzpAGnTkj++ihpKwKyYewn/XNUbKw==}
-    engines: {node: '>=18'}
 
   whatwg-url@8.7.0:
     resolution: {integrity: sha512-gAojqb/m9Q8a5IV96E3fHJM70AzCkgt4uXYX2O7EmuyOnLrViCQlsEBmF9UQIu3/aeAIp2U17rtbpZWNntQqdg==}
@@ -5688,10 +5529,6 @@ packages:
   xml-name-validator@4.0.0:
     resolution: {integrity: sha512-ICP2e+jsHvAj2E2lIHxa5tjXRlKDJo4IdvPvCXbXQGdzSfmSpNVyIKMvoZHjDY9DP0zV17iI85o90vRFXNccRw==}
     engines: {node: '>=12'}
-
-  xml-name-validator@5.0.0:
-    resolution: {integrity: sha512-EvGK8EJ3DhaHfbRlETOWAS5pO9MZITeauHKJyb8wyajUfQUenkIg2MvLDTZ4T/TgIcm3HU0TFBgWWboAZ30UHg==}
-    engines: {node: '>=18'}
 
   xmlchars@2.2.0:
     resolution: {integrity: sha512-JZnDKK8B0RCDw84FNdDAIpZK+JuJw+s7Lz8nksI7SIuU3UXJJslUthsi+uWBUYOwPFwW7W7PRLRfUKpxjtjFCw==}
@@ -5757,14 +5594,6 @@ snapshots:
   '@antfu/utils@0.7.10': {}
 
   '@antfu/utils@8.1.1': {}
-
-  '@asamuzakjp/css-color@3.2.0':
-    dependencies:
-      '@csstools/css-calc': 2.1.4(@csstools/css-parser-algorithms@3.0.5(@csstools/css-tokenizer@3.0.4))(@csstools/css-tokenizer@3.0.4)
-      '@csstools/css-color-parser': 3.1.0(@csstools/css-parser-algorithms@3.0.5(@csstools/css-tokenizer@3.0.4))(@csstools/css-tokenizer@3.0.4)
-      '@csstools/css-parser-algorithms': 3.0.5(@csstools/css-tokenizer@3.0.4)
-      '@csstools/css-tokenizer': 3.0.4
-      lru-cache: 10.4.3
 
   '@babel/code-frame@7.28.6':
     dependencies:
@@ -6581,26 +6410,6 @@ snapshots:
     dependencies:
       '@jridgewell/trace-mapping': 0.3.9
     optional: true
-
-  '@csstools/color-helpers@5.1.0': {}
-
-  '@csstools/css-calc@2.1.4(@csstools/css-parser-algorithms@3.0.5(@csstools/css-tokenizer@3.0.4))(@csstools/css-tokenizer@3.0.4)':
-    dependencies:
-      '@csstools/css-parser-algorithms': 3.0.5(@csstools/css-tokenizer@3.0.4)
-      '@csstools/css-tokenizer': 3.0.4
-
-  '@csstools/css-color-parser@3.1.0(@csstools/css-parser-algorithms@3.0.5(@csstools/css-tokenizer@3.0.4))(@csstools/css-tokenizer@3.0.4)':
-    dependencies:
-      '@csstools/color-helpers': 5.1.0
-      '@csstools/css-calc': 2.1.4(@csstools/css-parser-algorithms@3.0.5(@csstools/css-tokenizer@3.0.4))(@csstools/css-tokenizer@3.0.4)
-      '@csstools/css-parser-algorithms': 3.0.5(@csstools/css-tokenizer@3.0.4)
-      '@csstools/css-tokenizer': 3.0.4
-
-  '@csstools/css-parser-algorithms@3.0.5(@csstools/css-tokenizer@3.0.4)':
-    dependencies:
-      '@csstools/css-tokenizer': 3.0.4
-
-  '@csstools/css-tokenizer@3.0.4': {}
 
   '@ctrl/tinycolor@3.6.1': {}
 
@@ -7703,8 +7512,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  agent-base@7.1.4: {}
-
   ansi-escapes@4.3.2:
     dependencies:
       type-fest: 0.21.3
@@ -8370,11 +8177,6 @@ snapshots:
     dependencies:
       cssom: 0.3.8
 
-  cssstyle@4.6.0:
-    dependencies:
-      '@asamuzakjp/css-color': 3.2.0
-      rrweb-cssom: 0.8.0
-
   csstype@3.2.3: {}
 
   data-urls@3.0.2:
@@ -8382,11 +8184,6 @@ snapshots:
       abab: 2.0.6
       whatwg-mimetype: 3.0.0
       whatwg-url: 11.0.0
-
-  data-urls@5.0.0:
-    dependencies:
-      whatwg-mimetype: 4.0.0
-      whatwg-url: 14.2.0
 
   dayjs@1.11.19: {}
 
@@ -8524,8 +8321,6 @@ snapshots:
   end-of-stream@1.4.5:
     dependencies:
       once: 1.4.0
-
-  entities@6.0.1: {}
 
   entities@7.0.1: {}
 
@@ -9041,40 +8836,6 @@ snapshots:
 
   hel-demo-lib1@1.0.0: {}
 
-  hel-dev-utils-base@0.0.2(hel-types@4.3.10)(hel-utils-base@0.0.2):
-    dependencies:
-      hel-types: 4.3.10
-      hel-utils-base: 0.0.2
-
-  hel-dev-utils@5.4.3(hel-dev-utils-base@0.0.2(hel-types@4.3.10)(hel-utils-base@0.0.2))(hel-types@4.3.10)(hel-utils-base@0.0.2)(jsdom@26.1.0):
-    dependencies:
-      hel-dev-utils-base: 0.0.2(hel-types@4.3.10)(hel-utils-base@0.0.2)
-      hel-types: 4.3.10
-      hel-utils-base: 0.0.2
-      jsdom: 26.1.0
-
-  hel-hello@1.0.0: {}
-
-  hel-html-parser@1.1.2:
-    dependencies:
-      hel-types: 4.3.10
-
-  hel-lib-proxy@4.12.3(hel-micro-core@4.13.1(hel-types@4.3.10))(hel-types@4.3.10):
-    dependencies:
-      hel-micro-core: 4.13.1(hel-types@4.3.10)
-      hel-types: 4.3.10
-
-  hel-micro-core@4.13.1(hel-types@4.3.10):
-    dependencies:
-      hel-types: 4.3.10
-
-  hel-micro@4.15.2(hel-html-parser@1.1.2)(hel-lib-proxy@4.12.3(hel-micro-core@4.13.1(hel-types@4.3.10))(hel-types@4.3.10))(hel-micro-core@4.13.1(hel-types@4.3.10))(hel-types@4.3.10):
-    dependencies:
-      hel-html-parser: 1.1.2
-      hel-lib-proxy: 4.12.3(hel-micro-core@4.13.1(hel-types@4.3.10))(hel-types@4.3.10)
-      hel-micro-core: 4.13.1(hel-types@4.3.10)
-      hel-types: 4.3.10
-
   hel-mono-runtime-helper@1.3.0(hel-mono-types@2.6.1):
     dependencies:
       hel-mono-types: 2.6.1
@@ -9082,10 +8843,6 @@ snapshots:
   hel-mono-templates@1.3.15: {}
 
   hel-mono-types@2.6.1: {}
-
-  hel-types@4.3.10: {}
-
-  hel-utils-base@0.0.2: {}
 
   home-or-tmp@2.0.0:
     dependencies:
@@ -9097,10 +8854,6 @@ snapshots:
   html-encoding-sniffer@3.0.0:
     dependencies:
       whatwg-encoding: 2.0.0
-
-  html-encoding-sniffer@4.0.0:
-    dependencies:
-      whatwg-encoding: 3.1.1
 
   html-escaper@2.0.2: {}
 
@@ -9114,23 +8867,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  http-proxy-agent@7.0.2:
-    dependencies:
-      agent-base: 7.1.4
-      debug: 4.4.3
-    transitivePeerDependencies:
-      - supports-color
-
   https-proxy-agent@5.0.1:
     dependencies:
       agent-base: 6.0.2
-      debug: 4.4.3
-    transitivePeerDependencies:
-      - supports-color
-
-  https-proxy-agent@7.0.6:
-    dependencies:
-      agent-base: 7.1.4
       debug: 4.4.3
     transitivePeerDependencies:
       - supports-color
@@ -9845,33 +9584,6 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  jsdom@26.1.0:
-    dependencies:
-      cssstyle: 4.6.0
-      data-urls: 5.0.0
-      decimal.js: 10.6.0
-      html-encoding-sniffer: 4.0.0
-      http-proxy-agent: 7.0.2
-      https-proxy-agent: 7.0.6
-      is-potential-custom-element-name: 1.0.1
-      nwsapi: 2.2.23
-      parse5: 7.3.0
-      rrweb-cssom: 0.8.0
-      saxes: 6.0.0
-      symbol-tree: 3.2.4
-      tough-cookie: 5.1.2
-      w3c-xmlserializer: 5.0.0
-      webidl-conversions: 7.0.0
-      whatwg-encoding: 3.1.1
-      whatwg-mimetype: 4.0.0
-      whatwg-url: 14.2.0
-      ws: 8.19.0
-      xml-name-validator: 5.0.0
-    transitivePeerDependencies:
-      - bufferutil
-      - supports-color
-      - utf-8-validate
-
   jsesc@1.3.0: {}
 
   jsesc@3.1.0: {}
@@ -9948,8 +9660,6 @@ snapshots:
   lowercase-keys@1.0.0: {}
 
   lowercase-keys@1.0.1: {}
-
-  lru-cache@10.4.3: {}
 
   lru-cache@5.1.1:
     dependencies:
@@ -10275,10 +9985,6 @@ snapshots:
       lines-and-columns: 1.2.4
 
   parse5@6.0.1: {}
-
-  parse5@7.3.0:
-    dependencies:
-      entities: 6.0.1
 
   pascalcase@0.1.1:
     optional: true
@@ -10691,8 +10397,6 @@ snapshots:
       '@rollup/rollup-win32-x64-msvc': 4.57.0
       fsevents: 2.3.3
 
-  rrweb-cssom@0.8.0: {}
-
   run-parallel@1.2.0:
     dependencies:
       queue-microtask: 1.2.3
@@ -10709,10 +10413,6 @@ snapshots:
   safer-buffer@2.1.2: {}
 
   saxes@5.0.1:
-    dependencies:
-      xmlchars: 2.2.0
-
-  saxes@6.0.0:
     dependencies:
       xmlchars: 2.2.0
 
@@ -11033,12 +10733,6 @@ snapshots:
 
   tinypool@2.0.0: {}
 
-  tldts-core@6.1.86: {}
-
-  tldts@6.1.86:
-    dependencies:
-      tldts-core: 6.1.86
-
   tmpl@1.0.5: {}
 
   to-buffer@1.2.2:
@@ -11081,19 +10775,11 @@ snapshots:
       universalify: 0.2.0
       url-parse: 1.5.10
 
-  tough-cookie@5.1.2:
-    dependencies:
-      tldts: 6.1.86
-
   tr46@2.1.0:
     dependencies:
       punycode: 2.3.1
 
   tr46@3.0.0:
-    dependencies:
-      punycode: 2.3.1
-
-  tr46@5.1.1:
     dependencies:
       punycode: 2.3.1
 
@@ -11430,10 +11116,6 @@ snapshots:
     dependencies:
       xml-name-validator: 4.0.0
 
-  w3c-xmlserializer@5.0.0:
-    dependencies:
-      xml-name-validator: 5.0.0
-
   walker@1.0.8:
     dependencies:
       makeerror: 1.0.12
@@ -11452,13 +11134,7 @@ snapshots:
     dependencies:
       iconv-lite: 0.6.3
 
-  whatwg-encoding@3.1.1:
-    dependencies:
-      iconv-lite: 0.6.3
-
   whatwg-mimetype@3.0.0: {}
-
-  whatwg-mimetype@4.0.0: {}
 
   whatwg-url@10.0.0:
     dependencies:
@@ -11468,11 +11144,6 @@ snapshots:
   whatwg-url@11.0.0:
     dependencies:
       tr46: 3.0.0
-      webidl-conversions: 7.0.0
-
-  whatwg-url@14.2.0:
-    dependencies:
-      tr46: 5.1.1
       webidl-conversions: 7.0.0
 
   whatwg-url@8.7.0:
@@ -11515,8 +11186,6 @@ snapshots:
   ws@8.19.0: {}
 
   xml-name-validator@4.0.0: {}
-
-  xml-name-validator@5.0.0: {}
 
   xmlchars@2.2.0: {}
 

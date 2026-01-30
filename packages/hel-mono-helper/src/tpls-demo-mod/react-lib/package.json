@@ -67,14 +67,14 @@
   "devDependencies": {
     "esbuild-plugin-module-css": "^0.1.1",
     "hash-css-selector": "^1.1.0",
-    "hel-lib-proxy": "*",
-    "hel-mono-runtime-helper": "^2.3.4",
+    "hel-lib-proxy": "workspace:*",
+    "hel-mono-runtime-helper": "workspace:*",
     "postcss": "^8.4.4",
     "postcss-modules": "^6.0.1"
   },
   "peerDependencies": {
-    "hel-lib-proxy": "*",
-    "hel-mono-runtime-helper": "^2.3.4"
+    "hel-lib-proxy": "workspace:*",
+    "hel-mono-runtime-helper": "workspace:*"
   },
   "babel": {
     "presets": [

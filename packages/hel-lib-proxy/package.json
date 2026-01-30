@@ -30,15 +30,15 @@
     "build": "tsdown"
   },
   "dependencies": {
-    "hel-micro-core": "^4.13.1",
-    "hel-types": "^4.3.10"
+    "hel-micro-core": "workspace:*",
+    "hel-types": "workspace:*"
   },
   "devDependencies": {
     "tsdown": "latest"
   },
   "peerDependencies": {
-    "hel-micro-core": "^4.13.1",
-    "hel-types": "^4.3.10"
+    "hel-micro-core": "workspace:*",
+    "hel-types": "workspace:*"
   },
   "bundleDependencies": [],
   "browserify": {

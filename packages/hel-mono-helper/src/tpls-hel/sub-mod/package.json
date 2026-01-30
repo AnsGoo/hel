@@ -8,7 +8,7 @@
     "start": "node ../../../dev/scripts/hel/start.js"
   },
   "dependencies": {
-    "hel-mono-runtime-helper": "^2.3.4"
+    "hel-mono-runtime-helper": "workspace:*"
   },
   "babel": {
     "presets": [

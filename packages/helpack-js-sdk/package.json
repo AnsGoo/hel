@@ -29,7 +29,7 @@
   "dependencies": {
     "axios": "*",
     "crypto-js": "*",
-    "hel-types": "^4.3.10"
+    "hel-types": "workspace:*"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
@@ -42,7 +42,7 @@
   "peerDependencies": {
     "axios": "*",
     "crypto-js": "*",
-    "hel-types": "^4.2.0"
+    "hel-types": "workspace:*"
   },
   "bundleDependencies": false,
   "deprecated": false

@@ -63,11 +63,11 @@
     "@babel/preset-env": "^7.12.11",
     "babel-cli": "^6.26.0",
     "hel-lib-proxy": "*",
-    "hel-mono-runtime-helper": "^2.3.4"
+    "hel-mono-runtime-helper": "workspace:*"
   },
   "peerDependencies": {
     "hel-lib-proxy": "*",
-    "hel-mono-runtime-helper": "^2.3.4"
+    "hel-mono-runtime-helper": "workspace:*"
   },
   "browserslist": {
     "production": [

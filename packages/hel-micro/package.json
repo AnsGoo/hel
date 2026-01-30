@@ -37,10 +37,10 @@
     "test": "pnpm --filter=hel-micro-core run build:commonjs && jest"
   },
   "dependencies": {
-    "hel-html-parser": "^1.1.2",
-    "hel-lib-proxy": "^4.12.1",
-    "hel-micro-core": "^4.13.1",
-    "hel-types": "^4.3.10"
+    "hel-html-parser": "workspace:*",
+    "hel-lib-proxy": "workspace:*",
+    "hel-micro-core": "workspace:*",
+    "hel-types": "workspace:*"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.12.11",
@@ -55,10 +55,10 @@
     "typescript": "^4.0.0"
   },
   "peerDependencies": {
-    "hel-html-parser": "^1.1.2",
-    "hel-lib-proxy": "^4.12.1",
-    "hel-micro-core": "^4.13.1",
-    "hel-types": "^4.3.10"
+    "hel-html-parser": "workspace:*",
+    "hel-lib-proxy": "workspace:*",
+    "hel-micro-core": "workspace:*",
+    "hel-types": "workspace:*"
   },
   "bundleDependencies": [],
   "deprecated": false

@@ -32,8 +32,8 @@
     "build": "tsdown"
   },
   "dependencies": {
-    "hel-micro-core": "^4.8.0",
-    "hel-types": "^4.3.3"
+    "hel-micro-core": "workspace:*",
+    "hel-types": "workspace:*"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.12.11",
@@ -45,8 +45,8 @@
     "tsdown": "latest"
   },
   "peerDependencies": {
-    "hel-micro-core": "^4.8.0",
-    "hel-types": "^4.3.3"
+    "hel-micro-core": "workspace:*",
+    "hel-types": "workspace:*"
   },
   "bundleDependencies": [],
   "deprecated": false,

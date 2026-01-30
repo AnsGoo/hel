@@ -28,10 +28,10 @@
   "scripts": {},
   "dependencies": {},
   "devDependencies": {
-    "hel-mono-types": "^2.6.1"
+    "hel-mono-types": "workspace:*"
   },
   "peerDependencies": {
-    "hel-mono-types": "^2.6.1"
+    "hel-mono-types": "workspace:*"
   },
   "bundleDependencies": [],
   "deprecated": false

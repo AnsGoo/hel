@@ -34,7 +34,7 @@
     "test": "pnpm --filter=hel-micro-core run build && jest"
   },
   "dependencies": {
-    "hel-types": "^4.3.3"
+    "hel-types": "workspace:*"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.12.11",
@@ -46,7 +46,7 @@
     "tsdown": "latest"
   },
   "peerDependencies": {
-    "hel-types": "^4.3.3"
+    "hel-types": "workspace:*"
   },
   "bundleDependencies": [],
   "deprecated": false,
