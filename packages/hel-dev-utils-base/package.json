@@ -28,8 +28,6 @@
     "hel-utils-base": "workspace:*"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.12.11",
-    "babel-cli": "^6.26.0",
     "tsdown": "latest"
   },
   "peerDependencies": {

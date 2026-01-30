@@ -252,12 +252,6 @@ importers:
         specifier: ^19.0.0
         version: 19.0.0
     devDependencies:
-      '@babel/preset-env':
-        specifier: ^7.12.11
-        version: 7.28.6(@babel/core@7.28.6)
-      babel-cli:
-        specifier: ^6.26.0
-        version: 6.26.0
       tsdown:
         specifier: latest
         version: 0.20.1(synckit@0.11.12)(typescript@5.9.3)
@@ -271,27 +265,12 @@ importers:
         specifier: workspace:*
         version: link:../hel-utils-base
     devDependencies:
-      '@babel/preset-env':
-        specifier: ^7.12.11
-        version: 7.28.6(@babel/core@7.28.6)
-      babel-cli:
-        specifier: ^6.26.0
-        version: 6.26.0
       tsdown:
         specifier: latest
         version: 0.20.1(synckit@0.11.12)(typescript@5.9.3)
 
   packages/hel-hello:
     devDependencies:
-      '@babel/core':
-        specifier: ^7.12.10
-        version: 7.28.6
-      '@babel/preset-env':
-        specifier: ^7.12.11
-        version: 7.28.6(@babel/core@7.28.6)
-      babel-cli:
-        specifier: ^6.26.0
-        version: 6.26.0
       cross-env:
         specifier: ^7.0.2
         version: 7.0.3
@@ -311,12 +290,6 @@ importers:
         specifier: workspace:*
         version: link:../hel-types
     devDependencies:
-      '@babel/preset-env':
-        specifier: ^7.12.11
-        version: 7.28.6(@babel/core@7.28.6)
-      '@babel/preset-react':
-        specifier: ^7.12.10
-        version: 7.28.5(@babel/core@7.28.6)
       babel-cli:
         specifier: ^6.26.0
         version: 6.26.0
@@ -326,12 +299,6 @@ importers:
 
   packages/hel-iso:
     devDependencies:
-      '@babel/preset-env':
-        specifier: ^7.12.11
-        version: 7.28.6(@babel/core@7.28.6)
-      '@babel/preset-react':
-        specifier: ^7.12.10
-        version: 7.28.5(@babel/core@7.28.6)
       babel-cli:
         specifier: ^6.26.0
         version: 6.26.0
@@ -404,15 +371,6 @@ importers:
         specifier: workspace:*
         version: link:../hel-types
     devDependencies:
-      '@babel/preset-env':
-        specifier: ^7.12.11
-        version: 7.28.6(@babel/core@7.28.6)
-      '@babel/preset-react':
-        specifier: ^7.12.10
-        version: 7.28.5(@babel/core@7.28.6)
-      babel-cli:
-        specifier: ^6.26.0
-        version: 6.26.0
       tsdown:
         specifier: latest
         version: 0.20.1(synckit@0.11.12)(typescript@5.9.3)
@@ -423,18 +381,9 @@ importers:
         specifier: workspace:*
         version: link:../hel-types
     devDependencies:
-      '@babel/preset-env':
-        specifier: ^7.12.11
-        version: 7.28.6(@babel/core@7.28.6)
-      '@babel/preset-react':
-        specifier: ^7.12.10
-        version: 7.28.5(@babel/core@7.28.6)
       '@types/qs':
         specifier: ^6.9.7
         version: 6.14.0
-      babel-cli:
-        specifier: ^6.26.0
-        version: 6.26.0
       fake-indexeddb:
         specifier: 4.0.1
         version: 4.0.1
@@ -539,18 +488,6 @@ importers:
         specifier: '*'
         version: 18.3.1
     devDependencies:
-      '@babel/plugin-transform-class-properties':
-        specifier: ^7.28.6
-        version: 7.28.6(@babel/core@7.28.6)
-      '@babel/preset-env':
-        specifier: ^7.12.11
-        version: 7.28.6(@babel/core@7.28.6)
-      '@babel/preset-react':
-        specifier: ^7.12.10
-        version: 7.28.5(@babel/core@7.28.6)
-      babel-cli:
-        specifier: ^6.26.0
-        version: 6.26.0
       tsdown:
         specifier: latest
         version: 0.20.1(synckit@0.11.12)(typescript@5.9.3)
@@ -601,18 +538,9 @@ importers:
         specifier: workspace:*
         version: link:../hel-types
     devDependencies:
-      '@babel/preset-env':
-        specifier: ^7.12.11
-        version: 7.28.6(@babel/core@7.28.6)
-      '@babel/preset-react':
-        specifier: ^7.12.10
-        version: 7.28.5(@babel/core@7.28.6)
       '@types/qs':
         specifier: ^6.9.7
         version: 6.14.0
-      babel-cli:
-        specifier: ^6.26.0
-        version: 6.26.0
       fake-indexeddb:
         specifier: ^4.0.1
         version: 4.0.1
@@ -625,12 +553,6 @@ importers:
 
   packages/hel-utils-base:
     devDependencies:
-      '@babel/preset-env':
-        specifier: ^7.12.11
-        version: 7.28.6(@babel/core@7.28.6)
-      babel-cli:
-        specifier: ^6.26.0
-        version: 6.26.0
       tsdown:
         specifier: latest
         version: 0.20.1(synckit@0.11.12)(typescript@5.9.3)
@@ -647,15 +569,6 @@ importers:
         specifier: workspace:*
         version: link:../hel-types
     devDependencies:
-      '@babel/core':
-        specifier: ^7.12.10
-        version: 7.28.6
-      '@babel/preset-env':
-        specifier: ^7.12.11
-        version: 7.28.6(@babel/core@7.28.6)
-      '@babel/preset-react':
-        specifier: ^7.12.10
-        version: 7.28.5(@babel/core@7.28.6)
       babel-cli:
         specifier: ^6.26.0
         version: 6.26.0
@@ -681,18 +594,6 @@ importers:
         specifier: '>=16.10.2'
         version: 16.14.0(react@16.14.0)
     devDependencies:
-      '@babel/plugin-transform-class-properties':
-        specifier: ^7.28.6
-        version: 7.28.6(@babel/core@7.28.6)
-      '@babel/preset-env':
-        specifier: ^7.12.11
-        version: 7.28.6(@babel/core@7.28.6)
-      '@babel/preset-react':
-        specifier: ^7.12.10
-        version: 7.28.5(@babel/core@7.28.6)
-      babel-cli:
-        specifier: ^6.26.0
-        version: 6.26.0
       tsdown:
         specifier: latest
         version: 0.20.1(synckit@0.11.12)(typescript@5.9.3)
@@ -703,12 +604,6 @@ importers:
         specifier: ^0.3.4
         version: 0.3.4
     devDependencies:
-      '@babel/preset-env':
-        specifier: ^7.12.11
-        version: 7.28.6(@babel/core@7.28.6)
-      babel-cli:
-        specifier: ^6.26.0
-        version: 6.26.0
       tsdown:
         specifier: latest
         version: 0.20.1(synckit@0.11.12)(typescript@5.9.3)

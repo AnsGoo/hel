@@ -60,8 +60,6 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@babel/preset-env": "^7.12.11",
-    "babel-cli": "^6.26.0",
     "hel-lib-proxy": "*",
     "hel-mono-runtime-helper": "workspace:*"
   },
