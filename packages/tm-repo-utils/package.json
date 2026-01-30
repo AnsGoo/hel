@@ -20,13 +20,19 @@
     "README.md",
     "index.d.ts"
   ],
-  "main": "src/index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "publishConfig": {
     "access": "public",
     "main": "dist/index.js",
+    "module": "dist/index.mjs",
+    "types": "dist/index.d.ts",
     "registry": "https://registry.npmjs.org/"
   },
-  "scripts": {},
+  "scripts": {
+    "build": "tsdown"
+  },
   "dependencies": {},
   "peerDependencies": {},
   "bundleDependencies": [],

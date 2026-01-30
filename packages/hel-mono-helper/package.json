@@ -24,8 +24,12 @@
     "README.md",
     "index.d.ts"
   ],
-  "main": "src/index.js",
-  "scripts": {},
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsdown"
+  },
   "dependencies": {
     "hel-dev-utils-base": "workspace:*",
     "hel-iso": "workspace:*",

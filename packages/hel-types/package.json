@@ -11,8 +11,11 @@
     "url": "https://github.com/tnfe/hel.git",
     "directory": "packages/hel-types"
   },
-  "main": "src/index.js",
-  "module": "src/index.js",
-  "scripts": {},
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsdown"
+  },
   "deprecated": false
 }

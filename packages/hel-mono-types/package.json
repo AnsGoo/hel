@@ -6,8 +6,11 @@
   "author": {
     "name": "fantasticsoul"
   },
-  "main": "./src/index.cjs",
-  "module": "./src/index.js",
-  "scripts": {},
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsdown"
+  },
   "deprecated": false
 }
