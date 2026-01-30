@@ -38,7 +38,7 @@
   "deprecated": false,
   "exports": {
     ".": {
-      "development": "./src/index.js",
+      "development": "./src/index.ts",
       "require": "./dist/index.js",
       "import": "./dist/index.mjs"
     },
@@ -52,5 +52,6 @@
       },
       "./package.json": "./package.json"
     }
-  }
+  },
+  "types": "./dist/index.d.ts"
 }
