@@ -17,8 +17,8 @@
     "index.d.ts",
     "README.md"
   ],
-  "main": "dist/index.cjs",
-  "module": "dist/index.mjs",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
   "unpkg": "dist/index.iife.min.js",
   "scripts": {
     "build": "tsdown"
@@ -27,5 +27,22 @@
     "tsdown": "latest"
   },
   "bundleDependencies": false,
-  "deprecated": false
+  "deprecated": false,
+  "exports": {
+    ".": {
+      "development": "./src/index.js",
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "exports": {
+      ".": {
+        "require": "./dist/index.js",
+        "import": "./dist/index.mjs"
+      },
+      "./package.json": "./package.json"
+    }
+  }
 }
