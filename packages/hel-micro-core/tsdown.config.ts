@@ -3,12 +3,10 @@ import { defineConfig } from 'tsdown';
 export default defineConfig({
   entry: ['src/index.ts'],
   outDir: 'dist',
-  format: ['cjs', 'esm', 'iife'],
+  format: ['cjs', 'esm', 'iife', 'umd'],
+  globalName: 'HelMicroCore',
   dts: true,
   external: ['hel-types'],
-  iife: {
-    name: 'HelMicroCore',
-  },
   exports: {
     devExports: 'development'
   },
