@@ -6,9 +6,7 @@ export default defineConfig({
   format: ['cjs', 'esm', 'iife'],
   dts: true,
   external: ['hel-types'],
-  iife: {
-    name: 'HelHtmlParser',
-  },
+  globalName: 'HelHtmlParser',
   exports: {
     devExports: 'development',
   },

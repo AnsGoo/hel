@@ -6,9 +6,7 @@ export default defineConfig({
   format: ['cjs', 'esm', 'iife'],
   dts: true,
   external: [],
-  iife: {
-    name: 'HelIso',
-  },
+  globalName: 'HelIso',
   exports: {
     devExports: 'development',
   },

@@ -6,9 +6,7 @@ export default defineConfig({
   format: ['cjs', 'esm', 'iife'],
   dts: true,
   external: ['@types/react', '@types/react-dom', 'react', 'react-dom'],
-  iife: {
-    name: 'HeluxMini',
-  },
+  globalName: 'HeluxMini',
   exports: {
     devExports: 'development',
   },

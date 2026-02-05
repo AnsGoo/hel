@@ -6,9 +6,7 @@ export default defineConfig({
   format: ['cjs', 'esm', 'iife'],
   dts: true,
   external: ['axios', 'crypto-js', 'hel-types'],
-  iife: {
-    name: 'HelpackJsSdk',
-  },
+  globalName: 'HelpackJsSdk',
   exports: {
     devExports: 'development',
   },
