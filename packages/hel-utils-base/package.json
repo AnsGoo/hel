@@ -22,17 +22,17 @@
   "unpkg": "dist/index.iife.min.js",
   "exports": {
     ".": {
-      "development": "./src/index.js",
-      "require": "./dist/index.js",
-      "import": "./dist/index.mjs"
+      "development": "./src/index.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
     },
     "./package.json": "./package.json"
   },
   "publishConfig": {
     "exports": {
       ".": {
-        "require": "./dist/index.js",
-        "import": "./dist/index.mjs"
+        "import": "./dist/index.mjs",
+        "require": "./dist/index.js"
       },
       "./package.json": "./package.json"
     }
@@ -44,5 +44,6 @@
     "tsdown": "latest"
   },
   "bundleDependencies": false,
-  "deprecated": false
+  "deprecated": false,
+  "types": "./dist/index.d.ts"
 }
