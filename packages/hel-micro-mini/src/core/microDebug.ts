@@ -27,7 +27,6 @@ export const inner = {
   },
 };
 
-
 /**
  * @returns {import('../index').IHelMicroDebug}
  */

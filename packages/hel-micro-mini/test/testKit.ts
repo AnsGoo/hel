@@ -29,4 +29,3 @@ export function runTest(cb: (kitCtx: ReturnType<typeof makeTestKitContext>) => v
   cb(makeTestKitContext(ins, platform, semverApi));
   // hel-micro-mini 包没有 core 属性，所以只运行一个测试
 }
-

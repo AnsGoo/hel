@@ -26,6 +26,23 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "unpkg": "dist/index.iife.js",
+  "exports": {
+    ".": {
+      "development": "./src/index.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "exports": {
+      ".": {
+        "import": "./dist/index.mjs",
+        "require": "./dist/index.js"
+      },
+      "./package.json": "./package.json"
+    }
+  },
   "scripts": {
     "build": "tsdown"
   },
@@ -47,22 +64,5 @@
     ]
   },
   "deprecated": false,
-  "npmName": "hel-lib-proxy",
-  "exports": {
-    ".": {
-      "development": "./src/index.ts",
-      "require": "./dist/index.js",
-      "import": "./dist/index.mjs"
-    },
-    "./package.json": "./package.json"
-  },
-  "publishConfig": {
-    "exports": {
-      ".": {
-        "require": "./dist/index.js",
-        "import": "./dist/index.mjs"
-      },
-      "./package.json": "./package.json"
-    }
-  }
+  "npmName": "hel-lib-proxy"
 }

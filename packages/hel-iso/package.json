@@ -19,17 +19,6 @@
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "unpkg": "dist/index.iife.js",
-  "scripts": {
-    "build": "tsdown",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "dependencies": {},
-  "devDependencies": {
-    "tsdown": "latest"
-  },
-  "peerDependencies": {},
-  "bundleDependencies": false,
-  "deprecated": false,
   "exports": {
     ".": {
       "development": "./src/index.js",
@@ -46,5 +35,16 @@
       },
       "./package.json": "./package.json"
     }
-  }
+  },
+  "scripts": {
+    "build": "tsdown",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "tsdown": "latest"
+  },
+  "peerDependencies": {},
+  "bundleDependencies": false,
+  "deprecated": false
 }

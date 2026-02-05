@@ -34,7 +34,5 @@ module.exports = {
   // 开启覆盖率收集
   collectCoverage: true,
   resetMocks: true,
-  testMatch: [
-    '<rootDir>/test/**/*.test.ts',
-  ],
+  testMatch: ['<rootDir>/test/**/*.test.ts'],
 };

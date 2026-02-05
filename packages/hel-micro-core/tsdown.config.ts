@@ -8,7 +8,7 @@ export default defineConfig({
   dts: true,
   external: ['hel-types'],
   exports: {
-    devExports: 'development'
+    devExports: 'development',
   },
   platform: 'neutral',
   minify: true,

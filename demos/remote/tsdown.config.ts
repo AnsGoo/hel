@@ -9,7 +9,7 @@ const lib_types_path = resolvePath('src/entrance/libTypes.ts');
 
 export default defineConfig({
   entry: {
-    'entry': lib_types_path,
+    entry: lib_types_path,
   },
   outDir: 'dist',
   format: ['esm', 'iife'],

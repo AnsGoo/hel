@@ -9,7 +9,6 @@
     "preview": "vite build & vite preview"
   },
   "dependencies": {
-
     "vue": "^3.5.18"
   },
   "devDependencies": {
@@ -23,7 +22,7 @@
     "hel-micro-core": "workspace:*",
     "hel-types": "workspace:*",
     "typescript": "^5.9.3",
-    "vite": "^5.4.21",
-    "unocss": "^0.62.4"
+    "unocss": "^0.62.4",
+    "vite": "^5.4.21"
   }
 }

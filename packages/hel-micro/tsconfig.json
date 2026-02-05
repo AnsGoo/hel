@@ -3,6 +3,6 @@
     "lib": ["ES2016", "DOM"],
     "baseUrl": "./src",
     "esModuleInterop": true,
-    "outDir": "./dist",
+    "outDir": "./dist"
   }
 }

@@ -4,10 +4,10 @@ export default defineConfig({
   entry: ['src/index.js'],
   outDir: 'dist',
   format: ['cjs', 'esm', 'iife'],
-  dts: false,
+  dts: true,
   external: ['hel-dev-utils-base', 'hel-types', 'hel-utils-base', 'jsdom'],
   exports: {
-    devExports: 'development'
+    devExports: 'development',
   },
   platform: 'neutral',
   minify: true,

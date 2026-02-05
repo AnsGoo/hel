@@ -17,10 +17,27 @@
   ],
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "unpkg": "dist/index.iife.js",
+  "exports": {
+    ".": {
+      "development": "./src/index.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "exports": {
+      ".": {
+        "import": "./dist/index.mjs",
+        "require": "./dist/index.js"
+      },
+      "./package.json": "./package.json"
+    }
+  },
   "scripts": {
-    "build": "tsdown",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsdown"
   },
   "dependencies": {
     "hel-types": "workspace:*"
@@ -32,23 +49,5 @@
     "hel-types": "workspace:*"
   },
   "bundleDependencies": false,
-  "deprecated": false,
-  "exports": {
-    ".": {
-      "development": "./src/index.ts",
-      "require": "./dist/index.js",
-      "import": "./dist/index.mjs"
-    },
-    "./package.json": "./package.json"
-  },
-  "publishConfig": {
-    "exports": {
-      ".": {
-        "require": "./dist/index.js",
-        "import": "./dist/index.mjs"
-      },
-      "./package.json": "./package.json"
-    }
-  },
-  "types": "./dist/index.d.ts"
+  "deprecated": false
 }

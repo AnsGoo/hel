@@ -4,13 +4,13 @@ export default defineConfig({
   entry: ['src/index.js'],
   outDir: 'dist',
   format: ['cjs', 'esm', 'iife'],
-  dts: false,
+  dts: true,
   external: ['hel-types'],
   iife: {
     name: 'HelHtmlParser',
   },
   exports: {
-    devExports: 'development'
+    devExports: 'development',
   },
   platform: 'neutral',
   minify: true,

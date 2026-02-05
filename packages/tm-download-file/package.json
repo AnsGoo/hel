@@ -11,8 +11,8 @@
     "access": "public",
     "main": "dist/index.js",
     "module": "dist/index.mjs",
-    "types": "dist/index.d.ts",
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.org/",
+    "types": "dist/index.d.ts"
   },
   "scripts": {
     "build": "tsdown",

@@ -20,22 +20,6 @@
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "unpkg": "dist/index.iife.js",
-  "scripts": {
-    "build": "tsdown"
-  },
-  "dependencies": {
-    "hel-types": "workspace:*",
-    "hel-utils-base": "workspace:*"
-  },
-  "devDependencies": {
-    "tsdown": "latest"
-  },
-  "peerDependencies": {
-    "hel-types": "workspace:*",
-    "hel-utils-base": "workspace:*"
-  },
-  "bundleDependencies": false,
-  "deprecated": false,
   "exports": {
     ".": {
       "development": "./src/index.js",
@@ -52,5 +36,21 @@
       },
       "./package.json": "./package.json"
     }
-  }
+  },
+  "scripts": {
+    "build": "tsdown"
+  },
+  "dependencies": {
+    "hel-types": "workspace:*",
+    "hel-utils-base": "workspace:*"
+  },
+  "devDependencies": {
+    "tsdown": "latest"
+  },
+  "peerDependencies": {
+    "hel-types": "workspace:*",
+    "hel-utils-base": "workspace:*"
+  },
+  "bundleDependencies": false,
+  "deprecated": false
 }

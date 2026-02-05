@@ -17,7 +17,7 @@ export default defineConfig({
   },
   external: [],
   exports: {
-    devExports: 'development'
+    devExports: 'development',
   },
   platform: 'neutral',
   minify: true,

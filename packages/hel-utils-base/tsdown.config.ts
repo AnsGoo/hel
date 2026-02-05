@@ -3,14 +3,12 @@ import { defineConfig } from 'tsdown';
 export default defineConfig({
   entry: ['src/index.js'],
   outDir: 'dist',
-  format: ['cjs', 'esm', 'iife'],
-  dts: false,
+  format: ['cjs', 'esm', 'iife', 'umd'],
+  dts: true, 
+  globalName: 'HelUtilsBase',
   external: [],
-  iife: {
-    name: 'HelUtilsBase',
-  },
   exports: {
-    devExports: 'development'
+    devExports: 'development',
   },
   platform: 'neutral',
   minify: true,

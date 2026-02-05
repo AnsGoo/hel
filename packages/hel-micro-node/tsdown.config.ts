@@ -5,9 +5,15 @@ export default defineConfig([
     entry: ['src/index.ts'],
     format: ['esm', 'cjs', 'iife'],
     external: ['electron'],
+    outDir: 'dist',
+    platform: 'node',
+    minify: true,
+    clean: true,
     dts: true,
     sourcemap: true,
-    clean: true,
-    treeshake: false,
+    globalName: 'HelMicroNode',
+    exports: {
+      devExports: 'development',
+    },
   },
 ]);

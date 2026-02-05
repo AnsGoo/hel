@@ -10,7 +10,7 @@ export default defineConfig({
     name: 'HeluxMini',
   },
   exports: {
-    devExports: 'development'
+    devExports: 'development',
   },
   platform: 'neutral',
   minify: true,

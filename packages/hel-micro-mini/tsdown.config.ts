@@ -6,8 +6,9 @@ export default defineConfig({
   format: ['cjs', 'esm', 'iife'],
   dts: true,
   external: ['hel-types'],
+  globalName: 'HelMicroMini',
   exports: {
-    devExports: 'development'
+    devExports: 'development',
   },
   platform: 'neutral',
   minify: true,

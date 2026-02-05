@@ -11,6 +11,6 @@ export default defineConfig({
   clean: true,
   platform: 'neutral',
   exports: {
-    devExports: 'development'
+    devExports: 'development',
   },
 });

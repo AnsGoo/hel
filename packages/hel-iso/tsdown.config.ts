@@ -4,13 +4,13 @@ export default defineConfig({
   entry: ['src/index.js'],
   outDir: 'dist',
   format: ['cjs', 'esm', 'iife'],
-  dts: false,
+  dts: true,
   external: [],
   iife: {
     name: 'HelIso',
   },
   exports: {
-    devExports: 'development'
+    devExports: 'development',
   },
   platform: 'neutral',
   minify: true,

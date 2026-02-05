@@ -20,14 +20,6 @@
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "unpkg": "dist/index.iife.min.js",
-  "scripts": {
-    "build": "tsdown"
-  },
-  "devDependencies": {
-    "tsdown": "latest"
-  },
-  "bundleDependencies": false,
-  "deprecated": false,
   "exports": {
     ".": {
       "development": "./src/index.js",
@@ -44,5 +36,13 @@
       },
       "./package.json": "./package.json"
     }
-  }
+  },
+  "scripts": {
+    "build": "tsdown"
+  },
+  "devDependencies": {
+    "tsdown": "latest"
+  },
+  "bundleDependencies": false,
+  "deprecated": false
 }

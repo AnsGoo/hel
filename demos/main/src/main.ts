@@ -1,7 +1,7 @@
 import { isMasterApp } from 'hel-iso';
 import { bindVueRuntime, preFetchLib } from 'hel-micro';
 import * as Vue from 'vue';
-import 'uno.css'
+import 'uno.css';
 
 bindVueRuntime({
   Vue,

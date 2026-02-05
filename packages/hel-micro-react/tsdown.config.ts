@@ -6,11 +6,9 @@ export default defineConfig({
   format: ['cjs', 'esm', 'iife'],
   dts: true,
   external: ['@types/react', '@types/react-dom', 'hel-micro', 'hel-micro-core', 'hel-types', 'react', 'react-dom', 'react-is'],
-  iife: {
-    name: 'HelMicroReact',
-  },
+  globalName: 'HelMicroReact',
   exports: {
-    devExports: 'development'
+    devExports: 'development',
   },
   platform: 'neutral',
   minify: true,

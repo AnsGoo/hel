@@ -3,14 +3,12 @@ import { defineConfig } from 'tsdown';
 export default defineConfig({
   entry: ['src/index.ts'],
   outDir: 'dist',
-  format: ['cjs', 'esm', 'iife'],
+  format: ['cjs', 'esm', 'iife', 'umd'],
   dts: true,
   external: ['hel-micro-core', 'hel-types'],
-  iife: {
-    name: 'HelLibProxy',
-  },
+  globalName: 'HelLibProxy',
   exports: {
-    devExports: 'development'
+    devExports: 'development',
   },
   platform: 'neutral',
   minify: true,

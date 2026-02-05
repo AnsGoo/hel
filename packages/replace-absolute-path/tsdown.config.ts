@@ -4,10 +4,10 @@ export default defineConfig({
   entry: ['src/index.js'],
   outDir: 'dist',
   format: ['cjs', 'esm'],
-  dts: false,
+  dts: true,
   external: ['shx'],
   exports: {
-    devExports: 'development'
+    devExports: 'development',
   },
   platform: 'neutral',
   minify: true,
