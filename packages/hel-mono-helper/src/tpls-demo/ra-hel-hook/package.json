@@ -22,11 +22,6 @@
     "@hel-demo/mono-bslib": "^0.0.1",
     "hel-mono-runtime-helper": "workspace:*"
   },
-  "babel": {
-    "presets": [
-      "react-app"
-    ]
-  },
   "browserslist": {
     "production": [
       ">0.2%",

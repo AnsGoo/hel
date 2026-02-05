@@ -16,11 +16,6 @@
     "build:meta": "node ../../dev/scripts/hel/meta"
   },
   "dependencies": {},
-  "babel": {
-    "presets": [
-      "react-app"
-    ]
-  },
   "browserslist": {
     "production": [
       ">0.2%",

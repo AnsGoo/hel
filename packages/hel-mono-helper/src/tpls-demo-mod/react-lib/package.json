@@ -76,11 +76,6 @@
     "hel-lib-proxy": "workspace:*",
     "hel-mono-runtime-helper": "workspace:*"
   },
-  "babel": {
-    "presets": [
-      "react-app"
-    ]
-  },
   "browserslist": {
     "production": [
       ">0.2%",

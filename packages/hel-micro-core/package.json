@@ -13,12 +13,9 @@
   },
   "files": [
     "dist",
-    "src",
-    "index.d.ts",
-    ".babelrc.js",
     "README.md"
   ],
-  "main": "./dist/index.mjs",
+  "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "unpkg": "dist/index.iife.js",
   "scripts": {
@@ -39,15 +36,19 @@
   "exports": {
     ".": {
       "development": "./src/index.ts",
-      "default": "./dist/index.mjs"
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
     },
     "./package.json": "./package.json"
   },
   "publishConfig": {
     "exports": {
-      ".": "./dist/index.mjs",
+      ".": {
+        "require": "./dist/index.js",
+        "import": "./dist/index.mjs"
+      },
       "./package.json": "./package.json"
     }
   },
-  "types": "./dist/index.d.mts"
+  "types": "./dist/index.d.ts"
 }

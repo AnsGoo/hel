@@ -13,9 +13,7 @@
   },
   "files": [
     "dist",
-    "src",
     "index.d.ts",
-    ".babelrc.js",
     "README.md"
   ],
   "main": "./dist/index.js",
@@ -27,7 +25,6 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "babel-cli": "^6.26.0",
     "tsdown": "latest"
   },
   "peerDependencies": {},

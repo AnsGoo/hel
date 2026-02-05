@@ -8,11 +8,6 @@
     "start": "node ../../../dev/scripts/hel/start.js"
   },
   "dependencies": {},
-  "babel": {
-    "presets": [
-      "react-app"
-    ]
-  },
   "browserslist": {
     "production": [
       ">0.2%",

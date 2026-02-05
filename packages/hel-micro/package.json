@@ -24,16 +24,12 @@
     "README.md",
     "tsconfig.json"
   ],
-  "main": "lib/index.js",
-  "module": "es/index.js",
-  "types": "src/index.ts",
-  "unpkg": "dist/hel-micro.min.js",
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "unpkg": "dist/index.iife.js",
   "scripts": {
-    "build": "npm run build:commonjs && npm run build:es && npm run build:umd && npm run build:umd:min",
-    "build:commonjs": "rollup -c --environment BUILD_ENV:commonjs",
-    "build:es": "rollup -c --environment BUILD_ENV:es",
-    "build:umd": "rollup -c --environment BUILD_ENV:development",
-    "build:umd:min": "rollup -c --environment BUILD_ENV:production",
+    "build": "tsdown",
     "test": "pnpm --filter=hel-micro-core run build:commonjs && jest"
   },
   "dependencies": {
@@ -43,16 +39,10 @@
     "hel-types": "workspace:*"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.12.11",
-    "@babel/preset-react": "^7.12.10",
-    "@rollup/plugin-commonjs": "^24.0.0",
-    "@rollup/plugin-typescript": "^11.0.0",
-    "@types/qs": "^6.9.7",
-    "babel-cli": "^6.26.0",
+    "@types/qs": "^6.14.0",
     "fake-indexeddb": "4.0.1",
-    "qs": "^6.11.0",
-    "rollup": "^3.0.0",
-    "typescript": "^4.0.0"
+    "qs": "^6.14.1",
+    "typescript": "^4.9.5"
   },
   "peerDependencies": {
     "hel-html-parser": "workspace:*",
@@ -61,5 +51,22 @@
     "hel-types": "workspace:*"
   },
   "bundleDependencies": [],
-  "deprecated": false
+  "deprecated": false,
+  "exports": {
+    ".": {
+      "development": "./src/index.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "exports": {
+      ".": {
+        "import": "./dist/index.mjs",
+        "require": "./dist/index.js"
+      },
+      "./package.json": "./package.json"
+    }
+  }
 }

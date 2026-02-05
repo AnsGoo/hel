@@ -13,9 +13,7 @@
   },
   "files": [
     "dist",
-    "src",
     "index.d.ts",
-    ".babelrc.js",
     "README.md"
   ],
   "main": "./dist/index.js",
@@ -29,7 +27,6 @@
     "hel-types": "workspace:*"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
     "tsdown": "latest"
   },
   "bundleDependencies": false,

@@ -13,10 +13,7 @@
   },
   "files": [
     "dist",
-    "src",
     "jsconfig.json",
-    ".babelrc.js",
-    "index.d.ts",
     "README.md"
   ],
   "main": "dist/index.cjs",
@@ -32,7 +29,6 @@
     "hel-types": "workspace:*"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
     "cross-env": "^7.0.2",
     "tsdown": "latest"
   },
