@@ -17,30 +17,42 @@ const TAG_END_MAP = {
 };
 
 export class HTMLParser {
+  /** @type string */
+  input: string = '';
+  /** @type number */
+  len: number = 0;
+  /** @type number */
+  cur: number = 0;
+  /** @type (tag: string) => void */
+  onTagOpen: (tag: string) => void = this.noop;
+  /** @type (tag: string, node: { tag: string; attrs: Record<string, string>; children: any[] }) => void */
+  onTagClose: (tag: string, node: { tag: string; attrs: Record<string, string>; children: any[] }) => void = this.noop;
   constructor() {
     this.input = '';
     this.len = 0;
     this.cur = 0;
+    this.onTagOpen = this.noop;
+    this.onTagClose = this.noop;
   }
 
-  get eof() {
+  get eof(): boolean {
     return this.cur >= this.len;
   }
 
-  peek(offset = 0) {
+  peek(offset = 0): string | undefined {
     return this.input[this.cur + offset];
   }
 
-  sub(len, start) {
+  sub(len: number, start?: number | undefined): string {
     const startIdx = start || this.cur;
     return this.input.substring(startIdx, startIdx + len);
   }
 
-  moveCur(num) {
+  moveCur(num: number): void {
     this.cur += num;
   }
 
-  consumeChar(c) {
+  consumeChar(c: string | undefined): string | undefined {
     const curChar = this.peek();
     if (curChar === c) {
       this.cur++;
@@ -50,11 +62,11 @@ export class HTMLParser {
     return curChar;
   }
 
-  consumeSpace() {
+  consumeSpace(): void {
     this.consumeWhile(SPACE_REGEX);
   }
 
-  consumeWhile(regex) {
+  consumeWhile(regex: RegExp): string {
     const result = [];
     do {
       const curChar = this.peek();
@@ -68,16 +80,16 @@ export class HTMLParser {
     return result.join('');
   }
 
-  noop() {}
+  noop(): void {}
 
-  pureInput(/** @type string */ input) {
+  pureInput(input: string): string {
     let puredStr = input.trim();
     if (puredStr.startsWith(DOCTYPE_MARK)) {
       puredStr = puredStr.substring(DOCTYPE_MARK.length);
     }
 
     // 移除 <!-- --> 相关的注释
-    const delComment = (str) => {
+    const delComment = (str: string): string => {
       const commentStartIdx = str.indexOf(COMMENT_START);
       const commentEndIdx = str.indexOf(COMMENT_END);
       if (commentStartIdx >= 0 && commentEndIdx >= 0) {
@@ -92,17 +104,17 @@ export class HTMLParser {
     return puredStr;
   }
 
-  parse(input, options = {}) {
+  parse(input: string, options: { onTagOpen?: (tag: string) => void; onTagClose?: (tag: string, node: { tag: string; attrs: Record<string, string>; children: any[] }) => void } = {}): any[] {
     const inputStr = input || '';
     this.input = this.pureInput(inputStr);
-    this.len = inputStr.length;
-    this.onTagOpen = options.onTagOpen || this.noop();
-    this.onTagClose = options.onTagClose || this.noop();
+    this.len = this.input.length;
+    this.onTagOpen = options.onTagOpen || this.noop;
+    this.onTagClose = options.onTagClose || this.noop;
     this.cur = 0;
     return this.parseNodes();
   }
 
-  parseNodes() {
+  parseNodes(): any[] {
     const nodes = [];
     do {
       let node;
@@ -121,12 +133,12 @@ export class HTMLParser {
     return nodes;
   }
 
-  parseTextNode() {
+  parseTextNode(): string {
     const text = this.consumeWhile(/[^<]/);
     return text.replace(/[\s\n]+/g, ' ');
   }
 
-  parseElement() {
+  parseElement(): { tag: string; attrs: Record<string, string>; children: any[] } {
     this.consumeChar('<');
     const tag = this.parseTag();
     this.onTagOpen(tag);
@@ -135,7 +147,7 @@ export class HTMLParser {
 
     const curChar = this.peek();
     const curPrev1Char = this.peek(-1);
-    const handleTagEnd = (children, move = 0) => {
+    const handleTagEnd = (children: any[], move = 0): { tag: string; attrs: Record<string, string>; children: any[] } => {
       //  const closeTag = this.parseTag();
       this.parseTag();
       this.consumeSpace();
@@ -173,13 +185,13 @@ export class HTMLParser {
     return handleTagEnd(children);
   }
 
-  parseTag() {
+  parseTag(): string {
     const tag = this.consumeWhile(TOKEN_REGEX);
     return tag;
   }
 
-  parseAttrs() {
-    const attrs = {};
+  parseAttrs(): Record<string, string> {
+    const attrs: Record<string, string> = {};
     while (this.peek() !== '>') {
       const name = this.parseTag();
       if (!name) {
@@ -202,7 +214,7 @@ export class HTMLParser {
   }
 }
 
-export function parseHtml(html, options) {
+export function parseHtml(html: string, options: { onTagOpen?: (tag: string) => void; onTagClose?: (tag: string, node: { tag: string; attrs: Record<string, string>; children: any[] }) => void } = {}) {
   const parser = new HTMLParser();
   const result = parser.parse(html, options);
   return result;

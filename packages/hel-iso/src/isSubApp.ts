@@ -14,7 +14,7 @@ const cachedIsMaster = getIsMaster();
  * @returns {typeof globalThis}
  */
 function getGlobalThis() {
-  return window || global;
+  return (window || global) as any;
 }
 
 function getIsoInfo() {
@@ -46,8 +46,8 @@ function getCodeHost() {
   let loc = '';
   try {
     throw new Error('codeHost');
-  } catch (err) {
-    const stackArr = err.stack.split('\n');
+  } catch (err: any) {
+    const stackArr: string[] = err.stack.split('\n');
     loc = stackArr[stackArr.length - 1] || '';
   }
 
